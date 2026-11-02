@@ -12,9 +12,10 @@ on it lands.
 
 ## Round 1. Matched comparison on four measures (ST-5 to ST-12)
 
-Contract preparation only in this pass. The build opens
-when this repo's turn in the line's build order arrives;
-secondtake and verdictloop build last in the line.
+Built in Round 1, last in the line with verdictloop.
+The round also added the amendments below (ST-5a to
+ST-9a before code, ST-5b, ST-6b, and ST-9b after the
+reviews, before the repair code).
 
 - ST-5. Inputs are two directories of flighttape tapes
   at format 1.0, the before set and the after set, read
