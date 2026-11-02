@@ -1,7 +1,7 @@
 """ST-7, ST-7a. The four measures of one tape."""
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone
 
 from .digest import DigestError, digest_of
 from .moments import redo_moments
@@ -17,14 +17,26 @@ def task_key(tape) -> str | None:
         if (event.get("kind") == "message"
                 and event.get("role") == "user"
                 and event.get("sidechain") is False):
-            content = event.get("content")
-            if not isinstance(content, str):
+            text = event.get("text")
+            if not isinstance(text, str):
                 return None
             try:
-                return digest_of(content)
+                return digest_of(text)
             except DigestError:
                 return None
     return None
+
+
+def _parse_timestamp(value):
+    """Flighttape's parse_timestamp, ported exactly:
+    naive stamps are read as UTC (FT-32)."""
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed
 
 
 def _duration_seconds(tape):
@@ -33,17 +45,12 @@ def _duration_seconds(tape):
     for event in tape["events"]:
         stamp = event.get("timestamp")
         if isinstance(stamp, str):
-            try:
-                stamps.append(datetime.fromisoformat(
-                    stamp.replace("Z", "+00:00")))
-            except ValueError:
-                continue
+            parsed = _parse_timestamp(stamp)
+            if parsed is not None:
+                stamps.append(parsed)
     if len(stamps) < 2:
         return None
-    try:
-        return (stamps[-1] - stamps[0]).total_seconds()
-    except TypeError:
-        return None
+    return (stamps[-1] - stamps[0]).total_seconds()
 
 
 def tape_measures(tape) -> dict:

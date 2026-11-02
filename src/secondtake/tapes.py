@@ -111,3 +111,35 @@ def tape_defects(tape):
                     and not isinstance(event["is_error"], bool):
                 defects.append(f"{where}.is_error must be a boolean")
     return defects
+
+
+OUTCOME_STATUSES = {"completed", "failed", "aborted", "unknown"}
+
+
+def measure_shape_defects(tape):
+    """ST-5b. The shapes secondtake's own measures stand
+    on, beyond the family subset above: totals values the
+    format bounds at zero, and an outcome object whose
+    status is in the format enum. A tape breaking either
+    is excluded with the defect named, never crashed on."""
+    defects = []
+    run = tape.get("run")
+    if isinstance(run, dict) and "totals" in run:
+        totals = run["totals"]
+        if not isinstance(totals, dict):
+            defects.append("run.totals is not an object")
+        else:
+            for key, value in totals.items():
+                if (not isinstance(value, int)
+                        or isinstance(value, bool) or value < 0):
+                    defects.append(
+                        f"run.totals.{key} is not a non-negative "
+                        f"integer")
+    if "outcome" in tape:
+        outcome = tape["outcome"]
+        if not isinstance(outcome, dict):
+            defects.append("outcome is not an object")
+        elif outcome.get("status") not in OUTCOME_STATUSES:
+            defects.append("outcome.status is not in the "
+                           "format enum")
+    return defects

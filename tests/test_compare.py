@@ -29,7 +29,7 @@ def make_tape(task="Fix the parser", tokens=(100, 50), seconds=60,
     if user:
         events.append({"seq": seq, "kind": "message",
                        "sidechain": False, "role": "user",
-                       "content": task, "timestamp": stamp(1)})
+                       "text": task, "timestamp": stamp(1)})
         seq += 1
     calls = 1 + redos
     for index in range(calls):
@@ -214,3 +214,59 @@ def test_the_cli_and_its_write_guard(tmp_path, capsys):
     assert not inside.exists()
     assert main(["compare", str(before), str(after),
                  "--registration", str(tmp_path / "nope.json")]) == 1
+
+
+def test_the_fixture_tape_keys_by_its_real_text():
+    from secondtake.measures import task_key
+    tape = json.loads((FIX / "tape_synthetic.json").read_text())
+    assert task_key(tape) == digest_of(
+        "Synthetic prompt, fix the widget counter.")
+
+
+def test_cache_tokens_are_not_cost(tmp_path):
+    rich = make_tape()
+    rich["run"]["totals"]["cache_read_input_tokens"] = 999999
+    before = write_set(tmp_path / "b", {"a.json": rich})
+    after = write_set(tmp_path / "a", {"a.json": make_tape()})
+    document = compare(before, after, registration(tmp_path))
+    assert document["pairs"][0]["before"]["cost"] == 150
+
+
+def test_pair_keys_are_the_task_text_digests(tmp_path):
+    before = write_set(tmp_path / "b", {"a.json": make_tape()})
+    after = write_set(tmp_path / "a", {"a.json": make_tape()})
+    document = compare(before, after, registration(tmp_path))
+    assert document["pairs"][0]["key"] == digest_of("Fix the parser")
+    assert "proposal_rule" in document
+
+
+def test_time_regresses_and_naive_stamps_read_as_utc(tmp_path):
+    before = write_set(tmp_path / "b",
+                       {"a.json": make_tape(seconds=60)})
+    slow = make_tape(seconds=600)
+    after = write_set(tmp_path / "a", {"a.json": slow})
+    document = compare(before, after, registration(tmp_path))
+    assert document["regressions"] == ["time"]
+    mixed = make_tape(seconds=60)
+    mixed["events"][0]["timestamp"] = "2026-01-05T09:00:00"
+    mixed["events"][-1]["timestamp"] = "2026-01-05T09:01:00"
+    before2 = write_set(tmp_path / "b2", {"a.json": mixed})
+    document = compare(before2, after, registration(tmp_path))
+    assert document["pairs"][0]["before"]["time_seconds"] == 60.0
+
+
+def test_measure_shape_defects_exclude_the_tape(tmp_path):
+    negative = make_tape()
+    negative["run"]["totals"]["input_tokens"] = -5
+    bare = make_tape()
+    bare["outcome"] = "completed"
+    before = write_set(tmp_path / "b", {"a.json": make_tape(),
+                                        "neg.json": negative,
+                                        "bare.json": bare})
+    after = write_set(tmp_path / "a", {"a.json": make_tape()})
+    document = compare(before, after, registration(tmp_path))
+    reasons = {e["file"]: e["defects"]
+               for e in document["before"]["excluded"]}
+    assert any("non-negative" in d for d in reasons["neg.json"])
+    assert reasons["bare.json"] == ["outcome is not an object"]
+    assert document["before"]["tapes_scored"] == 1

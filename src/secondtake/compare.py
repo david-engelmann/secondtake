@@ -2,14 +2,21 @@
 from __future__ import annotations
 
 import json
+import math
 from pathlib import Path
 
 from .digest import DigestError, digest_of
 from .measures import MATCHING_RULE, tape_measures, task_key
-from .tapes import FAILED, load_tape_file
+from .tapes import FAILED, load_tape_file, measure_shape_defects
 
 DEFAULT_MARGINS = {"cost_pct": 10, "time_pct": 10,
                    "rework_per_pair": 1, "rescue_points": 5}
+
+PROPOSAL_RULE = (
+    "keep when no measure regresses past its margin, "
+    "tune when one does, revert when two or more do; "
+    "a measure with no usable pairs neither regresses "
+    "nor clears")
 
 
 class CompareError(ValueError):
@@ -48,7 +55,8 @@ def load_registration(path: Path) -> dict:
                     f"the registration states an unknown "
                     f"margin, {key}")
             if (not isinstance(value, (int, float))
-                    or isinstance(value, bool) or value < 0):
+                    or isinstance(value, bool) or value < 0
+                    or not math.isfinite(value)):
                 raise CompareError(
                     f"the margin {key} is not a non-negative "
                     f"number")
@@ -65,11 +73,19 @@ def _load_set(directory: Path, side: str):
     for name in sorted(p.name for p in directory.iterdir()):
         path = directory / name
         if not path.is_file():
+            excluded.append({"file": name, "reason": "not a file",
+                             "defects": []})
             continue
         tape, reason, defects = load_tape_file(path)
         if tape is FAILED:
             excluded.append({"file": name, "reason": reason,
                              "defects": defects})
+            continue
+        shape_defects = measure_shape_defects(tape)
+        if shape_defects:
+            excluded.append({"file": name,
+                             "reason": "not a valid tape",
+                             "defects": shape_defects})
             continue
         try:
             digest_of(tape)
@@ -194,6 +210,7 @@ def compare(before_dir: Path, after_dir: Path,
     return {
         "registration": registration,
         "matching_rule": MATCHING_RULE,
+        "proposal_rule": PROPOSAL_RULE,
         "before": {"tapes_read": len(before_tapes) + len(before_excluded),
                    "tapes_scored": len(before_tapes),
                    "excluded": before_excluded},
