@@ -122,3 +122,26 @@ secondtake and verdictloop build last in the line.
   the unmatchable tapes with reasons, the regressed
   measures, and exactly one proposal. Test,
   tests/test_compare.py.
+
+## Round 1 amendments, after the reviews (recorded before the repair code)
+
+- ST-5b. Secondtake's subset adds the shapes its own
+  measures stand on, beyond the family subset:
+  run.totals, when present, is an object whose values
+  are non-negative integers, and outcome, when
+  present, is an object whose status is in the format
+  enum. A tape breaking either is excluded with the
+  defect named. Test, tests/test_compare.py.
+- ST-6b. The message text the key rule reads is the
+  format's text field, the one flighttape's converter
+  writes. (The first implementation read a field named
+  content, which is the tool result field; the golden
+  fixture and the converter are the ground truth, and
+  the reviews caught the divergence.) A main-chain
+  user message without a text string is unmatchable.
+  Test, tests/test_compare.py.
+- ST-9b. The comparison prints its proposal rule as
+  one sentence beside the matching rule, so the
+  verdict can be checked against the rule that
+  produced it without opening the contract. Test,
+  tests/test_compare.py.
