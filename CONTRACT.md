@@ -66,3 +66,59 @@ secondtake and verdictloop build last in the line.
 - ST-12. Secondtake writes only the comparison, to
   stdout or a named path, atomically. Every failure is
   a named error with exit 1. Test, tests/test_compare.py.
+
+## Round 1 amendments, the pinned shapes (recorded before code)
+
+- ST-5a. The registration is a JSON file naming the
+  change and its date: {change, date}. A missing or
+  malformed registration is a named refusal. It may
+  carry margins {cost_pct, time_pct, rework_per_pair,
+  rescue_points}; where it does not, the ST-9 values
+  (10, 10, 1, 5) apply and the comparison prints the
+  margins it used. Tapes are excluded under the
+  family discipline: the format 1.0 subset, defects
+  named, a tape that cannot be digested under
+  canonical form 1 excluded with that reason. Files
+  are read in sorted name order. Test,
+  tests/test_compare.py.
+- ST-6a. The task key is the canonical form 1 digest
+  of the text of the first main-chain user message
+  (kind message, role user, sidechain false). A tape
+  with no such message, or whose text is not a
+  string, is unmatchable and reported. Test,
+  tests/test_compare.py.
+- ST-7a. Cost is totals input_tokens plus
+  output_tokens when both are recorded, else absent;
+  cache token keys are not input or output. Time is
+  the tape duration under flighttape's FT-32 rule.
+  Rework is the redo count under the shared RF-4
+  definition. Rescue rate is per side over the paired
+  tapes: rescued over tapes holding at least one
+  error; a side with no error-holding paired tape has
+  no rate. Cost, time, and rework aggregates run over
+  the pairs where both sides carry the measure, and
+  the count of such pairs is printed. Test,
+  tests/test_compare.py.
+- ST-9a. A measure with no usable pairs, or a rescue
+  rate absent on a side, is unmeasured: it neither
+  regresses nor clears. Cost and time regress when
+  the after mean exceeds the before mean by more
+  than the margin percent; a zero before mean with a
+  positive after mean regresses. Rework regresses
+  when the after mean exceeds the before mean by
+  more than the margin per pair. Rescue regresses
+  when the rate falls by more than the margin
+  points. With zero pairs every measure is unmeasured
+  and the rule yields keep; the comparison states
+  its zero denominators rather than hiding them.
+  Test, tests/test_compare.py.
+- ST-8a. The comparison document carries the
+  registration and the margins used, the matching
+  rule printed as one sentence, per-side read counts
+  and exclusions, the pairs sorted by task key with
+  both sides' measures and deltas, the aggregates
+  with their denominators, the unmatched tapes by
+  file and key, the ambiguous keys with their counts,
+  the unmatchable tapes with reasons, the regressed
+  measures, and exactly one proposal. Test,
+  tests/test_compare.py.
