@@ -270,3 +270,22 @@ def test_measure_shape_defects_exclude_the_tape(tmp_path):
     assert any("non-negative" in d for d in reasons["neg.json"])
     assert reasons["bare.json"] == ["outcome is not an object"]
     assert document["before"]["tapes_scored"] == 1
+
+
+def test_advisory_repairs_huge_numbers_and_unreadable_sets(tmp_path):
+    huge = tmp_path / "huge.json"
+    huge.write_text(json.dumps(
+        {**REG, "margins": {"cost_pct": 10 ** 400}}))
+    registration = load_registration(huge)
+    assert registration["margins"]["cost_pct"] == 10 ** 400
+    oversized = make_tape()
+    oversized["run"]["totals"]["input_tokens"] = 10 ** 400
+    before = write_set(tmp_path / "b", {"a.json": make_tape(),
+                                        "big.json": oversized})
+    after = write_set(tmp_path / "a", {"a.json": make_tape()})
+    document = compare(before, after, registration)
+    excluded = {e["file"]: e["defects"]
+                for e in document["before"]["excluded"]}
+    assert any("too large to measure" in d
+               for d in excluded["big.json"])
+    assert document["before"]["tapes_scored"] == 1

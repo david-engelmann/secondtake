@@ -135,6 +135,10 @@ def measure_shape_defects(tape):
                     defects.append(
                         f"run.totals.{key} is not a non-negative "
                         f"integer")
+                elif value > 10 ** 18:
+                    defects.append(
+                        f"run.totals.{key} is too large to "
+                        f"measure")
     if "outcome" in tape:
         outcome = tape["outcome"]
         if not isinstance(outcome, dict):

@@ -56,7 +56,8 @@ def load_registration(path: Path) -> dict:
                     f"margin, {key}")
             if (not isinstance(value, (int, float))
                     or isinstance(value, bool) or value < 0
-                    or not math.isfinite(value)):
+                    or (isinstance(value, float)
+                        and not math.isfinite(value))):
                 raise CompareError(
                     f"the margin {key} is not a non-negative "
                     f"number")
@@ -70,7 +71,13 @@ def _load_set(directory: Path, side: str):
             f"the {side} set at {directory} is not a directory")
     tapes = []
     excluded = []
-    for name in sorted(p.name for p in directory.iterdir()):
+    try:
+        names = sorted(p.name for p in directory.iterdir())
+    except OSError as exc:
+        raise CompareError(
+            f"cannot read the {side} set at {directory}: "
+            f"{exc}") from exc
+    for name in names:
         path = directory / name
         if not path.is_file():
             excluded.append({"file": name, "reason": "not a file",
