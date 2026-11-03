@@ -20,16 +20,27 @@ decision model judging only the one-regression band
 from a deterministic card. Setup landed earlier in
 October 2026.
 
+Round 3 is closed. The Rust port: the Python package
+and its suite leave the tree, and a Rust library crate
+with a thin compare binary reproduces the behavior
+exactly, consuming canonical form 1 and the tape
+reading from the flighttape crate at a pinned
+revision. The differential harness byte-compares the
+two implementations across the band, and the cargo
+suite carries the ported tests.
+
 ## Programme status
 
-- Closed perfection rounds, 2 of 100. A round counts only when a
+- Closed perfection rounds, 3 of 100. A round counts only when a
   full cycle of work, audit, review, red team, and approval has
   closed.
 - Contract, ST-1 to ST-12 as amended, met for the Round 1 scope.
   ST-13 to ST-19 with amendments ST-13a, ST-16a, and
   ST-17a, written ahead of the code and met in Round 2.
-- Local gate, python3 scripts/codepoint_scan.py and
-  python3 -m pytest tests -q. CI runs the same commands.
+  ST-20 to ST-26, the port obligations, written ahead
+  of the code and met in Round 3.
+- Local gate, python3 scripts/codepoint_scan.py and cargo test.
+  CI runs the same commands.
 
 ## Licence
 

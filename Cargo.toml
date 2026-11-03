@@ -1,0 +1,17 @@
+[package]
+name = "secondtake"
+version = "0.1.0"
+edition = "2021"
+description = "Before and after tapes, matched by task and compared on four measures"
+license = "MIT"
+
+[lib]
+name = "secondtake"
+path = "src/lib.rs"
+
+[[bin]]
+name = "secondtake"
+path = "src/main.rs"
+
+[dependencies]
+flighttape = { git = "https://github.com/david-engelmann/flighttape", rev = "ba8d4b550850179722f48b8f9c909e199efe3548" }
