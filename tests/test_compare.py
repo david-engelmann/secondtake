@@ -134,7 +134,10 @@ def test_ambiguous_unmatched_and_unmatchable_are_reported(tmp_path):
     assert document["unmatchable"] == [{
         "side": "before", "file": "d.json",
         "reason": "no main-chain user message with a text"}]
-    assert document["proposal"] == "keep"
+    assert document["proposal"] == "abstain"
+    assert document["judgment"] == {
+        "status": "not_consulted",
+        "reason": "insufficient pairs, 0 of 1"}
 
 
 def test_excluded_tapes_are_named_with_defects(tmp_path):

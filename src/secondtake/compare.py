@@ -1,4 +1,5 @@
-"""ST-5 to ST-9. The matched comparison."""
+"""ST-5 to ST-9, ST-13 to ST-18. The matched comparison
+and its judgment."""
 from __future__ import annotations
 
 import json
@@ -6,6 +7,8 @@ import math
 from pathlib import Path
 
 from .digest import DigestError, digest_of
+from .judge import (CONFIDENCE_FLOOR, JudgeError, build_card,
+                    judge_card)
 from .measures import MATCHING_RULE, tape_measures, task_key
 from .tapes import FAILED, load_tape_file, measure_shape_defects
 
@@ -13,10 +16,14 @@ DEFAULT_MARGINS = {"cost_pct": 10, "time_pct": 10,
                    "rework_per_pair": 1, "rescue_points": 5}
 
 PROPOSAL_RULE = (
-    "keep when no measure regresses past its margin, "
-    "tune when one does, revert when two or more do; "
-    "a measure with no usable pairs neither regresses "
-    "nor clears")
+    "abstain for insufficient evidence below the pair "
+    "floor; keep when no measure regresses past its "
+    "margin, revert when two or more do; in the "
+    "one-regression band a configured judge's choice "
+    "stands at confidence 0.6 or better, abstains below "
+    "it, and an unavailable judge leaves the tune "
+    "standing; a measure with no usable pairs neither "
+    "regresses nor clears")
 
 
 class CompareError(ValueError):
@@ -62,7 +69,14 @@ def load_registration(path: Path) -> dict:
                     f"the margin {key} is not a non-negative "
                     f"number")
             margins[key] = value
-    return {"change": change, "date": date, "margins": margins}
+    floor = data.get("min_pairs", 1)
+    if not isinstance(floor, int) or isinstance(floor, bool) \
+            or floor < 1:
+        raise CompareError(
+            f"the registration floor min_pairs is not a "
+            f"positive integer, {floor!r}")
+    return {"change": change, "date": date,
+            "margins": margins, "min_pairs": floor}
 
 
 def _load_set(directory: Path, side: str):
@@ -137,7 +151,7 @@ def _pair_measure(pairs, name):
 
 
 def compare(before_dir: Path, after_dir: Path,
-            registration: dict) -> dict:
+            registration: dict, judge=None) -> dict:
     before_tapes, before_excluded = _load_set(before_dir, "before")
     after_tapes, after_excluded = _load_set(after_dir, "after")
     before_by_key, before_unmatchable = _index(before_tapes)
@@ -214,6 +228,56 @@ def compare(before_dir: Path, after_dir: Path,
     aggregates["rescue"] = rescue
     proposal = ("revert" if len(regressions) >= 2 else
                 "tune" if regressions else "keep")
+    judgment = {"status": "not_consulted",
+                "reason": "the deterministic rule is "
+                          "conclusive"}
+    floor = registration.get("min_pairs", 1)
+    if len(pairs) < floor:
+        proposal = "abstain"
+        judgment = {"status": "not_consulted",
+                    "reason": f"insufficient pairs, "
+                              f"{len(pairs)} of {floor}"}
+    elif len(regressions) == 1:
+        if judge is None:
+            judgment = {"status": "not_consulted",
+                        "reason": "no judge configured"}
+        else:
+            counts = {
+                "ambiguous": len(ambiguous),
+                "unmatched": (len(unmatched_before)
+                              + len(unmatched_after)),
+                "excluded": (len(before_excluded)
+                             + len(after_excluded)),
+            }
+            card = build_card(registration, aggregates,
+                              regressions, proposal, counts)
+            judgment = {"card_sha256": digest_of(card),
+                        "card": card}
+            try:
+                answers = judge_card(card, judge)
+            except JudgeError as exc:
+                judgment.update(
+                    {"status": "unavailable",
+                     "reason": str(exc)})
+            else:
+                judgment.update(answers)
+                if answers["choice"] == "abstain":
+                    proposal = "abstain"
+                    judgment.update(
+                        {"status": "abstained",
+                         "reason": "the judge abstained"})
+                elif answers["confidence"] < \
+                        CONFIDENCE_FLOOR:
+                    proposal = "abstain"
+                    judgment.update(
+                        {"status": "abstained",
+                         "reason": "the judge's confidence "
+                                   f"{answers['confidence']} "
+                                   "is below "
+                                   f"{CONFIDENCE_FLOOR}"})
+                else:
+                    proposal = answers["choice"]
+                    judgment["status"] = "judged"
     return {
         "registration": registration,
         "matching_rule": MATCHING_RULE,
@@ -234,4 +298,5 @@ def compare(before_dir: Path, after_dir: Path,
             + [{"side": "after", **u} for u in after_unmatchable]),
         "regressions": regressions,
         "proposal": proposal,
+        "judgment": judgment,
     }

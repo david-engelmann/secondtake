@@ -1,0 +1,821 @@
+{
+  "model": "jev-1.13.0",
+  "cards": [
+    {
+      "card_sha256": "70a8823926a7cf5b76822da00fa84561b7880b534da90110af8cf507d4940653",
+      "card": "Setup change: new system prompt, registered 2026-01-04.\nMatched pairs: 1. Ambiguous task keys excluded: 0. Unmatched tapes: 0. Excluded tapes: 0.\nCost per pair: before 150, after 180, change 20 percent against a margin of 10 percent: regressed.\nTime per pair: before 60, after 60, change 0 percent against a margin of 10 percent: within margin.\nRework per pair: before 0, after 0, change 0 against a margin of 1 per pair: within margin.\nRescue rate: before 100 percent over 1 pairs holding an error, after 100 percent over 1, change 0 points against a margin of 5 points down: within margin.\nRegressions past margins: cost.\nThe deterministic rule proposes tune.",
+      "responses": {
+        "choice": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "choice",
+              "choice": "tune",
+              "confidence": 0.85,
+              "probabilities": {
+                "keep": 0.01,
+                "tune": 0.89,
+                "revert": 0.1,
+                "abstain": 0.0
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 591,
+            "output_tokens": 50
+          }
+        },
+        "severity": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 2.67,
+              "confidence": 0.22,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.15,
+                "1": 0.24,
+                "2": 0.24,
+                "3": 0.09,
+                "4": 0.06,
+                "5": 0.07,
+                "6": 0.06,
+                "7": 0.04,
+                "8": 0.03,
+                "9": 0.02
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 604,
+            "output_tokens": 17
+          }
+        },
+        "match": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 6.14,
+              "confidence": 0.0,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.05,
+                "1": 0.04,
+                "2": 0.07,
+                "3": 0.06,
+                "4": 0.09,
+                "5": 0.07,
+                "6": 0.08,
+                "7": 0.09,
+                "8": 0.17,
+                "9": 0.28
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 607,
+            "output_tokens": 17
+          }
+        }
+      }
+    },
+    {
+      "card_sha256": "6701ad105d99d4228f6a63c5d172f0106268d69257f0614815b90f95bd8cc748",
+      "card": "Setup change: parallel tool calls, registered 2026-01-11.\nMatched pairs: 8. Ambiguous task keys excluded: 0. Unmatched tapes: 1. Excluded tapes: 0.\nCost per pair: before 210, after 147, change -30 percent against a margin of 10 percent: improved.\nTime per pair: before 95, after 85.5, change -10 percent against a margin of 10 percent: improved.\nRework per pair: before 0.6, after 2.9, change 2.3 against a margin of 1 per pair: regressed.\nRescue rate: before 80 percent over 5 pairs holding an error, after 80 percent over 5, change 0 points against a margin of 5 points down: within margin.\nRegressions past margins: rework.\nThe deterministic rule proposes tune.",
+      "responses": {
+        "choice": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "choice",
+              "choice": "tune",
+              "confidence": 0.99,
+              "probabilities": {
+                "keep": 0.0,
+                "tune": 0.99,
+                "revert": 0.01,
+                "abstain": 0.0
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 597,
+            "output_tokens": 50
+          }
+        },
+        "severity": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 3.93,
+              "confidence": 0.05,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.07,
+                "1": 0.1,
+                "2": 0.22,
+                "3": 0.12,
+                "4": 0.08,
+                "5": 0.1,
+                "6": 0.13,
+                "7": 0.09,
+                "8": 0.05,
+                "9": 0.04
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 610,
+            "output_tokens": 17
+          }
+        },
+        "match": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 5.7,
+              "confidence": 0.0,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.04,
+                "1": 0.05,
+                "2": 0.08,
+                "3": 0.08,
+                "4": 0.08,
+                "5": 0.07,
+                "6": 0.1,
+                "7": 0.18,
+                "8": 0.19,
+                "9": 0.13
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 613,
+            "output_tokens": 17
+          }
+        }
+      }
+    },
+    {
+      "card_sha256": "0d88c435b550448643cbc76b918b493fc15965142892315c2a4c6e5655760a8c",
+      "card": "Setup change: cheaper model for drafts, registered 2026-01-18.\nMatched pairs: 5. Ambiguous task keys excluded: 3. Unmatched tapes: 4. Excluded tapes: 2.\nCost per pair: before 180, after 171, change -5 percent against a margin of 10 percent: improved.\nTime per pair: before 70, after 72.1, change 3 percent against a margin of 10 percent: within margin.\nRework per pair: before 1.2, after 1.6, change 0.4 against a margin of 1 per pair: within margin.\nRescue rate: before 75 percent over 4 pairs holding an error, after 63 percent over 4, change -12 points against a margin of 5 points down: regressed.\nRegressions past margins: rescue rate.\nThe deterministic rule proposes tune.",
+      "responses": {
+        "choice": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "choice",
+              "choice": "tune",
+              "confidence": 0.92,
+              "probabilities": {
+                "keep": 0.01,
+                "tune": 0.94,
+                "revert": 0.05,
+                "abstain": 0.0
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 598,
+            "output_tokens": 50
+          }
+        },
+        "severity": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 3.91,
+              "confidence": 0.01,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.08,
+                "1": 0.13,
+                "2": 0.19,
+                "3": 0.1,
+                "4": 0.08,
+                "5": 0.09,
+                "6": 0.14,
+                "7": 0.09,
+                "8": 0.06,
+                "9": 0.04
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 611,
+            "output_tokens": 17
+          }
+        },
+        "match": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 3.75,
+              "confidence": 0.07,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.1,
+                "1": 0.11,
+                "2": 0.21,
+                "3": 0.11,
+                "4": 0.09,
+                "5": 0.09,
+                "6": 0.12,
+                "7": 0.08,
+                "8": 0.05,
+                "9": 0.04
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 614,
+            "output_tokens": 17
+          }
+        }
+      }
+    },
+    {
+      "card_sha256": "ba8c6c02bb7a608869dd3127e2a96129d858e6650b0bc5c9b4f17956d90cc289",
+      "card": "Setup change: longer reasoning budget, registered 2026-01-25.\nMatched pairs: 12. Ambiguous task keys excluded: 0. Unmatched tapes: 0. Excluded tapes: 1.\nCost per pair: before 300, after 180, change -40 percent against a margin of 10 percent: improved.\nTime per pair: before 80, after 100, change 25 percent against a margin of 10 percent: regressed.\nRework per pair: before 2, after 1.1, change -0.9 against a margin of 1 per pair: improved.\nRescue rate: before 70 percent over 10 pairs holding an error, after 78 percent over 9, change 8 points against a margin of 5 points down: improved.\nRegressions past margins: time.\nThe deterministic rule proposes tune.",
+      "responses": {
+        "choice": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "choice",
+              "choice": "tune",
+              "confidence": 0.93,
+              "probabilities": {
+                "keep": 0.03,
+                "tune": 0.95,
+                "revert": 0.02,
+                "abstain": 0.0
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 594,
+            "output_tokens": 50
+          }
+        },
+        "severity": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 4.81,
+              "confidence": 0.13,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.04,
+                "1": 0.06,
+                "2": 0.12,
+                "3": 0.12,
+                "4": 0.1,
+                "5": 0.11,
+                "6": 0.16,
+                "7": 0.15,
+                "8": 0.08,
+                "9": 0.06
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 607,
+            "output_tokens": 17
+          }
+        },
+        "match": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 5.61,
+              "confidence": 0.0,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.04,
+                "1": 0.05,
+                "2": 0.08,
+                "3": 0.08,
+                "4": 0.09,
+                "5": 0.08,
+                "6": 0.11,
+                "7": 0.15,
+                "8": 0.2,
+                "9": 0.12
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 610,
+            "output_tokens": 17
+          }
+        }
+      }
+    },
+    {
+      "card_sha256": "5c6d8f96e363ff1c120e851b86c432e5de98fbad8a56470ae1338b2facc4efd8",
+      "card": "Setup change: new retrieval index, registered 2026-02-01.\nMatched pairs: 4. Ambiguous task keys excluded: 1. Unmatched tapes: 0. Excluded tapes: 0.\nCost per pair: before 150, after 166.5, change 11 percent against a margin of 10 percent: regressed.\nTime per pair: before 55, after 49.5, change -10 percent against a margin of 10 percent: improved.\nRework per pair: before 1, after 0.5, change -0.5 against a margin of 1 per pair: improved.\nRescue rate: before 100 percent over 2 pairs holding an error, after 100 percent over 3, change 0 points against a margin of 5 points down: within margin.\nRegressions past margins: cost.\nThe deterministic rule proposes tune.",
+      "responses": {
+        "choice": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "choice",
+              "choice": "tune",
+              "confidence": 0.99,
+              "probabilities": {
+                "keep": 0.0,
+                "tune": 0.99,
+                "revert": 0.01,
+                "abstain": 0.0
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 598,
+            "output_tokens": 50
+          }
+        },
+        "severity": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 4.41,
+              "confidence": 0.06,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.05,
+                "1": 0.08,
+                "2": 0.17,
+                "3": 0.11,
+                "4": 0.09,
+                "5": 0.1,
+                "6": 0.18,
+                "7": 0.12,
+                "8": 0.06,
+                "9": 0.04
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 611,
+            "output_tokens": 17
+          }
+        },
+        "match": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 5.27,
+              "confidence": 0.03,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.05,
+                "1": 0.05,
+                "2": 0.09,
+                "3": 0.09,
+                "4": 0.1,
+                "5": 0.09,
+                "6": 0.13,
+                "7": 0.15,
+                "8": 0.15,
+                "9": 0.1
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 614,
+            "output_tokens": 17
+          }
+        }
+      }
+    },
+    {
+      "card_sha256": "402ce74f17bfc5571a829093549f098093a0f9c24d49305fb3ed8c4273e43b85",
+      "card": "Setup change: stricter lint gate, registered 2026-02-08.\nMatched pairs: 3. Ambiguous task keys excluded: 0. Unmatched tapes: 2. Excluded tapes: 0.\nCost per pair: unmeasured, no pair records it on both sides.\nTime per pair: before 60, after 58.2, change -3 percent against a margin of 10 percent: improved.\nRework per pair: before 0.3, after 2.3, change 2 against a margin of 1 per pair: regressed.\nRescue rate: before 50 percent over 2 pairs holding an error, after 50 percent over 2, change 0 points against a margin of 5 points down: within margin.\nRegressions past margins: rework.\nThe deterministic rule proposes tune.",
+      "responses": {
+        "choice": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "choice",
+              "choice": "tune",
+              "confidence": 0.89,
+              "probabilities": {
+                "keep": 0.01,
+                "tune": 0.92,
+                "revert": 0.07,
+                "abstain": 0.0
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 580,
+            "output_tokens": 50
+          }
+        },
+        "severity": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 3.25,
+              "confidence": 0.14,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.13,
+                "1": 0.17,
+                "2": 0.21,
+                "3": 0.09,
+                "4": 0.07,
+                "5": 0.09,
+                "6": 0.1,
+                "7": 0.05,
+                "8": 0.05,
+                "9": 0.04
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 593,
+            "output_tokens": 17
+          }
+        },
+        "match": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 4.09,
+              "confidence": 0.0,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.08,
+                "1": 0.09,
+                "2": 0.17,
+                "3": 0.12,
+                "4": 0.1,
+                "5": 0.1,
+                "6": 0.12,
+                "7": 0.1,
+                "8": 0.07,
+                "9": 0.05
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 596,
+            "output_tokens": 17
+          }
+        }
+      }
+    },
+    {
+      "card_sha256": "3055f3a407d70cf79580db04736e5d217c2651a4be4556092ab20009f39fb931",
+      "card": "Setup change: shorter retries, registered 2026-02-15.\nMatched pairs: 2. Ambiguous task keys excluded: 1. Unmatched tapes: 2. Excluded tapes: 0.\nCost per pair: before 120, after 130.8, change 9 percent against a margin of 10 percent: within margin.\nTime per pair: before 45, after 44.1, change -2 percent against a margin of 10 percent: improved.\nRework per pair: before 0.5, after 0.5, change 0 against a margin of 1 per pair: within margin.\nRescue rate: before 100 percent over 1 pairs holding an error, after 94 percent over 2, change -6 points against a margin of 5 points down: regressed.\nRegressions past margins: rescue rate.\nThe deterministic rule proposes tune.",
+      "responses": {
+        "choice": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "choice",
+              "choice": "tune",
+              "confidence": 0.95,
+              "probabilities": {
+                "keep": 0.0,
+                "tune": 0.96,
+                "revert": 0.04,
+                "abstain": 0.0
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 596,
+            "output_tokens": 50
+          }
+        },
+        "severity": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 3.7,
+              "confidence": 0.09,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.08,
+                "1": 0.13,
+                "2": 0.21,
+                "3": 0.11,
+                "4": 0.08,
+                "5": 0.11,
+                "6": 0.13,
+                "7": 0.07,
+                "8": 0.05,
+                "9": 0.03
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 609,
+            "output_tokens": 17
+          }
+        },
+        "match": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 3.95,
+              "confidence": 0.0,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.09,
+                "1": 0.11,
+                "2": 0.16,
+                "3": 0.11,
+                "4": 0.1,
+                "5": 0.09,
+                "6": 0.13,
+                "7": 0.09,
+                "8": 0.07,
+                "9": 0.05
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 612,
+            "output_tokens": 17
+          }
+        }
+      }
+    },
+    {
+      "card_sha256": "61f295a326765f81c26fe233a49238cfd216e6a6930ddf017bc3ddb40e763d15",
+      "card": "Setup change: verbose tool traces, registered 2026-02-22.\nMatched pairs: 6. Ambiguous task keys excluded: 0. Unmatched tapes: 0. Excluded tapes: 0.\nCost per pair: before 200, after 196, change -2 percent against a margin of 10 percent: improved.\nTime per pair: before 50, after 80, change 60 percent against a margin of 10 percent: regressed.\nRework per pair: before 1, after 1.9, change 0.9 against a margin of 1 per pair: within margin.\nRescue rate: before 83 percent over 6 pairs holding an error, after 79 percent over 6, change -4 points against a margin of 5 points down: within margin.\nRegressions past margins: time.\nThe deterministic rule proposes tune.",
+      "responses": {
+        "choice": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "choice",
+              "choice": "tune",
+              "confidence": 0.97,
+              "probabilities": {
+                "keep": 0.0,
+                "tune": 0.98,
+                "revert": 0.02,
+                "abstain": 0.0
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 592,
+            "output_tokens": 50
+          }
+        },
+        "severity": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 3.85,
+              "confidence": 0.04,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.06,
+                "1": 0.13,
+                "2": 0.2,
+                "3": 0.12,
+                "4": 0.09,
+                "5": 0.09,
+                "6": 0.12,
+                "7": 0.09,
+                "8": 0.06,
+                "9": 0.04
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 605,
+            "output_tokens": 17
+          }
+        },
+        "match": {
+          "model": "jev-1.13.0",
+          "answers": {
+            "decision": {
+              "type": "score",
+              "score": 6.48,
+              "confidence": 0.0,
+              "legend": {
+                "0": "Level 1",
+                "1": "Level 2",
+                "2": "Level 3",
+                "3": "Level 4",
+                "4": "Level 5",
+                "5": "Level 6",
+                "6": "Level 7",
+                "7": "Level 8",
+                "8": "Level 9",
+                "9": "Level 10"
+              },
+              "probabilities": {
+                "0": 0.04,
+                "1": 0.03,
+                "2": 0.05,
+                "3": 0.06,
+                "4": 0.07,
+                "5": 0.06,
+                "6": 0.09,
+                "7": 0.1,
+                "8": 0.24,
+                "9": 0.26
+              }
+            }
+          },
+          "usage": {
+            "input_tokens": 608,
+            "output_tokens": 17
+          }
+        }
+      }
+    }
+  ]
+}

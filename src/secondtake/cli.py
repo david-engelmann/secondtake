@@ -10,6 +10,7 @@ import tempfile
 from pathlib import Path
 
 from .compare import CompareError, compare, load_registration
+from .judge import FixtureTransport, JudgeError, LiveTransport
 
 
 def _write_atomically(path: Path, text: str) -> None:
@@ -58,6 +59,8 @@ def main(argv: list[str] | None = None) -> int:
     cp.add_argument("before")
     cp.add_argument("after")
     cp.add_argument("--registration", required=True)
+    cp.add_argument("--judge",
+                    help="a judgments file to replay, or live")
     cp.add_argument("-o", "--output")
     args = parser.parse_args(argv)
     try:
@@ -70,9 +73,20 @@ def main(argv: list[str] | None = None) -> int:
                     print("error, secondtake writes nothing inside "
                           "the tape sets it reads", file=sys.stderr)
                     return 1
+        judge = None
+        if args.judge == "live":
+            script = os.environ.get("JEV_CALL")
+            if not script:
+                raise CompareError(
+                    "live judging needs the JEV_CALL "
+                    "environment variable naming the "
+                    "connector call script")
+            judge = LiveTransport(script)
+        elif args.judge is not None:
+            judge = FixtureTransport(Path(args.judge))
         document = compare(Path(args.before), Path(args.after),
-                           registration)
-    except CompareError as exc:
+                           registration, judge=judge)
+    except (CompareError, JudgeError) as exc:
         print(f"error, {exc}", file=sys.stderr)
         return 1
     return _emit(document, args.output)
