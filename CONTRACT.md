@@ -146,3 +146,80 @@ reviews, before the repair code).
   verdict can be checked against the rule that
   produced it without opening the contract. Test,
   tests/test_compare.py.
+
+## Round 2. Judgment in the band (ST-13 to ST-19)
+
+Settles the question ST-9 left open and ST-10 promised:
+judgment enters only where the measures argue, and an
+abstain outcome can sit with ST-4 as a terminal outcome
+that is not a proposal, stated with its reason. The
+numbers still own everything the outcome stands on.
+
+- ST-13. The decision card is a deterministic text
+  built from the finished comparison: the registered
+  change and its date; the matched pair count; the
+  ambiguous, unmatched, and excluded counts; one line
+  per measure naming its before and after means, its
+  change, its margin, and whether it regressed, with a
+  measure counted on no pair stated as unmeasured; the
+  regressions past margins; and the deterministic
+  proposal. The card's digest is the canonical form 1
+  digest of the card text, and the card and its digest
+  are recorded on the comparison whenever judgment is
+  consulted. Test, tests/test_judge.py.
+- ST-14. A comparison with fewer matched pairs than
+  the floor ends in the abstain outcome with the
+  reason stated (insufficient pairs, the count against
+  the floor), deterministically, with no model call.
+  The floor is the registration's min_pairs where it
+  states one, else 3; a stated floor under 1 is a named
+  refusal. This supersedes the ST-9 rule's outcome at
+  zero pairs: no pairs is insufficient evidence, never
+  a keep. Test, tests/test_compare.py.
+- ST-15. The judge is consulted only in the band:
+  exactly one measure regressed past its margin, and
+  the floor met. No regression is a keep and two or
+  more a revert, deterministically, with the judgment
+  recorded as not consulted and the reason stated. A
+  band comparison with no judge configured ends in
+  the deterministic tune, recorded as not consulted.
+  Test, tests/test_compare.py.
+- ST-16. The judge answers three calls over the card:
+  a choice among keep, tune, revert, and abstain with
+  its confidence and per-label probabilities; a score
+  for the tradeoff's severity; and a score for the
+  confidence the matching deserves. The judged choice
+  stands as the proposal when it is not abstain and
+  its confidence is at least 0.6. Otherwise the
+  outcome is abstain, with the judge's answers
+  recorded in full and the reason stated. A judge
+  that cannot answer (an unrecorded card, a failed
+  call) leaves the deterministic tune standing,
+  recorded as unavailable with the reason, never as a
+  judged outcome. Test, tests/test_judge.py.
+- ST-17. Two transports answer the judge's calls. The
+  fixture transport replays recorded responses, keyed
+  by the card's digest, from a judgments file; a card
+  the file does not record is unavailable. The live
+  transport calls Jev (model jev-1.13.0) through the
+  program's Typesafe connector route, named by the
+  JEV_CALL environment variable; with the variable
+  unset, live judging is a named refusal at the
+  command line, never a silent skip. Tests use
+  fixtures and scripted transports only; no test
+  performs a network call. Test, tests/test_judge.py.
+- ST-18. The comparison carries a judgment section in
+  every case: the status (not consulted, judged,
+  abstained, unavailable), the reason where one
+  applies, and, when consulted, the card digest, the
+  model name, the choice, the confidence, the
+  per-label probabilities, and both scores. The
+  proposal field carries the terminal outcome: keep,
+  tune, revert, or abstain. Determinism (ST-11) is
+  unchanged for any fixed judge. Test,
+  tests/test_compare.py.
+- ST-19. Recorded judgments are fixtures of synthetic
+  cards only, each carrying the model name and the
+  three recorded responses. A fixture whose recorded
+  response is malformed is unavailable, never
+  repaired in flight. Test, tests/test_judge.py.
