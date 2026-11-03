@@ -6,8 +6,70 @@
 //! the control characters are escaped, as the encoder
 //! does.
 
-use flighttape::pyrepr::repr_float;
 use flighttape::value::{Text, Value};
+
+/// Python's float repr, which is also the JSON
+/// encoder's rendering: the shortest digits that
+/// round trip (Rust's own LowerExp formatting yields
+/// the same digit sequence), presented fixed inside
+/// the band -4 <= exp10 < 16 and scientifically
+/// outside it, with a signed two-digit exponent. The
+/// flighttape crate's repr_float derives its digits
+/// from the canonical ECMAScript form, whose fixed
+/// presentation pads the digit sequence with zeros;
+/// in the scientific band that padding is not
+/// Python's, so this module renders from the digits
+/// directly.
+pub fn py_float(value: f64) -> String {
+    if value.is_nan() {
+        return "nan".to_string();
+    }
+    if value.is_infinite() {
+        return if value > 0.0 {
+            "inf".to_string()
+        } else {
+            "-inf".to_string()
+        };
+    }
+    if value == 0.0 {
+        return if value.is_sign_negative() {
+            "-0.0".to_string()
+        } else {
+            "0.0".to_string()
+        };
+    }
+    let sign = if value < 0.0 { "-" } else { "" };
+    let rendered = format!("{:e}", value.abs());
+    let (mantissa, exponent) = rendered
+        .split_once('e')
+        .expect("LowerExp always carries an exponent");
+    let exp10: i64 = exponent.parse().expect("exponent is an integer");
+    let digits: String = mantissa.chars().filter(|ch| *ch != '.').collect();
+    let count = digits.len() as i64;
+    let point = exp10 + 1;
+    if !(-4..16).contains(&exp10) {
+        let mantissa = if count == 1 {
+            digits
+        } else {
+            format!("{}.{}", &digits[..1], &digits[1..])
+        };
+        return format!("{sign}{mantissa}e{exp10:+03}");
+    }
+    if point <= 0 {
+        format!("{sign}0.{}{digits}", "0".repeat((-point) as usize))
+    } else if count <= point {
+        format!(
+            "{sign}{digits}{}.0",
+            "0".repeat((point - count) as usize)
+        )
+    } else {
+        format!(
+            "{sign}{}.{}",
+            &digits[..point as usize],
+            &digits[point as usize..]
+        )
+    }
+}
 
 fn escape_string(text: &Text, out: &mut String) {
     out.push('"');
@@ -71,7 +133,7 @@ fn write_value(value: &Value, depth: usize, out: &mut String) {
                     "-Infinity"
                 });
             } else {
-                out.push_str(&repr_float(*number));
+                out.push_str(&py_float(*number));
             }
         }
         Value::Str(text) => escape_string(text, out),

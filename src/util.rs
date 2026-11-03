@@ -131,10 +131,19 @@ pub fn mean_int(sum: i128, n: i128) -> f64 {
     let b = n.unsigned_abs();
     let int_part = a / b;
     let mut rem = a % b;
-    // 54 fraction bits of rem/b by long division, with
+    // Carry the value to about 118 significant bits:
+    // the integer part plus enough fraction bits of
+    // rem/b by long division that the total always
+    // holds far more than the 53 the f64 keeps, with
     // the surviving remainder as the sticky bit.
+    let int_bits = if int_part > 0 {
+        128 - int_part.leading_zeros()
+    } else {
+        0
+    };
+    let fraction_bits = if int_bits > 0 { 118 - int_bits } else { 118 };
     let mut frac: u128 = 0;
-    for _ in 0..54 {
+    for _ in 0..fraction_bits {
         rem <<= 1;
         frac <<= 1;
         if rem >= b {
@@ -143,9 +152,8 @@ pub fn mean_int(sum: i128, n: i128) -> f64 {
         }
     }
     let sticky = rem != 0;
-    // The value is total / 2^54, total holding the
-    // integer part above the 54 fraction bits.
-    let total = (int_part << 54) | frac;
+    // The value is total / 2^fraction_bits.
+    let total = (int_part << fraction_bits) | frac;
     if total == 0 {
         return 0.0;
     }
@@ -158,16 +166,9 @@ pub fn mean_int(sum: i128, n: i128) -> f64 {
         0
     };
     let half = if drop > 0 { 1u128 << (drop - 1) } else { 0 };
-    let (over_half, tie) = if drop > 0 {
-        (tail > half || (tail == half && sticky), tail == half && !sticky)
-    } else {
-        // Nothing was dropped from total itself, but
-        // the value continues below it as rem/b of one
-        // total unit: round on that fraction instead.
-        let twice = rem * 2;
-        (twice > b, twice == b)
-    };
-    let mut exponent = drop as i32 - 54;
+    let over_half = tail > half || (tail == half && sticky);
+    let tie = tail == half && !sticky;
+    let mut exponent = drop as i32 - fraction_bits as i32;
     if over_half || (tie && head & 1 == 1) {
         head += 1;
         if head == (1u128 << 53) {

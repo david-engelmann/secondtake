@@ -144,7 +144,14 @@ fn parse_compare(tokens: &[String], top_extras: &[String]) -> ParseOutcome {
             continue;
         }
         if token == "--" {
+            // The first "--" always ends option parsing,
+            // but when both positionals are already
+            // filled argparse keeps the "--" itself
+            // among the unrecognized arguments.
             separated = true;
+            if before.is_some() && after.is_some() {
+                extras.push(token.clone());
+            }
             index += 1;
             continue;
         }
@@ -424,6 +431,12 @@ pub fn run_cli() -> i32 {
         .skip(1)
         .map(|arg| arg.to_string_lossy().into_owned())
         .collect();
+    run_with_args(tokens)
+}
+
+/// The CLI over explicit argument tokens, the shape
+/// the ported suite drives.
+pub fn run_with_args(tokens: Vec<String>) -> i32 {
     let parsed = match parse_top(&tokens) {
         ParseOutcome::Run(parsed) => parsed,
         ParseOutcome::Exit(code) => return code,

@@ -10,8 +10,9 @@ use std::time::{Duration, Instant};
 
 use flighttape::identity::tape_digest;
 use flighttape::json::{parse, ParseError};
-use flighttape::pyrepr::repr_float;
 use flighttape::value::{Text, Value};
+
+use crate::emit::py_float;
 
 use crate::compare::Registration;
 use crate::util::{int_is_negative, number_as_f64, obj, text};
@@ -72,7 +73,7 @@ pub fn num_text(value: &Value) -> String {
 pub fn value_text(value: &Value) -> String {
     match value {
         Value::Int(digits) => digits.clone(),
-        Value::Float(number) => repr_float(*number),
+        Value::Float(number) => py_float(*number),
         _ => unreachable!("sentences carry numbers only"),
     }
 }
@@ -342,6 +343,7 @@ pub fn judge_card(card: &str, transport: &dyn Transport) -> Result<Value, JudgeE
 
 /// Replays recorded responses, keyed by the card's
 /// digest (ST-17, ST-19).
+#[derive(Debug)]
 pub struct FixtureTransport {
     by_digest: HashMap<String, Value>,
 }
@@ -440,6 +442,7 @@ impl Transport for FixtureTransport {
 /// (ST-17). The Python ran the script with its own
 /// interpreter; the port resolves python3 on the PATH
 /// (named in the dossier).
+#[derive(Debug)]
 pub struct LiveTransport {
     script: String,
 }
