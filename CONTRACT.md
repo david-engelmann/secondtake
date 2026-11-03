@@ -227,3 +227,34 @@ numbers still own everything the outcome stands on.
   three recorded responses. A fixture whose recorded
   response is malformed is unavailable, never
   repaired in flight. Test, tests/test_judge.py.
+
+## Round 2 post-review amendments, recorded before the repairs
+
+- ST-13a. The registration's change and date are
+  single-line texts: a line break or control character
+  in either is a named refusal. The card is lines, and
+  the fields stated on it may not forge new ones. The
+  first implementation let a newline in the change
+  text write extra lines, and an instruction to the
+  judge, into the card the live judge reads. Test,
+  tests/test_compare.py.
+- ST-16a. Judge answers are validated for range as
+  well as shape: the confidence and every per-label
+  probability are finite numbers between 0 and 1, the
+  probability labels are exactly the four, their sum
+  is within 0.02 of 1, both scores are finite and
+  between 0 and 10, and every response names the
+  pinned model of ST-17. Anything else is malformed
+  and unavailable under ST-19. The first
+  implementation's shape checks passed a NaN
+  confidence, which is never below the floor, into a
+  judged outcome and out into the emitted document,
+  which then was not strict JSON. Test,
+  tests/test_judge.py.
+- ST-17a. A judgments file is validated whole when it
+  is loaded: every entry carries a card digest and a
+  responses object, no digest repeats, and a stored
+  card text digests to the digest it is filed under.
+  The command refuses to write its output over the
+  registration or the judgments file it reads. Test,
+  tests/test_judge.py and tests/test_compare.py.
