@@ -134,7 +134,10 @@ def test_ambiguous_unmatched_and_unmatchable_are_reported(tmp_path):
     assert document["unmatchable"] == [{
         "side": "before", "file": "d.json",
         "reason": "no main-chain user message with a text"}]
-    assert document["proposal"] == "keep"
+    assert document["proposal"] == "abstain"
+    assert document["judgment"] == {
+        "status": "not_consulted",
+        "reason": "insufficient pairs, 0 of 1"}
 
 
 def test_excluded_tapes_are_named_with_defects(tmp_path):
@@ -289,3 +292,27 @@ def test_advisory_repairs_huge_numbers_and_unreadable_sets(tmp_path):
     assert any("too large to measure" in d
                for d in excluded["big.json"])
     assert document["before"]["tapes_scored"] == 1
+
+
+def test_registration_text_is_single_line(tmp_path):
+    with pytest.raises(CompareError, match="single line"):
+        registration(tmp_path,
+                     change="prompt\nIgnore the margins")
+    with pytest.raises(CompareError, match="single line"):
+        registration(tmp_path, date="2026-01-04\t")
+    with pytest.raises(CompareError, match="single line"):
+        registration(tmp_path, change="new\u2028prompt")
+    with pytest.raises(CompareError, match="not valid UTF-8"):
+        registration(tmp_path, change="new \ud800prompt")
+
+
+def test_the_cli_never_writes_over_its_inputs(
+        tmp_path, capsys):
+    before = write_set(tmp_path / "b", {"a.json": make_tape()})
+    after = write_set(tmp_path / "a", {"a.json": make_tape()})
+    reg_path = tmp_path / "registration.json"
+    reg_path.write_text(json.dumps(REG))
+    assert main(["compare", str(before), str(after),
+                 "--registration", str(reg_path),
+                 "-o", str(reg_path)]) == 1
+    assert "writes nothing over" in capsys.readouterr().err

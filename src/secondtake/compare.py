@@ -1,4 +1,5 @@
-"""ST-5 to ST-9. The matched comparison."""
+"""ST-5 to ST-9, ST-13 to ST-18. The matched comparison
+and its judgment."""
 from __future__ import annotations
 
 import json
@@ -6,6 +7,8 @@ import math
 from pathlib import Path
 
 from .digest import DigestError, digest_of
+from .judge import (CONFIDENCE_FLOOR, JudgeError, build_card,
+                    judge_card)
 from .measures import MATCHING_RULE, tape_measures, task_key
 from .tapes import FAILED, load_tape_file, measure_shape_defects
 
@@ -13,10 +16,14 @@ DEFAULT_MARGINS = {"cost_pct": 10, "time_pct": 10,
                    "rework_per_pair": 1, "rescue_points": 5}
 
 PROPOSAL_RULE = (
-    "keep when no measure regresses past its margin, "
-    "tune when one does, revert when two or more do; "
-    "a measure with no usable pairs neither regresses "
-    "nor clears")
+    "abstain for insufficient evidence below the pair "
+    "floor; keep when no measure regresses past its "
+    "margin, revert when two or more do; in the "
+    "one-regression band a configured judge's choice "
+    "stands at confidence 0.6 or better, abstains below "
+    "it, and an unavailable judge leaves the tune "
+    "standing; a measure with no usable pairs neither "
+    "regresses nor clears")
 
 
 class CompareError(ValueError):
@@ -38,11 +45,22 @@ def load_registration(path: Path) -> dict:
     if not isinstance(data, dict):
         raise CompareError("the registration is not an object")
     change, date = data.get("change"), data.get("date")
-    if not isinstance(change, str) or not change:
-        raise CompareError(
-            "the registration names no setup change")
-    if not isinstance(date, str) or not date:
-        raise CompareError("the registration names no date")
+    for field, value in (("change", change), ("date", date)):
+        if not isinstance(value, str) or not value:
+            raise CompareError(
+                f"the registration names no {field}")
+        if any(ord(ch) < 32 or ord(ch) == 127
+               or ord(ch) in (0x85, 0x2028, 0x2029)
+               for ch in value):
+            raise CompareError(
+                f"the registration {field} is not a single "
+                f"line of text")
+        try:
+            value.encode("utf-8")
+        except UnicodeEncodeError:
+            raise CompareError(
+                f"the registration {field} is not valid "
+                f"UTF-8 text") from None
     margins = dict(DEFAULT_MARGINS)
     stated = data.get("margins")
     if stated is not None:
@@ -62,7 +80,14 @@ def load_registration(path: Path) -> dict:
                     f"the margin {key} is not a non-negative "
                     f"number")
             margins[key] = value
-    return {"change": change, "date": date, "margins": margins}
+    floor = data.get("min_pairs", 1)
+    if not isinstance(floor, int) or isinstance(floor, bool) \
+            or floor < 1:
+        raise CompareError(
+            f"the registration floor min_pairs is not a "
+            f"positive integer, {floor!r}")
+    return {"change": change, "date": date,
+            "margins": margins, "min_pairs": floor}
 
 
 def _load_set(directory: Path, side: str):
@@ -136,8 +161,53 @@ def _pair_measure(pairs, name):
     return before, after, len(counted)
 
 
+def _judge_outcome(registration, aggregates, regressions,
+                   proposal, pair_count, judge, counts):
+    """The terminal outcome and its judgment section
+    (ST-14 to ST-18). The deterministic proposal enters
+    and, in the band, a judged or abstained outcome may
+    replace it."""
+    judgment = {"status": "not_consulted",
+                "reason": "the deterministic rule is "
+                          "conclusive"}
+    floor = registration.get("min_pairs", 1)
+    if pair_count < floor:
+        return "abstain", {
+            "status": "not_consulted",
+            "reason": f"insufficient pairs, {pair_count} "
+                      f"of {floor}"}
+    if len(regressions) != 1:
+        return proposal, judgment
+    if judge is None:
+        return proposal, {"status": "not_consulted",
+                          "reason": "no judge configured"}
+    card = build_card(registration, aggregates,
+                      regressions, proposal, counts)
+    judgment = {"card_sha256": digest_of(card), "card": card}
+    try:
+        answers = judge_card(card, judge)
+    except JudgeError as exc:
+        judgment.update({"status": "unavailable",
+                         "reason": str(exc)})
+        return proposal, judgment
+    judgment.update(answers)
+    if answers["choice"] == "abstain":
+        judgment.update({"status": "abstained",
+                         "reason": "the judge abstained"})
+        return "abstain", judgment
+    if answers["confidence"] < CONFIDENCE_FLOOR:
+        judgment.update(
+            {"status": "abstained",
+             "reason": "the judge's confidence "
+                       f"{answers['confidence']} is below "
+                       f"{CONFIDENCE_FLOOR}"})
+        return "abstain", judgment
+    judgment["status"] = "judged"
+    return answers["choice"], judgment
+
+
 def compare(before_dir: Path, after_dir: Path,
-            registration: dict) -> dict:
+            registration: dict, judge=None) -> dict:
     before_tapes, before_excluded = _load_set(before_dir, "before")
     after_tapes, after_excluded = _load_set(after_dir, "after")
     before_by_key, before_unmatchable = _index(before_tapes)
@@ -214,6 +284,14 @@ def compare(before_dir: Path, after_dir: Path,
     aggregates["rescue"] = rescue
     proposal = ("revert" if len(regressions) >= 2 else
                 "tune" if regressions else "keep")
+    proposal, judgment = _judge_outcome(
+        registration, aggregates, regressions, proposal,
+        len(pairs), judge,
+        {"ambiguous": len(ambiguous),
+         "unmatched": (len(unmatched_before)
+                       + len(unmatched_after)),
+         "excluded": (len(before_excluded)
+                      + len(after_excluded))})
     return {
         "registration": registration,
         "matching_rule": MATCHING_RULE,
@@ -234,4 +312,5 @@ def compare(before_dir: Path, after_dir: Path,
             + [{"side": "after", **u} for u in after_unmatchable]),
         "regressions": regressions,
         "proposal": proposal,
+        "judgment": judgment,
     }
