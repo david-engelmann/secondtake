@@ -64,7 +64,10 @@ fn totals_int(tape: &Value, key: &str) -> Option<i128> {
 }
 
 pub fn tape_measures(tape: &Value) -> Measures {
-    let cost = match (totals_int(tape, "input_tokens"), totals_int(tape, "output_tokens")) {
+    let cost = match (
+        totals_int(tape, "input_tokens"),
+        totals_int(tape, "output_tokens"),
+    ) {
         (Some(inputs), Some(outputs)) => Some(inputs + outputs),
         _ => None,
     };

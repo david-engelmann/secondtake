@@ -58,10 +58,7 @@ pub fn py_float(value: f64) -> String {
     if point <= 0 {
         format!("{sign}0.{}{digits}", "0".repeat((-point) as usize))
     } else if count <= point {
-        format!(
-            "{sign}{digits}{}.0",
-            "0".repeat((point - count) as usize)
-        )
+        format!("{sign}{digits}{}.0", "0".repeat((point - count) as usize))
     } else {
         format!(
             "{sign}{}.{}",

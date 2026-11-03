@@ -61,9 +61,7 @@ pub fn redo_moments(tape: &Value) -> Vec<RedoMoment> {
             if matches!(event.get("is_error"), Some(Value::Bool(true))) {
                 if let Some(Value::Str(call_id)) = event.get("call_id") {
                     if let Some((key, seq)) = calls.get(call_id) {
-                        let entry = first_errored
-                            .entry(key.clone())
-                            .or_insert(*seq);
+                        let entry = first_errored.entry(key.clone()).or_insert(*seq);
                         if *seq < *entry {
                             *entry = *seq;
                         }

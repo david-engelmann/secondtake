@@ -154,10 +154,7 @@ pub fn build_card(
                 label,
                 entry,
                 "delta_pct",
-                format!(
-                    "percent against a margin of {} percent",
-                    num_text(margin)
-                ),
+                format!("percent against a margin of {} percent", num_text(margin)),
                 regressions.iter().any(|r| r == key),
             ));
         }
@@ -170,10 +167,7 @@ pub fn build_card(
             "Rework per pair",
             entry,
             "delta",
-            format!(
-                "against a margin of {} per pair",
-                num_text(&margins[2])
-            ),
+            format!("against a margin of {} per pair", num_text(&margins[2])),
             regressions.iter().any(|r| r == "rework"),
         ));
     }
@@ -182,8 +176,8 @@ pub fn build_card(
     let after_rate = entry_f64(rescue, "after_rate");
     match (before_rate, after_rate) {
         (Some(before), Some(after)) => {
-            let delta = entry_f64(rescue, "delta_points")
-                .expect("rates on both sides carry a delta");
+            let delta =
+                entry_f64(rescue, "delta_points").expect("rates on both sides carry a delta");
             let regressed = regressions.iter().any(|r| r == "rescue rate");
             let verdict = if regressed {
                 "regressed"
@@ -197,20 +191,15 @@ pub fn build_card(
                  after {} percent over {}, change {} points against a margin of \
                  {} points down: {verdict}.",
                 num_text(&Value::Float(before)),
-                entry_f64(rescue, "before_denominator")
-                    .expect("denominator") as i128,
+                entry_f64(rescue, "before_denominator").expect("denominator") as i128,
                 num_text(&Value::Float(after)),
-                entry_f64(rescue, "after_denominator")
-                    .expect("denominator") as i128,
+                entry_f64(rescue, "after_denominator").expect("denominator") as i128,
                 num_text(&Value::Float(delta)),
                 num_text(&margins[3]),
             ));
         }
         _ => {
-            lines.push(
-                "Rescue rate: unmeasured, a side holds no pair with an error."
-                    .to_string(),
-            );
+            lines.push("Rescue rate: unmeasured, a side holds no pair with an error.".to_string());
         }
     }
     lines.push(format!(
@@ -247,9 +236,7 @@ fn answer_decision(response: &Value) -> Result<Value, JudgeError> {
 
 fn bounded(value: Option<&Value>, low: f64, high: f64) -> bool {
     match value.and_then(number_as_f64) {
-        Some(number) => {
-            number.is_finite() && number >= low && number <= high
-        }
+        Some(number) => number.is_finite() && number >= low && number <= high,
         None => false,
     }
 }
@@ -287,14 +274,14 @@ pub fn judge_card(card: &str, transport: &dyn Transport) -> Result<Value, JudgeE
             let entries = probabilities.as_object().expect("checked object");
             let keys_match = entries.len() == LABELS.len()
                 && LABELS.iter().all(|label| {
-                    entries.iter().any(|(key, _)| {
-                        key.as_str().as_deref() == Some(label)
-                    })
+                    entries
+                        .iter()
+                        .any(|(key, _)| key.as_str().as_deref() == Some(label))
                 });
             keys_match
-                && LABELS.iter().all(|label| {
-                    bounded(probabilities.get(label), 0.0, 1.0)
-                })
+                && LABELS
+                    .iter()
+                    .all(|label| bounded(probabilities.get(label), 0.0, 1.0))
                 && {
                     let sum: f64 = entries
                         .iter()
@@ -322,7 +309,10 @@ pub fn judge_card(card: &str, transport: &dyn Transport) -> Result<Value, JudgeE
         }
         scores.push((
             kind.to_string(),
-            decision.get("score").expect("a bounded score exists").clone(),
+            decision
+                .get("score")
+                .expect("a bounded score exists")
+                .clone(),
         ));
     }
     Ok(obj(vec![
@@ -378,9 +368,7 @@ impl FixtureTransport {
         let mut by_digest: HashMap<String, Value> = HashMap::new();
         for entry in &cards {
             let (digest, responses) = match (entry.get("card_sha256"), entry.get("responses")) {
-                (Some(Value::Str(digest)), Some(responses))
-                    if responses.as_object().is_some() =>
-                {
+                (Some(Value::Str(digest)), Some(responses)) if responses.as_object().is_some() => {
                     (digest, responses.clone())
                 }
                 _ => {
@@ -402,9 +390,7 @@ impl FixtureTransport {
             }
             if let Some(card) = entry.get("card") {
                 let digests = match card {
-                    Value::Str(card_text) => {
-                        tape_digest(&Value::Str(card_text.clone())).ok()
-                    }
+                    Value::Str(card_text) => tape_digest(&Value::Str(card_text.clone())).ok(),
                     _ => None,
                 };
                 if digests.as_deref() != Some(digest.as_str()) {
@@ -426,9 +412,7 @@ impl Transport for FixtureTransport {
         let responses = match self.by_digest.get(&digest) {
             Some(responses) => responses,
             None => {
-                return Err(err(
-                    "the card is not recorded in the judgments file",
-                ));
+                return Err(err("the card is not recorded in the judgments file"));
             }
         };
         match responses.get(kind) {

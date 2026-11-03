@@ -91,10 +91,7 @@ fn make_tape(opts: &TapeOpts) -> Value {
             ("kind", text("tool_result")),
             ("sidechain", Value::Bool(false)),
             ("call_id", text(&call_id)),
-            (
-                "is_error",
-                Value::Bool(opts.error && index == 0),
-            ),
+            ("is_error", Value::Bool(opts.error && index == 0)),
             ("timestamp", text(&stamp(3 + 2 * index as i64))),
         ]));
         seq += 1;
@@ -105,10 +102,8 @@ fn make_tape(opts: &TapeOpts) -> Value {
         ("sidechain", Value::Bool(false)),
         ("timestamp", text(&stamp(opts.seconds))),
     ]));
-    let mut run: Vec<(&str, Value)> = vec![
-        ("harness", text("synthetic")),
-        ("session_id", text("s-1")),
-    ];
+    let mut run: Vec<(&str, Value)> =
+        vec![("harness", text("synthetic")), ("session_id", text("s-1"))];
     if let Some((input, output)) = opts.tokens {
         run.push((
             "totals",
@@ -127,11 +122,7 @@ fn make_tape(opts: &TapeOpts) -> Value {
 }
 
 fn temp_root(tag: &str) -> PathBuf {
-    let root = std::env::temp_dir().join(format!(
-        "secondtake-test-{}-{}",
-        std::process::id(),
-        tag
-    ));
+    let root = std::env::temp_dir().join(format!("secondtake-test-{}-{}", std::process::id(), tag));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(&root).expect("temp root");
     root
@@ -150,9 +141,7 @@ fn registration(root: &Path, extra: &str) -> Registration {
     let merged = if extra.is_empty() {
         "{\"change\": \"new system prompt\", \"date\": \"2026-01-04\"}".to_string()
     } else {
-        format!(
-            "{{\"change\": \"new system prompt\", \"date\": \"2026-01-04\", {extra}}}"
-        )
+        format!("{{\"change\": \"new system prompt\", \"date\": \"2026-01-04\", {extra}}}")
     };
     std::fs::write(&path, merged).expect("registration file");
     load_registration(&path, path.to_str().expect("utf8 path")).expect("registration loads")
@@ -191,8 +180,7 @@ fn as_f64(value: &Value) -> f64 {
 
 #[test]
 fn the_digest_is_pinned_to_the_family_golden() {
-    let fixture = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("tests/fixtures/tape_synthetic.json");
+    let fixture = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/tape_synthetic.json");
     let tape = parse(&std::fs::read_to_string(fixture).expect("fixture")).expect("parses");
     assert_eq!(tape_digest(&tape).expect("digests"), GOLDEN);
 }
@@ -269,15 +257,21 @@ fn rework_regresses_past_one_per_pair() {
     let reg = registration(&root, "");
     let document = run_compare(
         &root,
-        &[("a.json", make_tape(&TapeOpts {
-            error: true,
-            ..Default::default()
-        }))],
-        &[("a.json", make_tape(&TapeOpts {
-            error: true,
-            redos: 2,
-            ..Default::default()
-        }))],
+        &[(
+            "a.json",
+            make_tape(&TapeOpts {
+                error: true,
+                ..Default::default()
+            }),
+        )],
+        &[(
+            "a.json",
+            make_tape(&TapeOpts {
+                error: true,
+                redos: 2,
+                ..Default::default()
+            }),
+        )],
         &reg,
     );
     let pair = &get(&document, "pairs").as_array().unwrap()[0];
@@ -302,21 +296,30 @@ fn ambiguous_unmatched_and_unmatchable_are_reported() {
         &[
             ("a.json", make_tape(&same)),
             ("b.json", make_tape(&same)),
-            ("c.json", make_tape(&TapeOpts {
-                task: "Only before",
-                ..Default::default()
-            })),
-            ("d.json", make_tape(&TapeOpts {
-                user: false,
-                ..Default::default()
-            })),
+            (
+                "c.json",
+                make_tape(&TapeOpts {
+                    task: "Only before",
+                    ..Default::default()
+                }),
+            ),
+            (
+                "d.json",
+                make_tape(&TapeOpts {
+                    user: false,
+                    ..Default::default()
+                }),
+            ),
         ],
         &[
             ("a.json", make_tape(&same)),
-            ("z.json", make_tape(&TapeOpts {
-                task: "Only after",
-                ..Default::default()
-            })),
+            (
+                "z.json",
+                make_tape(&TapeOpts {
+                    task: "Only after",
+                    ..Default::default()
+                }),
+            ),
         ],
         &reg,
     );
@@ -379,9 +382,7 @@ fn excluded_tapes_are_named_with_defects() {
         .unwrap();
     assert_eq!(get(&excluded[0], "file"), &text("bad.json"));
     let defects = get(&excluded[0], "defects").as_array().unwrap();
-    assert!(defects
-        .iter()
-        .any(|d| st(d) == "tape_version is not 1.0"));
+    assert!(defects.iter().any(|d| st(d) == "tape_version is not 1.0"));
     assert_eq!(get(get(&document, "before"), "tapes_read"), &int("2"));
     assert_eq!(get(get(&document, "before"), "tapes_scored"), &int("1"));
 }
@@ -392,10 +393,13 @@ fn absent_cost_is_unmeasured_not_zero() {
     let reg = registration(&root, "");
     let document = run_compare(
         &root,
-        &[("a.json", make_tape(&TapeOpts {
-            tokens: None,
-            ..Default::default()
-        }))],
+        &[(
+            "a.json",
+            make_tape(&TapeOpts {
+                tokens: None,
+                ..Default::default()
+            }),
+        )],
         &[("a.json", make_tape(&TapeOpts::default()))],
         &reg,
     );
@@ -412,10 +416,13 @@ fn margins_come_from_the_registration() {
     let document = run_compare(
         &root,
         &[("a.json", make_tape(&TapeOpts::default()))],
-        &[("a.json", make_tape(&TapeOpts {
-            tokens: Some((130, 50)),
-            ..Default::default()
-        }))],
+        &[(
+            "a.json",
+            make_tape(&TapeOpts {
+                tokens: Some((130, 50)),
+                ..Default::default()
+            }),
+        )],
         &reg,
     );
     assert_eq!(get(&document, "regressions"), &Value::Array(vec![]));
@@ -434,15 +441,7 @@ fn the_comparison_is_deterministic() {
     };
     let before_dir = write_set(&root.join("b"), &[("a.json", make_tape(&errored))]);
     let after_dir = write_set(&root.join("a"), &[("a.json", make_tape(&errored))]);
-    let first = compare(
-        &before_dir,
-        "b",
-        &after_dir,
-        "a",
-        &reg,
-        None,
-    )
-    .unwrap();
+    let first = compare(&before_dir, "b", &after_dir, "a", &reg, None).unwrap();
     let second = compare(&before_dir, "b", &after_dir, "a", &reg, None).unwrap();
     assert_eq!(dumps_document(&first), dumps_document(&second));
 }
@@ -451,13 +450,19 @@ fn the_comparison_is_deterministic() {
 fn registration_refusals() {
     let root = temp_root("refusals");
     let missing = root.join("missing.json");
-    let error = load_registration(&missing, missing.to_str().unwrap())
-        .expect_err("missing refuses");
-    assert!(matches!(&error, CompareError(m) if m.contains("no registration")), "{error}");
+    let error =
+        load_registration(&missing, missing.to_str().unwrap()).expect_err("missing refuses");
+    assert!(
+        matches!(&error, CompareError(m) if m.contains("no registration")),
+        "{error}"
+    );
     let bad = root.join("bad.json");
     std::fs::write(&bad, "{not json").unwrap();
     let error = load_registration(&bad, "bad").expect_err("bad json refuses");
-    assert!(matches!(&error, CompareError(m) if m.contains("not valid JSON")), "{error}");
+    assert!(
+        matches!(&error, CompareError(m) if m.contains("not valid JSON")),
+        "{error}"
+    );
     let unknown = root.join("unknown.json");
     std::fs::write(
         &unknown,
@@ -465,14 +470,23 @@ fn registration_refusals() {
     )
     .unwrap();
     let error = load_registration(&unknown, "unknown").expect_err("unknown margin refuses");
-    assert!(matches!(&error, CompareError(m) if m.contains("unknown margin")), "{error}");
+    assert!(
+        matches!(&error, CompareError(m) if m.contains("unknown margin")),
+        "{error}"
+    );
 }
 
 #[test]
 fn the_cli_and_its_write_guard() {
     let root = temp_root("cli-guard");
-    let before_dir = write_set(&root.join("b"), &[("a.json", make_tape(&TapeOpts::default()))]);
-    let after_dir = write_set(&root.join("a"), &[("a.json", make_tape(&TapeOpts::default()))]);
+    let before_dir = write_set(
+        &root.join("b"),
+        &[("a.json", make_tape(&TapeOpts::default()))],
+    );
+    let after_dir = write_set(
+        &root.join("a"),
+        &[("a.json", make_tape(&TapeOpts::default()))],
+    );
     let reg_path = root.join("registration.json");
     std::fs::write(
         &reg_path,
@@ -516,12 +530,11 @@ fn the_cli_and_its_write_guard() {
 
 #[test]
 fn the_fixture_tape_keys_by_its_real_text() {
-    let fixture = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("tests/fixtures/tape_synthetic.json");
+    let fixture = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/tape_synthetic.json");
     let tape = parse(&std::fs::read_to_string(fixture).unwrap()).unwrap();
     let key = secondtake::measures::task_key(&tape).expect("keys");
-    let expected = tape_digest(&text("Synthetic prompt, fix the widget counter."))
-        .expect("digests");
+    let expected =
+        tape_digest(&text("Synthetic prompt, fix the widget counter.")).expect("digests");
     assert_eq!(key, expected);
 }
 
@@ -530,13 +543,9 @@ fn cache_tokens_are_not_cost() {
     let root = temp_root("cache");
     let reg = registration(&root, "");
     let mut rich = make_tape(&TapeOpts::default());
-    if let Some(totals) = rich
-        .get_mut("run")
-        .and_then(|run| run.get_mut("totals"))
+    if let Some(Value::Object(entries)) = rich.get_mut("run").and_then(|run| run.get_mut("totals"))
     {
-        if let Value::Object(entries) = totals {
-            entries.push((Text::from_str("cache_read_input_tokens"), int("999999")));
-        }
+        entries.push((Text::from_str("cache_read_input_tokens"), int("999999")));
     }
     let document = run_compare(
         &root,
@@ -571,10 +580,13 @@ fn time_regresses_and_naive_stamps_read_as_utc() {
     let document = run_compare(
         &root,
         &[("a.json", make_tape(&TapeOpts::default()))],
-        &[("a.json", make_tape(&TapeOpts {
-            seconds: 600,
-            ..Default::default()
-        }))],
+        &[(
+            "a.json",
+            make_tape(&TapeOpts {
+                seconds: 600,
+                ..Default::default()
+            }),
+        )],
         &reg,
     );
     assert_eq!(
@@ -586,7 +598,10 @@ fn time_regresses_and_naive_stamps_read_as_utc() {
     let mut mixed = make_tape(&TapeOpts::default());
     if let Some(Value::Array(events)) = mixed.get_mut("events") {
         let last = events.len() - 1;
-        for (index, stamp) in [(0usize, "2026-01-05T09:00:00"), (last, "2026-01-05T09:01:00")] {
+        for (index, stamp) in [
+            (0usize, "2026-01-05T09:00:00"),
+            (last, "2026-01-05T09:01:00"),
+        ] {
             if let Some(Value::Object(fields)) = events.get_mut(index) {
                 for (key, value) in fields.iter_mut() {
                     if key.as_str().as_deref() == Some("timestamp") {
@@ -600,17 +615,17 @@ fn time_regresses_and_naive_stamps_read_as_utc() {
     let document = run_compare(
         &root2,
         &[("a.json", mixed)],
-        &[("a.json", make_tape(&TapeOpts {
-            seconds: 600,
-            ..Default::default()
-        }))],
+        &[(
+            "a.json",
+            make_tape(&TapeOpts {
+                seconds: 600,
+                ..Default::default()
+            }),
+        )],
         &reg,
     );
     let pair = &get(&document, "pairs").as_array().unwrap()[0];
-    assert_eq!(
-        as_f64(get(get(pair, "before"), "time_seconds")),
-        60.0
-    );
+    assert_eq!(as_f64(get(get(pair, "before"), "time_seconds")), 60.0);
 }
 
 #[test]
@@ -618,15 +633,13 @@ fn measure_shape_defects_exclude_the_tape() {
     let root = temp_root("shape");
     let reg = registration(&root, "");
     let mut negative = make_tape(&TapeOpts::default());
-    if let Some(totals) = negative
+    if let Some(Value::Object(entries)) = negative
         .get_mut("run")
         .and_then(|run| run.get_mut("totals"))
     {
-        if let Value::Object(entries) = totals {
-            for (key, value) in entries.iter_mut() {
-                if key.as_str().as_deref() == Some("input_tokens") {
-                    *value = int("-5");
-                }
+        for (key, value) in entries.iter_mut() {
+            if key.as_str().as_deref() == Some("input_tokens") {
+                *value = int("-5");
             }
         }
     }
@@ -660,7 +673,7 @@ fn measure_shape_defects_exclude_the_tape() {
                     .as_array()
                     .unwrap()
                     .iter()
-                    .map(|d| st(d))
+                    .map(st)
                     .collect()
             })
             .unwrap_or_default()
@@ -668,7 +681,10 @@ fn measure_shape_defects_exclude_the_tape() {
     assert!(defects_of("neg.json")
         .iter()
         .any(|d| d.contains("non-negative")));
-    assert_eq!(defects_of("bare.json"), vec!["outcome is not an object".to_string()]);
+    assert_eq!(
+        defects_of("bare.json"),
+        vec!["outcome is not an object".to_string()]
+    );
     assert_eq!(get(get(&document, "before"), "tapes_scored"), &int("1"));
 }
 
@@ -686,21 +702,17 @@ fn advisory_repairs_huge_numbers_and_unreadable_sets() {
     .unwrap();
     let reg = load_registration(&huge, "huge").expect("huge margin loads");
     assert_eq!(
-        get(&reg.to_value(), "margins")
-            .get("cost_pct")
-            .map(|v| v.clone()),
+        get(&reg.to_value(), "margins").get("cost_pct").cloned(),
         Some(int(&big_margin))
     );
     let mut oversized = make_tape(&TapeOpts::default());
-    if let Some(totals) = oversized
+    if let Some(Value::Object(entries)) = oversized
         .get_mut("run")
         .and_then(|run| run.get_mut("totals"))
     {
-        if let Value::Object(entries) = totals {
-            for (key, value) in entries.iter_mut() {
-                if key.as_str().as_deref() == Some("input_tokens") {
-                    *value = int(&big_margin);
-                }
+        for (key, value) in entries.iter_mut() {
+            if key.as_str().as_deref() == Some("input_tokens") {
+                *value = int(&big_margin);
             }
         }
     }
@@ -763,8 +775,14 @@ fn registration_text_is_single_line() {
 #[test]
 fn the_cli_never_writes_over_its_inputs() {
     let root = temp_root("cli-over");
-    let before_dir = write_set(&root.join("b"), &[("a.json", make_tape(&TapeOpts::default()))]);
-    let after_dir = write_set(&root.join("a"), &[("a.json", make_tape(&TapeOpts::default()))]);
+    let before_dir = write_set(
+        &root.join("b"),
+        &[("a.json", make_tape(&TapeOpts::default()))],
+    );
+    let after_dir = write_set(
+        &root.join("a"),
+        &[("a.json", make_tape(&TapeOpts::default()))],
+    );
     let reg_path = root.join("registration.json");
     std::fs::write(
         &reg_path,

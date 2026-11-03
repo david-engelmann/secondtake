@@ -15,8 +15,7 @@ use flighttape::value::Value;
 use secondtake::compare::{compare, load_registration, Registration};
 use secondtake::emit::dumps_document;
 use secondtake::judge::{
-    build_card, judge_card, CardCounts, FixtureTransport, JudgeError, LiveTransport,
-    Transport,
+    build_card, judge_card, CardCounts, FixtureTransport, JudgeError, LiveTransport, Transport,
 };
 use secondtake::util::{obj, text};
 
@@ -84,11 +83,8 @@ fn make_tape(tokens: (i64, i64), error: bool, outcome: &str) -> Value {
 }
 
 fn temp_root(tag: &str) -> PathBuf {
-    let root = std::env::temp_dir().join(format!(
-        "secondtake-judge-{}-{}",
-        std::process::id(),
-        tag
-    ));
+    let root =
+        std::env::temp_dir().join(format!("secondtake-judge-{}-{}", std::process::id(), tag));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(&root).expect("temp root");
     root
@@ -170,8 +166,9 @@ fn score_response(score: f64) -> Value {
     let legend: Vec<(String, Value)> = (0..10)
         .map(|i| (i.to_string(), text(&format!("Level {}", i + 1))))
         .collect();
-    let probabilities: Vec<(String, Value)> =
-        (0..10).map(|i| (i.to_string(), Value::Float(0.1))).collect();
+    let probabilities: Vec<(String, Value)> = (0..10)
+        .map(|i| (i.to_string(), Value::Float(0.1)))
+        .collect();
     let pairs = |items: Vec<(String, Value)>| -> Value {
         Value::Object(
             items
@@ -222,11 +219,7 @@ impl Scripted {
 impl Transport for Scripted {
     fn ask(&self, _card: &str, kind: &str) -> Result<Value, JudgeError> {
         self.calls.borrow_mut().push(kind.to_string());
-        Ok(self
-            .responses
-            .get(kind)
-            .expect("scripted kind")
-            .clone())
+        Ok(self.responses.get(kind).expect("scripted kind").clone())
     }
 }
 
@@ -254,12 +247,7 @@ fn judged(choice: &str, confidence: f64) -> Scripted {
     ]))
 }
 
-fn run(
-    before: &Path,
-    after: &Path,
-    reg: &Registration,
-    judge: &dyn Transport,
-) -> Value {
+fn run(before: &Path, after: &Path, reg: &Registration, judge: &dyn Transport) -> Value {
     compare(
         before,
         before.to_str().unwrap(),
@@ -290,10 +278,7 @@ fn the_card_is_the_stated_text() {
     let document = run(&before, &after, &reg, &judged("revert", 0.9));
     assert_eq!(st(get(get(&document, "judgment"), "card")), CARD);
     let expected = tape_digest(&text(CARD)).expect("digests");
-    assert_eq!(
-        st(get(get(&document, "judgment"), "card_sha256")),
-        expected
-    );
+    assert_eq!(st(get(get(&document, "judgment"), "card_sha256")), expected);
 }
 
 #[test]
@@ -398,16 +383,11 @@ fn the_floor_refuses_bad_registrations() {
         let path = root.join("registration.json");
         std::fs::write(
             &path,
-            format!(
-                "{{\"change\": \"new system prompt\", \"date\": \"2026-01-04\", {extra}}}"
-            ),
+            format!("{{\"change\": \"new system prompt\", \"date\": \"2026-01-04\", {extra}}}"),
         )
         .unwrap();
         let error = load_registration(&path, "registration").expect_err("refuses");
-        assert!(
-            error.0.contains("min_pairs"),
-            "{error}"
-        );
+        assert!(error.0.contains("min_pairs"), "{error}");
     }
 }
 
@@ -478,7 +458,10 @@ fn the_fixture_transport_replays_by_digest() {
     let answers = judge_card(CARD, &transport).unwrap();
     assert_eq!(st(get(&answers, "choice")), "keep");
     assert_eq!(get(&answers, "severity"), &secondtake::util::int("3"));
-    assert_eq!(get(&answers, "match_confidence"), &secondtake::util::int("9"));
+    assert_eq!(
+        get(&answers, "match_confidence"),
+        &secondtake::util::int("9")
+    );
     let error = judge_card(&format!("{CARD}\n"), &transport).expect_err("not recorded");
     assert!(error.0.contains("not recorded"), "{error}");
     let broken = root.join("broken.json");
@@ -497,8 +480,8 @@ fn dumps_value(value: &Value) -> String {
 
 #[test]
 fn the_shipped_fixtures_replay() {
-    let shipped = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("tests/fixtures/judgments_synthetic.json");
+    let shipped =
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/judgments_synthetic.json");
     let data = parse(&std::fs::read_to_string(&shipped).unwrap()).unwrap();
     assert_eq!(st(get(&data, "model")), "jev-1.13.0");
     let cards = get(&data, "cards").as_array().unwrap();
@@ -623,10 +606,7 @@ fn a_nan_fixture_leaves_the_tune_and_stays_json() {
     let transport = FixtureTransport::load(&path, "judgments").unwrap();
     let document = run(&before, &after, &reg, &transport);
     assert_eq!(st(get(&document, "proposal")), "tune");
-    assert_eq!(
-        st(get(get(&document, "judgment"), "status")),
-        "unavailable"
-    );
+    assert_eq!(st(get(get(&document, "judgment"), "status")), "unavailable");
     // The emitted document is strict JSON (the
     // Python asserts json.dumps with allow_nan=False):
     // its text carries no NaN or Infinity token.
@@ -642,16 +622,10 @@ fn the_confidence_boundary_is_exact() {
     let (before, after) = band(&root);
     let document = run(&before, &after, &reg, &judged("keep", 0.6));
     assert_eq!(st(get(&document, "proposal")), "keep");
-    assert_eq!(
-        st(get(get(&document, "judgment"), "status")),
-        "judged"
-    );
+    assert_eq!(st(get(get(&document, "judgment"), "status")), "judged");
     let document = run(&before, &after, &reg, &judged("keep", 0.59));
     assert_eq!(st(get(&document, "proposal")), "abstain");
-    assert_eq!(
-        st(get(get(&document, "judgment"), "status")),
-        "abstained"
-    );
+    assert_eq!(st(get(get(&document, "judgment"), "status")), "abstained");
 }
 
 #[test]

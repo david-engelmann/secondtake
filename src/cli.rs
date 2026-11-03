@@ -47,8 +47,7 @@ fn option_shaped(token: &str) -> bool {
     let negative_number = {
         let mut chars = rest.chars();
         matches!(chars.next(), Some(c) if c.is_ascii_digit())
-            || (rest.starts_with('.')
-                && matches!(chars.next(), Some(c) if c.is_ascii_digit()))
+            || (rest.starts_with('.') && matches!(chars.next(), Some(c) if c.is_ascii_digit()))
     };
     !negative_number
 }
@@ -124,9 +123,9 @@ fn parse_compare(tokens: &[String], top_extras: &[String]) -> ParseOutcome {
     let mut index = 0usize;
 
     let push_positional = |token: &str,
-                               before: &mut Option<String>,
-                               after: &mut Option<String>,
-                               extras: &mut Vec<String>| {
+                           before: &mut Option<String>,
+                           after: &mut Option<String>,
+                           extras: &mut Vec<String>| {
         if before.is_none() {
             *before = Some(token.to_string());
         } else if after.is_none() {
@@ -176,16 +175,14 @@ fn parse_compare(tokens: &[String], top_extras: &[String]) -> ParseOutcome {
                 continue;
             }
             match match_long(name) {
-                Some(canonical) => {
-                    match take_value(tokens, &mut index, glued, canonical) {
-                        Ok(value) => match canonical {
-                            "--registration" => registration = Some(value),
-                            "--judge" => judge = Some(value),
-                            _ => output = Some(value),
-                        },
-                        Err(outcome) => return outcome,
-                    }
-                }
+                Some(canonical) => match take_value(tokens, &mut index, glued, canonical) {
+                    Ok(value) => match canonical {
+                        "--registration" => registration = Some(value),
+                        "--judge" => judge = Some(value),
+                        _ => output = Some(value),
+                    },
+                    Err(outcome) => return outcome,
+                },
                 None => extras.push(token.clone()),
             }
             index += 1;
@@ -415,7 +412,10 @@ fn emit(document: &flighttape::value::Value, out: Option<&str>) -> i32 {
         None => {
             let stdout = std::io::stdout();
             let mut handle = stdout.lock();
-            match handle.write_all(text.as_bytes()).and_then(|_| handle.flush()) {
+            match handle
+                .write_all(text.as_bytes())
+                .and_then(|_| handle.flush())
+            {
                 Ok(()) => 0,
                 Err(_) => {
                     eprintln!("error, cannot write to stdout");
@@ -441,13 +441,14 @@ pub fn run_with_args(tokens: Vec<String>) -> i32 {
         ParseOutcome::Run(parsed) => parsed,
         ParseOutcome::Exit(code) => return code,
     };
-    let registration = match load_registration(Path::new(&parsed.registration), &parsed.registration) {
-        Ok(registration) => registration,
-        Err(error) => {
-            eprintln!("error, {error}");
-            return 1;
-        }
-    };
+    let registration =
+        match load_registration(Path::new(&parsed.registration), &parsed.registration) {
+            Ok(registration) => registration,
+            Err(error) => {
+                eprintln!("error, {error}");
+                return 1;
+            }
+        };
     if let Some(out) = &parsed.output {
         let target = resolve_path(Path::new(out));
         for directory in [&parsed.before, &parsed.after] {
@@ -463,7 +464,10 @@ pub fn run_with_args(tokens: Vec<String>) -> i32 {
                 stated.push(judge);
             }
         }
-        if stated.iter().any(|path| target == resolve_path(Path::new(path))) {
+        if stated
+            .iter()
+            .any(|path| target == resolve_path(Path::new(path)))
+        {
             eprintln!("error, secondtake writes nothing over the files it reads");
             return 1;
         }

@@ -15,11 +15,13 @@ options:
   -h, --help  show this help message and exit
 ";
 
-pub const COMPARE_USAGE: &str = "usage: secondtake compare [-h] --registration REGISTRATION [--judge JUDGE]
+pub const COMPARE_USAGE: &str =
+    "usage: secondtake compare [-h] --registration REGISTRATION [--judge JUDGE]
                           [-o OUTPUT]
                           before after";
 
-pub const COMPARE_HELP: &str = "usage: secondtake compare [-h] --registration REGISTRATION [--judge JUDGE]
+pub const COMPARE_HELP: &str =
+    "usage: secondtake compare [-h] --registration REGISTRATION [--judge JUDGE]
                           [-o OUTPUT]
                           before after
 

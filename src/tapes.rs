@@ -39,7 +39,10 @@ pub const OUTCOME_STATUSES: [&str; 4] = ["completed", "failed", "aborted", "unkn
 /// the exclusion record's reason and defects.
 pub enum LoadOutcome {
     Tape(Value),
-    Failed { reason: String, defects: Vec<String> },
+    Failed {
+        reason: String,
+        defects: Vec<String>,
+    },
 }
 
 fn failed(reason: &str) -> LoadOutcome {
@@ -61,9 +64,7 @@ pub fn load_tape_file(path: &Path) -> LoadOutcome {
     };
     let tape = match parse(&text) {
         Ok(tape) => tape,
-        Err(ParseError::TooLarge) => {
-            return failed("the file holds a number too large to read")
-        }
+        Err(ParseError::TooLarge) => return failed("the file holds a number too large to read"),
         Err(ParseError::Invalid) => return failed("the file is not valid JSON"),
     };
     let defects = tape_defects(&tape);
@@ -76,7 +77,7 @@ pub fn load_tape_file(path: &Path) -> LoadOutcome {
     LoadOutcome::Tape(tape)
 }
 
-fn str_field<'a>(value: &'a Value, key: &str) -> Option<String> {
+fn str_field(value: &Value, key: &str) -> Option<String> {
     match value.get(key) {
         Some(Value::Str(text)) => text.as_str(),
         _ => None,
@@ -144,9 +145,7 @@ pub fn tape_defects(tape: &Value) -> Vec<String> {
                     }
                 }
                 _ => {
-                    defects.push(format!(
-                        "{where_}.call_id must be a non-empty string"
-                    ));
+                    defects.push(format!("{where_}.call_id must be a non-empty string"));
                 }
             }
         }
@@ -205,9 +204,8 @@ pub fn measure_shape_defects(tape: &Value) -> Vec<String> {
                                     "1000000000000000000",
                                 ) == std::cmp::Ordering::Greater
                                 {
-                                    defects.push(format!(
-                                        "run.totals.{key} is too large to measure"
-                                    ));
+                                    defects
+                                        .push(format!("run.totals.{key} is too large to measure"));
                                 }
                             }
                             _ => {
@@ -227,9 +225,7 @@ pub fn measure_shape_defects(tape: &Value) -> Vec<String> {
             Some(_) => {
                 let status = str_field(outcome, "status");
                 if !matches!(status.as_deref(), Some(s) if OUTCOME_STATUSES.contains(&s)) {
-                    defects.push(
-                        "outcome.status is not in the format enum".to_string(),
-                    );
+                    defects.push("outcome.status is not in the format enum".to_string());
                 }
             }
         }

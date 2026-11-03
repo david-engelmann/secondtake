@@ -10,14 +10,12 @@ use flighttape::pyrepr::repr_value;
 use flighttape::value::{Text, Value};
 
 use crate::judge::{
-    build_card, confidence_below_floor, judge_card, value_text, CardCounts, JudgeError,
-    Transport,
+    build_card, confidence_below_floor, judge_card, value_text, CardCounts, JudgeError, Transport,
 };
 use crate::measures::{tape_measures, task_key, Measures, MATCHING_RULE};
 use crate::tapes::{load_tape_file, measure_shape_defects, LoadOutcome};
 use crate::util::{
-    f64_gt_nonneg_int, int, int_eq_usize, int_is_negative, int_usize, is_number, obj,
-    text,
+    f64_gt_nonneg_int, int, int_eq_usize, int_is_negative, int_usize, is_number, obj, text,
 };
 
 pub const PROPOSAL_RULE: &str = "abstain for insufficient evidence below the pair \
@@ -155,12 +153,9 @@ pub fn load_registration(path: &Path, display: &str) -> Result<Registration, Com
         }
     };
     let data = (|| -> Result<Value, CompareError> {
-        let text_in = String::from_utf8(raw).map_err(|_| {
-            err(format!("the registration at {display} is not valid JSON"))
-        })?;
-        parse(&text_in).map_err(|_| {
-            err(format!("the registration at {display} is not valid JSON"))
-        })
+        let text_in = String::from_utf8(raw)
+            .map_err(|_| err(format!("the registration at {display} is not valid JSON")))?;
+        parse(&text_in).map_err(|_| err(format!("the registration at {display} is not valid JSON")))
     })();
     let data = data?;
     if data.as_object().is_none() {
@@ -189,12 +184,7 @@ pub fn load_registration(path: &Path, display: &str) -> Result<Registration, Com
             }
         }
     }
-    let mut margins: [Value; 4] = [
-        int("10"),
-        int("10"),
-        int("1"),
-        int("5"),
-    ];
+    let mut margins: [Value; 4] = [int("10"), int("10"), int("1"), int("5")];
     if let Some(stated) = data.get("margins") {
         let stated = match stated.as_object() {
             Some(stated) => stated,
@@ -227,9 +217,7 @@ pub fn load_registration(path: &Path, display: &str) -> Result<Registration, Com
     }
     let floor = data.get("min_pairs").cloned().unwrap_or_else(|| int("1"));
     let floor_ok = match &floor {
-        Value::Int(digits) => {
-            !int_is_negative(digits) && !int_eq_usize(digits, 0)
-        }
+        Value::Int(digits) => !int_is_negative(digits) && !int_eq_usize(digits, 0),
         _ => false,
     };
     if !floor_ok {
@@ -301,9 +289,7 @@ fn load_set(
                     ("reason", text(&reason)),
                     (
                         "defects",
-                        Value::Array(
-                            defects.iter().map(|d| text(d)).collect(),
-                        ),
+                        Value::Array(defects.iter().map(|d| text(d)).collect()),
                     ),
                 ]));
                 continue;
@@ -316,9 +302,7 @@ fn load_set(
                 ("reason", text("not a valid tape")),
                 (
                     "defects",
-                    Value::Array(
-                        shape_defects.iter().map(|d| text(d)).collect(),
-                    ),
+                    Value::Array(shape_defects.iter().map(|d| text(d)).collect()),
                 ),
             ]));
             continue;
@@ -341,19 +325,14 @@ struct Indexed {
     measures: Measures,
 }
 
-fn index_set(
-    tapes: Vec<SetEntry>,
-) -> (BTreeMap<String, Vec<Indexed>>, Vec<Value>) {
+fn index_set(tapes: Vec<SetEntry>) -> (BTreeMap<String, Vec<Indexed>>, Vec<Value>) {
     let mut by_key: BTreeMap<String, Vec<Indexed>> = BTreeMap::new();
     let mut unmatchable = Vec::new();
     for entry in tapes {
         match task_key(&entry.tape) {
             None => unmatchable.push(obj(vec![
                 ("file", text(&entry.file)),
-                (
-                    "reason",
-                    text("no main-chain user message with a text"),
-                ),
+                ("reason", text("no main-chain user message with a text")),
             ])),
             Some(key) => {
                 let measures = tape_measures(&entry.tape);
@@ -551,17 +530,11 @@ pub fn compare(
             ]));
         } else if !left.is_empty() {
             for entry in left {
-                unmatched_before.push(obj(vec![
-                    ("file", text(&entry.file)),
-                    ("key", text(key)),
-                ]));
+                unmatched_before.push(obj(vec![("file", text(&entry.file)), ("key", text(key))]));
             }
         } else {
             for entry in right {
-                unmatched_after.push(obj(vec![
-                    ("file", text(&entry.file)),
-                    ("key", text(key)),
-                ]));
+                unmatched_after.push(obj(vec![("file", text(&entry.file)), ("key", text(key))]));
             }
         }
     }
@@ -627,12 +600,12 @@ pub fn compare(
             _ => {
                 let counted: Vec<(f64, f64)> = pairs
                     .iter()
-                    .filter_map(|pair| {
-                        match (pair.before.time_seconds, pair.after.time_seconds) {
+                    .filter_map(
+                        |pair| match (pair.before.time_seconds, pair.after.time_seconds) {
                             (Some(b), Some(a)) => Some((b, a)),
                             _ => None,
-                        }
-                    })
+                        },
+                    )
                     .collect();
                 let n = counted.len();
                 (
@@ -651,10 +624,7 @@ pub fn compare(
                 Text::from_str("after_mean"),
                 after_mean.map(Value::Float).unwrap_or(Value::Null),
             ),
-            (
-                Text::from_str("pairs_counted"),
-                int_usize(counted_len),
-            ),
+            (Text::from_str("pairs_counted"), int_usize(counted_len)),
         ];
         if let (Some(before), Some(after)) = (before_mean, after_mean) {
             if relative {
@@ -670,13 +640,14 @@ pub fn compare(
                 let regressed = if before == 0.0 {
                     after > 0.0
                 } else {
-                    exceeds(delta_pct.expect("a nonzero base has a delta"), &margins[margin_index])
+                    exceeds(
+                        delta_pct.expect("a nonzero base has a delta"),
+                        &margins[margin_index],
+                    )
                 };
                 if regressed {
-                    regressions.push(
-                        if name == "time_seconds" { "time" } else { name }
-                            .to_string(),
-                    );
+                    regressions
+                        .push(if name == "time_seconds" { "time" } else { name }.to_string());
                 }
             } else {
                 let delta = after - before;
@@ -728,20 +699,11 @@ pub fn compare(
             Text::from_str("after_rate"),
             after_rate.map(Value::Float).unwrap_or(Value::Null),
         ),
-        (
-            Text::from_str("before_denominator"),
-            int_usize(before_den),
-        ),
-        (
-            Text::from_str("after_denominator"),
-            int_usize(after_den),
-        ),
+        (Text::from_str("before_denominator"), int_usize(before_den)),
+        (Text::from_str("after_denominator"), int_usize(after_den)),
     ];
     if let (Some(before), Some(after)) = (before_rate, after_rate) {
-        rescue.push((
-            Text::from_str("delta_points"),
-            Value::Float(after - before),
-        ));
+        rescue.push((Text::from_str("delta_points"), Value::Float(after - before)));
         if exceeds(before - after, &margins[3]) {
             regressions.push("rescue rate".to_string());
         }
@@ -776,16 +738,14 @@ pub fn compare(
     let mut unmatchable: Vec<Value> = Vec::new();
     for entry in &before_unmatchable {
         if let Value::Object(fields) = entry {
-            let mut with_side: Vec<(Text, Value)> =
-                vec![(Text::from_str("side"), text("before"))];
+            let mut with_side: Vec<(Text, Value)> = vec![(Text::from_str("side"), text("before"))];
             with_side.extend(fields.iter().cloned());
             unmatchable.push(Value::Object(with_side));
         }
     }
     for entry in &after_unmatchable {
         if let Value::Object(fields) = entry {
-            let mut with_side: Vec<(Text, Value)> =
-                vec![(Text::from_str("side"), text("after"))];
+            let mut with_side: Vec<(Text, Value)> = vec![(Text::from_str("side"), text("after"))];
             with_side.extend(fields.iter().cloned());
             unmatchable.push(Value::Object(with_side));
         }
@@ -808,10 +768,7 @@ pub fn compare(
         (
             "after",
             obj(vec![
-                (
-                    "tapes_read",
-                    int_usize(after_scored + after_excluded.len()),
-                ),
+                ("tapes_read", int_usize(after_scored + after_excluded.len())),
                 ("tapes_scored", int_usize(after_scored)),
                 ("excluded", Value::Array(after_excluded)),
             ]),
