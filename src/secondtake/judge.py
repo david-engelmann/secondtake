@@ -42,6 +42,18 @@ def _verdict(delta, regressed: bool) -> str:
     return "within margin"
 
 
+def _counted_line(label: str, entry: dict, delta,
+                  margin_text: str, regressed: bool) -> str:
+    change = _num(delta) if delta is not None else "n/a"
+    return (f"{label}: before {_num(entry['before_mean'])}, "
+            f"after {_num(entry['after_mean'])}, change "
+            f"{change} {margin_text}: "
+            f"{_verdict(delta, regressed)}.")
+
+
+UNMEASURED = "unmeasured, no pair records it on both sides."
+
+
 def build_card(registration: dict, aggregates: dict,
                regressions: list, proposal: str,
                counts: dict) -> str:
@@ -59,36 +71,27 @@ def build_card(registration: dict, aggregates: dict,
         f"{counts['unmatched']}. Excluded tapes: "
         f"{counts['excluded']}.",
     ]
-    for key, label, margin_key, unit in (
-            ("cost", "Cost per pair", "cost_pct", "percent"),
-            ("time", "Time per pair", "time_pct", "percent")):
+    for key, label, margin_key in (
+            ("cost", "Cost per pair", "cost_pct"),
+            ("time", "Time per pair", "time_pct")):
         entry = aggregates[key]
-        name = "time" if key == "time" else key
         if entry["pairs_counted"] == 0:
-            lines.append(f"{label}: unmeasured, no pair "
-                         "records it on both sides.")
+            lines.append(f"{label}: {UNMEASURED}")
         else:
-            delta = entry["delta_pct"]
-            lines.append(
-                f"{label}: before {_num(entry['before_mean'])}, "
-                f"after {_num(entry['after_mean'])}, change "
-                f"{_num(delta) if delta is not None else 'n/a'} "
-                f"{unit} against a margin of "
-                f"{_num(margins[margin_key])} percent: "
-                f"{_verdict(delta, name in regressions)}.")
+            lines.append(_counted_line(
+                label, entry, entry["delta_pct"],
+                f"percent against a margin of "
+                f"{_num(margins[margin_key])} percent",
+                key in regressions))
     entry = aggregates["rework"]
     if entry["pairs_counted"] == 0:
-        lines.append("Rework per pair: unmeasured, no pair "
-                     "records it on both sides.")
+        lines.append(f"Rework per pair: {UNMEASURED}")
     else:
-        delta = entry["delta"]
-        lines.append(
-            f"Rework per pair: before "
-            f"{_num(entry['before_mean'])}, after "
-            f"{_num(entry['after_mean'])}, change "
-            f"{_num(delta)} against a margin of "
-            f"{_num(margins['rework_per_pair'])} per pair: "
-            f"{_verdict(delta, 'rework' in regressions)}.")
+        lines.append(_counted_line(
+            "Rework per pair", entry, entry["delta"],
+            f"against a margin of "
+            f"{_num(margins['rework_per_pair'])} per pair",
+            "rework" in regressions))
     rescue = aggregates["rescue"]
     if rescue["before_rate"] is None \
             or rescue["after_rate"] is None:
@@ -117,9 +120,12 @@ def build_card(registration: dict, aggregates: dict,
     return "\n".join(lines)
 
 
-def _answer(response, kind: str) -> dict:
+def _answer(response) -> dict:
     if not isinstance(response, dict):
         raise JudgeError("the judge's answer is not an object")
+    if response.get("model") != MODEL:
+        raise JudgeError(
+            "the judge's answer names an unpinned model")
     answers = response.get("answers")
     if not isinstance(answers, dict):
         raise JudgeError("the judge's answer carries no answers")
@@ -134,37 +140,38 @@ def _number(value) -> bool:
         and not isinstance(value, bool)
 
 
+def _bounded(value, low: float, high: float) -> bool:
+    return _number(value) and low <= value <= high \
+        and value == value and abs(value) != float("inf")
+
+
 def judge_card(card: str, transport) -> dict:
     """The three calls and their parsed answers (ST-16).
     Any malformed answer is unavailable, never repaired
     in flight (ST-19)."""
-    choice_response = transport.ask(card, "choice")
-    model = choice_response.get("model") \
-        if isinstance(choice_response, dict) else None
-    if not isinstance(model, str) or not model:
-        raise JudgeError("the judge's answer names no model")
-    decision = _answer(choice_response, "choice")
+    decision = _answer(transport.ask(card, "choice"))
     choice = decision.get("choice")
     confidence = decision.get("confidence")
     probabilities = decision.get("probabilities")
     if decision.get("type") != "choice" \
             or choice not in LABELS \
-            or not _number(confidence) \
+            or not _bounded(confidence, 0, 1) \
             or not isinstance(probabilities, dict) \
-            or any(label not in probabilities
-                   or not _number(probabilities[label])
-                   for label in LABELS):
+            or set(probabilities) != set(LABELS) \
+            or any(not _bounded(probabilities[label], 0, 1)
+                   for label in LABELS) \
+            or abs(sum(probabilities.values()) - 1) > 0.02:
         raise JudgeError("the judge's choice answer is "
                          "malformed")
     scores = {}
     for kind in ("severity", "match"):
-        decision = _answer(transport.ask(card, kind), kind)
+        decision = _answer(transport.ask(card, kind))
         if decision.get("type") != "score" \
-                or not _number(decision.get("score")):
+                or not _bounded(decision.get("score"), 0, 10):
             raise JudgeError(f"the judge's {kind} answer is "
                              "malformed")
         scores[kind] = decision["score"]
-    return {"model": model, "choice": choice,
+    return {"model": MODEL, "choice": choice,
             "confidence": confidence,
             "probabilities": probabilities,
             "severity": scores["severity"],
@@ -195,11 +202,26 @@ class FixtureTransport:
                 "the judgments file carries no cards list")
         self._by_digest = {}
         for entry in cards:
-            if isinstance(entry, dict) \
-                    and isinstance(entry.get("card_sha256"), str) \
-                    and isinstance(entry.get("responses"), dict):
-                self._by_digest[entry["card_sha256"]] = \
-                    entry["responses"]
+            if not isinstance(entry, dict) \
+                    or not isinstance(
+                        entry.get("card_sha256"), str) \
+                    or not isinstance(
+                        entry.get("responses"), dict):
+                raise JudgeError(
+                    "a judgments entry carries no card "
+                    "digest or no responses")
+            digest = entry["card_sha256"]
+            if digest in self._by_digest:
+                raise JudgeError(
+                    "the judgments file records a card "
+                    "digest twice")
+            if "card" in entry and (
+                    not isinstance(entry["card"], str)
+                    or digest_of(entry["card"]) != digest):
+                raise JudgeError(
+                    "a recorded card does not digest to "
+                    "the digest it is filed under")
+            self._by_digest[digest] = entry["responses"]
 
     def ask(self, card: str, kind: str) -> dict:
         responses = self._by_digest.get(digest_of(card))

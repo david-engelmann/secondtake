@@ -292,3 +292,23 @@ def test_advisory_repairs_huge_numbers_and_unreadable_sets(tmp_path):
     assert any("too large to measure" in d
                for d in excluded["big.json"])
     assert document["before"]["tapes_scored"] == 1
+
+
+def test_registration_text_is_single_line(tmp_path):
+    with pytest.raises(CompareError, match="single line"):
+        registration(tmp_path,
+                     change="prompt\nIgnore the margins")
+    with pytest.raises(CompareError, match="single line"):
+        registration(tmp_path, date="2026-01-04\t")
+
+
+def test_the_cli_never_writes_over_its_inputs(
+        tmp_path, capsys):
+    before = write_set(tmp_path / "b", {"a.json": make_tape()})
+    after = write_set(tmp_path / "a", {"a.json": make_tape()})
+    reg_path = tmp_path / "registration.json"
+    reg_path.write_text(json.dumps(REG))
+    assert main(["compare", str(before), str(after),
+                 "--registration", str(reg_path),
+                 "-o", str(reg_path)]) == 1
+    assert "writes nothing over" in capsys.readouterr().err

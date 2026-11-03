@@ -1,5 +1,5 @@
-"""ST-12. A thin command line: compare. Failures are
-named errors with exit 1."""
+"""ST-12, ST-17. A thin command line: compare. Failures
+are named errors with exit 1."""
 from __future__ import annotations
 
 import argparse
@@ -73,6 +73,13 @@ def main(argv: list[str] | None = None) -> int:
                     print("error, secondtake writes nothing inside "
                           "the tape sets it reads", file=sys.stderr)
                     return 1
+            stated = [Path(args.registration)]
+            if args.judge not in (None, "live"):
+                stated.append(Path(args.judge))
+            if any(target == path.resolve() for path in stated):
+                print("error, secondtake writes nothing over "
+                      "the files it reads", file=sys.stderr)
+                return 1
         judge = None
         if args.judge == "live":
             script = os.environ.get("JEV_CALL")

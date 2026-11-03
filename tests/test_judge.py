@@ -84,13 +84,16 @@ def choice_response(choice="revert", confidence=0.9):
         "type": "choice", "choice": choice,
         "confidence": confidence,
         "probabilities": {"keep": 0.05, "tune": 0.1,
-                          "revert": 0.8, "abstain": 0.05}}}}
+                          "revert": 0.8, "abstain": 0.05}}},
+        "usage": {"input_tokens": 545, "output_tokens": 50}}
 
 
 def score_response(score=7.5):
     return {"model": "jev-1.13.0", "answers": {"decision": {
         "type": "score", "score": score, "confidence": 0.5,
-        "legend": {}, "probabilities": {}}}}
+        "legend": {str(i): f"Level {i + 1}" for i in range(10)},
+        "probabilities": {str(i): 0.1 for i in range(10)}}},
+        "usage": {"input_tokens": 480, "output_tokens": 44}}
 
 
 class Scripted:
@@ -211,7 +214,7 @@ def test_malformed_answers_are_unavailable(tmp_path):
              "match": score_response()}))
     bad = choice_response()
     del bad["model"]
-    with pytest.raises(JudgeError, match="no model"):
+    with pytest.raises(JudgeError, match="unpinned model"):
         judge_card(CARD, Scripted(
             {"choice": bad, "severity": score_response(),
              "match": score_response()}))
@@ -252,3 +255,140 @@ def test_the_shipped_fixtures_replay():
     assert answers["model"] == "jev-1.13.0"
     assert answers["choice"] == "tune"
     assert answers["confidence"] == 0.85
+
+
+def test_out_of_range_answers_are_unavailable(tmp_path):
+    def scripted(**overrides):
+        responses = {"choice": choice_response(),
+                     "severity": score_response(),
+                     "match": score_response()}
+        responses.update(overrides)
+        return Scripted(responses)
+
+    nan_choice = choice_response()
+    nan_choice["answers"]["decision"]["confidence"] = \
+        float("nan")
+    with pytest.raises(JudgeError, match="malformed"):
+        judge_card(CARD, scripted(choice=nan_choice))
+    big = choice_response()
+    big["answers"]["decision"]["probabilities"] = {
+        "keep": 5.0, "tune": 5.0, "revert": 5.0,
+        "abstain": 5.0}
+    with pytest.raises(JudgeError, match="malformed"):
+        judge_card(CARD, scripted(choice=big))
+    extra = choice_response()
+    extra["answers"]["decision"]["probabilities"][
+        "shrug"] = 0.0
+    with pytest.raises(JudgeError, match="malformed"):
+        judge_card(CARD, scripted(choice=extra))
+    inf_score = score_response()
+    inf_score["answers"]["decision"]["score"] = float("inf")
+    with pytest.raises(JudgeError, match="malformed"):
+        judge_card(CARD, scripted(severity=inf_score))
+    wrong_model = score_response()
+    wrong_model["model"] = "gpt-fabricated-9000"
+    with pytest.raises(JudgeError, match="unpinned model"):
+        judge_card(CARD, scripted(match=wrong_model))
+
+
+def test_a_nan_fixture_leaves_the_tune_and_stays_json(
+        tmp_path):
+    payload = {"cards": [{
+        "card_sha256": digest_of(CARD),
+        "responses": {
+            "choice": {"model": "jev-1.13.0", "answers": {
+                "decision": {"type": "choice",
+                             "choice": "revert",
+                             "confidence": float("nan"),
+                             "probabilities": {
+                                 "keep": 0.1, "tune": 0.1,
+                                 "revert": 0.7,
+                                 "abstain": 0.1}}}},
+            "severity": score_response(),
+            "match": score_response()}}]}
+    path = tmp_path / "judgments.json"
+    path.write_text(json.dumps(payload))
+    assert "NaN" in path.read_text()
+    before, after, reg = band(tmp_path)
+    document = compare(before, after, reg,
+                       judge=FixtureTransport(path))
+    assert document["proposal"] == "tune"
+    assert document["judgment"]["status"] == "unavailable"
+    json.dumps(document, allow_nan=False)
+
+
+def test_the_confidence_boundary_is_exact(tmp_path):
+    before, after, reg = band(tmp_path)
+    document = compare(before, after, reg,
+                       judge=judged("keep", 0.6))
+    assert document["proposal"] == "keep"
+    assert document["judgment"]["status"] == "judged"
+    document = compare(before, after, reg,
+                       judge=judged("keep", 0.59))
+    assert document["proposal"] == "abstain"
+    assert document["judgment"]["status"] == "abstained"
+
+
+def test_two_regressions_never_consult(tmp_path):
+    class Exploding:
+        def ask(self, card, kind):
+            raise AssertionError("consulted on the edge")
+
+    before = write_set(tmp_path / "b3",
+                       {"a.json": make_tape(error=True)})
+    failed = make_tape(tokens=(130, 50), error=True)
+    failed["outcome"] = {"status": "failed"}
+    after = write_set(tmp_path / "a3", {"a.json": failed})
+    document = compare(before, after, registration(tmp_path),
+                       judge=Exploding())
+    assert document["regressions"] == ["cost", "rescue rate"]
+    assert document["proposal"] == "revert"
+    assert document["judgment"]["reason"] == \
+        "the deterministic rule is conclusive"
+
+
+def test_the_card_names_improvements():
+    from secondtake.compare import DEFAULT_MARGINS
+    from secondtake.judge import build_card
+    registration_card = {"change": "x", "date": "2026-01-01",
+                         "margins": dict(DEFAULT_MARGINS)}
+    aggregates = {
+        "pairs": 4,
+        "cost": {"before_mean": 100.0, "after_mean": 120.0,
+                 "pairs_counted": 4, "delta_pct": 20.0},
+        "time": {"before_mean": 50.0, "after_mean": 50.0,
+                 "pairs_counted": 4, "delta_pct": 0.0},
+        "rework": {"before_mean": 1.0, "after_mean": 0.5,
+                   "pairs_counted": 4, "delta": -0.5},
+        "rescue": {"before_rate": 70.0, "after_rate": 78.0,
+                   "before_denominator": 4,
+                   "after_denominator": 4,
+                   "delta_points": 8.0}}
+    card = build_card(registration_card, aggregates,
+                      ["cost"], "tune",
+                      {"ambiguous": 0, "unmatched": 0,
+                       "excluded": 0})
+    assert "Rework per pair: before 1, after 0.5, change " \
+        "-0.5 against a margin of 1 per pair: improved." \
+        in card
+    assert "change 8 points against a margin of 5 points " \
+        "down: improved." in card
+
+
+def test_the_judgments_file_is_validated_whole(tmp_path):
+    entry = {"card_sha256": digest_of(CARD),
+             "responses": {"choice": choice_response(),
+                           "severity": score_response(),
+                           "match": score_response()}}
+    path = tmp_path / "judgments.json"
+    path.write_text(json.dumps({"cards": [entry, entry]}))
+    with pytest.raises(JudgeError, match="twice"):
+        FixtureTransport(path)
+    path.write_text(json.dumps({"cards": [
+        {**entry, "card": CARD + " "}]}))
+    with pytest.raises(JudgeError, match="does not digest"):
+        FixtureTransport(path)
+    path.write_text(json.dumps({"cards": [
+        {"card_sha256": digest_of(CARD)}]}))
+    with pytest.raises(JudgeError, match="no responses"):
+        FixtureTransport(path)
