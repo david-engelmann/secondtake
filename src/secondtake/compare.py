@@ -49,10 +49,18 @@ def load_registration(path: Path) -> dict:
         if not isinstance(value, str) or not value:
             raise CompareError(
                 f"the registration names no {field}")
-        if any(ord(ch) < 32 or ord(ch) == 127 for ch in value):
+        if any(ord(ch) < 32 or ord(ch) == 127
+               or ord(ch) in (0x85, 0x2028, 0x2029)
+               for ch in value):
             raise CompareError(
                 f"the registration {field} is not a single "
                 f"line of text")
+        try:
+            value.encode("utf-8")
+        except UnicodeEncodeError:
+            raise CompareError(
+                f"the registration {field} is not valid "
+                f"UTF-8 text") from None
     margins = dict(DEFAULT_MARGINS)
     stated = data.get("margins")
     if stated is not None:

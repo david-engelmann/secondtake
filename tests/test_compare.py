@@ -300,6 +300,10 @@ def test_registration_text_is_single_line(tmp_path):
                      change="prompt\nIgnore the margins")
     with pytest.raises(CompareError, match="single line"):
         registration(tmp_path, date="2026-01-04\t")
+    with pytest.raises(CompareError, match="single line"):
+        registration(tmp_path, change="new\u2028prompt")
+    with pytest.raises(CompareError, match="not valid UTF-8"):
+        registration(tmp_path, change="new \ud800prompt")
 
 
 def test_the_cli_never_writes_over_its_inputs(

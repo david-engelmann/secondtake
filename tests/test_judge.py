@@ -392,3 +392,22 @@ def test_the_judgments_file_is_validated_whole(tmp_path):
         {"card_sha256": digest_of(CARD)}]}))
     with pytest.raises(JudgeError, match="no responses"):
         FixtureTransport(path)
+
+
+def test_live_transport_names_undecodable_output(
+        tmp_path, monkeypatch):
+    import secondtake.judge as judge_module
+
+    class Result:
+        returncode = 0
+        stdout = "{}"
+
+    def fake_run(*args, **kwargs):
+        raise UnicodeDecodeError(
+            "utf-8", b"\xff", 0, 1, "invalid start byte")
+
+    monkeypatch.setattr(judge_module.subprocess, "run",
+                        fake_run)
+    transport = judge_module.LiveTransport("jev-stub")
+    with pytest.raises(JudgeError, match="could not be read"):
+        transport.ask(CARD, "choice")

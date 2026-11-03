@@ -257,6 +257,10 @@ class LiveTransport:
         except (OSError, subprocess.TimeoutExpired):
             raise JudgeError(
                 "the judge call could not be made") from None
+        except UnicodeDecodeError:
+            raise JudgeError(
+                "the judge's answer could not be read") \
+                from None
         if result.returncode != 0:
             raise JudgeError("the judge call failed")
         try:
