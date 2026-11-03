@@ -172,10 +172,14 @@ numbers still own everything the outcome stands on.
   reason stated (insufficient pairs, the count against
   the floor), deterministically, with no model call.
   The floor is the registration's min_pairs where it
-  states one, else 3; a stated floor under 1 is a named
-  refusal. This supersedes the ST-9 rule's outcome at
-  zero pairs: no pairs is insufficient evidence, never
-  a keep. Test, tests/test_compare.py.
+  states one, else 1; a stated floor under 1 is a named
+  refusal. The default is 1 because the floor exists
+  to end the zero-pair keep, not to invent a sample
+  doctrine Round 1 never had; registrations state a
+  higher floor where the fleet wants one. This
+  supersedes the ST-9 rule's outcome at zero pairs:
+  no pairs is insufficient evidence, never a keep.
+  Test, tests/test_compare.py.
 - ST-15. The judge is consulted only in the band:
   exactly one measure regressed past its margin, and
   the floor met. No regression is a keep and two or
