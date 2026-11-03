@@ -258,3 +258,68 @@ numbers still own everything the outcome stands on.
   The command refuses to write its output over the
   registration or the judgments file it reads. Test,
   tests/test_judge.py and tests/test_compare.py.
+
+## Round 3. The Rust port (ST-20 to ST-26)
+
+David's ruling of 2026-11-02: the repos are Rust
+libraries. This round ports secondtake, and the Python
+of Rounds 1 and 2 stands as the behavioral spec the
+port must reproduce exactly.
+
+- ST-20. The port reproduces the behavior of Rounds 1
+  and 2 exactly: the same compare command with the
+  same comparison documents, exit codes, refusal
+  texts, decision cards and digests. Anything the
+  port cannot reproduce is named in the round's
+  dossier as a deviation, never silently dropped.
+  Test, the ported suite throughout.
+- ST-21. The crate is a library plus a thin binary
+  named secondtake carrying the CLI. Canonical form
+  1, the tape reading, the duration rule and the
+  outcome rule are consumed from the flighttape
+  crate at a pinned revision (the Round 11 merge),
+  never re-implemented in this repo: the decision
+  card's digest is the flighttape golden discipline
+  applied one level up. The flighttape crate is the
+  only direct dependency; everything else is the
+  Rust standard library. The repository's CI gate
+  becomes cargo test plus the codepoint scan. Test,
+  Cargo.toml and the gate run.
+- ST-22. Where this repo's Python reads a tape in its
+  own way (the exclusion discipline over a directory,
+  the defect and refusal phrases it answers with),
+  the Python's behavior governs and the difference
+  from the flighttape crate's reading is named in
+  the dossier. The crate is a tool under this
+  contract, never the spec over it. Test, the
+  ported suite throughout.
+- ST-23. The judge transport stays a subprocess call
+  to the recorded helper, with the payload and
+  response shapes of ST-13 to ST-19 unchanged. The
+  recorded judgments fixture replays through the
+  Rust client with identical proposals and no live
+  call. Test, the ported judge suite.
+- ST-24. The Python test suite's cases port to cargo
+  tests under the same intent, file for file where
+  the module maps. Cases that exist only in Python's
+  own shapes are named in the dossier. The Python
+  files leave the tree only in the landing state of
+  this round, when the port has passed every gate
+  the Python passed. Test, cargo test on the final
+  head.
+- ST-25. Before the port lands, a differential
+  harness runs both implementations over tape
+  directory pairs across the judgment band (below
+  the pair floor, at the deterministic edges, in
+  the band with a judge, without one, and with the
+  judge unavailable) and byte-compares stdout,
+  stderr, exit codes, and written files. A single
+  differing byte is a port defect to fix, not a
+  difference to document. Test, the round's dossier.
+- ST-26. The port report stands in the dossier: port
+  or rewrite with reasons, the Rust versus Python
+  line share measured on the landing tree, the
+  bindings determination, and the non-Rust remainder
+  register with a justification per item. No Python
+  bindings: the consumer shape is a process-boundary
+  CLI plus crate consumers.
