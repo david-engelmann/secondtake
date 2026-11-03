@@ -115,6 +115,225 @@ pub fn is_number(value: &Value) -> bool {
     matches!(value, Value::Int(_) | Value::Float(_))
 }
 
+/// Decode OS bytes the way CPython decodes file system
+/// and argument strings: valid UTF-8 decodes normally,
+/// and each byte that cannot decode becomes the
+/// surrogateescape unit 0xDC00 plus the byte.
+pub fn fsdecode_units(bytes: &[u8]) -> Vec<u16> {
+    let mut units = Vec::new();
+    let mut rest = bytes;
+    loop {
+        match std::str::from_utf8(rest) {
+            Ok(text) => {
+                units.extend(text.encode_utf16());
+                return units;
+            }
+            Err(error) => {
+                let valid = error.valid_up_to();
+                let head = std::str::from_utf8(&rest[..valid]).expect("the valid prefix");
+                units.extend(head.encode_utf16());
+                match error.error_len() {
+                    Some(len) => {
+                        for byte in &rest[valid..valid + len] {
+                            units.push(0xDC00 + *byte as u16);
+                        }
+                        rest = &rest[valid + len..];
+                    }
+                    None => {
+                        for byte in &rest[valid..] {
+                            units.push(0xDC00 + *byte as u16);
+                        }
+                        return units;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// The inverse: encode text units back to OS bytes,
+/// mapping surrogateescape units back to their bytes.
+/// A lone surrogate outside the escape range cannot
+/// be encoded; it renders as its UTF-8 replacement,
+/// a case argument strings from the OS never reach
+/// (their surrogates come only from fsdecode).
+#[cfg(unix)]
+pub fn fsencode_bytes(units: &[u16]) -> Vec<u8> {
+    let mut out = Vec::new();
+    let mut index = 0;
+    while index < units.len() {
+        let unit = units[index];
+        if (0xDC80..=0xDCFF).contains(&unit) {
+            out.push((unit - 0xDC00) as u8);
+            index += 1;
+        } else if (0xD800..=0xDBFF).contains(&unit)
+            && index + 1 < units.len()
+            && (0xDC00..=0xDFFF).contains(&units[index + 1])
+        {
+            let scalar =
+                0x10000 + (((unit as u32) - 0xD800) << 10) + (units[index + 1] as u32 - 0xDC00);
+            let mut buf = [0u8; 4];
+            out.extend_from_slice(
+                char::from_u32(scalar)
+                    .expect("a valid pair")
+                    .encode_utf8(&mut buf)
+                    .as_bytes(),
+            );
+            index += 2;
+        } else if (0xD800..=0xDFFF).contains(&unit) {
+            out.extend_from_slice("\u{FFFD}".as_bytes());
+            index += 1;
+        } else {
+            let mut buf = [0u8; 4];
+            out.extend_from_slice(
+                char::from_u32(unit as u32)
+                    .expect("a BMP scalar")
+                    .encode_utf8(&mut buf)
+                    .as_bytes(),
+            );
+            index += 1;
+        }
+    }
+    out
+}
+
+/// Render text for a stderr message the way CPython's
+/// stderr does (its error handler is backslashreplace):
+/// valid text passes through, and every lone surrogate
+/// becomes its \uXXXX escape. Used where a message
+/// names a value the Python names (an unknown margin
+/// key, a file name).
+pub fn stderr_render(units: &[u16]) -> String {
+    let mut out = String::new();
+    let mut index = 0;
+    while index < units.len() {
+        let unit = units[index];
+        if (0xD800..=0xDBFF).contains(&unit)
+            && index + 1 < units.len()
+            && (0xDC00..=0xDFFF).contains(&units[index + 1])
+        {
+            let scalar =
+                0x10000 + (((unit as u32) - 0xD800) << 10) + (units[index + 1] as u32 - 0xDC00);
+            out.push(char::from_u32(scalar).expect("a valid pair"));
+            index += 2;
+        } else if (0xD800..=0xDFFF).contains(&unit) {
+            out.push_str(&format!("\\u{unit:04x}"));
+            index += 1;
+        } else {
+            out.push(char::from_u32(unit as u32).expect("a BMP scalar"));
+            index += 1;
+        }
+    }
+    out
+}
+
+/// Normalize a path's display form the way pathlib
+/// does when a Path is printed: empty and dot
+/// components drop, duplicate slashes collapse (a
+/// leading pair of slashes is preserved), a trailing
+/// slash drops, and an empty result is a dot. Dot-dot
+/// components are kept; nothing is resolved.
+pub fn normalize_path_display(units: &[u16]) -> Vec<u16> {
+    let slash = '/' as u16;
+    let absolute = units.first() == Some(&slash);
+    let double = absolute && units.get(1) == Some(&slash) && units.get(2) != Some(&slash);
+    let mut parts: Vec<&[u16]> = Vec::new();
+    for part in units.split(|unit| *unit == slash) {
+        if part.is_empty() || part == ['.' as u16] {
+            continue;
+        }
+        parts.push(part);
+    }
+    let mut out: Vec<u16> = Vec::new();
+    if double {
+        out.extend_from_slice(&[slash, slash]);
+    } else if absolute {
+        out.push(slash);
+    }
+    for (index, part) in parts.iter().enumerate() {
+        if index > 0 {
+            out.push(slash);
+        }
+        out.extend_from_slice(part);
+    }
+    if out.is_empty() {
+        out.push('.' as u16);
+    }
+    out
+}
+
+/// The maximum container nesting depth of a JSON text,
+/// counted over brackets outside strings: the measure
+/// the Python reader's recursion limit turns on. A
+/// scalar text has depth 0.
+pub fn json_text_depth(text: &str) -> usize {
+    let mut depth = 0usize;
+    let mut max = 0usize;
+    let mut in_string = false;
+    let mut escaped = false;
+    for ch in text.chars() {
+        if in_string {
+            if escaped {
+                escaped = false;
+            } else if ch == '\\' {
+                escaped = true;
+            } else if ch == '"' {
+                in_string = false;
+            }
+            continue;
+        }
+        match ch {
+            '"' => in_string = true,
+            '[' | '{' => {
+                depth += 1;
+                max = max.max(depth);
+            }
+            ']' | '}' => depth = depth.saturating_sub(1),
+            _ => {}
+        }
+    }
+    max
+}
+
+/// Compare two texts as CPython compares strings: by
+/// codepoint, a surrogate pair counting as its astral
+/// scalar and a lone surrogate at face value.
+pub fn text_cmp_py(a: &[u16], b: &[u16]) -> std::cmp::Ordering {
+    fn scalars(units: &[u16]) -> Vec<u32> {
+        let mut out = Vec::new();
+        let mut index = 0;
+        while index < units.len() {
+            let unit = units[index];
+            if (0xD800..=0xDBFF).contains(&unit)
+                && index + 1 < units.len()
+                && (0xDC00..=0xDFFF).contains(&units[index + 1])
+            {
+                out.push(
+                    0x10000 + (((unit as u32) - 0xD800) << 10) + (units[index + 1] as u32 - 0xDC00),
+                );
+                index += 2;
+            } else {
+                out.push(unit as u32);
+                index += 1;
+            }
+        }
+        out
+    }
+    scalars(a).cmp(&scalars(b))
+}
+
+/// The error-construction shape the compare and judge
+/// modules share: a named refusal built from a
+/// message. Each error type implements FromMessage;
+/// the one constructor lives here.
+pub trait FromMessage: Sized {
+    fn from_message(message: String) -> Self;
+}
+
+pub fn err<T: FromMessage>(message: impl Into<String>) -> T {
+    T::from_message(message.into())
+}
+
 /// The mean of an exact integer sum over `n`, rounded
 /// the way Python's int/int division rounds: the exact
 /// rational sum/n carried past 53 significant bits by

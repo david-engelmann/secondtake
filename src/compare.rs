@@ -6,16 +6,17 @@ use std::path::Path;
 
 use flighttape::identity::tape_digest;
 use flighttape::json::parse;
-use flighttape::pyrepr::repr_value;
-use flighttape::value::{Text, Value};
+use flighttape::value::{container_depth, Text, Value};
 
 use crate::judge::{
     build_card, confidence_below_floor, judge_card, value_text, CardCounts, JudgeError, Transport,
 };
 use crate::measures::{tape_measures, task_key, Measures, MATCHING_RULE};
+use crate::pyrepr::repr_value;
 use crate::tapes::{load_tape_file, measure_shape_defects, LoadOutcome};
 use crate::util::{
-    f64_gt_nonneg_int, int, int_eq_usize, int_is_negative, int_usize, is_number, obj, text,
+    err, f64_gt_nonneg_int, fsdecode_units, int, int_eq_usize, int_is_negative, int_usize,
+    is_number, json_text_depth, obj, stderr_render, text, text_cmp_py, FromMessage,
 };
 
 pub const PROPOSAL_RULE: &str = "abstain for insufficient evidence below the pair \
@@ -37,8 +38,10 @@ impl std::fmt::Display for CompareError {
 
 impl std::error::Error for CompareError {}
 
-fn err(message: impl Into<String>) -> CompareError {
-    CompareError(message.into())
+impl FromMessage for CompareError {
+    fn from_message(message: String) -> CompareError {
+        CompareError(message)
+    }
 }
 
 /// A validated registration: the change and its date,
@@ -155,6 +158,16 @@ pub fn load_registration(path: &Path, display: &str) -> Result<Registration, Com
     let data = (|| -> Result<Value, CompareError> {
         let text_in = String::from_utf8(raw)
             .map_err(|_| err(format!("the registration at {display} is not valid JSON")))?;
+        // The Python's reader refuses nesting past its
+        // recursion boundary (probed through this
+        // surface: a text depth of 9994 reads, 9995
+        // refuses); the crate's iterative reader
+        // accepts it, so the cap is applied to the text.
+        if json_text_depth(&text_in) > 9994 {
+            return Err(err(format!(
+                "the registration at {display} is not valid JSON"
+            )));
+        }
         parse(&text_in).map_err(|_| err(format!("the registration at {display} is not valid JSON")))
     })();
     let data = data?;
@@ -186,33 +199,43 @@ pub fn load_registration(path: &Path, display: &str) -> Result<Registration, Com
     }
     let mut margins: [Value; 4] = [int("10"), int("10"), int("1"), int("5")];
     if let Some(stated) = data.get("margins") {
-        let stated = match stated.as_object() {
-            Some(stated) => stated,
-            None => {
-                return Err(err("the registration margins are not an object"));
-            }
-        };
-        for (key, value) in stated {
-            let key = key.as_str().unwrap_or_default();
-            let slot = match MARGIN_KEYS.iter().position(|known| *known == key) {
-                Some(slot) => slot,
+        // A null margins is an absent margins in the
+        // Python (`if stated is not None`); anything
+        // else that is not an object refuses.
+        if !matches!(stated, Value::Null) {
+            let stated = match stated.as_object() {
+                Some(stated) => stated,
                 None => {
-                    return Err(err(format!(
-                        "the registration states an unknown margin, {key}"
-                    )));
+                    return Err(err("the registration margins are not an object"));
                 }
             };
-            let valid = match value {
-                Value::Int(digits) => !int_is_negative(digits),
-                Value::Float(number) => number.is_finite() && *number >= 0.0,
-                _ => false,
-            };
-            if !valid || !is_number(value) {
-                return Err(err(format!(
-                    "the margin {key} is not a non-negative number"
-                )));
+            for (key, value) in stated {
+                let slot = match key.as_str() {
+                    Some(key) => MARGIN_KEYS.iter().position(|known| *known == key),
+                    None => None,
+                };
+                let slot = match slot {
+                    Some(slot) => slot,
+                    None => {
+                        return Err(err(format!(
+                            "the registration states an unknown margin, {}",
+                            stderr_render(key.units())
+                        )));
+                    }
+                };
+                let valid = match value {
+                    Value::Int(digits) => !int_is_negative(digits),
+                    Value::Float(number) => number.is_finite() && *number >= 0.0,
+                    _ => false,
+                };
+                if !valid || !is_number(value) {
+                    return Err(err(format!(
+                        "the margin {} is not a non-negative number",
+                        MARGIN_KEYS[slot]
+                    )));
+                }
+                margins[slot] = value.clone();
             }
-            margins[slot] = value.clone();
         }
     }
     let floor = data.get("min_pairs").cloned().unwrap_or_else(|| int("1"));
@@ -235,7 +258,7 @@ pub fn load_registration(path: &Path, display: &str) -> Result<Registration, Com
 }
 
 struct SetEntry {
-    file: String,
+    file: Text,
     tape: Value,
 }
 
@@ -257,10 +280,24 @@ fn load_set(
             )));
         }
     };
-    let mut names: Vec<String> = Vec::new();
+    // Entry names are carried in the operating
+    // system's own decoding end to end (the Python's
+    // listdir strings): the document names them as
+    // they are, and paths open by their real bytes.
+    // Names sort as the Python sorts strings, by
+    // codepoint.
+    let mut names: Vec<(std::ffi::OsString, Text)> = Vec::new();
     for entry in read {
         match entry {
-            Ok(entry) => names.push(entry.file_name().to_string_lossy().into_owned()),
+            Ok(entry) => {
+                let os_name = entry.file_name();
+                #[cfg(unix)]
+                let bytes = os_name.as_encoded_bytes().to_vec();
+                #[cfg(not(unix))]
+                let bytes = os_name.to_string_lossy().into_owned().into_bytes();
+                let text_name = Text::from_units(fsdecode_units(&bytes));
+                names.push((os_name, text_name));
+            }
             Err(error) => {
                 return Err(err(format!(
                     "cannot read the {side} set at {display}: {error}"
@@ -268,14 +305,14 @@ fn load_set(
             }
         }
     }
-    names.sort();
+    names.sort_by(|a, b| text_cmp_py(a.1.units(), b.1.units()));
     let mut tapes = Vec::new();
     let mut excluded = Vec::new();
-    for name in names {
-        let path = directory.join(&name);
+    for (os_name, name) in names {
+        let path = directory.join(&os_name);
         if !path.is_file() {
             excluded.push(obj(vec![
-                ("file", text(&name)),
+                ("file", Value::Str(name)),
                 ("reason", text("not a file")),
                 ("defects", Value::Array(Vec::new())),
             ]));
@@ -285,7 +322,7 @@ fn load_set(
             LoadOutcome::Tape(tape) => tape,
             LoadOutcome::Failed { reason, defects } => {
                 excluded.push(obj(vec![
-                    ("file", text(&name)),
+                    ("file", Value::Str(name)),
                     ("reason", text(&reason)),
                     (
                         "defects",
@@ -298,18 +335,29 @@ fn load_set(
         let shape_defects = measure_shape_defects(&tape);
         if !shape_defects.is_empty() {
             excluded.push(obj(vec![
-                ("file", text(&name)),
+                ("file", Value::Str(name)),
                 ("reason", text("not a valid tape")),
                 (
                     "defects",
-                    Value::Array(shape_defects.iter().map(|d| text(d)).collect()),
+                    Value::Array(
+                        shape_defects
+                            .iter()
+                            .map(|d| Value::Str(d.clone()))
+                            .collect(),
+                    ),
                 ),
             ]));
             continue;
         }
-        if tape_digest(&tape).is_err() {
+        // The Python's canonical digest refuses a tape
+        // whose whole value nests to depth 992 (probed:
+        // a tool input at depth 988 scores, at 989 the
+        // tape is excluded); the crate refuses only
+        // past 1000, so the shallower boundary is
+        // applied here before the digest runs.
+        if container_depth(&tape) >= 992 || tape_digest(&tape).is_err() {
             excluded.push(obj(vec![
-                ("file", text(&name)),
+                ("file", Value::Str(name)),
                 ("reason", text("cannot be cited under canonical form 1")),
                 ("defects", Value::Array(Vec::new())),
             ]));
@@ -321,7 +369,7 @@ fn load_set(
 }
 
 struct Indexed {
-    file: String,
+    file: Text,
     measures: Measures,
 }
 
@@ -331,7 +379,7 @@ fn index_set(tapes: Vec<SetEntry>) -> (BTreeMap<String, Vec<Indexed>>, Vec<Value
     for entry in tapes {
         match task_key(&entry.tape) {
             None => unmatchable.push(obj(vec![
-                ("file", text(&entry.file)),
+                ("file", Value::Str(entry.file)),
                 ("reason", text("no main-chain user message with a text")),
             ])),
             Some(key) => {
@@ -358,8 +406,8 @@ struct PairRow {
     key: String,
     before: Measures,
     after: Measures,
-    before_file: String,
-    after_file: String,
+    before_file: Text,
+    after_file: Text,
 }
 
 impl PairRow {
@@ -376,8 +424,8 @@ impl PairRow {
             ("key", text(&self.key)),
             ("before", self.before.to_value()),
             ("after", self.after.to_value()),
-            ("before_file", text(&self.before_file)),
-            ("after_file", text(&self.after_file)),
+            ("before_file", Value::Str(self.before_file.clone())),
+            ("after_file", Value::Str(self.after_file.clone())),
             (
                 "deltas",
                 obj(vec![
@@ -530,11 +578,17 @@ pub fn compare(
             ]));
         } else if !left.is_empty() {
             for entry in left {
-                unmatched_before.push(obj(vec![("file", text(&entry.file)), ("key", text(key))]));
+                unmatched_before.push(obj(vec![
+                    ("file", Value::Str(entry.file.clone())),
+                    ("key", text(key)),
+                ]));
             }
         } else {
             for entry in right {
-                unmatched_after.push(obj(vec![("file", text(&entry.file)), ("key", text(key))]));
+                unmatched_after.push(obj(vec![
+                    ("file", Value::Str(entry.file.clone())),
+                    ("key", text(key)),
+                ]));
             }
         }
     }

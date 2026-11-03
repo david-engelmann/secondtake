@@ -93,7 +93,11 @@ fn temp_root(tag: &str) -> PathBuf {
 fn write_set(directory: &Path, tapes: &[(&str, Value)]) -> PathBuf {
     std::fs::create_dir_all(directory).expect("set dir");
     for (name, tape) in tapes {
-        std::fs::write(directory.join(name), dumps_document(tape)).expect("tape file");
+        std::fs::write(
+            directory.join(name),
+            dumps_document(tape).expect("the tape renders"),
+        )
+        .expect("tape file");
     }
     directory.to_path_buf()
 }
@@ -475,7 +479,11 @@ fn the_fixture_transport_replays_by_digest() {
 /// the f64 Display, which drops the fraction; the
 /// file form keeps the recorded values as JSON).
 fn dumps_value(value: &Value) -> String {
-    dumps_document(value).trim_end().to_string()
+    let bytes = dumps_document(value).expect("the value renders");
+    String::from_utf8(bytes)
+        .expect("utf8")
+        .trim_end()
+        .to_string()
 }
 
 #[test]
@@ -610,7 +618,8 @@ fn a_nan_fixture_leaves_the_tune_and_stays_json() {
     // The emitted document is strict JSON (the
     // Python asserts json.dumps with allow_nan=False):
     // its text carries no NaN or Infinity token.
-    let rendered = dumps_document(&document);
+    let rendered =
+        String::from_utf8(dumps_document(&document).expect("the document renders")).unwrap();
     assert!(!rendered.contains("NaN"), "{rendered}");
     assert!(!rendered.contains("Infinity"), "{rendered}");
 }
@@ -747,19 +756,19 @@ fn live_transport_names_undecodable_output() {
         "import sys\nsys.stdout.buffer.write(b'\\xff\\xfe')\n",
     )
     .unwrap();
-    let transport = LiveTransport::new(stub.to_str().unwrap().to_string());
+    let transport = LiveTransport::new(std::ffi::OsString::from(stub.to_str().unwrap()));
     let error = transport.ask(CARD, "choice").expect_err("undecodable");
     assert!(error.0.contains("could not be read"), "{error}");
     // A failing call and a non-JSON answer name
     // themselves as well.
     let stub = root.join("jev_fail.py");
     std::fs::write(&stub, "import sys\nsys.exit(3)\n").unwrap();
-    let transport = LiveTransport::new(stub.to_str().unwrap().to_string());
+    let transport = LiveTransport::new(std::ffi::OsString::from(stub.to_str().unwrap()));
     let error = transport.ask(CARD, "choice").expect_err("fails");
     assert!(error.0.contains("the judge call failed"), "{error}");
     let stub = root.join("jev_text.py");
     std::fs::write(&stub, "print('not json at all')\n").unwrap();
-    let transport = LiveTransport::new(stub.to_str().unwrap().to_string());
+    let transport = LiveTransport::new(std::ffi::OsString::from(stub.to_str().unwrap()));
     let error = transport.ask(CARD, "choice").expect_err("not json");
     assert!(error.0.contains("not JSON"), "{error}");
 }

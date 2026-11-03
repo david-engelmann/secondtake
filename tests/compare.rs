@@ -131,7 +131,11 @@ fn temp_root(tag: &str) -> PathBuf {
 fn write_set(directory: &Path, tapes: &[(&str, Value)]) -> PathBuf {
     std::fs::create_dir_all(directory).expect("set dir");
     for (name, tape) in tapes {
-        std::fs::write(directory.join(name), dumps_document(tape)).expect("tape file");
+        std::fs::write(
+            directory.join(name),
+            dumps_document(tape).expect("the tape renders"),
+        )
+        .expect("tape file");
     }
     directory.to_path_buf()
 }

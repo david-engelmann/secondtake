@@ -15,7 +15,7 @@ use flighttape::value::{Text, Value};
 use crate::emit::py_float;
 
 use crate::compare::Registration;
-use crate::util::{int_is_negative, number_as_f64, obj, text};
+use crate::util::{err, int_is_negative, json_text_depth, number_as_f64, obj, text, FromMessage};
 
 pub const MODEL: &str = "jev-1.13.0";
 pub const LABELS: [&str; 4] = ["keep", "tune", "revert", "abstain"];
@@ -38,8 +38,10 @@ impl std::fmt::Display for JudgeError {
 
 impl std::error::Error for JudgeError {}
 
-fn err(message: impl Into<String>) -> JudgeError {
-    JudgeError(message.into())
+impl FromMessage for JudgeError {
+    fn from_message(message: String) -> JudgeError {
+        JudgeError(message)
+    }
 }
 
 /// The counts the card's second line states.
@@ -51,10 +53,8 @@ pub struct CardCounts {
 
 /// Python's f"{value:.2f}" with trailing zeros and a
 /// bare point stripped, the card's number rendering.
-/// Integers format exactly in Python until the int is
-/// too large to convert to float, where the Python
-/// raises OverflowError building a card at all; the
-/// port prints the digits (named in the dossier).
+/// Integers format exactly at any magnitude in both
+/// implementations.
 pub fn num_text(value: &Value) -> String {
     match value {
         Value::Int(digits) => digits.clone(),
@@ -346,10 +346,18 @@ impl FixtureTransport {
                 return Err(err(format!("no judgments file at {display}")));
             }
         };
-        let data = match String::from_utf8(raw)
-            .map_err(|_| ())
-            .and_then(|text| parse(&text).map_err(|_| ()))
-        {
+        let data = match String::from_utf8(raw).map_err(|_| ()).and_then(|text| {
+            // The Python's reader refuses nesting
+            // past its recursion boundary (probed
+            // through this surface: a text depth of
+            // 9991 reads, 9992 refuses); the crate's
+            // iterative reader accepts it, so the
+            // cap is applied to the text.
+            if json_text_depth(&text) > 9991 {
+                return Err(());
+            }
+            parse(&text).map_err(|_| ())
+        }) {
             Ok(data) => data,
             Err(_) => {
                 return Err(err(format!(
@@ -425,14 +433,16 @@ impl Transport for FixtureTransport {
 /// Calls Jev through the connector's call script
 /// (ST-17). The Python ran the script with its own
 /// interpreter; the port resolves python3 on the PATH
-/// (named in the dossier).
+/// (named in the dossier). The script path is an OS
+/// string, passed to the process uninterpreted, as
+/// the Python's own argument passing does.
 #[derive(Debug)]
 pub struct LiveTransport {
-    script: String,
+    script: std::ffi::OsString,
 }
 
 impl LiveTransport {
-    pub fn new(script: String) -> LiveTransport {
+    pub fn new(script: std::ffi::OsString) -> LiveTransport {
         LiveTransport { script }
     }
 }
@@ -460,6 +470,22 @@ impl Transport for LiveTransport {
             Ok(child) => child,
             Err(_) => return Err(err("the judge call could not be made")),
         };
+        // Both streams drain on their own threads from
+        // the start, as the Python's subprocess.run
+        // drains them: a helper that writes more than a
+        // pipe buffer before exiting never blocks.
+        let mut stdout_pipe = child.stdout.take().expect("stdout is piped");
+        let out_thread = std::thread::spawn(move || {
+            let mut buf = Vec::new();
+            let _ = stdout_pipe.read_to_end(&mut buf);
+            buf
+        });
+        let mut stderr_pipe = child.stderr.take().expect("stderr is piped");
+        let err_thread = std::thread::spawn(move || {
+            let mut buf = Vec::new();
+            let _ = stderr_pipe.read_to_end(&mut buf);
+            buf
+        });
         let deadline = Instant::now() + Duration::from_secs(180);
         let status = loop {
             match child.try_wait() {
@@ -467,6 +493,7 @@ impl Transport for LiveTransport {
                 Ok(None) => {
                     if Instant::now() >= deadline {
                         let _ = child.kill();
+                        let _ = child.wait();
                         return Err(err("the judge call could not be made"));
                     }
                     std::thread::sleep(Duration::from_millis(5));
@@ -474,17 +501,23 @@ impl Transport for LiveTransport {
                 Err(_) => return Err(err("the judge call could not be made")),
             }
         };
-        let mut out = Vec::new();
-        if let Some(mut stdout) = child.stdout.take() {
-            let _ = stdout.read_to_end(&mut out);
-        }
-        if !status.success() {
-            return Err(err("the judge call failed"));
-        }
+        let out = out_thread.join().unwrap_or_default();
+        let err_out = err_thread.join().unwrap_or_default();
+        // The Python decodes both streams inside
+        // subprocess.run, before it ever looks at the
+        // return code: undecodable output in either
+        // stream is "could not be read", outranking a
+        // failed call.
         let text_out = match String::from_utf8(out) {
             Ok(text) => text,
             Err(_) => return Err(err("the judge's answer could not be read")),
         };
+        if String::from_utf8(err_out).is_err() {
+            return Err(err("the judge's answer could not be read"));
+        }
+        if !status.success() {
+            return Err(err("the judge call failed"));
+        }
         match parse(&text_out) {
             Ok(value) => Ok(value),
             Err(ParseError::TooLarge) | Err(ParseError::Invalid) => {

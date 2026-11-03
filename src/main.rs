@@ -1,3 +1,3 @@
 fn main() {
-    std::process::exit(secondtake::cli::run_cli());
+    std::process::exit(secondtake::run_cli());
 }

@@ -17,10 +17,10 @@
 use std::path::Path;
 
 use flighttape::json::{parse, ParseError};
-use flighttape::pyrepr::repr_text;
-use flighttape::value::Value;
+use flighttape::value::{Text, Value};
 
-use crate::util::{int_eq_usize, int_is_negative, nonneg_int_cmp};
+use crate::pyrepr::{repr_text, repr_value};
+use crate::util::{int_eq_usize, int_is_negative, json_text_depth, nonneg_int_cmp};
 
 pub const EVENT_KINDS: [&str; 8] = [
     "session_start",
@@ -62,6 +62,14 @@ pub fn load_tape_file(path: &Path) -> LoadOutcome {
         Ok(text) => text,
         Err(_) => return failed("the file is not valid UTF-8"),
     };
+    // The Python's reader refuses nesting past its
+    // recursion boundary (probed through this
+    // surface: a text depth of 9994 reads, 9995
+    // refuses); the crate's iterative reader
+    // accepts it, so the cap is applied to the text.
+    if json_text_depth(&text) > 9994 {
+        return failed("the file is not valid JSON");
+    }
     let tape = match parse(&text) {
         Ok(tape) => tape,
         Err(ParseError::TooLarge) => return failed("the file holds a number too large to read"),
@@ -157,7 +165,7 @@ pub fn tape_defects(tape: &Value) -> Vec<String> {
             if !answers {
                 let shown = match call_id {
                     Some(Value::Str(text)) => repr_text(text),
-                    Some(other) => flighttape::pyrepr::repr_value(other),
+                    Some(other) => repr_value(other),
                     None => "None".to_string(),
                 };
                 defects.push(format!(
@@ -180,23 +188,26 @@ pub fn tape_defects(tape: &Value) -> Vec<String> {
 /// whose status is in the format enum. A tape breaking
 /// either is excluded with the defect named, never
 /// crashed on.
-pub fn measure_shape_defects(tape: &Value) -> Vec<String> {
+pub fn measure_shape_defects(tape: &Value) -> Vec<Text> {
+    fn phrase(text: &str) -> Text {
+        Text::from_str(text)
+    }
+    fn with_key(prefix: &str, key: &Text, suffix: &str) -> Text {
+        // The Python names the totals key in the defect
+        // in full, surrogates included; the defect is
+        // carried as text so the key survives as it is.
+        let mut units: Vec<u16> = prefix.encode_utf16().collect();
+        units.extend_from_slice(key.units());
+        units.extend(suffix.encode_utf16());
+        Text::from_units(units)
+    }
     let mut defects = Vec::new();
     if let Some(run) = tape.get("run") {
         if let Some(totals) = run.get("totals") {
             match totals.as_object() {
-                None => defects.push("run.totals is not an object".to_string()),
+                None => defects.push(phrase("run.totals is not an object")),
                 Some(entries) => {
                     for (key, value) in entries {
-                        let key = key.as_str().unwrap_or_else(|| {
-                            // Keys reaching here came from
-                            // parsed JSON; a surrogate key
-                            // renders lossily in the defect,
-                            // where the Python names it in
-                            // full. Such a tape is excluded
-                            // either way.
-                            String::from_utf16_lossy(key.units())
-                        });
                         match value {
                             Value::Int(digits) if !int_is_negative(digits) => {
                                 if nonneg_int_cmp(
@@ -204,13 +215,18 @@ pub fn measure_shape_defects(tape: &Value) -> Vec<String> {
                                     "1000000000000000000",
                                 ) == std::cmp::Ordering::Greater
                                 {
-                                    defects
-                                        .push(format!("run.totals.{key} is too large to measure"));
+                                    defects.push(with_key(
+                                        "run.totals.",
+                                        key,
+                                        " is too large to measure",
+                                    ));
                                 }
                             }
                             _ => {
-                                defects.push(format!(
-                                    "run.totals.{key} is not a non-negative integer"
+                                defects.push(with_key(
+                                    "run.totals.",
+                                    key,
+                                    " is not a non-negative integer",
                                 ));
                             }
                         }
@@ -221,11 +237,11 @@ pub fn measure_shape_defects(tape: &Value) -> Vec<String> {
     }
     if let Some(outcome) = tape.get("outcome") {
         match outcome.as_object() {
-            None => defects.push("outcome is not an object".to_string()),
+            None => defects.push(phrase("outcome is not an object")),
             Some(_) => {
                 let status = str_field(outcome, "status");
                 if !matches!(status.as_deref(), Some(s) if OUTCOME_STATUSES.contains(&s)) {
-                    defects.push("outcome.status is not in the format enum".to_string());
+                    defects.push(phrase("outcome.status is not in the format enum"));
                 }
             }
         }
