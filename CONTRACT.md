@@ -341,3 +341,33 @@ port must reproduce exactly.
   Round 3's PR 4 posted no findings (zero
   entries on the review endpoints), so no
   disposition is owed from it.
+- ST-29. Round 5 re-pins flighttape at 74a83298,
+  the Round 13 merge, in every table that names
+  it. Nothing else in the crate's behavior
+  changes.
+- ST-30. The divergences the re-pin retires are
+  proven by probes, not by the standing harness
+  alone (Round 4's lesson: the corpus was blind
+  to both grammar classes). The round's probe
+  set carries, as triplet probes against the
+  Python original and both pins: the colon-group
+  end stamp from Round 4's red team (Python
+  reads fraction digits, 120.3), representative
+  FT-63 to FT-66 tail shapes in start and end
+  stamp positions, one FT-68 NUL completion
+  shape reachable through a tape timestamp, and
+  the three Round 4 probe shapes (the 2^-24
+  digest, the separator-skip duration, the stray
+  digit duration). The harness also gains
+  standing cells for the shapes a tape can carry
+  through its own files: colon-group and
+  separator-skip end stamps in a compared pair,
+  so the corpus is no longer blind to the
+  classes it ships. A NUL cannot ride in a JSON
+  string as a raw byte; if the probe shows the
+  NUL class unreachable through secondtake's
+  surfaces, the contract records that finding
+  instead of a cell.
+- ST-31. README records 5 of 100 only in the
+  closure commit written after this round's
+  three reviews, fixes, and owner verification.
