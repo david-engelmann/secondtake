@@ -31,7 +31,7 @@ suite carries the ported tests.
 
 ## Programme status
 
-- Closed perfection rounds, 3 of 100. A round counts only when a
+- Closed perfection rounds, 4 of 100. A round counts only when a
   full cycle of work, audit, review, red team, and approval has
   closed.
 - Contract, ST-1 to ST-12 as amended, met for the Round 1 scope.
