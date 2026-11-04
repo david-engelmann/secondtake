@@ -323,3 +323,21 @@ port must reproduce exactly.
   register with a justification per item. No Python
   bindings: the consumer shape is a process-boundary
   CLI plus crate consumers.
+- ST-27. Round 4 re-pins the flighttape crate
+  from ba8d4b5 to its Round 12 merge eebce0be,
+  for fleet consistency with the rest of the
+  line. The consumption surface is established
+  by grep before the pin moves: which
+  flighttape modules this crate names decides
+  whether the Round 12 delta (the timestamp
+  grammar and the float and printability forms)
+  has any surface here. A control run of the
+  standing differential harness against the
+  re-pinned binary, before any other change,
+  is the evidence either way.
+- ST-28. The round's verification is the full
+  local gate plus the differential harness at
+  zero failures. CodeRabbit's advisory pass on
+  Round 3's PR 4 posted no findings (zero
+  entries on the review endpoints), so no
+  disposition is owed from it.
