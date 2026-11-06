@@ -371,3 +371,118 @@ port must reproduce exactly.
 - ST-31. README records 5 of 100 only in the
   closure commit written after this round's
   three reviews, fixes, and owner verification.
+- ST-32. The CodeRabbit disposition owed from
+  Round 5 discharges here on evidence: the
+  Round 5 pull request's late findings were
+  read back in the 2026-11-04 rotation sweep
+  and numbered zero, so there is nothing to
+  fix and the absence is the disposition.
+- ST-33. Round 6 takes the two write-seam
+  probes the rotation has not yet run on this
+  crate, at the compare command's output
+  write, the crate's one temp seam. First,
+  temp placement: the oracle's mkstemp
+  absolutizes the given parent lexically,
+  and a port creating its temp under the
+  spelled parent diverges exactly where a
+  popped symlink makes the lexical and
+  physical parents differ in existence. The
+  seam is measured on the oracle's own call
+  structure (which spelling feeds the temp
+  directory, which feeds the rename, which
+  the cannot-write message), convicted
+  shapes repaired per the measured law,
+  agreement shapes pinned. Second, the temp
+  suffix: mkstemp's suffix is exactly eight
+  characters; this crate's generator (a
+  nanos and pid construction) is measured
+  for width, and the name-length boundary is
+  measured in fresh pid namespaces in both
+  directions; a boundary that moves with the
+  generator's width is convicted and
+  repaired to a fixed width of eight, the
+  observable law being suffix length.
+  Whichever arms convict, the repair keeps
+  the rename target and the message spelling
+  as they stand, unless the probes convict
+  them too.
+- ST-34. README records 6 of 100 only in the
+  closure commit written after this round's
+  three reviews, fixes, and owner verification.
+- ST-35. The probes convict the rename target:
+  the write consumes the raw spelling where the
+  oracle consumes the pathlib construction of
+  it. The write now consumes the construction
+  (the display form's own normalization: tails
+  drop, redundant separators collapse with a
+  leading pair preserved, dot components drop,
+  dot-dot components are kept), and the rename
+  target is the constructed spelling. The
+  cannot-write message keeps the raw argv
+  spelling, as the oracle prints it. Convicted
+  shapes: an output spelled with a trailing
+  slash, a trailing dot component, or a double
+  trailing slash, fresh and over an existing
+  file, five cells, the port refusing where
+  the oracle writes.
+- ST-36. The probes convict the temp's home:
+  the port creates its temp under the spelled
+  parent, physically resolved, where mkstemp
+  absolutizes the given parent lexically. The
+  temp is now created under the lexical
+  absolutization of the constructed parent:
+  the parent joined to the working directory
+  when relative, then normalized lexically,
+  dot components dropping and dot-dot popping
+  without following any link. The rename still
+  resolves physically, so a popped spelling
+  lands where the kernel puts it; only the
+  temp's home moves. Convicted shape: a
+  read-only lexical parent with an escaping
+  pop, where the port wrote at the popped
+  location and the oracle refuses cannot
+  write; the mirror shape, a read-only
+  physical parent, refuses on both sides and
+  is pinned as agreement.
+- ST-37. The probes convict the temp suffix's
+  width: the generator's fixed eighteen hex
+  characters move the name-length boundary
+  ten characters inside mkstemp's. The suffix
+  is now exactly eight characters, four bytes
+  hex encoded, drawn from the standing
+  construction (urandom first, else the nanos
+  and pid mix), so the temp name's overhead
+  over the output name is nine characters,
+  mkstemp's own. The boundary then stands
+  where the oracle's stands: output basenames
+  to 246 characters write, 247 refuse, at
+  ambient pids and in a fresh pid namespace
+  alike. Convicted shapes: basenames of 237,
+  240, and 246 characters, and 240 through a
+  pop, the port refusing where the oracle
+  writes.
+- ST-38. The families' agreement shapes are
+  pinned in the differential harness beside
+  the convicted ones: the popped, split,
+  dangling, tailed-parent, absolute, deep,
+  escape, and guard shapes, the boundary
+  lengths, and the boundary through a pop.
+  The read-only lexical parent cell is
+  probe-pinned instead: the root-run harness
+  cannot stage a read-only parent against
+  itself, so the cell stands in the probe
+  record, staged as uid 65534.
+- ST-39. The write seam's name handling is
+  byte-counted on both sides. The differential
+  harness pins non-UTF8 output names through the
+  write beside the boundary cases: a raw byte in
+  the name and in the parent, fresh and through a
+  pop, and the boundary under raw bytes, where a
+  name of fewer characters but more bytes refuses
+  exactly when its byte count crosses the limit.
+- ST-40. The fallback entropy of ST-37 mixes the
+  process id into the four drawn bytes: the
+  sixteen-byte little-endian mix of nanos, pid,
+  and attempt is folded by lanes, so no term of
+  the mix is discarded by the slice that takes
+  the four bytes.

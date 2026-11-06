@@ -512,12 +512,116 @@ fn display_path(text: &Text) -> String {
     stderr_render(&normalize_path_display(text.units()))
 }
 
-fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
-    let parent = path.parent().unwrap_or_else(|| Path::new("."));
-    let name = path
-        .file_name()
-        .map(|n| n.to_string_lossy().into_owned())
-        .unwrap_or_default();
+/// Lexical normalization over raw path bytes, the
+/// normpath half of os.path.abspath: dot components
+/// drop, dot-dot pops the last kept component
+/// without following any link, and the result is
+/// absolute. A leading pair of slashes is preserved
+/// when the input carries exactly two.
+fn normpath_bytes(bytes: &[u8]) -> Vec<u8> {
+    let double = bytes.len() >= 2
+        && bytes[0] == b'/'
+        && bytes[1] == b'/'
+        && (bytes.len() == 2 || bytes[2] != b'/');
+    let mut kept: Vec<&[u8]> = Vec::new();
+    for part in bytes.split(|byte| *byte == b'/') {
+        if part.is_empty() || part == b"." {
+            continue;
+        }
+        if part == b".." {
+            match kept.last() {
+                Some(last) if *last != b".." => {
+                    kept.pop();
+                }
+                _ => {}
+            }
+            continue;
+        }
+        kept.push(part);
+    }
+    let mut out: Vec<u8> = Vec::new();
+    if double {
+        out.push(b'/');
+    }
+    out.push(b'/');
+    for (index, part) in kept.iter().enumerate() {
+        if index > 0 {
+            out.push(b'/');
+        }
+        out.extend_from_slice(part);
+    }
+    out
+}
+
+/// The directory mkstemp computes from a parent
+/// spelling: os.path.abspath joins the working
+/// directory when the spelling is relative, then
+/// normalizes lexically. A failed working-directory
+/// read fails the write, as the interpreter's
+/// getcwd failure fails its mkstemp call.
+fn lexical_abspath(parent: &[u8]) -> std::io::Result<Vec<u8>> {
+    if parent.first() == Some(&b'/') {
+        return Ok(normpath_bytes(parent));
+    }
+    let cwd = std::env::current_dir()?;
+    #[cfg(unix)]
+    let cwd_bytes = {
+        use std::os::unix::ffi::OsStrExt as _;
+        cwd.as_os_str().as_bytes().to_vec()
+    };
+    #[cfg(not(unix))]
+    let cwd_bytes = cwd.to_string_lossy().into_owned().into_bytes();
+    let mut joined = cwd_bytes;
+    joined.push(b'/');
+    joined.extend_from_slice(parent);
+    Ok(normpath_bytes(&joined))
+}
+
+fn write_atomically(out: &Text, bytes: &[u8]) -> std::io::Result<()> {
+    // ST-35: the write consumes the pathlib
+    // construction of the output spelling, the
+    // display form's own normalization; the rename
+    // target is the constructed spelling.
+    let constructed = normalize_path_display(out.units());
+    // The constructed parent and name, split the way
+    // pathlib splits them: the name is the final
+    // component, empty when that component is a dot
+    // or dot-dot or the path is a root.
+    let slash = '/' as u16;
+    let (parent_units, name_units): (&[u16], &[u16]) =
+        match constructed.iter().rposition(|unit| *unit == slash) {
+            Some(index) => {
+                let name = &constructed[index + 1..];
+                let name: &[u16] = if name == ['.' as u16] || name == ['.' as u16, '.' as u16] {
+                    &[]
+                } else {
+                    name
+                };
+                let parent: &[u16] = if index == 0 {
+                    &constructed[..1]
+                } else {
+                    &constructed[..index]
+                };
+                (parent, name)
+            }
+            None => {
+                if constructed == ['.' as u16] || constructed == ['.' as u16, '.' as u16] {
+                    (&['.' as u16], &[] as &[u16])
+                } else {
+                    (&[] as &[u16], &constructed[..])
+                }
+            }
+        };
+    let parent_bytes = if parent_units.is_empty() {
+        b".".to_vec()
+    } else {
+        fsencode_bytes(parent_units)
+    };
+    // ST-36: the temp's home is the lexical
+    // absolutization of the constructed parent.
+    let temp_dir = lexical_abspath(&parent_bytes)?;
+    let name_bytes = fsencode_bytes(name_units);
+    let target = os_path(&Text::from_units(constructed.clone()));
     // mkstemp's shape: an unpredictable name in the
     // target directory, created exclusively at mode
     // 0600, so a file already at any guessed name is
@@ -525,7 +629,12 @@ fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
     let mut attempt = 0;
     let temp = loop {
         let suffix = random_suffix(attempt);
-        let candidate = parent.join(format!("{name}.{suffix}"));
+        let mut candidate = temp_dir.clone();
+        candidate.push(b'/');
+        candidate.extend_from_slice(&name_bytes);
+        candidate.push(b'.');
+        candidate.extend_from_slice(suffix.as_bytes());
+        let candidate = os_path_bytes(candidate);
         let mut options = std::fs::OpenOptions::new();
         options.write(true).create_new(true);
         #[cfg(unix)]
@@ -548,7 +657,7 @@ fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
             Err(error) => return Err(error),
         }
     };
-    match std::fs::rename(&temp, path) {
+    match std::fs::rename(&temp, &target) {
         Ok(()) => Ok(()),
         Err(error) => {
             let _ = std::fs::remove_file(&temp);
@@ -557,8 +666,25 @@ fn write_atomically(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
     }
 }
 
+/// An OS path from raw bytes, in the operating
+/// system's own encoding.
+fn os_path_bytes(bytes: Vec<u8>) -> PathBuf {
+    #[cfg(unix)]
+    {
+        use std::os::unix::ffi::OsStringExt as _;
+        PathBuf::from(std::ffi::OsString::from_vec(bytes))
+    }
+    #[cfg(not(unix))]
+    {
+        PathBuf::from(String::from_utf8_lossy(&bytes).into_owned())
+    }
+}
+
 fn random_suffix(attempt: u32) -> String {
-    let mut bytes = [0u8; 9];
+    // ST-37: exactly eight characters, four bytes
+    // hex encoded, mkstemp's own width, drawn from
+    // the standing construction.
+    let mut bytes = [0u8; 4];
     let filled = std::fs::File::open("/dev/urandom")
         .and_then(|mut file| std::io::Read::read_exact(&mut file, &mut bytes))
         .is_ok();
@@ -567,10 +693,16 @@ fn random_suffix(attempt: u32) -> String {
             .duration_since(std::time::UNIX_EPOCH)
             .map(|d| d.as_nanos())
             .unwrap_or(0);
-        bytes = (nanos ^ ((std::process::id() as u128) << 64) ^ (attempt as u128)).to_le_bytes()
-            [..9]
-            .try_into()
-            .expect("nine bytes");
+        // ST-40: the sixteen-byte mix is folded by
+        // lanes so the pid term reaches the bytes.
+        let mixed =
+            (nanos ^ ((std::process::id() as u128) << 64) ^ (attempt as u128)).to_le_bytes();
+        bytes = [
+            mixed[0] ^ mixed[4] ^ mixed[8] ^ mixed[12],
+            mixed[1] ^ mixed[5] ^ mixed[9] ^ mixed[13],
+            mixed[2] ^ mixed[6] ^ mixed[10] ^ mixed[14],
+            mixed[3] ^ mixed[7] ^ mixed[11] ^ mixed[15],
+        ];
     }
     bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }
@@ -579,9 +711,8 @@ fn emit(document: &flighttape::value::Value, out: Option<&Text>) -> i32 {
     let bytes = dumps_document(document);
     match out {
         Some(out) => {
-            let path = os_path(out);
             let written = match &bytes {
-                Ok(bytes) => write_atomically(&path, bytes),
+                Ok(bytes) => write_atomically(out, bytes),
                 Err(_) => Err(std::io::Error::other("unwritable text")),
             };
             match written {
