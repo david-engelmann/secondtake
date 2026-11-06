@@ -371,3 +371,41 @@ port must reproduce exactly.
 - ST-31. README records 5 of 100 only in the
   closure commit written after this round's
   three reviews, fixes, and owner verification.
+- ST-32. The CodeRabbit disposition owed from
+  Round 5 discharges here on evidence: the
+  Round 5 pull request's late findings were
+  read back in the 2026-11-04 rotation sweep
+  and numbered zero, so there is nothing to
+  fix and the absence is the disposition.
+- ST-33. Round 6 takes the two write-seam
+  probes the rotation has not yet run on this
+  crate, at the compare command's output
+  write, the crate's one temp seam. First,
+  temp placement: the oracle's mkstemp
+  absolutizes the given parent lexically,
+  and a port creating its temp under the
+  spelled parent diverges exactly where a
+  popped symlink makes the lexical and
+  physical parents differ in existence. The
+  seam is measured on the oracle's own call
+  structure (which spelling feeds the temp
+  directory, which feeds the rename, which
+  the cannot-write message), convicted
+  shapes repaired per the measured law,
+  agreement shapes pinned. Second, the temp
+  suffix: mkstemp's suffix is exactly eight
+  characters; this crate's generator (a
+  nanos and pid construction) is measured
+  for width, and the name-length boundary is
+  measured in fresh pid namespaces in both
+  directions; a boundary that moves with the
+  generator's width is convicted and
+  repaired to a fixed width of eight, the
+  observable law being suffix length.
+  Whichever arms convict, the repair keeps
+  the rename target and the message spelling
+  as they stand, unless the probes convict
+  them too.
+- ST-34. README records 6 of 100 only in the
+  closure commit written after this round's
+  three reviews, fixes, and owner verification.
