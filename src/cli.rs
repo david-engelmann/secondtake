@@ -695,7 +695,8 @@ fn random_suffix(attempt: u32) -> String {
             .unwrap_or(0);
         // ST-40: the sixteen-byte mix is folded by
         // lanes so the pid term reaches the bytes.
-        let mixed = (nanos ^ ((std::process::id() as u128) << 64) ^ (attempt as u128)).to_le_bytes();
+        let mixed =
+            (nanos ^ ((std::process::id() as u128) << 64) ^ (attempt as u128)).to_le_bytes();
         bytes = [
             mixed[0] ^ mixed[4] ^ mixed[8] ^ mixed[12],
             mixed[1] ^ mixed[5] ^ mixed[9] ^ mixed[13],
