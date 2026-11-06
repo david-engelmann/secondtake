@@ -472,3 +472,17 @@ port must reproduce exactly.
   cannot stage a read-only parent against
   itself, so the cell stands in the probe
   record, staged as uid 65534.
+- ST-39. The write seam's name handling is
+  byte-counted on both sides. The differential
+  harness pins non-UTF8 output names through the
+  write beside the boundary cases: a raw byte in
+  the name and in the parent, fresh and through a
+  pop, and the boundary under raw bytes, where a
+  name of fewer characters but more bytes refuses
+  exactly when its byte count crosses the limit.
+- ST-40. The fallback entropy of ST-37 mixes the
+  process id into the four drawn bytes: the
+  sixteen-byte little-endian mix of nanos, pid,
+  and attempt is folded by lanes, so no term of
+  the mix is discarded by the slice that takes
+  the four bytes.
