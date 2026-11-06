@@ -693,10 +693,15 @@ fn random_suffix(attempt: u32) -> String {
             .duration_since(std::time::UNIX_EPOCH)
             .map(|d| d.as_nanos())
             .unwrap_or(0);
-        bytes = (nanos ^ ((std::process::id() as u128) << 64) ^ (attempt as u128)).to_le_bytes()
-            [..4]
-            .try_into()
-            .expect("four bytes");
+        // ST-40: the sixteen-byte mix is folded by
+        // lanes so the pid term reaches the bytes.
+        let mixed = (nanos ^ ((std::process::id() as u128) << 64) ^ (attempt as u128)).to_le_bytes();
+        bytes = [
+            mixed[0] ^ mixed[4] ^ mixed[8] ^ mixed[12],
+            mixed[1] ^ mixed[5] ^ mixed[9] ^ mixed[13],
+            mixed[2] ^ mixed[6] ^ mixed[10] ^ mixed[14],
+            mixed[3] ^ mixed[7] ^ mixed[11] ^ mixed[15],
+        ];
     }
     bytes.iter().map(|byte| format!("{byte:02x}")).collect()
 }
