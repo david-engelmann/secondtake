@@ -486,3 +486,96 @@ port must reproduce exactly.
   and attempt is folded by lanes, so no term of
   the mix is discarded by the slice that takes
   the four bytes.
+- ST-41. The CodeRabbit disposition owed from
+  Round 6 discharges here on evidence: the
+  Round 6 pull request's record, read back
+  through the list endpoints, carries exactly
+  one inline finding (a Windows-aware
+  normalization note on the temporary path),
+  replied to and dismissed with its reason in
+  Round 6 itself, a summary walkthrough with
+  no further findings, and a follow-up command
+  answered already reviewed. Nothing was
+  posted after the merge, so there are no late
+  findings to fix and the closed record is the
+  disposition.
+- ST-42. The deleted working directory family
+  is measured at this command before any
+  repair (the owed item from Round 6's red
+  team). Launched from a deleted working
+  directory with the registration readable,
+  the Python dies uncaught out of its guard
+  resolve with a FileNotFoundError traceback
+  wherever a guard-resolved spelling is
+  relative: the output target, the before
+  set, the after set, and a judgments file
+  each convict in turn, while the port
+  resolves through a substituted root
+  spelling and answers a named refusal
+  further along (cannot write, the set is
+  not a directory, no judgments file). Exit,
+  stdout, and the file trees agree on every
+  convicted cell; only the stderr form
+  splits. The family's edges are agreement:
+  a relative registration refuses by name at
+  load on both sides, before any resolve
+  runs, so the crash family starts only once
+  the guard is reached; with no output
+  requested, relative tape sets refuse by
+  name at load on both sides, so the crash
+  is guard-scoped; and with every spelling
+  absolute, both sides write and exit zero
+  from the deleted directory.
+- ST-43. The guard's resolution fails where
+  the interpreter's raises. resolve_path
+  returns no path when a relative spelling
+  needs the working directory and the
+  working-directory read fails, in place of
+  the substituted root spelling it returns
+  today; absolute spellings never consult
+  the working directory and never fail this
+  way. The guard resolves in the Python's
+  own order (the target, the before set, the
+  after set, then the stated files), and a
+  failed resolution takes the crash class:
+  exit 1 with no message, this port's
+  standing posture for the Python's uncaught
+  raise. The named refusals and their order
+  stand where every resolution succeeds.
+- ST-44. The differential harness gains the
+  family: the four convicted shapes as
+  crash-class cells (exit, stdout, and files
+  byte-compared; stderr compared by class, a
+  traceback naming FileNotFoundError against
+  silence), and the agreement shapes (the
+  relative registration, no output with
+  relative sets, absolute everything from
+  the deleted directory, and the
+  live-directory controls) byte-compared in
+  full. A control run against the pre-round
+  binary fails exactly the convicted cells.
+- ST-45. The README comes to the fleet
+  standard in this round: the first screen
+  in the standard's order, the lede the
+  repository description verbatim (the
+  description carries one colon of its own;
+  the copy bar yields to the
+  description-identity rule there, and the
+  exception is named here on the onrecord
+  OR-39 precedent), one badge, the ci
+  workflow's, verified against the
+  workflow's live state before it ships, and
+  one block of real captured output; then
+  Install, Quickstart, Usage, Status, and
+  License. The quickstart and usage outputs
+  are captured from runs made for this round
+  and reproduce from the repository's own
+  fixtures. The package metadata in
+  Cargo.toml carries a third description
+  variant; this round's bound is the README,
+  so the variant stands recorded here as a
+  named open item, not edited.
+- ST-46. README records 7 of 100 only in the
+  closure commit written after this round's
+  three reviews, fixes, and owner
+  verification.
