@@ -455,17 +455,20 @@ fn parse_top(tokens: &[Token]) -> ParseOutcome {
 
 /// Path.resolve() for the write guard: canonicalize
 /// what exists, then append the rest with lexical
-/// normalization.
-fn resolve_path(path: &Path) -> PathBuf {
+/// normalization. A relative spelling whose
+/// working directory cannot be read fails the
+/// resolution (ST-43): the interpreter's resolve
+/// raises there, and a substituted root spelling
+/// would compare a fiction. Absolute spellings
+/// never consult the working directory.
+fn resolve_path(path: &Path) -> Option<PathBuf> {
     if let Ok(canonical) = std::fs::canonicalize(path) {
-        return canonical;
+        return Some(canonical);
     }
     let absolute = if path.is_absolute() {
         path.to_path_buf()
     } else {
-        std::env::current_dir()
-            .unwrap_or_else(|_| PathBuf::from("/"))
-            .join(path)
+        std::env::current_dir().ok()?.join(path)
     };
     let mut ancestor: &Path = &absolute;
     let mut rest: Vec<std::path::Component> = Vec::new();
@@ -489,7 +492,7 @@ fn resolve_path(path: &Path) -> PathBuf {
             _ => {}
         }
     }
-    base
+    Some(base)
 }
 
 /// The OS path for a text argument, in the operating
@@ -786,9 +789,19 @@ fn run_tokens(tokens: Vec<Token>) -> i32 {
         }
     };
     if let Some(out) = &parsed.output {
-        let target = resolve_path(&os_path(out));
+        // The guard resolves in the Python's own order,
+        // and a failed resolution takes the crash class
+        // (ST-43): the interpreter dies uncaught out of
+        // the resolve, so the port returns 1 in silence.
+        let target = match resolve_path(&os_path(out)) {
+            Some(target) => target,
+            None => return 1,
+        };
         for directory in [&parsed.before, &parsed.after] {
-            let root = resolve_path(&os_path(directory));
+            let root = match resolve_path(&os_path(directory)) {
+                Some(root) => root,
+                None => return 1,
+            };
             if target == root || target.starts_with(&root) {
                 eprintln!("error, secondtake writes nothing inside the tape sets it reads");
                 return 1;
@@ -800,12 +813,15 @@ fn run_tokens(tokens: Vec<Token>) -> i32 {
                 stated.push(judge);
             }
         }
-        if stated
-            .iter()
-            .any(|path| target == resolve_path(&os_path(path)))
-        {
-            eprintln!("error, secondtake writes nothing over the files it reads");
-            return 1;
+        for path in &stated {
+            match resolve_path(&os_path(path)) {
+                Some(resolved) if resolved == target => {
+                    eprintln!("error, secondtake writes nothing over the files it reads");
+                    return 1;
+                }
+                Some(_) => {}
+                None => return 1,
+            }
         }
     }
     let judge: Option<Box<dyn Transport>> = match &parsed.judge {
