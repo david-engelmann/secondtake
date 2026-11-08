@@ -928,3 +928,310 @@ port must reproduce exactly.
   codepoint scan over all 25 tracked
   files at zero for both dash
   characters.
+- ST-56. The CodeRabbit disposition
+  on PR 10, completed, and the reply
+  standing on PR 8, confirmed: every
+  surface read back to its end after
+  the merge (2026-11-08T07:57:11Z,
+  349e121b; 9 review comments, 7
+  reviews, 4 issue comments).
+  (a) The findings review 5817038584
+  (COMMENTED, 2026-11-08T07:26:04Z,
+  over 5f61d67e..8ff5ec30) carried,
+  beside the three findings ST-55
+  disposed of, a fourth item Round 8
+  never disposed: a Nitpick (Trivial)
+  in its body, at
+  tests/compare.rs:586-592, asking
+  that the loop pin capture stderr
+  and assert the guard's silence for
+  both cycle paths, a downstream
+  write or judge-load error being
+  able to exit 1 as well. It stands
+  answered by the assignment ST-53(c)
+  already made: the pin's seat is
+  the exit and the untouched link,
+  in process, and the crash class's
+  silence rests on ST-50's harness
+  cells, which compare stderr by
+  class for both convicted cycle
+  shapes. No edit is made; the item
+  is recorded here so the
+  disposition is complete.
+  (b) The walkthrough shell
+  6718669019 (created on the owner's
+  trigger, 2026-11-08T07:19:47Z; last
+  updated 07:56:45Z, before the
+  merge) stands in its final form as
+  the free-review rate-limit form:
+  the banner (Review limit reached;
+  the next included review available
+  in 22 minutes) over a complete
+  walkthrough of the full range,
+  8ff5ec30..0da859c4, 3 files
+  (CONTRACT.md, src/cli.rs,
+  tests/compare.rs); not the Review
+  failed form. The findings review
+  states the included allowance
+  exhausted, 0 remain after this
+  review, so the ST-55 head drew no
+  fresh findings review, and its
+  delta stands on the Round 8 delta
+  review. Issue comment 6718727154
+  (07:26:32Z) is the standing
+  Already reviewed notice. The
+  owner's replies (4505490586,
+  4505490721, 4505490787; 07:56:52Z
+  to 07:56:58Z) all stand before
+  the merge.
+  (c) Three acknowledgment replies
+  postdate the replies ST-55
+  contracted: 4505491281 at
+  07:57:11Z, the merge's own second,
+  on the abstain thread, accepting
+  ST-55(a) and offering a tracking
+  issue; 4505491539 at 07:57:18Z,
+  after the merge, on the
+  completed-link thread, thanks,
+  the thread resolved; 4505492309
+  at 07:57:37Z, after the merge and
+  after the landing comment
+  6718994143 (07:57:29Z), on the
+  fallback thread, accepting the
+  ST-55(b) filing, recording that
+  the finding remains open because
+  its fix is deferred, offering an
+  issue, and recording a learning
+  in the finding's own shape. No
+  issue was opened on any thread.
+  ST-57's repair answers the
+  fallback thread's substance.
+  (d) On PR 8 the owner's reply
+  4505402150 (2026-11-08T07:19:09Z)
+  drew exactly one further item:
+  the acknowledgment 4505402923 at
+  07:19:29Z, under COMMENTED review
+  5817022541, accepting the ST-48
+  filing and asking whether a
+  separate issue is wanted or
+  ST-48 suffices. No new claim, no
+  human activity, nothing after.
+  No issue was opened, and ST-48
+  stands.
+- ST-57. The ST-55(b) candidate is
+  worked: links in the fallback's
+  remainder resolve. resolve_path
+  keeps its shape (canonicalize what
+  exists; the longest existing
+  ancestor is the fallback's seat)
+  and its lexical append is replaced
+  by the interpreter-shaped component
+  walk, factored into one walk both
+  resolution seats share: the
+  remainder's components are taken
+  left to right against the
+  canonicalized prefix, a dot-dot
+  pops the resolved prefix (a file
+  component included, as the
+  interpreter pops it as a string),
+  a link among them is followed at
+  its resolved position with its
+  target substituted in place, a
+  component that cannot be read
+  stands as its plain name, and a
+  link met again while its own
+  substitution is in flight fails
+  the resolution, the ST-49 posture,
+  under the same defensive ceiling
+  of 4096 follows. The loop arm's
+  adjudicated behavior is
+  undisturbed: the walk's steps,
+  order, and bookkeeping are the
+  arm's own, and ST-50's family
+  reports unchanged against the
+  repaired binary (ST-58).
+  Demonstrated against the oracle
+  first (the round's probe, 16
+  cells): ten convicted cells split
+  on the pre-round binary and agree
+  on the repaired one, the output
+  spelled gone/../blink/out.json;
+  the before set and the after set
+  each spelled through the seam (on
+  the pre-round binary each dies at
+  its loader, not at the guard);
+  the output equal to the
+  registration through the seam; a
+  remainder link whose target is
+  itself reached through a link; an
+  absolute target; a dangling
+  target landing inside the set; a
+  remainder link two dead components
+  and two pops deep; a dot-dot
+  popping a file component onto the
+  seam; and the first shape again
+  as uid 65534, once plain and once
+  with its first component a
+  directory of mode 444 in place of
+  the missing one. Five agreement
+  cells hold on both binaries: the
+  resolution leaving the set again
+  after the link, a link after a
+  dead component with no pop never
+  reached by either side, the file
+  pop landing at the root, the
+  plain output, and the plain
+  output inside the set. A loop
+  waiting in the remainder holds
+  the crash-class pairing on both
+  binaries, the oracle untrapped,
+  the port silent at exit 1. The
+  crate pin
+  a_link_in_the_resolvers_remainder_is_followed
+  runs the binary itself and reads
+  its stderr, the guard's refusal
+  and the write failure it replaces
+  sharing an exit code and an
+  untouched tree; it fails against
+  the pre-round source on the
+  cannot-write text and passes on
+  the repaired source.
+- ST-58. The standing differential
+  gains the remainder family,
+  remainder link guard, beside
+  ST-50's loop family: nine
+  convicted cells byte-compared in
+  full (the ST-57 battery's same-uid
+  shapes), four agreement cells,
+  and a loop waiting in the
+  remainder compared by crash class.
+  The uid shapes stay where ST-57
+  holds them, in the round's probe;
+  the harness runs at one uid.
+  Against the repaired binary the
+  full harness reports 33 cases and
+  no problems. Against the pre-round
+  control it reports 33 cases and 9
+  problems, every one a stderr
+  difference on a convicted
+  remainder cell; ST-50's family,
+  every agreement cell, and the
+  remainder loop cell are clean on
+  both runs.
+- ST-59. Closure. The round closes
+  on its gate and stands for the
+  owner's three reviews at landing.
+  Under the standing rule the
+  README's rounds line moves in
+  this commit, to 9 of 100. The
+  gate on the final tree: cargo
+  test 39 passed and none failed
+  (the new pin is the one over
+  ST-55's 38), clippy with warnings
+  denied clean, fmt clean, and the
+  codepoint scan over all 25
+  tracked files at zero for both
+  dash characters; the harness
+  stands as ST-58 records it, 33
+  cases and no problems against
+  the repaired binary.
+
+- ST-60. Amendments on the round's
+  three reviews, both of them
+  repairs to this record and neither
+  touching code. (a) ST-57's battery
+  enumeration overclaims the probe
+  by one shape. The probe runs 16
+  cells and convicts ten: the output
+  spelled gone/../blink/out.json;
+  the before set and the after set
+  each spelled through the seam; the
+  output equal to the registration
+  through the seam; a remainder link
+  whose target is itself reached
+  through a link; an absolute
+  target; a dangling target landing
+  inside the set; a dot-dot popping
+  a file component onto the seam;
+  and the first shape again as uid
+  65534, once plain and once with
+  its first component a directory
+  of mode 444 in place of the
+  missing one. The eleventh shape
+  ST-57 names, a remainder link two
+  dead components and two pops deep
+  (gone/deeper/../../blink/out.json),
+  is not among them: it stands only
+  in ST-58's family, as the cell
+  out-through-remainder-link-deep,
+  where it does convict the control
+  and agree on the repaired binary.
+  ST-57's enumeration is read
+  scoped to the probe's actual ten,
+  and the deep shape is credited to
+  ST-58's family. ST-58's
+  parenthetical is restated with
+  it: the family's nine convicted
+  cells are the probe's eight
+  same-uid convicted shapes plus
+  the deep cell, the probe's two
+  uid shapes staying in the probe
+  where ST-57 holds them, the
+  harness running at one uid.
+  (b) The ceiling's band is stated
+  for the re-meeting shape, which
+  ST-53(b)'s chain language does
+  not reach. Over chains the
+  oracle's own resolution dies of
+  recursion between 900 and 1000
+  links, the band ST-53(b) records.
+  Over re-meetings, where a
+  completed link is met again and
+  again (blink/../ repeated, blink
+  a link into the before set), the
+  oracle's resolution cache makes
+  each re-meeting free, so it never
+  approaches its own limit, and the
+  measured band runs the other way:
+  at 4096 follows both sides state
+  the guard's named refusal, and at
+  4097 the oracle still refuses by
+  name while the port takes the
+  crash class, silence. Exit, empty
+  stdout, and an untouched tree
+  agree at every measured depth;
+  the split is in stderr class
+  only, and the port's silence past
+  the ceiling is the only death in
+  this band. It stands as a
+  probe-pinned divergence of the
+  same ceiling, measured on the red
+  team's fixtures; whether the
+  ceiling is ever aligned stays
+  where ST-53(b) left it, a later
+  source round's question. This
+  amendment lands after the round's
+  closure commit (ST-59); the
+  README's rounds line stands
+  untouched and still exact at 9
+  of 100.
+
+ST-61. The CodeRabbit disposition
+  for PR 11. The review (COMMENTED,
+  5817485917) posted no inline
+  findings; its body's only item is
+  the Docstring Coverage pre-merge
+  check, which is DISMISSED with
+  this reason: it names no function,
+  the repository carries no
+  docstring configuration or
+  threshold of its own, and the
+  check applies the review tool's
+  default profile, so there is no
+  repo rule for it to enforce (the
+  touchstone VL-51 basis). The
+  functions this round touched
+  carry their contract citations in
+  their own comments. No reply
+  thread exists for a review-body
+  item; this item is the record.

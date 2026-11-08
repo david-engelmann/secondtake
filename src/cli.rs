@@ -454,8 +454,9 @@ fn parse_top(tokens: &[Token]) -> ParseOutcome {
 }
 
 /// Path.resolve() for the write guard: canonicalize
-/// what exists, then append the rest with lexical
-/// normalization. A relative spelling whose
+/// what exists, then walk the rest against the
+/// resolved prefix with the interpreter's own
+/// discipline (ST-57). A relative spelling whose
 /// working directory cannot be read fails the
 /// resolution (ST-43): the interpreter's resolve
 /// raises there, and a substituted root spelling
@@ -490,70 +491,92 @@ fn resolve_path(path: &Path) -> Option<PathBuf> {
             None => break,
         }
     }
-    let mut base = std::fs::canonicalize(ancestor).unwrap_or_else(|_| ancestor.to_path_buf());
-    for component in rest.iter().rev() {
+    let base = std::fs::canonicalize(ancestor).unwrap_or_else(|_| ancestor.to_path_buf());
+    // The components the ancestor leaves over are
+    // the walk's remainder (ST-57): a link among
+    // them is followed at its resolved position,
+    // not appended as a plain name. rest is stored
+    // last component first, so pushing its steps
+    // in stored order leaves the first remainder
+    // component on top of the stack.
+    let mut stack: Vec<WalkStep> = Vec::new();
+    for component in &rest {
         match component {
-            std::path::Component::Normal(name) => base.push(name),
-            std::path::Component::ParentDir => {
-                base.pop();
-            }
+            std::path::Component::Normal(name) => stack.push(WalkStep::Name(name.to_os_string())),
+            std::path::Component::ParentDir => stack.push(WalkStep::Up),
             _ => {}
         }
     }
-    Some(base)
+    walk_components(base, stack)
 }
 
 /// Whether resolving this absolute spelling would
-/// run a symlink chain back into itself. The walk
-/// is the interpreter's own shape: components are
-/// taken left to right, a link's target is
-/// substituted in place (an absolute target
-/// restarts from the root), and a link met again
-/// while its own substitution is still in flight
-/// is the loop. A link met again after its
-/// substitution finished is followed again, as
-/// the interpreter reuses the resolution it
-/// already made (ST-55), and a chain that never
-/// revisits a link is no loop however deep it
-/// runs, up to the walk's defensive ceiling on
-/// total follows (ST-53).
+/// run a symlink chain back into itself (ST-49):
+/// the shared component walk returns no path
+/// exactly where a link is met again while its
+/// own substitution is still in flight, or where
+/// a chain runs past the walk's defensive
+/// ceiling on total follows (ST-53).
 fn resolution_loops(absolute: &Path) -> bool {
-    use std::collections::HashMap;
-    use std::path::Component;
+    let mut stack: Vec<WalkStep> = Vec::new();
+    push_walk_path(&mut stack, absolute);
+    walk_components(PathBuf::from("/"), stack).is_none()
+}
 
-    enum Step {
-        Name(std::ffi::OsString),
-        Up,
-        Done(PathBuf),
-    }
+/// One step of the component walk: a name to
+/// place on the resolved prefix, a dot-dot to
+/// pop it, or the marker that a link's
+/// substitution has completed.
+enum WalkStep {
+    Name(std::ffi::OsString),
+    Up,
+    Done(PathBuf),
+}
 
-    fn push_path(stack: &mut Vec<Step>, path: &Path) {
-        let parts: Vec<Component<'_>> = path.components().collect();
-        for component in parts.into_iter().rev() {
-            match component {
-                Component::Normal(name) => stack.push(Step::Name(name.to_os_string())),
-                Component::ParentDir => stack.push(Step::Up),
-                _ => {}
-            }
+fn push_walk_path(stack: &mut Vec<WalkStep>, path: &Path) {
+    let parts: Vec<std::path::Component<'_>> = path.components().collect();
+    for component in parts.into_iter().rev() {
+        match component {
+            std::path::Component::Normal(name) => stack.push(WalkStep::Name(name.to_os_string())),
+            std::path::Component::ParentDir => stack.push(WalkStep::Up),
+            _ => {}
         }
     }
+}
 
-    let mut stack: Vec<Step> = Vec::new();
-    push_path(&mut stack, absolute);
-    let mut resolved = PathBuf::from("/");
+/// The component walk both resolution seats
+/// share: the loop test over a whole spelling
+/// (ST-49) and the fallback's remainder over
+/// the canonicalized ancestor (ST-57). The walk
+/// is the interpreter's own shape: components
+/// are taken left to right against the resolved
+/// prefix, a link's target is substituted in
+/// place (an absolute target restarts from the
+/// root), and a link met again after its
+/// substitution has completed is followed
+/// again, as the interpreter reuses the
+/// resolution it already made (ST-55). A
+/// component that cannot be read stands as its
+/// plain name. The walk returns the resolved
+/// path, or nothing when the resolution runs a
+/// symlink chain back into itself.
+fn walk_components(start: PathBuf, mut stack: Vec<WalkStep>) -> Option<PathBuf> {
+    use std::collections::HashMap;
+
+    let mut resolved = start;
     // A link's path, mapped to whether its own
     // substitution is still in flight.
     let mut links: HashMap<PathBuf, bool> = HashMap::new();
     let mut follows = 0usize;
     while let Some(step) = stack.pop() {
         match step {
-            Step::Done(link) => {
+            WalkStep::Done(link) => {
                 links.insert(link, false);
             }
-            Step::Up => {
+            WalkStep::Up => {
                 resolved.pop();
             }
-            Step::Name(name) => {
+            WalkStep::Name(name) => {
                 let candidate = resolved.join(&name);
                 let is_link = std::fs::symlink_metadata(&candidate)
                     .map(|meta| meta.file_type().is_symlink())
@@ -574,7 +597,7 @@ fn resolution_loops(absolute: &Path) -> bool {
                 // later component onto a prefix
                 // the resolution never visits.
                 if let Some(true) = links.get(&candidate) {
-                    return true;
+                    return None;
                 }
                 let target = match std::fs::read_link(&candidate) {
                     Ok(target) => target,
@@ -591,18 +614,18 @@ fn resolution_loops(absolute: &Path) -> bool {
                 // can keep the walk substituting
                 // forever (ST-53).
                 if follows > 4096 {
-                    return true;
+                    return None;
                 }
                 links.insert(candidate.clone(), true);
-                stack.push(Step::Done(candidate));
+                stack.push(WalkStep::Done(candidate));
                 if target.is_absolute() {
                     resolved = PathBuf::from("/");
                 }
-                push_path(&mut stack, &target);
+                push_walk_path(&mut stack, &target);
             }
         }
     }
-    false
+    Some(resolved)
 }
 
 /// The OS path for a text argument, in the operating
