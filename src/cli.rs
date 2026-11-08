@@ -511,10 +511,12 @@ fn resolve_path(path: &Path) -> Option<PathBuf> {
 /// restarts from the root), and a link met again
 /// while its own substitution is still in flight
 /// is the loop. A link met again after its
-/// substitution finished is no loop, and a chain
-/// that never revisits a link is no loop however
-/// deep it runs, up to the walk's defensive
-/// ceiling on total follows (ST-53).
+/// substitution finished is followed again, as
+/// the interpreter reuses the resolution it
+/// already made (ST-55), and a chain that never
+/// revisits a link is no loop however deep it
+/// runs, up to the walk's defensive ceiling on
+/// total follows (ST-53).
 fn resolution_loops(absolute: &Path) -> bool {
     use std::collections::HashMap;
     use std::path::Component;
@@ -560,13 +562,19 @@ fn resolution_loops(absolute: &Path) -> bool {
                     resolved = candidate;
                     continue;
                 }
-                match links.get(&candidate) {
-                    Some(true) => return true,
-                    Some(false) => {
-                        resolved = candidate;
-                        continue;
-                    }
-                    None => {}
+                // A link met again while its own
+                // substitution is in flight is the
+                // loop. A link met again after its
+                // substitution completed falls
+                // through and is followed again
+                // (ST-55): the interpreter reuses
+                // the resolution it already made,
+                // and treating the link as a plain
+                // component would move every
+                // later component onto a prefix
+                // the resolution never visits.
+                if let Some(true) = links.get(&candidate) {
+                    return true;
                 }
                 let target = match std::fs::read_link(&candidate) {
                     Ok(target) => target,

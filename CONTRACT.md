@@ -818,3 +818,113 @@ port must reproduce exactly.
   ST-53 records it, 32 cases and no
   problems against the repaired
   binary.
+- ST-55. The CodeRabbit disposition on
+  PR 10, three findings, each read in
+  full and demonstrated against the
+  oracle and the branch binary before
+  it was disposed of. This item lands
+  after the ST-54 closure commit; the
+  README's rounds line is untouched by
+  it and still reads 8 of 100, exact.
+  (a) The description finding
+  (4505417632) is demonstrated and not
+  repaired. A registration stating
+  min_pairs 3 against one matched pair
+  ends in the proposal abstain, the
+  judgment not consulted, the reason
+  stated as insufficient pairs, 1 of 3,
+  on the oracle and the port alike;
+  the same tapes at the default floor
+  propose keep. ST-14 contracts that
+  outcome and ST-18 names abstain
+  among the proposal field's four
+  values, while the shared description
+  names only keep, tune, and revert.
+  The gap is real, and it stands
+  flagged for David's word: the line
+  is his text standing verbatim in
+  three homes (the package
+  description, the README's opening
+  line, and the repository
+  description), the repair belongs to
+  the line itself, and no lane edits
+  it inside a round. No edit is made.
+  (b) The fallback finding
+  (4505417635) is a real split on
+  ST-43 ground, filed here as a named
+  candidate for the next source round
+  and not repaired. With the output
+  spelled gone/../blink/out.json,
+  where gone does not exist and blink
+  is a link into the before set, the
+  oracle refuses by name (writes
+  nothing inside the tape sets it
+  reads) while the port passes its
+  guard, runs the comparison, and
+  fails the write (cannot write the
+  comparison, gone/../blink/out.json);
+  the same split stands as uid 65534
+  with the first component a directory
+  of mode 444 in place of the missing
+  one. The producer is the fallback's
+  construction, not the loop arm: the
+  fallback takes the longest existing
+  ancestor and appends the remainder
+  lexically, so a link sitting in the
+  remainder is never followed, while
+  the interpreter's resolution pops
+  the .. off its resolved prefix and
+  follows the link at its resolved
+  position, landing inside the set.
+  The candidate is named: links in
+  the fallback's remainder resolve.
+  (c) The completed-link finding
+  (4505417638) is convicted against
+  this round's own arm and repaired.
+  On its fixture (hold/dlink a link
+  to d/sub, hold/loop a self-loop,
+  hold/d/loop a directory) the output
+  spelled
+  hold/dlink/../../dlink/../loop/../out.json
+  resolves on the oracle, exit 0, the
+  write landing in hold/d, while the
+  shipped build took the crash class,
+  exit 1 in silence, nothing written.
+  The arm's completed-link case set
+  the walk's prefix to the link's own
+  spelling instead of following it
+  again, so the components after the
+  second meeting landed on hold/loop,
+  the self-loop, where the resolution
+  visits hold/d/loop, a directory.
+  The repair follows a completed link
+  again when a spelling meets it
+  again, as the interpreter reuses
+  the resolution it already made; the
+  walk's ceiling counts a re-follow
+  like any follow. Two pins guard it:
+  the crate test
+  a_completed_link_met_again_is_followed_again,
+  which fails with the arm in its
+  shipped form, and the harness cell
+  out-past-a-loop-sibling-via-completed-link
+  in ST-50's family. The harness on
+  the final tree reports 32 cases and
+  no problems; against the pre-round
+  control it reports the same 9
+  problems as ST-50, every one on a
+  convicted cell, with the new cell
+  clean there, the control's fallback
+  reaching the spelling's ancestor
+  through the kernel: the regression
+  was the arm's own, and its
+  conviction stands on the probe and
+  the pin against the round's build.
+  (d) The gate re-run on the final
+  tree: cargo test 38 passed and none
+  failed (the new pin is the one over
+  ST-54's 37), clippy with warnings
+  denied clean, fmt clean, and the
+  codepoint scan over all 25 tracked
+  files at zero for both dash
+  characters.

@@ -620,6 +620,56 @@ fn the_write_guard_exits_1_and_leaves_the_loop_link_untouched() {
 }
 
 #[test]
+fn a_completed_link_met_again_is_followed_again() {
+    // ST-55. The interpreter reuses the resolution
+    // it already made when a spelling meets a link
+    // again after the link's substitution has
+    // completed, so the components after it land on
+    // the resolved prefix. Treating the link as a
+    // plain component moved them onto the link's
+    // own spelling, where a self-loop sibling
+    // waited: this spelling resolves on the
+    // interpreter and the write lands in hold/d,
+    // while the port took the crash class as if
+    // the spelling looped.
+    let root = temp_root("cli-completed-link");
+    let before_dir = write_set(
+        &root.join("b"),
+        &[("a.json", make_tape(&TapeOpts::default()))],
+    );
+    let after_dir = write_set(
+        &root.join("a"),
+        &[("a.json", make_tape(&TapeOpts::default()))],
+    );
+    let reg_path = root.join("registration.json");
+    std::fs::write(
+        &reg_path,
+        "{\"change\": \"new system prompt\", \"date\": \"2026-01-04\"}",
+    )
+    .unwrap();
+    std::fs::create_dir_all(root.join("hold/d/sub")).unwrap();
+    std::fs::create_dir_all(root.join("hold/d/loop")).unwrap();
+    std::os::unix::fs::symlink("d/sub", root.join("hold/dlink")).unwrap();
+    std::os::unix::fs::symlink("loop", root.join("hold/loop")).unwrap();
+    let spelling = root
+        .join("hold/dlink/../../dlink/../loop/../out.json")
+        .to_str()
+        .unwrap()
+        .to_string();
+    let code = secondtake::cli::run_with_args(vec![
+        "compare".into(),
+        before_dir.to_str().unwrap().into(),
+        after_dir.to_str().unwrap().into(),
+        "--registration".into(),
+        reg_path.to_str().unwrap().into(),
+        "-o".into(),
+        spelling,
+    ]);
+    assert_eq!(code, 0);
+    assert!(root.join("hold/d/out.json").is_file());
+}
+
+#[test]
 fn the_fixture_tape_keys_by_its_real_text() {
     let fixture = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/tape_synthetic.json");
     let tape = parse(&std::fs::read_to_string(fixture).unwrap()).unwrap();
