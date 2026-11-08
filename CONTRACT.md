@@ -1215,3 +1215,23 @@ port must reproduce exactly.
   README's rounds line stands
   untouched and still exact at 9
   of 100.
+
+ST-61. The CodeRabbit disposition
+  for PR 11. The review (COMMENTED,
+  5817485917) posted no inline
+  findings; its body's only item is
+  the Docstring Coverage pre-merge
+  check, which is DISMISSED with
+  this reason: it names no function,
+  the repository carries no
+  docstring configuration or
+  threshold of its own, and the
+  check applies the review tool's
+  default profile, so there is no
+  repo rule for it to enforce (the
+  touchstone VL-51 basis). The
+  functions this round touched
+  carry their contract citations in
+  their own comments. No reply
+  thread exists for a review-body
+  item; this item is the record.
