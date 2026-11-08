@@ -1118,3 +1118,20 @@ port must reproduce exactly.
   every agreement cell, and the
   remainder loop cell are clean on
   both runs.
+- ST-59. Closure. The round closes
+  on its gate and stands for the
+  owner's three reviews at landing.
+  Under the standing rule the
+  README's rounds line moves in
+  this commit, to 9 of 100. The
+  gate on the final tree: cargo
+  test 39 passed and none failed
+  (the new pin is the one over
+  ST-55's 38), clippy with warnings
+  denied clean, fmt clean, and the
+  codepoint scan over all 25
+  tracked files at zero for both
+  dash characters; the harness
+  stands as ST-58 records it, 33
+  cases and no problems against
+  the repaired binary.
