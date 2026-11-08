@@ -1135,3 +1135,83 @@ port must reproduce exactly.
   stands as ST-58 records it, 33
   cases and no problems against
   the repaired binary.
+
+- ST-60. Amendments on the round's
+  three reviews, both of them
+  repairs to this record and neither
+  touching code. (a) ST-57's battery
+  enumeration overclaims the probe
+  by one shape. The probe runs 16
+  cells and convicts ten: the output
+  spelled gone/../blink/out.json;
+  the before set and the after set
+  each spelled through the seam; the
+  output equal to the registration
+  through the seam; a remainder link
+  whose target is itself reached
+  through a link; an absolute
+  target; a dangling target landing
+  inside the set; a dot-dot popping
+  a file component onto the seam;
+  and the first shape again as uid
+  65534, once plain and once with
+  its first component a directory
+  of mode 444 in place of the
+  missing one. The eleventh shape
+  ST-57 names, a remainder link two
+  dead components and two pops deep
+  (gone/deeper/../../blink/out.json),
+  is not among them: it stands only
+  in ST-58's family, as the cell
+  out-through-remainder-link-deep,
+  where it does convict the control
+  and agree on the repaired binary.
+  ST-57's enumeration is read
+  scoped to the probe's actual ten,
+  and the deep shape is credited to
+  ST-58's family. ST-58's
+  parenthetical is restated with
+  it: the family's nine convicted
+  cells are the probe's eight
+  same-uid convicted shapes plus
+  the deep cell, the probe's two
+  uid shapes staying in the probe
+  where ST-57 holds them, the
+  harness running at one uid.
+  (b) The ceiling's band is stated
+  for the re-meeting shape, which
+  ST-53(b)'s chain language does
+  not reach. Over chains the
+  oracle's own resolution dies of
+  recursion between 900 and 1000
+  links, the band ST-53(b) records.
+  Over re-meetings, where a
+  completed link is met again and
+  again (blink/../ repeated, blink
+  a link into the before set), the
+  oracle's resolution cache makes
+  each re-meeting free, so it never
+  approaches its own limit, and the
+  measured band runs the other way:
+  at 4096 follows both sides state
+  the guard's named refusal, and at
+  4097 the oracle still refuses by
+  name while the port takes the
+  crash class, silence. Exit, empty
+  stdout, and an untouched tree
+  agree at every measured depth;
+  the split is in stderr class
+  only, and the port's silence past
+  the ceiling is the only death in
+  this band. It stands as a
+  probe-pinned divergence of the
+  same ceiling, measured on the red
+  team's fixtures; whether the
+  ceiling is ever aligned stays
+  where ST-53(b) left it, a later
+  source round's question. This
+  amendment lands after the round's
+  closure commit (ST-59); the
+  README's rounds line stands
+  untouched and still exact at 9
+  of 100.
