@@ -928,3 +928,171 @@ port must reproduce exactly.
   codepoint scan over all 25 tracked
   files at zero for both dash
   characters.
+- ST-56. The CodeRabbit disposition
+  on PR 10, completed, and the reply
+  standing on PR 8, confirmed: every
+  surface read back to its end after
+  the merge (2026-11-08T07:57:11Z,
+  349e121b; 9 review comments, 7
+  reviews, 4 issue comments).
+  (a) The findings review 5817038584
+  (COMMENTED, 2026-11-08T07:26:04Z,
+  over 5f61d67e..8ff5ec30) carried,
+  beside the three findings ST-55
+  disposed of, a fourth item Round 8
+  never disposed: a Nitpick (Trivial)
+  in its body, at
+  tests/compare.rs:586-592, asking
+  that the loop pin capture stderr
+  and assert the guard's silence for
+  both cycle paths, a downstream
+  write or judge-load error being
+  able to exit 1 as well. It stands
+  answered by the assignment ST-53(c)
+  already made: the pin's seat is
+  the exit and the untouched link,
+  in process, and the crash class's
+  silence rests on ST-50's harness
+  cells, which compare stderr by
+  class for both convicted cycle
+  shapes. No edit is made; the item
+  is recorded here so the
+  disposition is complete.
+  (b) The walkthrough shell
+  6718669019 (created on the owner's
+  trigger, 2026-11-08T07:19:47Z; last
+  updated 07:56:45Z, before the
+  merge) stands in its final form as
+  the free-review rate-limit form:
+  the banner (Review limit reached;
+  the next included review available
+  in 22 minutes) over a complete
+  walkthrough of the full range,
+  8ff5ec30..0da859c4, 3 files
+  (CONTRACT.md, src/cli.rs,
+  tests/compare.rs); not the Review
+  failed form. The findings review
+  states the included allowance
+  exhausted, 0 remain after this
+  review, so the ST-55 head drew no
+  fresh findings review, and its
+  delta stands on the Round 8 delta
+  review. Issue comment 6718727154
+  (07:26:32Z) is the standing
+  Already reviewed notice. The
+  owner's replies (4505490586,
+  4505490721, 4505490787; 07:56:52Z
+  to 07:56:58Z) all stand before
+  the merge.
+  (c) Three acknowledgment replies
+  postdate the replies ST-55
+  contracted: 4505491281 at
+  07:57:11Z, the merge's own second,
+  on the abstain thread, accepting
+  ST-55(a) and offering a tracking
+  issue; 4505491539 at 07:57:18Z,
+  after the merge, on the
+  completed-link thread, thanks,
+  the thread resolved; 4505492309
+  at 07:57:37Z, after the merge and
+  after the landing comment
+  6718994143 (07:57:29Z), on the
+  fallback thread, accepting the
+  ST-55(b) filing, recording that
+  the finding remains open because
+  its fix is deferred, offering an
+  issue, and recording a learning
+  in the finding's own shape. No
+  issue was opened on any thread.
+  ST-57's repair answers the
+  fallback thread's substance.
+  (d) On PR 8 the owner's reply
+  4505402150 (2026-11-08T07:19:09Z)
+  drew exactly one further item:
+  the acknowledgment 4505402923 at
+  07:19:29Z, under COMMENTED review
+  5817022541, accepting the ST-48
+  filing and asking whether a
+  separate issue is wanted or
+  ST-48 suffices. No new claim, no
+  human activity, nothing after.
+  No issue was opened, and ST-48
+  stands.
+- ST-57. The ST-55(b) candidate is
+  worked: links in the fallback's
+  remainder resolve. resolve_path
+  keeps its shape (canonicalize what
+  exists; the longest existing
+  ancestor is the fallback's seat)
+  and its lexical append is replaced
+  by the interpreter-shaped component
+  walk, factored into one walk both
+  resolution seats share: the
+  remainder's components are taken
+  left to right against the
+  canonicalized prefix, a dot-dot
+  pops the resolved prefix (a file
+  component included, as the
+  interpreter pops it as a string),
+  a link among them is followed at
+  its resolved position with its
+  target substituted in place, a
+  component that cannot be read
+  stands as its plain name, and a
+  link met again while its own
+  substitution is in flight fails
+  the resolution, the ST-49 posture,
+  under the same defensive ceiling
+  of 4096 follows. The loop arm's
+  adjudicated behavior is
+  undisturbed: the walk's steps,
+  order, and bookkeeping are the
+  arm's own, and ST-50's family
+  reports unchanged against the
+  repaired binary (ST-58).
+  Demonstrated against the oracle
+  first (the round's probe, 16
+  cells): ten convicted cells split
+  on the pre-round binary and agree
+  on the repaired one, the output
+  spelled gone/../blink/out.json;
+  the before set and the after set
+  each spelled through the seam (on
+  the pre-round binary each dies at
+  its loader, not at the guard);
+  the output equal to the
+  registration through the seam; a
+  remainder link whose target is
+  itself reached through a link; an
+  absolute target; a dangling
+  target landing inside the set; a
+  remainder link two dead components
+  and two pops deep; a dot-dot
+  popping a file component onto the
+  seam; and the first shape again
+  as uid 65534, once plain and once
+  with its first component a
+  directory of mode 444 in place of
+  the missing one. Five agreement
+  cells hold on both binaries: the
+  resolution leaving the set again
+  after the link, a link after a
+  dead component with no pop never
+  reached by either side, the file
+  pop landing at the root, the
+  plain output, and the plain
+  output inside the set. A loop
+  waiting in the remainder holds
+  the crash-class pairing on both
+  binaries, the oracle untrapped,
+  the port silent at exit 1. The
+  crate pin
+  a_link_in_the_resolvers_remainder_is_followed
+  runs the binary itself and reads
+  its stderr, the guard's refusal
+  and the write failure it replaces
+  sharing an exit code and an
+  untouched tree; it fails against
+  the pre-round source on the
+  cannot-write text and passes on
+  the repaired source.
