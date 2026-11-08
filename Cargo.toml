@@ -2,7 +2,7 @@
 name = "secondtake"
 version = "0.1.0"
 edition = "2021"
-description = "Before and after tapes, matched by task and compared on four measures"
+description = "The regression watch for setup changes: traces from before and after any change, matched by task class and compared on cost, time, rework, and rescue rate, ending in a keep, tune, or revert proposal with the numbers attached."
 license = "MIT"
 
 [lib]

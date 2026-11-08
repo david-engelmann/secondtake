@@ -459,8 +459,13 @@ fn parse_top(tokens: &[Token]) -> ParseOutcome {
 /// working directory cannot be read fails the
 /// resolution (ST-43): the interpreter's resolve
 /// raises there, and a substituted root spelling
-/// would compare a fiction. Absolute spellings
-/// never consult the working directory.
+/// would compare a fiction. So does a spelling
+/// whose resolution runs a symlink chain back
+/// into itself (ST-49): the interpreter's resolve
+/// raises RuntimeError there, and a substituted
+/// spelling past the loop is the same fiction.
+/// Absolute spellings never consult the working
+/// directory.
 fn resolve_path(path: &Path) -> Option<PathBuf> {
     if let Ok(canonical) = std::fs::canonicalize(path) {
         return Some(canonical);
@@ -470,6 +475,9 @@ fn resolve_path(path: &Path) -> Option<PathBuf> {
     } else {
         std::env::current_dir().ok()?.join(path)
     };
+    if resolution_loops(&absolute) {
+        return None;
+    }
     let mut ancestor: &Path = &absolute;
     let mut rest: Vec<std::path::Component> = Vec::new();
     while !ancestor.exists() {
@@ -493,6 +501,108 @@ fn resolve_path(path: &Path) -> Option<PathBuf> {
         }
     }
     Some(base)
+}
+
+/// Whether resolving this absolute spelling would
+/// run a symlink chain back into itself. The walk
+/// is the interpreter's own shape: components are
+/// taken left to right, a link's target is
+/// substituted in place (an absolute target
+/// restarts from the root), and a link met again
+/// while its own substitution is still in flight
+/// is the loop. A link met again after its
+/// substitution finished is followed again, as
+/// the interpreter reuses the resolution it
+/// already made (ST-55), and a chain that never
+/// revisits a link is no loop however deep it
+/// runs, up to the walk's defensive ceiling on
+/// total follows (ST-53).
+fn resolution_loops(absolute: &Path) -> bool {
+    use std::collections::HashMap;
+    use std::path::Component;
+
+    enum Step {
+        Name(std::ffi::OsString),
+        Up,
+        Done(PathBuf),
+    }
+
+    fn push_path(stack: &mut Vec<Step>, path: &Path) {
+        let parts: Vec<Component<'_>> = path.components().collect();
+        for component in parts.into_iter().rev() {
+            match component {
+                Component::Normal(name) => stack.push(Step::Name(name.to_os_string())),
+                Component::ParentDir => stack.push(Step::Up),
+                _ => {}
+            }
+        }
+    }
+
+    let mut stack: Vec<Step> = Vec::new();
+    push_path(&mut stack, absolute);
+    let mut resolved = PathBuf::from("/");
+    // A link's path, mapped to whether its own
+    // substitution is still in flight.
+    let mut links: HashMap<PathBuf, bool> = HashMap::new();
+    let mut follows = 0usize;
+    while let Some(step) = stack.pop() {
+        match step {
+            Step::Done(link) => {
+                links.insert(link, false);
+            }
+            Step::Up => {
+                resolved.pop();
+            }
+            Step::Name(name) => {
+                let candidate = resolved.join(&name);
+                let is_link = std::fs::symlink_metadata(&candidate)
+                    .map(|meta| meta.file_type().is_symlink())
+                    .unwrap_or(false);
+                if !is_link {
+                    resolved = candidate;
+                    continue;
+                }
+                // A link met again while its own
+                // substitution is in flight is the
+                // loop. A link met again after its
+                // substitution completed falls
+                // through and is followed again
+                // (ST-55): the interpreter reuses
+                // the resolution it already made,
+                // and treating the link as a plain
+                // component would move every
+                // later component onto a prefix
+                // the resolution never visits.
+                if let Some(true) = links.get(&candidate) {
+                    return true;
+                }
+                let target = match std::fs::read_link(&candidate) {
+                    Ok(target) => target,
+                    Err(_) => {
+                        resolved = candidate;
+                        continue;
+                    }
+                };
+                follows += 1;
+                // A defensive ceiling on the walk:
+                // a spelling whose resolution would
+                // follow more links than this is
+                // reported as a loop, so no spelling
+                // can keep the walk substituting
+                // forever (ST-53).
+                if follows > 4096 {
+                    return true;
+                }
+                links.insert(candidate.clone(), true);
+                stack.push(Step::Done(candidate));
+                if target.is_absolute() {
+                    resolved = PathBuf::from("/");
+                }
+                push_path(&mut stack, &target);
+            }
+        }
+    }
+    false
 }
 
 /// The OS path for a text argument, in the operating

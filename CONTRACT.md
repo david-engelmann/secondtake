@@ -579,3 +579,352 @@ port must reproduce exactly.
   closure commit written after this round's
   three reviews, fixes, and owner
   verification.
+- ST-47. The CodeRabbit disposition owed
+  from Round 7 is discharged here. PR 9's
+  three surfaces, read to their ends
+  through the list endpoints after the
+  merge (5f61d67e, 2026-11-07T06:34:10Z),
+  stand as follows: zero review comments
+  and zero reviews; one summary shell
+  (issue comment 6703379997), opened at
+  06:29:21Z on the owner's manual
+  invocation and finalized at 06:35:06Z,
+  after the merge, in the Review failed
+  form that records the pull request is
+  closed, over a complete and accurate
+  walkthrough of the round; and one later
+  bot comment (6703451275, 06:37:11Z), the
+  action notice that no review ran
+  because the pull request is closed. No
+  finding stands on PR 9, late or
+  otherwise, so Round 7's merge-time zero
+  stands confirmed as a count; the
+  shell's final form is stated exactly
+  here because a merge-time read cannot
+  see it: a walkthrough under a Review
+  failed header is a failed review with a
+  walkthrough attached, not a completed
+  one.
+- ST-48. PR 8, read the same way for
+  completeness, carries one finding,
+  discharged here. Its summary shell
+  (issue comment 6700626191) finalized at
+  2026-11-07T01:56:36Z, before that merge
+  (c8ecd01b, 01:58:08Z), in completed
+  walkthrough form; its one inline
+  comment (4499475165, Minor, on the CI
+  workflow) and its one COMMENTED review
+  (5809331939, actionable comments
+  posted: 1) both predate the merge, and
+  the comment stands unanswered. The
+  finding asks that the queue branches
+  (gh-readonly-queue/) be excluded from
+  the workflow's push trigger, so that a
+  merge group cannot start the gate
+  twice, once by push and once by
+  merge_group. It is recorded and not
+  repaired, on two grounds. Merge queues
+  are platform-blocked on user-owned
+  repositories and cannot be switched on
+  for this repository, so no merge group
+  can form and the duplicate run cannot
+  occur. And the workflow's trigger block
+  is the fleet's uniform shaping step,
+  the same in every repository on this
+  line; a per-repository exclusion would
+  diverge the fleet against a run that
+  cannot happen, so the exclusion belongs
+  to the fleet pass that lands when
+  queues themselves land, not to one
+  repository's round.
+- ST-49. Where a guard spelling's
+  resolution runs a symlink chain back
+  into itself, the resolution fails (the
+  loop arm). resolve_path keeps its shape
+  (ST-43: canonicalize what exists, then
+  the lexical remainder over the
+  absolutized spelling) and gains one
+  test on the absolutized spelling before
+  the remainder is taken: a
+  component-wise walk in the interpreter's
+  own shape, substituting a link's target
+  in place (an absolute target restarts
+  the walk from the root) and holding
+  each link in flight until its
+  substitution completes; a link met
+  again while its own substitution is in
+  flight is the loop, a link met again
+  after its substitution has completed is
+  not, and a chain that never revisits a
+  link is not, however deep it runs. A
+  failed resolution takes the crash class
+  at every guard call site (ST-43), exit
+  1 with no message, matching the oracle:
+  its resolve raises RuntimeError on the
+  loop and its main catches only the
+  named errors, so the run dies
+  untrapped. The arm is scoped to genuine
+  cycles. The measured 50-link acyclic
+  chain still refuses at the loader on
+  both sides, untouched, and every shape
+  where the two resolutions already
+  agreed stands unchanged. One cell of
+  the family splits further than the owed
+  item scoped: where the output spelling
+  is itself the loop link, the unguarded
+  port wrote the comparison over the link
+  and exited 0; under the arm the run
+  exits 1 and the link stands untouched.
+  The probes behind this item ran eight
+  convicted spellings (the output through
+  two cycle shapes, the output as the
+  loop link itself, one absolute output
+  spelling, the before set, the after
+  set, and the stated judge through a
+  cycle and as the cycle) against seven
+  agreement spellings, and every
+  convicted spelling takes the crash
+  class on both sides with exit, stdout,
+  and trees identical.
+- ST-50. The standing differential harness
+  gains the symlink loop guard family:
+  one special case laying a two-link
+  cycle, a self-loop, and the agreement
+  fixtures into both roots (fresh
+  fixtures per cell, because the
+  convicted cell whose output is the loop
+  link rewrites that link on the
+  pre-round binary and a shared fixture
+  would carry the scar into later cells),
+  then driving eight convicted cells
+  (stderr by class, the oracle's
+  traceback naming RuntimeError and the
+  loop against the port's silence; exit,
+  stdout, and files byte-compared) and
+  seven agreement cells (byte-compared
+  in full: the registration spelled
+  through the cycle, an output inside a
+  set and an output equal to the
+  registration through links that resolve,
+  an output through a dangling link, the
+  loop before set with no output, the
+  50-link chain as the before set, and a
+  plain control). A control run against
+  the pre-round binary reports 32 cases
+  and 9 problems, every one inside this
+  family and every one on a convicted
+  cell, and passes the rest of the suite;
+  the repaired run reports 32 cases and
+  no problems. The crate suite gains
+  the_write_guard_takes_the_crash_class_on_a_symlink_loop
+  (tests/compare.rs), pinning the exit
+  and the untouched link in process; run
+  against the pre-round code it fails.
+- ST-51. The description item carried
+  open by ST-45 is closed. Cargo.toml's
+  package description stood as a third
+  variant of the text the repository
+  description and the README's opening
+  line already shared; it is set to that
+  shared line byte for byte, and the
+  three homes now carry one text.
+- ST-52. README records 8 of 100 only in
+  the closure commit written after this
+  round's three reviews, fixes, and owner
+  verification.
+- ST-53. The round's three reviews all
+  approve, and their findings converge
+  in this amendment. (a) Two comments
+  cited the loop arm to ST-47, the
+  disposition item: the doc comment on
+  resolve_path (src/cli.rs) and the
+  comment on the crate pin
+  (tests/compare.rs) now cite ST-49,
+  the item that built the arm. (b)
+  ST-49's law is scoped to the walk's
+  defensive ceiling, commented in the
+  source where it sits: a spelling
+  whose resolution would follow more
+  than 4096 links is reported as a
+  loop, so no spelling can keep the
+  walk substituting forever. The
+  ceiling's observable reach was
+  measured against the oracle over
+  acyclic chains laid fresh per depth,
+  the output spelled through the
+  chain: at 900 links both sides exit
+  1 on the named write error and
+  nothing is written; at 1000 the
+  oracle's own resolution dies first,
+  a RecursionError traceback, while
+  the port resolves the chain and
+  reaches the named write error; the
+  port still reaches it at 4096
+  follows and takes the crash class,
+  silence, from 4097, where the
+  oracle still shows its
+  RecursionError. The oracle's flip
+  sits between 900 and 1000 links.
+  Exit, empty stdout, and nothing
+  written agree at every measured
+  depth; only the stderr shape
+  differs inside those bands. The
+  band stands as a probe-pinned
+  divergence, and whether the ceiling
+  is ever aligned to the oracle's
+  recursion boundary is a later
+  source round's question. (c) The
+  crate pin is renamed to state what
+  it asserts:
+  the_write_guard_exits_1_and_leaves_the_loop_link_untouched
+  pins the exit and the untouched
+  link in process, and the silence
+  that completes the crash class
+  rests on the harness cells of
+  ST-50. (d) The harness gains one
+  cell for ST-49's completed-link
+  arm, out-through-completed-link-twice,
+  spelling the output
+  dlink/../dlink/out.json so a link
+  is met again after its substitution
+  has completed, the completed-link
+  diamond: the full harness reports
+  32 cases and no problems against
+  the repaired binary, and against
+  the pre-round control the same 9
+  problems as ST-50, every one on a
+  convicted cell, with this cell
+  clean on both runs, the arm
+  touching loop detection only.
+- ST-54. Closure. The round closes
+  on its three reviews (spec
+  approves with no Critical and no
+  Major findings, two Minors and one
+  Note; standards approves with two
+  Minors and two Notes; the red team
+  approves with one Minor) and on
+  the ST-53 repair commit, which
+  answers every Minor the three
+  raised. Under ST-52 the README's
+  rounds line moves in this
+  commit, to 8 of 100. The gate
+  re-run on the repaired tree:
+  cargo test 37 passed and none
+  failed, clippy with warnings
+  denied clean, fmt clean, and the
+  codepoint scan over all 25 tracked
+  files at zero for both dash
+  characters; the harness stands as
+  ST-53 records it, 32 cases and no
+  problems against the repaired
+  binary.
+- ST-55. The CodeRabbit disposition on
+  PR 10, three findings, each read in
+  full and demonstrated against the
+  oracle and the branch binary before
+  it was disposed of. This item lands
+  after the ST-54 closure commit; the
+  README's rounds line is untouched by
+  it and still reads 8 of 100, exact.
+  (a) The description finding
+  (4505417632) is demonstrated and not
+  repaired. A registration stating
+  min_pairs 3 against one matched pair
+  ends in the proposal abstain, the
+  judgment not consulted, the reason
+  stated as insufficient pairs, 1 of 3,
+  on the oracle and the port alike;
+  the same tapes at the default floor
+  propose keep. ST-14 contracts that
+  outcome and ST-18 names abstain
+  among the proposal field's four
+  values, while the shared description
+  names only keep, tune, and revert.
+  The gap is real, and it stands
+  flagged for David's word: the line
+  is his text standing verbatim in
+  three homes (the package
+  description, the README's opening
+  line, and the repository
+  description), the repair belongs to
+  the line itself, and no lane edits
+  it inside a round. No edit is made.
+  (b) The fallback finding
+  (4505417635) is a real split on
+  ST-43 ground, filed here as a named
+  candidate for the next source round
+  and not repaired. With the output
+  spelled gone/../blink/out.json,
+  where gone does not exist and blink
+  is a link into the before set, the
+  oracle refuses by name (writes
+  nothing inside the tape sets it
+  reads) while the port passes its
+  guard, runs the comparison, and
+  fails the write (cannot write the
+  comparison, gone/../blink/out.json);
+  the same split stands as uid 65534
+  with the first component a directory
+  of mode 444 in place of the missing
+  one. The producer is the fallback's
+  construction, not the loop arm: the
+  fallback takes the longest existing
+  ancestor and appends the remainder
+  lexically, so a link sitting in the
+  remainder is never followed, while
+  the interpreter's resolution pops
+  the .. off its resolved prefix and
+  follows the link at its resolved
+  position, landing inside the set.
+  The candidate is named: links in
+  the fallback's remainder resolve.
+  (c) The completed-link finding
+  (4505417638) is convicted against
+  this round's own arm and repaired.
+  On its fixture (hold/dlink a link
+  to d/sub, hold/loop a self-loop,
+  hold/d/loop a directory) the output
+  spelled
+  hold/dlink/../../dlink/../loop/../out.json
+  resolves on the oracle, exit 0, the
+  write landing in hold/d, while the
+  shipped build took the crash class,
+  exit 1 in silence, nothing written.
+  The arm's completed-link case set
+  the walk's prefix to the link's own
+  spelling instead of following it
+  again, so the components after the
+  second meeting landed on hold/loop,
+  the self-loop, where the resolution
+  visits hold/d/loop, a directory.
+  The repair follows a completed link
+  again when a spelling meets it
+  again, as the interpreter reuses
+  the resolution it already made; the
+  walk's ceiling counts a re-follow
+  like any follow. Two pins guard it:
+  the crate test
+  a_completed_link_met_again_is_followed_again,
+  which fails with the arm in its
+  shipped form, and the harness cell
+  out-past-a-loop-sibling-via-completed-link
+  in ST-50's family. The harness on
+  the final tree reports 32 cases and
+  no problems; against the pre-round
+  control it reports the same 9
+  problems as ST-50, every one on a
+  convicted cell, with the new cell
+  clean there, the control's fallback
+  reaching the spelling's ancestor
+  through the kernel: the regression
+  was the arm's own, and its
+  conviction stands on the probe and
+  the pin against the round's build.
+  (d) The gate re-run on the final
+  tree: cargo test 38 passed and none
+  failed (the new pin is the one over
+  ST-54's 37), clippy with warnings
+  denied clean, fmt clean, and the
+  codepoint scan over all 25 tracked
+  files at zero for both dash
+  characters.

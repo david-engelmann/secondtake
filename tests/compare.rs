@@ -532,6 +532,143 @@ fn the_cli_and_its_write_guard() {
     assert_eq!(code, 1);
 }
 
+#[cfg(unix)]
+#[test]
+fn the_write_guard_exits_1_and_leaves_the_loop_link_untouched() {
+    // ST-49. The interpreter's resolve raises on a
+    // symlink loop, so a guard spelling that runs a
+    // chain back into itself fails the resolution
+    // and the run exits 1 having written nothing,
+    // where the resolution once compared a fiction
+    // past the loop (and, for an output that was
+    // itself the loop link, wrote over the link).
+    let root = temp_root("cli-loop");
+    let before_dir = write_set(
+        &root.join("b"),
+        &[("a.json", make_tape(&TapeOpts::default()))],
+    );
+    let after_dir = write_set(
+        &root.join("a"),
+        &[("a.json", make_tape(&TapeOpts::default()))],
+    );
+    let reg_path = root.join("registration.json");
+    std::fs::write(
+        &reg_path,
+        "{\"change\": \"new system prompt\", \"date\": \"2026-01-04\"}",
+    )
+    .unwrap();
+    std::os::unix::fs::symlink("midb", root.join("mida")).unwrap();
+    std::os::unix::fs::symlink("mida", root.join("midb")).unwrap();
+    std::os::unix::fs::symlink("selfloop", root.join("selfloop")).unwrap();
+    let base_args: Vec<String> = vec![
+        "compare".into(),
+        before_dir.to_str().unwrap().into(),
+        after_dir.to_str().unwrap().into(),
+        "--registration".into(),
+        reg_path.to_str().unwrap().into(),
+    ];
+    let run = |extra: Vec<String>| {
+        let mut argv = base_args.clone();
+        argv.extend(extra);
+        secondtake::cli::run_with_args(argv)
+    };
+    // The output is the loop link itself: the run
+    // fails and the link stands untouched.
+    let code = run(vec![
+        "-o".into(),
+        root.join("selfloop").to_str().unwrap().into(),
+    ]);
+    assert_eq!(code, 1);
+    assert!(std::fs::symlink_metadata(root.join("selfloop"))
+        .unwrap()
+        .file_type()
+        .is_symlink());
+    // The output spelled through the cycle.
+    let code = run(vec![
+        "-o".into(),
+        root.join("mida").join("out.json").to_str().unwrap().into(),
+    ]);
+    assert_eq!(code, 1);
+    assert!(!root.join("out.json").exists());
+    // The stated judge spelled through the cycle.
+    let code = run(vec![
+        "--judge".into(),
+        root.join("mida")
+            .join("judgments.json")
+            .to_str()
+            .unwrap()
+            .into(),
+        "-o".into(),
+        root.join("out.json").to_str().unwrap().into(),
+    ]);
+    assert_eq!(code, 1);
+    assert!(!root.join("out.json").exists());
+    // A link that resolves still refuses on the
+    // guard's own terms: the output inside the
+    // before set through a sound link.
+    std::os::unix::fs::symlink("b", root.join("goodlink")).unwrap();
+    let code = run(vec![
+        "-o".into(),
+        root.join("goodlink")
+            .join("out.json")
+            .to_str()
+            .unwrap()
+            .into(),
+    ]);
+    assert_eq!(code, 1);
+    assert!(!before_dir.join("out.json").exists());
+}
+
+#[test]
+fn a_completed_link_met_again_is_followed_again() {
+    // ST-55. The interpreter reuses the resolution
+    // it already made when a spelling meets a link
+    // again after the link's substitution has
+    // completed, so the components after it land on
+    // the resolved prefix. Treating the link as a
+    // plain component moved them onto the link's
+    // own spelling, where a self-loop sibling
+    // waited: this spelling resolves on the
+    // interpreter and the write lands in hold/d,
+    // while the port took the crash class as if
+    // the spelling looped.
+    let root = temp_root("cli-completed-link");
+    let before_dir = write_set(
+        &root.join("b"),
+        &[("a.json", make_tape(&TapeOpts::default()))],
+    );
+    let after_dir = write_set(
+        &root.join("a"),
+        &[("a.json", make_tape(&TapeOpts::default()))],
+    );
+    let reg_path = root.join("registration.json");
+    std::fs::write(
+        &reg_path,
+        "{\"change\": \"new system prompt\", \"date\": \"2026-01-04\"}",
+    )
+    .unwrap();
+    std::fs::create_dir_all(root.join("hold/d/sub")).unwrap();
+    std::fs::create_dir_all(root.join("hold/d/loop")).unwrap();
+    std::os::unix::fs::symlink("d/sub", root.join("hold/dlink")).unwrap();
+    std::os::unix::fs::symlink("loop", root.join("hold/loop")).unwrap();
+    let spelling = root
+        .join("hold/dlink/../../dlink/../loop/../out.json")
+        .to_str()
+        .unwrap()
+        .to_string();
+    let code = secondtake::cli::run_with_args(vec![
+        "compare".into(),
+        before_dir.to_str().unwrap().into(),
+        after_dir.to_str().unwrap().into(),
+        "--registration".into(),
+        reg_path.to_str().unwrap().into(),
+        "-o".into(),
+        spelling,
+    ]);
+    assert_eq!(code, 0);
+    assert!(root.join("hold/d/out.json").is_file());
+}
+
 #[test]
 fn the_fixture_tape_keys_by_its_real_text() {
     let fixture = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/tape_synthetic.json");
