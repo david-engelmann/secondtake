@@ -579,3 +579,156 @@ port must reproduce exactly.
   closure commit written after this round's
   three reviews, fixes, and owner
   verification.
+- ST-47. The CodeRabbit disposition owed
+  from Round 7 is discharged here. PR 9's
+  three surfaces, read to their ends
+  through the list endpoints after the
+  merge (5f61d67e, 2026-11-07T06:34:10Z),
+  stand as follows: zero review comments
+  and zero reviews; one summary shell
+  (issue comment 6703379997), opened at
+  06:29:21Z on the owner's manual
+  invocation and finalized at 06:35:06Z,
+  after the merge, in the Review failed
+  form that records the pull request is
+  closed, over a complete and accurate
+  walkthrough of the round; and one later
+  bot comment (6703451275, 06:37:11Z), the
+  action notice that no review ran
+  because the pull request is closed. No
+  finding stands on PR 9, late or
+  otherwise, so Round 7's merge-time zero
+  stands confirmed as a count; the
+  shell's final form is stated exactly
+  here because a merge-time read cannot
+  see it: a walkthrough under a Review
+  failed header is a failed review with a
+  walkthrough attached, not a completed
+  one.
+- ST-48. PR 8, read the same way for
+  completeness, carries one finding,
+  discharged here. Its summary shell
+  (issue comment 6700626191) finalized at
+  2026-11-07T01:56:36Z, before that merge
+  (c8ecd01b, 01:58:08Z), in completed
+  walkthrough form; its one inline
+  comment (4499475165, Minor, on the CI
+  workflow) and its one COMMENTED review
+  (5809331939, actionable comments
+  posted: 1) both predate the merge, and
+  the comment stands unanswered. The
+  finding asks that the queue branches
+  (gh-readonly-queue/) be excluded from
+  the workflow's push trigger, so that a
+  merge group cannot start the gate
+  twice, once by push and once by
+  merge_group. It is recorded and not
+  repaired, on two grounds. Merge queues
+  are platform-blocked on user-owned
+  repositories and cannot be switched on
+  for this repository, so no merge group
+  can form and the duplicate run cannot
+  occur. And the workflow's trigger block
+  is the fleet's uniform shaping step,
+  the same in every repository on this
+  line; a per-repository exclusion would
+  diverge the fleet against a run that
+  cannot happen, so the exclusion belongs
+  to the fleet pass that lands when
+  queues themselves land, not to one
+  repository's round.
+- ST-49. Where a guard spelling's
+  resolution runs a symlink chain back
+  into itself, the resolution fails (the
+  loop arm). resolve_path keeps its shape
+  (ST-43: canonicalize what exists, then
+  the lexical remainder over the
+  absolutized spelling) and gains one
+  test on the absolutized spelling before
+  the remainder is taken: a
+  component-wise walk in the interpreter's
+  own shape, substituting a link's target
+  in place (an absolute target restarts
+  the walk from the root) and holding
+  each link in flight until its
+  substitution completes; a link met
+  again while its own substitution is in
+  flight is the loop, a link met again
+  after its substitution has completed is
+  not, and a chain that never revisits a
+  link is not, however deep it runs. A
+  failed resolution takes the crash class
+  at every guard call site (ST-43), exit
+  1 with no message, matching the oracle:
+  its resolve raises RuntimeError on the
+  loop and its main catches only the
+  named errors, so the run dies
+  untrapped. The arm is scoped to genuine
+  cycles. The measured 50-link acyclic
+  chain still refuses at the loader on
+  both sides, untouched, and every shape
+  where the two resolutions already
+  agreed stands unchanged. One cell of
+  the family splits further than the owed
+  item scoped: where the output spelling
+  is itself the loop link, the unguarded
+  port wrote the comparison over the link
+  and exited 0; under the arm the run
+  exits 1 and the link stands untouched.
+  The probes behind this item ran eight
+  convicted spellings (the output through
+  two cycle shapes, the output as the
+  loop link itself, one absolute output
+  spelling, the before set, the after
+  set, and the stated judge through a
+  cycle and as the cycle) against seven
+  agreement spellings, and every
+  convicted spelling takes the crash
+  class on both sides with exit, stdout,
+  and trees identical.
+- ST-50. The standing differential harness
+  gains the symlink loop guard family:
+  one special case laying a two-link
+  cycle, a self-loop, and the agreement
+  fixtures into both roots (fresh
+  fixtures per cell, because the
+  convicted cell whose output is the loop
+  link rewrites that link on the
+  pre-round binary and a shared fixture
+  would carry the scar into later cells),
+  then driving eight convicted cells
+  (stderr by class, the oracle's
+  traceback naming RuntimeError and the
+  loop against the port's silence; exit,
+  stdout, and files byte-compared) and
+  seven agreement cells (byte-compared
+  in full: the registration spelled
+  through the cycle, an output inside a
+  set and an output equal to the
+  registration through links that resolve,
+  an output through a dangling link, the
+  loop before set with no output, the
+  50-link chain as the before set, and a
+  plain control). A control run against
+  the pre-round binary reports 32 cases
+  and 9 problems, every one inside this
+  family and every one on a convicted
+  cell, and passes the rest of the suite;
+  the repaired run reports 32 cases and
+  no problems. The crate suite gains
+  the_write_guard_takes_the_crash_class_on_a_symlink_loop
+  (tests/compare.rs), pinning the exit
+  and the untouched link in process; run
+  against the pre-round code it fails.
+- ST-51. The description item carried
+  open by ST-45 is closed. Cargo.toml's
+  package description stood as a third
+  variant of the text the repository
+  description and the README's opening
+  line already shared; it is set to that
+  shared line byte for byte, and the
+  three homes now carry one text.
+- ST-52. README records 8 of 100 only in
+  the closure commit written after this
+  round's three reviews, fixes, and owner
+  verification.
