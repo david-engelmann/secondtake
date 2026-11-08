@@ -534,8 +534,8 @@ fn the_cli_and_its_write_guard() {
 
 #[cfg(unix)]
 #[test]
-fn the_write_guard_takes_the_crash_class_on_a_symlink_loop() {
-    // ST-47. The interpreter's resolve raises on a
+fn the_write_guard_exits_1_and_leaves_the_loop_link_untouched() {
+    // ST-49. The interpreter's resolve raises on a
     // symlink loop, so a guard spelling that runs a
     // chain back into itself fails the resolution
     // and the run exits 1 having written nothing,

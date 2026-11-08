@@ -732,3 +732,67 @@ port must reproduce exactly.
   the closure commit written after this
   round's three reviews, fixes, and owner
   verification.
+- ST-53. The round's three reviews all
+  approve, and their findings converge
+  in this amendment. (a) Two comments
+  cited the loop arm to ST-47, the
+  disposition item: the doc comment on
+  resolve_path (src/cli.rs) and the
+  comment on the crate pin
+  (tests/compare.rs) now cite ST-49,
+  the item that built the arm. (b)
+  ST-49's law is scoped to the walk's
+  defensive ceiling, commented in the
+  source where it sits: a spelling
+  whose resolution would follow more
+  than 4096 links is reported as a
+  loop, so no spelling can keep the
+  walk substituting forever. The
+  ceiling's observable reach was
+  measured against the oracle over
+  acyclic chains laid fresh per depth,
+  the output spelled through the
+  chain: at 900 links both sides exit
+  1 on the named write error and
+  nothing is written; at 1000 the
+  oracle's own resolution dies first,
+  a RecursionError traceback, while
+  the port resolves the chain and
+  reaches the named write error; the
+  port still reaches it at 4096
+  follows and takes the crash class,
+  silence, from 4097, where the
+  oracle still shows its
+  RecursionError. The oracle's flip
+  sits between 900 and 1000 links.
+  Exit, empty stdout, and nothing
+  written agree at every measured
+  depth; only the stderr shape
+  differs inside those bands. The
+  band stands as a probe-pinned
+  divergence, and whether the ceiling
+  is ever aligned to the oracle's
+  recursion boundary is a later
+  source round's question. (c) The
+  crate pin is renamed to state what
+  it asserts:
+  the_write_guard_exits_1_and_leaves_the_loop_link_untouched
+  pins the exit and the untouched
+  link in process, and the silence
+  that completes the crash class
+  rests on the harness cells of
+  ST-50. (d) The harness gains one
+  cell for ST-49's completed-link
+  arm, out-through-completed-link-twice,
+  spelling the output
+  dlink/../dlink/out.json so a link
+  is met again after its substitution
+  has completed, the completed-link
+  diamond: the full harness reports
+  32 cases and no problems against
+  the repaired binary, and against
+  the pre-round control the same 9
+  problems as ST-50, every one on a
+  convicted cell, with this cell
+  clean on both runs, the arm
+  touching loop detection only.

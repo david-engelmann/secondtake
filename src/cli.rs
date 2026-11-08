@@ -461,7 +461,7 @@ fn parse_top(tokens: &[Token]) -> ParseOutcome {
 /// raises there, and a substituted root spelling
 /// would compare a fiction. So does a spelling
 /// whose resolution runs a symlink chain back
-/// into itself (ST-47): the interpreter's resolve
+/// into itself (ST-49): the interpreter's resolve
 /// raises RuntimeError there, and a substituted
 /// spelling past the loop is the same fiction.
 /// Absolute spellings never consult the working
@@ -511,9 +511,10 @@ fn resolve_path(path: &Path) -> Option<PathBuf> {
 /// restarts from the root), and a link met again
 /// while its own substitution is still in flight
 /// is the loop. A link met again after its
-/// substitution finished is no loop, and a long
-/// chain that never revisits a link is no loop
-/// however deep it runs.
+/// substitution finished is no loop, and a chain
+/// that never revisits a link is no loop however
+/// deep it runs, up to the walk's defensive
+/// ceiling on total follows (ST-53).
 fn resolution_loops(absolute: &Path) -> bool {
     use std::collections::HashMap;
     use std::path::Component;
@@ -575,6 +576,12 @@ fn resolution_loops(absolute: &Path) -> bool {
                     }
                 };
                 follows += 1;
+                // A defensive ceiling on the walk:
+                // a spelling whose resolution would
+                // follow more links than this is
+                // reported as a loop, so no spelling
+                // can keep the walk substituting
+                // forever (ST-53).
                 if follows > 4096 {
                     return true;
                 }
