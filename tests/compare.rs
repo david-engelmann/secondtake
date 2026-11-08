@@ -669,6 +669,95 @@ fn a_completed_link_met_again_is_followed_again() {
     assert!(root.join("hold/d/out.json").is_file());
 }
 
+#[cfg(unix)]
+#[test]
+fn a_link_in_the_resolvers_remainder_is_followed() {
+    // ST-57. The fallback resolver once appended
+    // the components past the longest existing
+    // ancestor lexically, so a link among them
+    // was never followed: an output spelled
+    // through a dead component, a dot-dot, and a
+    // link into the before set passed the write
+    // guard and failed later at the write, where
+    // the interpreter resolves the link at its
+    // resolved position and refuses by name. The
+    // refusal and the write failure it replaces
+    // share an exit code and an untouched tree,
+    // so the pin runs the binary itself and reads
+    // the stderr to tell them apart.
+    let root = temp_root("cli-remainder-link");
+    let before_dir = write_set(
+        &root.join("b"),
+        &[("a.json", make_tape(&TapeOpts::default()))],
+    );
+    let after_dir = write_set(
+        &root.join("a"),
+        &[("a.json", make_tape(&TapeOpts::default()))],
+    );
+    let reg_path = root.join("registration.json");
+    std::fs::write(
+        &reg_path,
+        "{\"change\": \"new system prompt\", \"date\": \"2026-01-04\"}",
+    )
+    .unwrap();
+    std::os::unix::fs::symlink("b", root.join("blink")).unwrap();
+    std::os::unix::fs::symlink("registration.json", root.join("rlink")).unwrap();
+    let run = |output: String| {
+        std::process::Command::new(env!("CARGO_BIN_EXE_secondtake"))
+            .args([
+                "compare",
+                before_dir.to_str().unwrap(),
+                after_dir.to_str().unwrap(),
+                "--registration",
+                reg_path.to_str().unwrap(),
+                "-o",
+                &output,
+            ])
+            .output()
+            .unwrap()
+    };
+    // The output spelled through the seam into
+    // the before set: the guard refuses by name.
+    let spelled = root
+        .join("gone/../blink/out.json")
+        .to_str()
+        .unwrap()
+        .to_string();
+    let out = run(spelled);
+    assert_eq!(out.status.code(), Some(1));
+    assert_eq!(
+        String::from_utf8(out.stderr).unwrap(),
+        "error, secondtake writes nothing inside the tape sets it reads\n"
+    );
+    assert!(!before_dir.join("out.json").exists());
+    // The output equal to the registration,
+    // spelled through the seam: the guard
+    // refuses by name on its other arm.
+    let spelled = root.join("gone/../rlink").to_str().unwrap().to_string();
+    let out = run(spelled);
+    assert_eq!(out.status.code(), Some(1));
+    assert_eq!(
+        String::from_utf8(out.stderr).unwrap(),
+        "error, secondtake writes nothing over the files it reads\n"
+    );
+    // The control: a remainder spelling that
+    // resolves back out of the set passes the
+    // guard on both shapes and fails at the
+    // write, under the spelling as given.
+    let spelled = root
+        .join("gone/../blink/../out.json")
+        .to_str()
+        .unwrap()
+        .to_string();
+    let out = run(spelled.clone());
+    assert_eq!(out.status.code(), Some(1));
+    assert_eq!(
+        String::from_utf8(out.stderr).unwrap(),
+        format!("error, cannot write the comparison, {spelled}\n")
+    );
+    assert!(!root.join("out.json").exists());
+}
+
 #[test]
 fn the_fixture_tape_keys_by_its_real_text() {
     let fixture = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/tape_synthetic.json");
