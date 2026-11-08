@@ -459,8 +459,13 @@ fn parse_top(tokens: &[Token]) -> ParseOutcome {
 /// working directory cannot be read fails the
 /// resolution (ST-43): the interpreter's resolve
 /// raises there, and a substituted root spelling
-/// would compare a fiction. Absolute spellings
-/// never consult the working directory.
+/// would compare a fiction. So does a spelling
+/// whose resolution runs a symlink chain back
+/// into itself (ST-47): the interpreter's resolve
+/// raises RuntimeError there, and a substituted
+/// spelling past the loop is the same fiction.
+/// Absolute spellings never consult the working
+/// directory.
 fn resolve_path(path: &Path) -> Option<PathBuf> {
     if let Ok(canonical) = std::fs::canonicalize(path) {
         return Some(canonical);
@@ -470,6 +475,9 @@ fn resolve_path(path: &Path) -> Option<PathBuf> {
     } else {
         std::env::current_dir().ok()?.join(path)
     };
+    if resolution_loops(&absolute) {
+        return None;
+    }
     let mut ancestor: &Path = &absolute;
     let mut rest: Vec<std::path::Component> = Vec::new();
     while !ancestor.exists() {
@@ -493,6 +501,93 @@ fn resolve_path(path: &Path) -> Option<PathBuf> {
         }
     }
     Some(base)
+}
+
+/// Whether resolving this absolute spelling would
+/// run a symlink chain back into itself. The walk
+/// is the interpreter's own shape: components are
+/// taken left to right, a link's target is
+/// substituted in place (an absolute target
+/// restarts from the root), and a link met again
+/// while its own substitution is still in flight
+/// is the loop. A link met again after its
+/// substitution finished is no loop, and a long
+/// chain that never revisits a link is no loop
+/// however deep it runs.
+fn resolution_loops(absolute: &Path) -> bool {
+    use std::collections::HashMap;
+    use std::path::Component;
+
+    enum Step {
+        Name(std::ffi::OsString),
+        Up,
+        Done(PathBuf),
+    }
+
+    fn push_path(stack: &mut Vec<Step>, path: &Path) {
+        let parts: Vec<Component<'_>> = path.components().collect();
+        for component in parts.into_iter().rev() {
+            match component {
+                Component::Normal(name) => stack.push(Step::Name(name.to_os_string())),
+                Component::ParentDir => stack.push(Step::Up),
+                _ => {}
+            }
+        }
+    }
+
+    let mut stack: Vec<Step> = Vec::new();
+    push_path(&mut stack, absolute);
+    let mut resolved = PathBuf::from("/");
+    // A link's path, mapped to whether its own
+    // substitution is still in flight.
+    let mut links: HashMap<PathBuf, bool> = HashMap::new();
+    let mut follows = 0usize;
+    while let Some(step) = stack.pop() {
+        match step {
+            Step::Done(link) => {
+                links.insert(link, false);
+            }
+            Step::Up => {
+                resolved.pop();
+            }
+            Step::Name(name) => {
+                let candidate = resolved.join(&name);
+                let is_link = std::fs::symlink_metadata(&candidate)
+                    .map(|meta| meta.file_type().is_symlink())
+                    .unwrap_or(false);
+                if !is_link {
+                    resolved = candidate;
+                    continue;
+                }
+                match links.get(&candidate) {
+                    Some(true) => return true,
+                    Some(false) => {
+                        resolved = candidate;
+                        continue;
+                    }
+                    None => {}
+                }
+                let target = match std::fs::read_link(&candidate) {
+                    Ok(target) => target,
+                    Err(_) => {
+                        resolved = candidate;
+                        continue;
+                    }
+                };
+                follows += 1;
+                if follows > 4096 {
+                    return true;
+                }
+                links.insert(candidate.clone(), true);
+                stack.push(Step::Done(candidate));
+                if target.is_absolute() {
+                    resolved = PathBuf::from("/");
+                }
+                push_path(&mut stack, &target);
+            }
+        }
+    }
+    false
 }
 
 /// The OS path for a text argument, in the operating
