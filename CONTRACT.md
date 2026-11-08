@@ -796,3 +796,25 @@ port must reproduce exactly.
   convicted cell, with this cell
   clean on both runs, the arm
   touching loop detection only.
+- ST-54. Closure. The round closes
+  on its three reviews (spec
+  approves with no Critical and no
+  Major findings, two Minors and one
+  Note; standards approves with two
+  Minors and two Notes; the red team
+  approves with one Minor) and on
+  the ST-53 repair commit, which
+  answers every Minor the three
+  raised. Under ST-52 the README's
+  rounds line moves in this
+  commit, to 8 of 100. The gate
+  re-run on the repaired tree:
+  cargo test 37 passed and none
+  failed, clippy with warnings
+  denied clean, fmt clean, and the
+  codepoint scan over all 25 tracked
+  files at zero for both dash
+  characters; the harness stands as
+  ST-53 records it, 32 cases and no
+  problems against the repaired
+  binary.
