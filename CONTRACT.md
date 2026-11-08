@@ -1096,3 +1096,25 @@ port must reproduce exactly.
   the pre-round source on the
   cannot-write text and passes on
   the repaired source.
+- ST-58. The standing differential
+  gains the remainder family,
+  remainder link guard, beside
+  ST-50's loop family: nine
+  convicted cells byte-compared in
+  full (the ST-57 battery's same-uid
+  shapes), four agreement cells,
+  and a loop waiting in the
+  remainder compared by crash class.
+  The uid shapes stay where ST-57
+  holds them, in the round's probe;
+  the harness runs at one uid.
+  Against the repaired binary the
+  full harness reports 33 cases and
+  no problems. Against the pre-round
+  control it reports 33 cases and 9
+  problems, every one a stderr
+  difference on a convicted
+  remainder cell; ST-50's family,
+  every agreement cell, and the
+  remainder loop cell are clean on
+  both runs.
