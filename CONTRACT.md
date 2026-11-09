@@ -1235,3 +1235,132 @@ ST-61. The CodeRabbit disposition
   their own comments. No reply
   thread exists for a review-body
   item; this item is the record.
+- ST-62. Round 10 opens with the
+  standing read-back of PR 11 in
+  full. One review (5817485917,
+  CodeRabbit, COMMENTED,
+  2026-11-08T10:12:23Z, over commit
+  d59ccbed), no review comments,
+  and four issue comments: the
+  owner's trigger 6720155478, the
+  bot's summary shell 6720156498,
+  the bot's acknowledgment
+  6720232484 in the Action not
+  completed / Already reviewed the
+  last commit shape, carrying no
+  findings, and the owner's landing
+  note 6720299770. Every body was
+  read to its end. The only item
+  anywhere on the PR is the
+  Docstring Coverage failed
+  pre-merge check (66.67 percent
+  against the tool's own 80.00
+  percent default threshold),
+  already disposed in ST-61 on
+  ST-61's ground. Nothing on PR 11
+  stands undisposed, and this round
+  owes no new disposition from it.
+- ST-63. The README's Install
+  section is restored to the fleet
+  standard's verbatim-runnable form
+  (standalone audit fix 1, the
+  audit's first priority). As it
+  stood, the section gave a bare
+  cargo install --path . with the
+  clone and cd steps lost, so it
+  could not be run from a lone
+  clone. It now runs clone, cd, a
+  scratch CARGO_HOME with its bin
+  directory on PATH, and the
+  install in one sh block, and it
+  states plainly that the call
+  script the JEV_CALL environment
+  variable names is not shipped
+  with this repository. The block's
+  commands were run from a fresh
+  directory against this round's
+  tree and installed a working
+  binary into the scratch home.
+  What the tool does is unchanged
+  and no code moved.
+- ST-64. The judgment band's edges
+  are measured fresh at the shipped
+  CLI against a scripted fake judge
+  in the established wire shape, its
+  calls logged inside each run's own
+  directory, every cell
+  twin-compared byte for byte
+  against the Python oracle over
+  stdout, stderr, exit code, and
+  every file, the log included.
+  Fifteen cells, no problems, and
+  no live model called. Agreement
+  and two regressions never consult
+  the judge (no call logged, the
+  deterministic proposal standing),
+  and below the pair floor the
+  judge is likewise never consulted
+  and the proposal abstains. In the
+  band with no judge configured the
+  tune stands. Consulted, the judge
+  is asked exactly three questions
+  (choice, severity, match): a keep
+  at integer confidence 1 is
+  judged, a tune at 0.6 is judged,
+  a revert at 0.59 abstains with
+  the reason naming 0.59, a revert
+  at integer 0 abstains naming 0
+  (that cell's input files verified
+  byte-identical before and after),
+  and an abstain choice abstains. A
+  judge failing on the severity
+  question stops at two calls, on
+  the choice at one, and on the
+  match at three, each leaving the
+  tune standing as unavailable; a
+  malformed choice answer stops at
+  one call, and a missing call
+  script is unavailable with no
+  call made. The shipped fixture's
+  recorded card is judged and its
+  choice stands. Every edge
+  acquits and no code moved.
+- ST-65. The resolver bands are
+  re-measured at this binary
+  against the oracle, twenty-six
+  cells, every cell twin-compared
+  on exit, stdout, and every file,
+  stderr byte-compared except where
+  a band is recorded by class. A
+  remainder link and a dot-dot
+  popping a file component each
+  draw the guard's named refusal on
+  both sides; a link after a dead
+  component splits neither (exit 1
+  and byte-identical stderr); a
+  link met again after its own
+  substitution completed is
+  followed again and the write
+  lands; a loop waiting in the
+  remainder holds the crash-class
+  pairing, the oracle untrapped and
+  the port silent at exit 1. Over
+  chains, the split ST-53(b)
+  recorded between 900 and 1000
+  links is pinned at this seat: at
+  991 links both sides state the
+  named refusal, and at 992 the
+  oracle takes the crash class
+  while the port still refuses by
+  name, the port naming the refusal
+  at every measured length through
+  1100. Over re-meetings (blink/../
+  repeated, blink a link into the
+  before set) both sides refuse by
+  name at 4096 follows, and at 4097
+  the oracle still refuses by name
+  while the port takes the crash
+  class, silence, reproducing
+  ST-60(b) exactly. Every band
+  acquits at its recorded edges and
+  no code moved.
