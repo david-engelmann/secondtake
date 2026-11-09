@@ -1364,3 +1364,23 @@ ST-61. The CodeRabbit disposition
   ST-60(b) exactly. Every band
   acquits at its recorded edges and
   no code moved.
+- ST-66. Closure. The round closes
+  on its gate and stands for the
+  owner's three reviews at landing.
+  Under the standing rule the
+  README's rounds line moves in
+  this commit, to 10 of 100. The
+  gate on the final tree: cargo
+  test 39 passed and none failed
+  (no count moved; the round
+  changes no code), clippy with
+  warnings denied clean, fmt clean,
+  and the codepoint scan over all
+  25 tracked files at zero for both
+  dash characters; the standing
+  differential reports 33 cases and
+  no problems against the round's
+  binary, and the round's own
+  battery stands as ST-64 and ST-65
+  record it, 41 cells and no
+  problems.
