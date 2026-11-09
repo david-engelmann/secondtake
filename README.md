@@ -14,13 +14,19 @@ $ grep '"proposal"' demo/comparison.json
 
 ## Install
 
-Building takes a Rust toolchain and git, which fetches the flighttape crate at the revision pinned in Cargo.toml.
+The install needs Git and a Rust toolchain.
 
-```
+```sh
+git clone https://github.com/david-engelmann/secondtake.git
+cd secondtake
+export CARGO_HOME="$PWD/.cargo-home"
+export PATH="$CARGO_HOME/bin:$PATH"
 cargo install --path .
 ```
 
-The command builds the crate in release mode and installs the secondtake binary into the Cargo bin directory.
+Building fetches the flighttape crate at the revision pinned in Cargo.toml. The command builds the crate in release mode and installs the secondtake binary into the scratch Cargo home's bin directory.
+
+Live judgment runs through a call script named by the JEV_CALL environment variable. The script is not shipped with this repository.
 
 ## Quickstart
 
@@ -156,7 +162,7 @@ Judgment rides on every document in its own section. Below the registration's pa
 
 ## Status
 
-The compare command is complete for its scope and is held to the Python it replaced by a differential harness over synthetic tape sets. Closed perfection rounds, 9 of 100. A round counts only when a full cycle of work, audit, review, red team, and approval has closed.
+The compare command is complete for its scope and is held to the Python it replaced by a differential harness over synthetic tape sets. Closed perfection rounds, 10 of 100. A round counts only when a full cycle of work, audit, review, red team, and approval has closed.
 
 ## License
 
