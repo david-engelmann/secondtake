@@ -9,6 +9,7 @@ build/
 *.egg-info/
 .env
 target/
+.cargo-home/
 .idea/
 .vscode/
 *.log
