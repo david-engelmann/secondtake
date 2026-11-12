@@ -1612,3 +1612,24 @@ ST-61. The CodeRabbit disposition
   binary, 33 cases and no
   problems. No live model was
   called, and no code moved.
+- ST-72. Closure. The round closes
+  on its gate and stands for the
+  owner's three reviews at landing.
+  Under the standing rule the
+  README's rounds line moves in
+  this commit, to 11 of 100. The
+  gate on the final tree: cargo
+  test 39 passed and none failed
+  (no count moved; the round
+  changes no code), clippy with
+  warnings denied clean, fmt clean,
+  and the codepoint scan over all
+  25 tracked files at zero for
+  both dash characters; the
+  standing differential reports 33
+  cases and no problems against
+  the round's binary, and the
+  round's own measurements stand
+  as ST-69 to ST-71 record them,
+  33 battery cells and 132 corpus
+  steps, no problems anywhere.

@@ -162,7 +162,7 @@ Judgment rides on every document in its own section. Below the registration's pa
 
 ## Status
 
-The compare command is complete for its scope and is held to the Python it replaced by a differential harness over synthetic tape sets. Closed perfection rounds, 10 of 100. A round counts only when a full cycle of work, audit, review, red team, and approval has closed.
+The compare command is complete for its scope and is held to the Python it replaced by a differential harness over synthetic tape sets. Closed perfection rounds, 11 of 100. A round counts only when a full cycle of work, audit, review, red team, and approval has closed.
 
 ## License
 
