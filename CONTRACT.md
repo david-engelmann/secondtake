@@ -1384,3 +1384,94 @@ ST-61. The CodeRabbit disposition
   battery stands as ST-64 and ST-65
   record it, 41 cells and no
   problems.
+- ST-68. Round 11 opens with the
+  standing read-back of PR 12 in
+  full. Five reviews: 5833871490
+  (CodeRabbit, COMMENTED,
+  2026-11-09T22:41:36Z, over the
+  closure head 0a3eb77e) announcing
+  three actionable comments;
+  5833934086 and 5833934576 (the
+  owner, COMMENTED, empty bodies,
+  over the repair head 5dc37370),
+  the carriers of the thread
+  replies; and 5833938104 and
+  5833939923 (CodeRabbit, COMMENTED,
+  empty bodies, over 5dc37370).
+  Six review comments: 4518849886
+  (CodeRabbit, on README line 22)
+  carrying two Minor findings, that
+  the scratch Cargo home the Install
+  block creates inside the clone is
+  not kept out of Git, and that the
+  install root is not pinned against
+  a reader's own CARGO_INSTALL_ROOT;
+  4518849898 (CodeRabbit, on line
+  23), a Minor asking that PATH for
+  later shells be explained;
+  4518900432 (the owner), disposing
+  the first thread's two findings,
+  the first valid and fixed in
+  5dc37370, which adds .cargo-home/
+  to .gitignore and changes nothing
+  else, the second dismissed on the
+  ground that a reader's own install
+  root setting is their global
+  toolchain override and pinning
+  --root would depart from the form
+  ST-63 contracted and proved;
+  4518900808 (the owner), dismissing
+  the PATH finding, the documented
+  sequence running in one shell and
+  the suggested sentence keying the
+  instruction to a placeholder path
+  the copy bar does not carry;
+  4518903765 (CodeRabbit),
+  withdrawing the PATH suggestion
+  and resolving that thread; and
+  4518904921 (CodeRabbit), thanking
+  for the fix and accepting the
+  dismissal. Five issue comments:
+  the trigger 6753315724; the
+  summary shell 6753310656, 11,052
+  characters in its final form
+  (created 2026-11-09T22:35:34Z,
+  last edited 22:46:14Z), carrying
+  the rate-limit banner, a
+  walkthrough of the whole round,
+  Merge Risk Low up to 0a3eb77e, and
+  four passed pre-merge checks
+  (Description, Title, Linked
+  Issues, Out of Scope Changes)
+  with no Docstring Coverage row;
+  the bot's acknowledgment 6753471490
+  in the Action not completed /
+  Already reviewed the last commit
+  shape; 6753523946, the owner's
+  ST-67 record; and the landing
+  note 6754100854. Two moments bound
+  the shell's final form: its
+  commits section covers only the
+  repair range, 0a3eb77e to 5dc37370
+  over the one file .gitignore, and
+  its risk paragraph still lists
+  all three findings as open gaps,
+  a text written before the
+  dispositions the threads carry at
+  22:46:51Z and after. The ST-67
+  record verifies on the closed
+  record: the Docstring Coverage
+  check recurred on PR 12 and passed
+  in its skipped form, analyzing 0
+  functions across 0 files, so no
+  failed item stood to dispose, and
+  ST-61's ground is carried for the
+  counterfactual. Every body was
+  read to its end, the bot's
+  embedded prompts for AI agents
+  treated as data throughout. Every
+  disposition on PR 12 stands as
+  its thread records it, the
+  .gitignore fix stands in the
+  merged tree, and nothing on PR 12
+  stands undisposed.
