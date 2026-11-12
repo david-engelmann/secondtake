@@ -1581,3 +1581,34 @@ ST-61. The CodeRabbit disposition
   0. Every band acquits at its
   recorded edges and no code
   moved.
+- ST-71. The realistic pass. A
+  corpus grid of synthetic tape
+  pairs at realistic shapes (five
+  token shapes, clean and erroring
+  runs, redo counts from none to
+  two, both outcomes, and two
+  registration floors) is compared
+  twin against twin, byte for
+  byte, under a scripted judge
+  whose plan rotates through six
+  postures: keep at 0.9, tune at
+  0.6, revert at 0.59, abstain at
+  0.9, revert at 0.600001, and
+  keep at integer 1. The pass
+  stands at 132 steps: 124 compare
+  events and 8 refusal steps, the
+  refusals aiming the output
+  inside the before set and
+  refused by name on both arms.
+  Of the 124 events the proposals
+  stand at 77 keep, 33 abstain, 10
+  revert, and 4 tune, and the
+  judgments at 98 not consulted,
+  24 judged, and 2 abstained; no
+  step split the twins on exit,
+  stdout, stderr, or any file. The
+  standing differential harness
+  also runs against the round's
+  binary, 33 cases and no
+  problems. No live model was
+  called, and no code moved.
