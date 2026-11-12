@@ -1475,3 +1475,55 @@ ST-61. The CodeRabbit disposition
   .gitignore fix stands in the
   merged tree, and nothing on PR 12
   stands undisposed.
+- ST-69. The judgment band is
+  measured fresh at the shipped
+  CLI against a scripted fake judge
+  in the established wire shape,
+  its calls logged inside each
+  run's own directory, every cell
+  twin-compared byte for byte
+  against the Python oracle (the
+  final Python tree at 18bf37b,
+  whose files the local oracle copy
+  matches blob for blob, verified
+  against that commit through the
+  API before the run) over stdout,
+  stderr, exit code, and every
+  file, the log included. Eighteen
+  cells, no problems, and no live
+  model called. Agreement and two
+  regressions never consult the
+  judge, and below the pair floor
+  the judge is likewise never
+  consulted and the proposal
+  abstains. In the band with no
+  judge configured the tune stands.
+  Consulted, the judge is asked
+  exactly three questions (choice,
+  severity, match), and the floor
+  is decided at its points: a tune
+  at exactly 0.6 is judged, a keep
+  at integer confidence 1 is
+  judged, a revert at 0.600001 is
+  judged, a revert at 0.599999
+  abstains with the reason naming
+  0.599999 and that cell's input
+  files verified byte-identical
+  before and after, a revert at
+  0.59 abstains naming 0.59, a
+  revert at integer 0 abstains
+  naming 0, and an abstain choice
+  abstains at 0.9 and at exactly
+  0.6 alike. A judge failing on the
+  severity question stops at two
+  calls, on the choice at one, and
+  on the match at three, each
+  leaving the tune standing as
+  unavailable; a malformed choice
+  answer stops at one call, and a
+  missing call script is
+  unavailable with no call made.
+  The shipped fixture's recorded
+  card is judged and its choice
+  stands. Every point acquits and
+  no code moved.
