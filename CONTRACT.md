@@ -1527,3 +1527,57 @@ ST-61. The CodeRabbit disposition
   card is judged and its choice
   stands. Every point acquits and
   no code moved.
+- ST-70. The resolver bands are
+  re-measured at this binary
+  against the oracle, fifteen
+  cells, every cell twin-compared
+  on exit, stdout, and every file,
+  stderr byte-compared except
+  where a band is recorded by
+  class. A remainder link and a
+  dot-dot popping a file component
+  each draw the guard's named
+  refusal on both sides; a link
+  after a dead component splits
+  neither (exit 1 and
+  byte-identical stderr); a link
+  met again after its own
+  substitution completed is
+  followed again and the write
+  lands; a loop waiting in the
+  remainder holds the crash-class
+  pairing, the oracle untrapped
+  and the port silent at exit 1.
+  Over chains the ST-65 split is
+  re-pinned at this seat: at 989,
+  990, and 991 links both sides
+  state the named refusal,
+  byte-identical; at 992 and 993
+  the oracle takes the crash class
+  while the port still refuses by
+  name, and at 1100 the oracle
+  stands in the crash class while
+  the port names the refusal, the
+  split standing at exactly 991
+  and 992. Over re-meetings
+  (blink/../ repeated, blink a
+  link into the before set) both
+  sides refuse by name at 4096
+  follows, and at 4097 the oracle
+  still refuses by name while the
+  port takes the crash class,
+  silence, reproducing ST-60(b)
+  exactly. The flighttape pin is
+  re-confirmed live: the pinned
+  commit 74a83298 stands on tree
+  afd4d7d1 with exactly 50 blobs
+  in its recursive listing,
+  untruncated, and the golden
+  digest is executed at the pinned
+  checkout, the converted
+  synthetic session digesting to
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  and verify accepting it at exit
+  0. Every band acquits at its
+  recorded edges and no code
+  moved.
