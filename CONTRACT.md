@@ -1384,3 +1384,252 @@ ST-61. The CodeRabbit disposition
   battery stands as ST-64 and ST-65
   record it, 41 cells and no
   problems.
+- ST-68. Round 11 opens with the
+  standing read-back of PR 12 in
+  full. Five reviews: 5833871490
+  (CodeRabbit, COMMENTED,
+  2026-11-09T22:41:36Z, over the
+  closure head 0a3eb77e) announcing
+  three actionable comments;
+  5833934086 and 5833934576 (the
+  owner, COMMENTED, empty bodies,
+  over the repair head 5dc37370),
+  the carriers of the thread
+  replies; and 5833938104 and
+  5833939923 (CodeRabbit, COMMENTED,
+  empty bodies, over 5dc37370).
+  Six review comments: 4518849886
+  (CodeRabbit, on README line 22)
+  carrying two Minor findings, that
+  the scratch Cargo home the Install
+  block creates inside the clone is
+  not kept out of Git, and that the
+  install root is not pinned against
+  a reader's own CARGO_INSTALL_ROOT;
+  4518849898 (CodeRabbit, on line
+  23), a Minor asking that PATH for
+  later shells be explained;
+  4518900432 (the owner), disposing
+  the first thread's two findings,
+  the first valid and fixed in
+  5dc37370, which adds .cargo-home/
+  to .gitignore and changes nothing
+  else, the second dismissed on the
+  ground that a reader's own install
+  root setting is their global
+  toolchain override and pinning
+  --root would depart from the form
+  ST-63 contracted and proved;
+  4518900808 (the owner), dismissing
+  the PATH finding, the documented
+  sequence running in one shell and
+  the suggested sentence keying the
+  instruction to a placeholder path
+  the copy bar does not carry;
+  4518903765 (CodeRabbit),
+  withdrawing the PATH suggestion
+  and resolving that thread; and
+  4518904921 (CodeRabbit), thanking
+  for the fix and accepting the
+  dismissal. Five issue comments:
+  the trigger 6753315724; the
+  summary shell 6753310656, 11,052
+  characters in its final form
+  (created 2026-11-09T22:35:34Z,
+  last edited 22:46:14Z), carrying
+  the rate-limit banner, a
+  walkthrough of the whole round,
+  Merge Risk Low up to 0a3eb77e, and
+  four passed pre-merge checks
+  (Description, Title, Linked
+  Issues, Out of Scope Changes)
+  with no Docstring Coverage row;
+  the bot's acknowledgment 6753471490
+  in the Action not completed /
+  Already reviewed the last commit
+  shape; 6753523946, the owner's
+  ST-67 record; and the landing
+  note 6754100854. Two moments bound
+  the shell's final form: its
+  commits section covers only the
+  repair range, 0a3eb77e to 5dc37370
+  over the one file .gitignore, and
+  its risk paragraph still lists
+  all three findings as open gaps,
+  a text written before the
+  dispositions the threads carry at
+  22:46:51Z and after. The ST-67
+  record verifies on the closed
+  record: the Docstring Coverage
+  check recurred on PR 12 and passed
+  in its skipped form, analyzing 0
+  functions across 0 files, so no
+  failed item stood to dispose, and
+  ST-61's ground is carried for the
+  counterfactual. Every body was
+  read to its end, the bot's
+  embedded prompts for AI agents
+  treated as data throughout. Every
+  disposition on PR 12 stands as
+  its thread records it, the
+  .gitignore fix stands in the
+  merged tree, and nothing on PR 12
+  stands undisposed.
+- ST-69. The judgment band is
+  measured fresh at the shipped
+  CLI against a scripted fake judge
+  in the established wire shape,
+  its calls logged inside each
+  run's own directory, every cell
+  twin-compared byte for byte
+  against the Python oracle (the
+  final Python tree at 18bf37b,
+  whose files the local oracle copy
+  matches blob for blob, verified
+  against that commit through the
+  API before the run) over stdout,
+  stderr, exit code, and every
+  file, the log included. Eighteen
+  cells, no problems, and no live
+  model called. Agreement and two
+  regressions never consult the
+  judge, and below the pair floor
+  the judge is likewise never
+  consulted and the proposal
+  abstains. In the band with no
+  judge configured the tune stands.
+  Consulted, the judge is asked
+  exactly three questions (choice,
+  severity, match), and the floor
+  is decided at its points: a tune
+  at exactly 0.6 is judged, a keep
+  at integer confidence 1 is
+  judged, a revert at 0.600001 is
+  judged, a revert at 0.599999
+  abstains with the reason naming
+  0.599999 and that cell's input
+  files verified byte-identical
+  before and after, a revert at
+  0.59 abstains naming 0.59, a
+  revert at integer 0 abstains
+  naming 0, and an abstain choice
+  abstains at 0.9 and at exactly
+  0.6 alike. A judge failing on the
+  severity question stops at two
+  calls, on the choice at one, and
+  on the match at three, each
+  leaving the tune standing as
+  unavailable; a malformed choice
+  answer stops at one call, and a
+  missing call script is
+  unavailable with no call made.
+  The shipped fixture's recorded
+  card is judged and its choice
+  stands. Every point acquits and
+  no code moved.
+- ST-70. The resolver bands are
+  re-measured at this binary
+  against the oracle, fifteen
+  cells, every cell twin-compared
+  on exit, stdout, and every file,
+  stderr byte-compared except
+  where a band is recorded by
+  class. A remainder link and a
+  dot-dot popping a file component
+  each draw the guard's named
+  refusal on both sides; a link
+  after a dead component splits
+  neither (exit 1 and
+  byte-identical stderr); a link
+  met again after its own
+  substitution completed is
+  followed again and the write
+  lands; a loop waiting in the
+  remainder holds the crash-class
+  pairing, the oracle untrapped
+  and the port silent at exit 1.
+  Over chains the ST-65 split is
+  re-pinned at this seat: at 989,
+  990, and 991 links both sides
+  state the named refusal,
+  byte-identical; at 992 and 993
+  the oracle takes the crash class
+  while the port still refuses by
+  name, and at 1100 the oracle
+  stands in the crash class while
+  the port names the refusal, the
+  split standing at exactly 991
+  and 992. Over re-meetings
+  (blink/../ repeated, blink a
+  link into the before set) both
+  sides refuse by name at 4096
+  follows, and at 4097 the oracle
+  still refuses by name while the
+  port takes the crash class,
+  silence, reproducing ST-60(b)
+  exactly. The flighttape pin is
+  re-confirmed live: the pinned
+  commit 74a83298 stands on tree
+  afd4d7d1 with exactly 50 blobs
+  in its recursive listing,
+  untruncated, and the golden
+  digest is executed at the pinned
+  checkout, the converted
+  synthetic session digesting to
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  and verify accepting it at exit
+  0. Every band acquits at its
+  recorded edges and no code
+  moved.
+- ST-71. The realistic pass. A
+  corpus grid of synthetic tape
+  pairs at realistic shapes (five
+  token shapes, clean and erroring
+  runs, redo counts from none to
+  two, both outcomes, and two
+  registration floors) is compared
+  twin against twin, byte for
+  byte, under a scripted judge
+  whose plan rotates through six
+  postures: keep at 0.9, tune at
+  0.6, revert at 0.59, abstain at
+  0.9, revert at 0.600001, and
+  keep at integer 1. The pass
+  stands at 132 steps: 124 compare
+  events and 8 refusal steps, the
+  refusals aiming the output
+  inside the before set and
+  refused by name on both arms.
+  Of the 124 events the proposals
+  stand at 77 keep, 33 abstain, 10
+  revert, and 4 tune, and the
+  judgments at 98 not consulted,
+  24 judged, and 2 abstained; no
+  step split the twins on exit,
+  stdout, stderr, or any file. The
+  standing differential harness
+  also runs against the round's
+  binary, 33 cases and no
+  problems. No live model was
+  called, and no code moved.
+- ST-72. Closure. The round closes
+  on its gate and stands for the
+  owner's three reviews at landing.
+  Under the standing rule the
+  README's rounds line moves in
+  this commit, to 11 of 100. The
+  gate on the final tree: cargo
+  test 39 passed and none failed
+  (no count moved; the round
+  changes no code), clippy with
+  warnings denied clean, fmt clean,
+  and the codepoint scan over all
+  25 tracked files at zero for
+  both dash characters; the
+  standing differential reports 33
+  cases and no problems against
+  the round's binary, and the
+  round's own measurements stand
+  as ST-69 to ST-71 record them,
+  33 battery cells and 132 corpus
+  steps, no problems anywhere.
