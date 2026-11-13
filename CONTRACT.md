@@ -1633,3 +1633,109 @@ ST-61. The CodeRabbit disposition
   as ST-69 to ST-71 record them,
   33 battery cells and 132 corpus
   steps, no problems anywhere.
+
+- ST-73. Round 12 opens with the
+  standing read-back of PR 13 in
+  full, on its closed record. The
+  census stands at no reviews, no
+  review comments, and four issue
+  comments: the lane's trigger
+  6830553637
+  (2026-11-12T17:12:55Z), the
+  CodeRabbit shell 6830557465, the
+  bot's follow-up 6830597463 (the
+  action-not-completed reply
+  recording that the bot already
+  reviewed the last commit), and
+  the owner's landing comment
+  6831097873. The shell is
+  contracted in its true final
+  form at this read: a completed
+  CodeRabbit review and not a
+  review skip, created
+  2026-11-12T17:13:04Z and last
+  edited 2026-11-12T17:33:36Z at
+  11,523 characters, carrying a
+  walkthrough, Merge Risk Minimal
+  up to ea30d6c0, four passed
+  pre-merge checks (Title, Linked
+  Issues, Out of Scope Changes,
+  Description), the word Docstring
+  occurring zero times, the line
+  that no actionable comments were
+  generated in the recent review,
+  and Run ID
+  99158a60-5054-413b-b50c-5c0c3ad1f83c;
+  no rate-limit banner stands in
+  it. The Round 11 step 0 account
+  is graded against it: the build
+  lane's first form, a
+  Markdown-only review skip at
+  11,519 characters, was false and
+  drew that round's Minors; the
+  owner's corrected account in the
+  body stands true of the shell as
+  it stood at the owner's read
+  (11,521 characters, last edited
+  2026-11-12T17:17:42Z), and the
+  shell then drifted two
+  characters in a final edit of
+  2026-11-12T17:33:36Z, which no
+  disposition of that round rests
+  on. No late CodeRabbit finding
+  stands on PR 13: nothing was
+  posted after the landing comment
+  and no review comment exists, so
+  nothing stands undisposed. Per
+  the Round 11 charge, the ST-69
+  enumeration is stated enumerably
+  from its parts: its eighteen
+  cells are the agreement cell
+  (1), the two-regressions cell
+  standing as one cell over two
+  regression pairs (1), the
+  below-floor cell (1), the band
+  cell with no judge configured
+  (1), the three judged cells (a
+  tune at exactly 0.6, a keep at
+  integer 1, a revert at
+  0.600001), the five abstain
+  cells (a revert at 0.599999, a
+  revert at 0.59, a revert at
+  integer 0, an abstain choice at
+  0.9, an abstain choice at
+  exactly 0.6), and the six
+  failure and replay cells (a
+  severity failure stopping at two
+  calls, a choice failure stopping
+  at one call, the shipped
+  fixture's recorded card judged
+  (the cell the Round 11 spec Note
+  names as the battery's
+  fifteenth), a match failure
+  stopping at three calls, a
+  malformed choice answer stopping
+  at one call, and a missing call
+  script with no call made),
+  summing as 1 + 1 + 1 + 1 + 3 + 5
+  + 6 = 18. The ST-70 enumeration
+  likewise: its fifteen cells are
+  the five structural cells its
+  prose names (a remainder link, a
+  dot-dot popping a file
+  component, a link after a dead
+  component, a link met again
+  after its own substitution
+  completed, and a loop waiting in
+  the remainder), the six chain
+  cells at 989, 990, 991, 992,
+  993, and 1100 links, the two
+  re-meeting cells its prose names
+  at 4096 and 4097 follows, and
+  the two re-meeting cells its
+  battery carries and its prose
+  does not name, at 11 and 1001
+  follows, summing as 5 + 6 + 2 +
+  2 = 15. No Round 11 disposition
+  is falsified by the record as it
+  stands.
