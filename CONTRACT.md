@@ -1892,3 +1892,90 @@ ST-61. The CodeRabbit disposition
   0. Every band acquits at its
   recorded edges and no code
   moved.
+
+- ST-76. The realistic pass. A
+  corpus of synthetic tape pairs
+  at realistic shapes (token
+  totals at five levels, clean and
+  erroring runs, redo counts from
+  none to two, both outcomes, and
+  two registration floors) is
+  compared twin against twin, byte
+  for byte, in five families. The
+  agreement family stands at 40
+  compare events, each proposing
+  keep and none consulting the
+  judge. The band family stands at
+  60 compare events under a
+  scripted judge rotating through
+  six postures: keep at 0.9, tune
+  at exactly 0.6, revert at 0.59,
+  abstain at 0.9, revert at
+  0.600001, and keep at integer 1.
+  The two-regressions family
+  stands at 24 events proposing
+  revert without consulting. The
+  below-floor family stands at 12
+  events abstaining as
+  insufficient pairs. The
+  band-with-no-judge family stands
+  at 12 events, the tune standing
+  as not consulted. The pass
+  stands at 160 steps: the 148
+  compare events and 12 refusal
+  steps, the refusals aiming the
+  output inside the before set in
+  four steps, inside the after set
+  in four, over the registration
+  file in two, and over the
+  judgments file in two, each
+  refused by name on both arms at
+  exit 1. Of the 148 events the
+  proposals stand at 60 keep, 22
+  tune, 34 revert, and 32 abstain,
+  and the judgments at 88 not
+  consulted, 40 judged, and 20
+  abstained; no step split the
+  twins on exit, stdout, stderr,
+  or any file. The standing
+  differential harness also runs
+  in full against the round's
+  binary, 33 cases and no
+  problems: help and parse
+  surfaces at seven cases
+  (top-level help, no arguments,
+  an unknown subcommand, compare
+  help, a missing registration
+  argument, an extra positional,
+  and a dash-dash separator), set
+  and registration loading at ten
+  (a missing before directory, a
+  missing registration, a
+  registration that is not JSON, a
+  registration that is not an
+  object, a registration missing
+  its change, a registration
+  missing its date, an unknown
+  margin key, a zero pair floor, a
+  margin of the wrong type, and a
+  change carrying control
+  characters), tape set shapes at
+  six (a tape that is not JSON, a
+  tape missing its totals, an
+  ambiguous task key, an unmatched
+  tape, an empty before set, and a
+  tape of bytes that are not
+  UTF-8), judge loading at four (a
+  missing judgments file, a
+  judgments file that is not JSON,
+  a judgments file carrying no
+  cards list, and live judging
+  with no call script named),
+  output and option forms at four
+  (output to stdout, a glued
+  output form, a glued judge form,
+  and an abbreviated long option),
+  and comparison shapes at two (a
+  band control and a rescue rate
+  regression). No live model was
+  called, and no code moved.
