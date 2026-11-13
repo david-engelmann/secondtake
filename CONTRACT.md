@@ -1979,3 +1979,30 @@ ST-61. The CodeRabbit disposition
   band control and a rescue rate
   regression). No live model was
   called, and no code moved.
+
+- ST-77. Closure. The round closes
+  on its gate and stands for the
+  owner's three reviews at
+  landing. Under the standing rule
+  the README's rounds line moves
+  in this commit, to 12 of 100.
+  The gate on the final tree:
+  cargo test 39 passed and none
+  failed (22 in tests/compare.rs
+  and 17 in tests/judge.rs; no
+  count moved, the round changes
+  no code), clippy with warnings
+  denied clean, fmt clean, and the
+  codepoint scan over all 25
+  tracked files at zero for both
+  dash characters; the standing
+  differential reports 33 cases
+  and no problems against the
+  round's binary, and the round's
+  own measurements stand as ST-74
+  to ST-76 record them, 34 battery
+  cells and 160 corpus steps, no
+  problems anywhere. ST-55(a)
+  stands open and untouched, as
+  the repository owner's reserved
+  question.
