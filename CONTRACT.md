@@ -1739,3 +1739,85 @@ ST-61. The CodeRabbit disposition
   2 = 15. No Round 11 disposition
   is falsified by the record as it
   stands.
+
+- ST-74. The judgment band is
+  measured fresh at the shipped
+  CLI against a scripted fake
+  judge in the established wire
+  shape, its calls logged inside
+  each run's own directory, every
+  cell twin-compared byte for byte
+  against the Python oracle (the
+  final Python tree at 18bf37b,
+  whose thirteen files the local
+  oracle copy matches blob for
+  blob, verified against that
+  commit through the API before
+  the run) over stdout, stderr,
+  exit code, and every file, the
+  log included. Nineteen cells,
+  each one named, no problems, and
+  no live model called. The
+  never-consulted family stands at
+  five cells: an agreement cell,
+  an armed judge never called and
+  the proposal keeping; a
+  two-regressions cell over cost
+  and time; a two-regressions cell
+  over cost and rework (Round 11
+  stated its two regression pairs
+  inside a single cell; this round
+  counts them as the two cells
+  they are); a
+  below-the-pair-floor cell, one
+  pair against a registered floor
+  of two, abstaining as
+  insufficient pairs, 1 of 2, the
+  judge never called; and the band
+  cell with no judge configured,
+  the tune standing as not
+  consulted for that reason. The
+  judged family stands at three
+  cells, each decided after
+  exactly the calls choice,
+  severity, and match in that
+  order: a tune at exactly 0.6 is
+  judged, a keep at integer
+  confidence 1 is judged, and a
+  revert at 0.600001 is judged.
+  The abstain family stands at
+  five cells: a revert at 0.599999
+  abstains with the reason naming
+  0.599999 and that cell's input
+  files verified byte-identical
+  before and after; a revert at
+  0.59 abstains naming 0.59; a
+  revert at integer 0 abstains
+  naming 0; an abstain choice
+  abstains at 0.9; and an abstain
+  choice abstains at exactly 0.6
+  alike. The failure family stands
+  at five cells: a judge failing
+  on the choice question stops at
+  one call, on the severity
+  question at two calls, and on
+  the match question at three
+  calls, each leaving the tune
+  standing as unavailable; a
+  malformed choice answer, its
+  probabilities summing to two,
+  stops at one call as
+  unavailable; and a missing call
+  script is unavailable with no
+  call made. The replay family
+  stands at one cell: the shipped
+  fixture's recorded card,
+  produced by this round's own
+  band set and replayed through
+  the judgments file at
+  tests/fixtures/judgments_synthetic.json,
+  is judged and its choice stands,
+  a tune at confidence 0.85. The
+  families sum as 5 + 3 + 5 + 5 +
+  1 = 19. Every point acquits and
+  no code moved.
