@@ -2006,3 +2006,85 @@ ST-61. The CodeRabbit disposition
   stands open and untouched, as
   the repository owner's reserved
   question.
+
+- ST-78. Round 13 opens with the
+  standing read-back of PR 14 in
+  full, on its closed record. The
+  census stands at no reviews, no
+  review comments, and four issue
+  comments: the lane's trigger
+  6847250851
+  (2026-11-13T07:47:41Z), the
+  CodeRabbit shell 6847252590, the
+  bot's follow-up 6847326162 (the
+  action-not-completed reply
+  recording that the bot had
+  already reviewed the last
+  commit, created
+  2026-11-13T07:52:11Z and last
+  edited 2026-11-13T07:52:14Z,
+  carrying no finding and no
+  correction), and the owner's
+  landing comment 6847785643
+  (2026-11-13T08:17:40Z). The
+  shell is contracted in its true
+  final form at this read: a
+  completed CodeRabbit review of
+  head
+  f9c0171fe7351dadadbac1dc4daf96a744e3ea91,
+  the head its own change
+  assessment names, created
+  2026-11-13T07:47:48Z and last
+  edited 2026-11-13T07:53:59Z at
+  11,673 characters, carrying a
+  walkthrough, the line that no
+  actionable comments were
+  generated in the recent review,
+  Merge Risk Minimal up to f9c01,
+  four passed pre-merge checks
+  (Title, Linked Issues, Out of
+  Scope Changes, Description), the
+  word Docstring occurring zero
+  times, no rate-limit banner
+  standing in it, and Run ID
+  d7ba933e-e2a1-41a8-b271-3e21bc527cca
+  standing hyphenated in full. The
+  Round 12 step 0 account in the
+  body is graded against it: the
+  form it stated, 11,671
+  characters at a last edit of
+  2026-11-13T07:49:46Z, was true
+  at its read, and the shell then
+  drifted two characters in its
+  final edit at
+  2026-11-13T07:53:59Z, a drift
+  the landing comment already
+  records; no disposition fact
+  moved. The route charge from the
+  Round 12 record is discharged
+  here: ST-75's chain split is
+  route-relative on the oracle's
+  invocation route. At the round's
+  own route, python3 -m
+  secondtake.cli over chains
+  spelled with an absolute target,
+  the split stands at exactly 991
+  and 992, and the Round 12 red
+  team's first construction
+  through a different route, a
+  python3 -c import, resolved a
+  992-link chain cleanly on the
+  oracle. The figures ride their
+  route; ST-75's text stands
+  unamended, and the route is
+  stated beside the figures again
+  at ST-80. No late CodeRabbit
+  finding stands on PR 14: nothing
+  was posted after the landing
+  comment, no review comment
+  exists, and the follow-up reply
+  carries no finding, so nothing
+  stands undisposed. ST-55(a)
+  stands open and untouched, as
+  the repository owner's reserved
+  question.
