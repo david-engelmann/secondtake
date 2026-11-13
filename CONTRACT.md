@@ -1821,3 +1821,74 @@ ST-61. The CodeRabbit disposition
   families sum as 5 + 3 + 5 + 5 +
   1 = 19. Every point acquits and
   no code moved.
+
+- ST-75. The resolver bands are
+  re-measured at this binary
+  against the oracle, fifteen
+  cells, each one named, every
+  cell twin-compared on exit and
+  stdout, and on stderr byte for
+  byte except where a band is
+  recorded by class. The
+  structural family stands at five
+  cells: a remainder link, a
+  directory link standing in the
+  output's remainder and resolving
+  inside the before set, draws the
+  guard's named refusal on both
+  sides; a dot-dot popping a file
+  component draws the named
+  refusal on both sides; a link
+  after a dead component, a
+  missing component popped by a
+  dot-dot before the link is met,
+  draws the named refusal on both
+  sides; a link met again after
+  its own substitution completed
+  is followed again and the write
+  lands on both sides; and a loop
+  waiting in the remainder holds
+  the crash-class pairing, the
+  oracle untrapped and the port
+  silent at exit 1. The chain
+  family stands at six cells, a
+  chain counted by its links from
+  the output path to its target:
+  at 989, 990, and 991 links both
+  sides state the named refusal
+  byte-identically; at 992 and 993
+  links, and at 1100 links, the
+  oracle takes the crash class
+  while the port still refuses by
+  name, the ST-65 split standing
+  at exactly 991 and 992. The
+  re-meeting family stands at four
+  cells, the output spelled
+  through a link standing in the
+  before set and met again after
+  each dot-dot: at 11 follows, at
+  1001 follows, and at 4096
+  follows both sides refuse by
+  name (the two smaller counts
+  stood in Round 11's battery
+  unnamed in its prose; they are
+  named here), and at 4097 follows
+  the oracle still refuses by name
+  while the port takes the crash
+  class, silence, reproducing
+  ST-60(b) exactly. The families
+  sum as 5 + 6 + 4 = 15. The
+  flighttape pin is re-confirmed
+  live: the pinned commit 74a83298
+  stands on tree afd4d7d1 with
+  exactly 50 blobs in its
+  recursive listing, untruncated,
+  and the golden digest is
+  executed at the pinned checkout,
+  the synthetic session digesting
+  to
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  and verify accepting it at exit
+  0. Every band acquits at its
+  recorded edges and no code
+  moved.
