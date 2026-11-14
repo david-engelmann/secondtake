@@ -3077,3 +3077,40 @@ ST-61. The CodeRabbit disposition
   taken in a faulted state, with each
   finished family banked server-side
   as soon as it was written.
+
+- ST-93. Repair record, appended after
+  step 0. The CodeRabbit review's one
+  actionable comment (review
+  5904113420, comment 4573323062)
+  finds that ST-91 describes what the
+  realistic pass and the differential
+  compared without stating whether the
+  comparisons matched. The finding is
+  verified against the item as written
+  and stands: ST-91 states the shapes,
+  the tallies, and the refusal
+  landings, and nowhere states the
+  compare events' or the cases'
+  results. This record states the
+  outcomes ST-91 omits, and ST-91
+  stands unrewritten. The realistic
+  pass matched at every one of its one
+  hundred sixty steps, the twins
+  agreeing on exit, stdout, and stderr
+  byte for byte and on every file
+  under each twin root byte for byte:
+  zero mismatches and zero problems in
+  the run. The differential matched at
+  every one of its thirty-three cases
+  in the same terms, apart from the
+  harness normalizing each twin root's
+  own absolute path out of the
+  streams: zero mismatches and zero
+  problems. No figure ST-91 states
+  moves: its compare-event division,
+  its proposal and judgment tallies,
+  and its refusal account stand as
+  written, and the outcomes also stand
+  in this round's PR body at its
+  Verified block. This record changes
+  no behavior and no count.
