@@ -3114,3 +3114,123 @@ ST-61. The CodeRabbit disposition
   in this round's PR body at its
   Verified block. This record changes
   no behavior and no count.
+
+- ST-94. Round 16 opens with the
+  standing read-back of PR 17 in full,
+  on its closed record. The census
+  stands at one review, one review
+  comment, and four issue comments:
+  the lane's trigger 6876613256
+  (2026-11-14T11:30:13Z), the
+  CodeRabbit shell 6876614872, the
+  review 5904113420 (COMMENTED,
+  submitted 2026-11-14T11:33:16Z on
+  the closure head
+  edc9c863b2b5071f95456c98ab981f653e30d464),
+  its one review comment 4573323062
+  (created 2026-11-14T11:33:15Z and
+  last edited 2026-11-14T11:37:11Z,
+  its thread carrying no reply), the
+  bot's follow-up 6876651699 (the
+  action-not-completed reply recording
+  that the bot had already reviewed
+  the last commit, created
+  2026-11-14T11:33:42Z and last edited
+  2026-11-14T11:33:46Z, at 573
+  characters, carrying no finding and
+  no correction), and the owner's
+  landing comment 6877016773
+  (2026-11-14T12:06:23Z). The shell is
+  contracted in its true final form at
+  this read: a completed review of the
+  closure head
+  edc9c863b2b5071f95456c98ab981f653e30d464,
+  the head its own change assessment
+  names in full, created
+  2026-11-14T11:30:20Z and last edited
+  2026-11-14T11:44:42Z at 8,860
+  characters, carrying a walkthrough,
+  Merge Risk Low up to edc9c, four
+  passed pre-merge checks (Title,
+  Linked Issues, Out of Scope Changes,
+  Description), the word Docstring
+  occurring zero times, no rate-limit
+  banner standing in it, and no
+  recent-review status line and no Run
+  ID standing in the shell itself, the
+  Run ID
+  61319329-da16-4937-9c9f-880f3c4034bb
+  standing in the review object. The
+  Round 15 step 0 account in the body
+  is graded against it: the form it
+  stated, 8,856 characters at a last
+  edit of 2026-11-14T11:33:19Z, was
+  true at its read; the shell drifted
+  four characters in all after the
+  body's read, landing at the form
+  above with no disposition fact
+  moved, every trait the earlier reads
+  recorded standing unchanged in the
+  final form at this read. The
+  review's one actionable comment is
+  graded as it stands: comment
+  4573323062 (Minor) finds that ST-91
+  describes what the realistic pass
+  and the differential compared
+  without stating whether the
+  comparisons matched; the finding was
+  valid and stands fixed inside Round
+  15's own gate by repair record
+  ST-93, and the comment carries the
+  bot's own marker, Addressed in
+  commit 34e3a2b. ST-93's standing is
+  graded on the merged record: it
+  stands appended after ST-92 in the
+  merged tree, stating the outcomes
+  ST-91 omitted (the realistic pass
+  matched at every one of its one
+  hundred sixty steps, zero mismatches
+  and zero problems; the differential
+  matched at every one of its
+  thirty-three cases, zero mismatches
+  and zero problems), ST-91 stands
+  unrewritten, its text in the merged
+  tree byte-identical to its text at
+  its own slice commit
+  178fa524e4c783760fe00256caeb09dd8dda7f7e
+  as verified through the API in this
+  round, and the landing comment's
+  gate record (spec fidelity PASS,
+  standards APPROVE, red team APPROVE,
+  no findings on any axis) matches the
+  body's account, so ST-93 stands as
+  the repair record of Round 15's
+  gate, its repair graded as repaired.
+  The shell's Merge Risk prose makes
+  the same observation as the comment
+  and is answered by the same repair.
+  One prose reservation stands
+  dismissed on counted grounds: the
+  Title check passed while its prose
+  calls the title partially related,
+  for naming the round and the ticket
+  range but not the substance; the
+  title, refine: secondtake Round 15,
+  ST-88 to ST-92, carries the line's
+  standing title form, identical in
+  shape to PR 16's title, refine:
+  secondtake Round 14, ST-83 to ST-87,
+  read through the API in this round,
+  which the same check passed in Round
+  14, and the changeset is the round
+  record the title names. No late
+  CodeRabbit finding stands on PR 17:
+  nothing was posted after the landing
+  comment, the shell's, the review
+  comment's, and the follow-up's last
+  edits all preceding it, and the
+  follow-up carries no finding, so
+  nothing stands undisposed. ST-55(a)
+  stands open and untouched, as the
+  repository owner's reserved
+  question.
