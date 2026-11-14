@@ -3470,3 +3470,63 @@ ST-61. The CodeRabbit disposition
   exactly as it stood at Round 15's
   close. Closed perfection rounds move
   to 16 of 100.
+
+- ST-99. Repair record, appended at
+  step 0 of this round's own gate on
+  the review's one actionable comment,
+  ST-96 standing unrewritten. The
+  comment (Minor) finds that ST-96
+  reports zero mismatches under the
+  same twin comparison while recording
+  different stderr for the loop,
+  chain, and re-meeting cells, where
+  ST-95 states that the comparison
+  includes stderr, and asks whether
+  those differences are expected
+  differences excluded from the
+  mismatch count or whether the count
+  is wrong. They are expected
+  differences, and the count stands.
+  The battery compares the five split
+  cells by contracted class rather
+  than byte for byte, because the
+  split is the contracted outcome at
+  those cells: the loop waiting in the
+  remainder (the oracle's untrapped
+  RuntimeError against the port's
+  silent exit 1), the chains of 992,
+  993, and 1,100 links (the oracle's
+  RecursionError against the port's
+  named refusal), and the spelling
+  that follows the link 4,097 times
+  (the oracle's named refusal against
+  the port's crash class). At those
+  five cells the harness records each
+  side's stderr class instead of
+  comparing the two byte for byte; the
+  port's stderr is asserted exactly
+  (the guard line at the three chain
+  splits, silence at the loop and at
+  the re-meeting split), the oracle's
+  recorded stderr stands in its
+  contracted class at each of them in
+  both runs (the loop's RuntimeError
+  and the 992 chain's RecursionError
+  read directly off the oracle's
+  stderr at this round's own probes,
+  and the 993 and 1,100 chains
+  recording the identical stderr
+  digest as the 992 chain in both
+  runs), and exit, stdout, and every
+  file under the cell root still
+  compare byte for byte there. The
+  remaining ten resolver cells and all
+  nineteen judgment cells compare
+  stderr byte for byte, as ST-95
+  states. No side departed from its
+  contracted class in either run, so
+  zero mismatches and zero problems
+  stand as recorded; this record
+  supplies the exclusion ST-96's
+  opening sentence left unstated, and
+  no behavior and no count changes.
