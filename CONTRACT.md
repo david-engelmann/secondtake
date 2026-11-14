@@ -3413,3 +3413,60 @@ ST-61. The CodeRabbit disposition
   and the flighttape suite at the pin
   are counted separately as suites,
   not runs.
+
+- ST-98. Round 16 closes. The round
+  re-measured the judgment band and
+  the resolver bands on both builds
+  (ST-95, ST-96), re-ran the realistic
+  pass and the differential (ST-97),
+  and discharged the charges standing
+  on PR 17's landing comment: PR 17
+  read back whole with its shell
+  contracted in its true final form
+  and its census whole (ST-94), ST-93
+  graded as the repair record of Round
+  15's gate with ST-91 standing
+  unrewritten beside it (ST-94),
+  ST-55(a) carried open by name below,
+  and no late CodeRabbit finding
+  standing on PR 17 to disposition
+  (ST-94). The fresh build stands at
+  md5
+  d71227c59a09908659318f4b8c3facd6,
+  built from the staged base tree
+  before the round's items were
+  appended; the banked Round 15 binary
+  stands at the same md5
+  d71227c59a09908659318f4b8c3facd6,
+  the fresh release build reproducing
+  the banked figure byte for byte from
+  the identical code tree, and the
+  banked binary's provenance stands as
+  that artifact at that md5 from Round
+  15's staged base tree. The oracle
+  stands verified before driving in
+  this round: the local oracle copy
+  matches commit
+  18bf37b4aaec5d96ed680c0050b9af758db8e393
+  blob for blob across all thirteen
+  files by recomputed blob id, read
+  through the API. The gate on the
+  closure tree stands at cargo test
+  passing whole (39 tests, 22 compare
+  and 17 judge), clippy clean under -D
+  warnings, fmt clean, and a codepoint
+  scan finding zero U+2014 and zero
+  U+2013 in the tree. Every surface
+  the round touched was built and
+  measured inside durable scratch
+  trees under the workspace; no
+  behavior changed and no count moved.
+  ST-55(a) stands open: whether
+  compare omits the judge's abstain
+  choice from its probability record
+  by design or by defect is the
+  repository owner's reserved
+  question, untouched by this round,
+  exactly as it stood at Round 15's
+  close. Closed perfection rounds move
+  to 16 of 100.
