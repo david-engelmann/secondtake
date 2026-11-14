@@ -2727,3 +2727,87 @@ ST-61. The CodeRabbit disposition
   the drivers, logs, and binary
   copied into the durable scratch
   tree when writes recovered.
+
+- ST-88. Round 15 opens with the
+  standing read-back of PR 16 in full,
+  on its closed record. The census
+  stands at no reviews, no review
+  comments, and four issue comments:
+  the lane's trigger 6872199549
+  (2026-11-14T05:10:35Z), the
+  CodeRabbit shell 6872199950, the
+  bot's follow-up 6872244866 (the
+  action-not-completed reply recording
+  that the bot had already reviewed
+  the last commit, created
+  2026-11-14T05:14:34Z and last edited
+  2026-11-14T05:14:38Z, carrying no
+  finding and no correction), and the
+  owner's landing comment 6872431252
+  (2026-11-14T05:31:28Z). The shell is
+  contracted in its true final form at
+  this read: a completed CodeRabbit
+  review of head
+  94bbc0a5e5af76d8d6bb680ca6a0361a244d13ac,
+  the head its own change assessment
+  names, created 2026-11-14T05:10:37Z
+  and last edited 2026-11-14T05:25:20Z
+  at 10,900 characters, carrying a
+  walkthrough, the line that no
+  actionable comments were generated
+  in the recent review, Merge Risk
+  Minimal up to 94bbc, four passed
+  pre-merge checks (Title, Linked
+  Issues, Out of Scope Changes,
+  Description), the word Docstring
+  occurring zero times, no rate-limit
+  banner standing in it, and Run ID
+  7aff1f9f-f4a3-45fb-85ec-0a9dd9bba21b
+  standing hyphenated in full. The
+  Round 14 step 0 account in the body
+  is graded against it: the form it
+  stated, 10,894 characters at a last
+  edit of 2026-11-14T05:12:20Z, was
+  true at its read; the reviews then
+  read 10,898 characters at a last
+  edit of 2026-11-14T05:16:09Z, and
+  the shell drifted twice in all after
+  the body's read, four characters in
+  the edit at 2026-11-14T05:16:09Z and
+  two in its final edit at
+  2026-11-14T05:25:20Z, both edits
+  landing before the landing comment
+  and neither moving any disposition
+  fact, every trait the earlier reads
+  recorded standing unchanged in the
+  final form at this read. The owner's
+  repair of checklist item 9 in the
+  body is graded as repaired: the body
+  as it stands states at that item
+  that neither CONTRIBUTING.md nor
+  CITATION.cff stands in the tree,
+  both deferred fleet-wide, with the
+  owner's repair note on the body's
+  face recording that the earlier
+  wording claimed CITATION.cff present
+  and that the standards review's
+  Minor on that phrase stands repaired
+  there, the repair changing no tree;
+  read segment by segment, the claimed
+  phrase stands in the body only
+  inside that note, quoting the
+  earlier wording as the record of
+  what was repaired, the item's
+  operative wording claims no file the
+  tree does not carry, and the head
+  tree's twenty-five files carry
+  neither name. No late CodeRabbit
+  finding stands on PR 16: nothing was
+  posted after the landing comment, no
+  review and no review comment exists
+  on the pull request, and the
+  follow-up reply carries no finding,
+  so nothing stands undisposed.
+  ST-55(a) stands open and untouched,
+  as the repository owner's reserved
+  question.
