@@ -3019,3 +3019,61 @@ ST-61. The CodeRabbit disposition
   this item; the oracle side runs as
   python3 -m secondtake.cli at every
   step.
+
+- ST-92. Closure. The round closes on
+  its gate and stands for the owner's
+  three reviews at landing. Under the
+  standing rule the README's rounds
+  line moves in this commit, to 15 of
+  100. The gate on the final tree:
+  cargo test 39 passed and none failed
+  (library 0, binary 0, compare 22,
+  judge 17, documentation 0), clippy
+  --all-targets -- -D warnings clean,
+  and fmt --check clean. The batteries
+  ran on two builds: this round's
+  fresh build, built from the staged
+  base tree before the round's items
+  were appended and standing at md5
+  d71227c59a09908659318f4b8c3facd6,
+  the final tree differing from that
+  tree in CONTRACT.md and the README
+  rounds line only; and the banked
+  Round 14 binary at md5
+  cd5d4e11dc8f3caa6b7045c2479b58d4,
+  read back at that figure in this
+  round before the runs. No byte-exact
+  reproduction of the banked figure
+  from a fresh build is claimed: the
+  fresh build stands at its own md5,
+  and the round's behavioral evidence
+  rests on the two builds agreeing at
+  every battery cell, never on one
+  artifact alone. The final Python
+  oracle stands verified against
+  commit
+  18bf37b4aaec5d96ed680c0050b9af758db8e393
+  through the API before the runs, its
+  thirteen files matching the local
+  copy blob for blob by recomputed
+  blob id. The round's totals are
+  traceable: 34 battery cells run on
+  each of the two builds, 160
+  realistic steps, and 33 differential
+  cases, 261 measured runs in all,
+  every run a twin comparison unless
+  its item says otherwise. ST-55(a)
+  stands open and untouched, as the
+  repository owner's reserved
+  question. The round's environment
+  effects stand stated in full: the
+  lane's working scratch, the cargo
+  target directories, and every run
+  root stood in the durable scratch
+  tree under
+  ~/workspace/retro-line/st15-scratch/
+  for the whole round, no write was
+  refused, and no measurement was
+  taken in a faulted state, with each
+  finished family banked server-side
+  as soon as it was written.
