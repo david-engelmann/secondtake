@@ -2428,3 +2428,147 @@ ST-61. The CodeRabbit disposition
   stands open and untouched, as
   the repository owner's reserved
   question.
+
+- ST-84. The judgment band re-measured at its
+  boundaries, nineteen cells
+  twin-compared byte for byte in
+  exit, stdout, stderr, and every
+  file under each twin root
+  including the judge call log,
+  against a scripted fake judge
+  standing at the wire shape of
+  judge.py, its call command in
+  the environment and its answers
+  driven by the environment, with
+  no live model called. Five cells
+  are never consulted on either
+  side: an agreement cell the
+  armed judge is never called on,
+  proposal keep under the
+  conclusive reason; a
+  two-regressions cell over cost
+  and time, proposal revert, never
+  consulted; a two-regressions
+  cell over cost and rework,
+  proposal revert, never
+  consulted; a cell below the pair
+  floor, one matched pair against
+  a registered floor of two,
+  ending in proposal abstain,
+  status not consulted, reason
+  insufficient pairs, 1 of 2, the
+  judge never called; and a band
+  cell with no judge configured,
+  proposal tune standing as not
+  consulted under no judge
+  configured. Three cells are
+  judged after calls in choice,
+  severity, match order: tune at
+  confidence exactly 0.6; keep at
+  confidence given as the integer
+  1; revert at 0.600001. Five
+  cells abstain with the
+  deterministic tune standing:
+  revert at 0.599999, its twin
+  inputs verified byte for byte
+  unchanged after the runs; revert
+  at 0.59; revert at the integer
+  0; an abstain choice at 0.9; and
+  an abstain choice at exactly
+  0.6. Five cells end in tune
+  standing as unavailable: a judge
+  failing at the choice call, the
+  log stopping at one call; at the
+  severity call, two; at the match
+  call, three; a malformed choice
+  answer whose probabilities sum
+  to two, the log stopping at one
+  call; and a missing call script,
+  no call made. One replay cell
+  closes the band: the shipped
+  fixture's recorded card,
+  produced by this round's own
+  band set and replayed through
+  the judgments file at
+  tests/fixtures/judgments_synthetic.json,
+  ends judged, proposal tune at
+  0.85. The band therefore stands
+  where ST-79 left it: judgment
+  enters only in the contested
+  band, the 0.6 floor is
+  inclusive, and abstention and
+  failure both leave the
+  deterministic suggestion
+  standing.
+
+- ST-85. The resolver bands re-measured at
+  their exact points, fifteen
+  cells twin-compared on exit and
+  stdout and, except where a band
+  is recorded by class, on stderr
+  byte for byte. Five structural
+  cells: a remainder link, a
+  directory link standing in the
+  output's remainder and resolving
+  inside the before set, draws the
+  guard's named refusal on both
+  sides; a spelling whose dot-dot
+  components pop a file component
+  draws the named refusal on both
+  sides; a link standing after a
+  dead component draws on both
+  sides the refusal that names the
+  spelled output as unwritable,
+  error, cannot write the
+  comparison, gone/blink/out.json,
+  byte-identical on both sides; a
+  link met again after its
+  substitution completed is
+  followed again, and the write
+  lands inside the target on both
+  sides; and a loop waiting in the
+  remainder meets the walk only
+  after the dead component clears,
+  the oracle leaving an untrapped
+  RuntimeError, Symlink loop, out
+  of pathlib's resolve, the port
+  silent at exit 1, the bands
+  recorded by class. Six chain
+  cells, run at the round's route,
+  python3 -m secondtake.cli with
+  the output spelled as an
+  absolute path through the chain:
+  chains of 989, 990, and 991
+  links state the named refusal
+  byte-identically on both sides,
+  and chains of 992, 993, and 1100
+  links find the oracle taking the
+  crash class while the port still
+  states the named refusal, the
+  walk's split therefore standing
+  at exactly 991 and 992 at this
+  route, the ST-65 split. Four
+  re-meeting cells, the output
+  spelled through a link standing
+  in the before set and met again
+  after each dot-dot: at 11, 1001,
+  and 4096 follows both sides
+  refuse by name, and at 4097
+  follows the oracle refuses by
+  name while the port takes the
+  crash class, the bands recorded
+  by class, the ST-60(b) shape
+  standing at its exact point. The
+  flighttape pin stands
+  reconfirmed in this round's
+  build: commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e,
+  exactly 50 blobs untruncated,
+  the golden digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  executed at the pinned checkout
+  in this round's build, its suite
+  passing whole with verify
+  accepting at exit 0.
