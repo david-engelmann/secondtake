@@ -2811,3 +2811,121 @@ ST-61. The CodeRabbit disposition
   ST-55(a) stands open and untouched,
   as the repository owner's reserved
   question.
+
+- ST-89. The judgment band re-measured
+  at its boundaries, nineteen cells
+  twin-compared byte for byte in exit,
+  stdout, stderr, and every file under
+  each twin root including the judge
+  call log, against a scripted fake
+  judge standing at the wire shape of
+  judge.py, its call command in the
+  environment and its answers driven
+  by the environment, with no live
+  model called. Every cell ran on two
+  builds and agreed on both: this
+  round's fresh build from the staged
+  tree, standing at md5
+  d71227c59a09908659318f4b8c3facd6,
+  and the banked Round 14 binary,
+  standing at md5
+  cd5d4e11dc8f3caa6b7045c2479b58d4 as
+  banked and as read back in this
+  round. Five cells are never
+  consulted on either side: an
+  agreement cell the armed judge is
+  never called on, proposal keep under
+  the conclusive reason; a
+  two-regressions cell over cost and
+  time, proposal revert, never
+  consulted; a two-regressions cell
+  over cost and rework, proposal
+  revert, never consulted; a cell
+  below the pair floor, one matched
+  pair against a registered floor of
+  two, ending in proposal abstain,
+  status not consulted, reason
+  insufficient pairs, 1 of 2, the
+  judge never called; and a band cell
+  with no judge configured, proposal
+  tune standing as not consulted under
+  no judge configured. Three cells are
+  judged after calls in choice,
+  severity, match order: tune at
+  confidence exactly 0.6; keep at
+  confidence given as the integer 1;
+  revert at 0.600001. Five cells
+  abstain: revert at 0.599999, with
+  that cell's inputs verified byte for
+  byte unchanged and its stated reason
+  naming the judge's confidence
+  0.599999 as below 0.6; revert at
+  0.59; revert at integer 0; an
+  abstain choice at 0.9; and an
+  abstain choice at exactly 0.6. Five
+  cells stand unavailable: failures at
+  the choice, severity, and match
+  calls, each stopping at the failing
+  call; a malformed choice answer
+  whose probabilities sum to two; and
+  a missing call script. The shipped
+  fixture's recorded card is replayed
+  and judged at one cell, a tune at
+  0.85. The floor stands inclusive on
+  both builds: a judged choice at
+  confidence exactly 0.6 lands as
+  judged, and a choice at 0.599999
+  stands as abstained.
+
+- ST-90. The resolver bands
+  re-measured in fifteen cells on the
+  same two builds named at ST-89, the
+  fresh build and the banked Round 14
+  binary, every cell agreeing on both:
+  five structural, six chain, and four
+  re-meeting, over the one shared walk
+  of ST-57. The chains run at the
+  round's route, python3 -m
+  secondtake.cli with the output
+  spelled as an absolute path through
+  the chain: at 989, 990, and 991
+  links both sides state the named
+  refusal byte-identically; at 992 and
+  993 links, and at 1100 links, the
+  oracle takes the crash class, a
+  RecursionError traceback out of its
+  resolver, while the port still
+  refuses by name, the split standing
+  at exactly 991 and 992 at this
+  route. At 11, 1001, and 4096 follows
+  both sides refuse by name; at 4097
+  follows the oracle refuses by name
+  while the port takes the crash
+  class, silent at exit 1. The
+  dead-component cell's shared line is
+  named outright: error, cannot write
+  the comparison, gone/blink/out.json,
+  byte-identical on both sides. The
+  loop cell's oracle crash class is an
+  untrapped RuntimeError, Symlink
+  loop, out of pathlib's resolve, read
+  directly off the oracle's stderr at
+  this round's own probe, the port
+  silent at exit 1. The flighttape pin
+  stands reconfirmed in this round's
+  build: commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e,
+  exactly 50 blobs untruncated,
+  verified through the API in this
+  round; the golden digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  executed at the pinned checkout in
+  this round's build, its suite
+  passing whole, the digest command
+  printing the golden digest over the
+  converted synthetic session and
+  verify accepting at exit 0, the
+  converted tape standing at 1,663
+  bytes.
