@@ -2672,3 +2672,58 @@ ST-61. The CodeRabbit disposition
   this item; the oracle side runs
   as python3 -m secondtake.cli at
   every step.
+
+- ST-87. Closure. The round closes on its gate and
+  stands for the owner's three
+  reviews at landing. Under the
+  standing rule the README's
+  rounds line moves in this
+  commit, to 14 of 100. The gate
+  on the final tree: cargo test 39
+  passed and none failed (library
+  0, binary 0, compare 22, judge
+  17, documentation 0), clippy
+  --all-targets -- -D warnings
+  clean, and fmt --check clean.
+  The binary this round's
+  batteries ran was built from the
+  base tree at
+  3c4e10edc2595ab4b06182b343d392508a0625f7,
+  the product tree unchanged by
+  the round, and stands at md5
+  cd5d4e11dc8f3caa6b7045c2479b58d4.
+  The final Python oracle stands
+  verified against commit
+  18bf37b4aaec5d96ed680c0050b9af758db8e393
+  through the API before the runs,
+  its thirteen files matching the
+  local copy blob for blob by
+  recomputed blob id. The round's
+  totals are traceable: 34 battery
+  cells, 160 realistic steps (148
+  compare events and 12 refusal
+  steps), and 33 differential
+  cases, 227 measured runs in all,
+  every run a twin comparison
+  unless its item says otherwise.
+  ST-55(a) stands open and
+  untouched, as the repository
+  owner's reserved question. The
+  round's environment effects
+  stand stated in full: the home
+  volume's file-count quota
+  refused writes under the
+  workspace for stretches of the
+  round, so the lane's working
+  scratch and both cargo target
+  directories stood on the
+  machine's temporary and
+  shared-memory filesystems rather
+  than in the durable scratch
+  tree, with each finished family
+  banked server-side as soon as it
+  was written, no measurement
+  taken in a faulted state, and
+  the drivers, logs, and binary
+  copied into the durable scratch
+  tree when writes recovered.
