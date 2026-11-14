@@ -2572,3 +2572,103 @@ ST-61. The CodeRabbit disposition
   in this round's build, its suite
   passing whole with verify
   accepting at exit 0.
+
+- ST-86. The realistic pass and the
+  differential rerun at Round 13's
+  shapes. The realistic pass runs
+  one hundred sixty steps of fresh
+  matched tape pairs over the
+  standard registration,
+  twin-compared at every step on
+  exit, stdout, and stderr byte
+  for byte, and on every file
+  under each twin root byte for
+  byte, the scripts and the judge
+  call logs included: one hundred
+  forty-eight compare events and
+  twelve refusal steps. The
+  compare events divide as forty
+  agreement steps, sixty band
+  steps under a scripted judge
+  rotating six postures (keep at
+  0.9, tune at exactly 0.6, revert
+  at 0.59, abstain at 0.9, revert
+  at 0.600001, keep at the integer
+  1), twenty-four two-regressions
+  steps, twelve steps below the
+  pair floor, and twelve band
+  steps with no judge configured.
+  The proposals over the pass
+  stand at sixty keep, twenty-two
+  tune, thirty-four revert, and
+  thirty-two abstain; the
+  judgments at eighty-eight not
+  consulted, forty judged, and
+  twenty abstained. The twelve
+  refusal steps stand apart from
+  the compare events: four aiming
+  inside the before set and four
+  inside the after set, each
+  refused under secondtake writes
+  nothing inside the tape sets it
+  reads, and two over the
+  registration file and two over
+  the judgments file the run
+  replays through, each refused
+  under secondtake writes nothing
+  over the files it reads, every
+  refusal landing on both arms at
+  exit 1 with no file under either
+  twin root changed. The
+  differential reruns its
+  thirty-three cases, each
+  twin-compared on exit, stdout,
+  stderr byte for byte apart from
+  the harness normalizing each
+  twin root's own absolute path
+  out of the streams, and every
+  output file: the help and parse
+  surfaces in seven (top-level
+  help, compare help, a missing
+  subcommand, an unknown
+  subcommand, compare with no
+  arguments, compare with an
+  unknown flag, an extra
+  positional argument), set and
+  registration loading in ten (a
+  missing before directory, a
+  missing after directory, the
+  before path naming a file, a
+  missing registration file,
+  malformed registration JSON, a
+  registration that is not an
+  object, a missing description, a
+  missing task class, missing
+  identified_by, and margins
+  absent entirely), tape set
+  shapes in six (an empty before
+  set, a tape that is not JSON, a
+  tape whose JSON is not an
+  object, a tape with no events,
+  the same tape in both sets, and
+  an extra unknown file suffix
+  standing in a set), judge
+  loading in four (a judgments
+  file missing, a judgments file
+  malformed, a judgments file with
+  no matching card, and a live
+  judge with the call command
+  unset), output and option forms
+  in four (the --json flag, the
+  --registration equals form, the
+  -o equals form, and the
+  --before/--after flag forms),
+  and comparison shapes in two (a
+  two-pair set with one pair
+  improving and one regressing,
+  and a matched pair whose tapes
+  carry extra unknown fields). No
+  live model is called anywhere in
+  this item; the oracle side runs
+  as python3 -m secondtake.cli at
+  every step.
