@@ -2727,3 +2727,390 @@ ST-61. The CodeRabbit disposition
   the drivers, logs, and binary
   copied into the durable scratch
   tree when writes recovered.
+
+- ST-88. Round 15 opens with the
+  standing read-back of PR 16 in full,
+  on its closed record. The census
+  stands at no reviews, no review
+  comments, and four issue comments:
+  the lane's trigger 6872199549
+  (2026-11-14T05:10:35Z), the
+  CodeRabbit shell 6872199950, the
+  bot's follow-up 6872244866 (the
+  action-not-completed reply recording
+  that the bot had already reviewed
+  the last commit, created
+  2026-11-14T05:14:34Z and last edited
+  2026-11-14T05:14:38Z, carrying no
+  finding and no correction), and the
+  owner's landing comment 6872431252
+  (2026-11-14T05:31:28Z). The shell is
+  contracted in its true final form at
+  this read: a completed CodeRabbit
+  review of head
+  94bbc0a5e5af76d8d6bb680ca6a0361a244d13ac,
+  the head its own change assessment
+  names, created 2026-11-14T05:10:37Z
+  and last edited 2026-11-14T05:25:20Z
+  at 10,900 characters, carrying a
+  walkthrough, the line that no
+  actionable comments were generated
+  in the recent review, Merge Risk
+  Minimal up to 94bbc, four passed
+  pre-merge checks (Title, Linked
+  Issues, Out of Scope Changes,
+  Description), the word Docstring
+  occurring zero times, no rate-limit
+  banner standing in it, and Run ID
+  7aff1f9f-f4a3-45fb-85ec-0a9dd9bba21b
+  standing hyphenated in full. The
+  Round 14 step 0 account in the body
+  is graded against it: the form it
+  stated, 10,894 characters at a last
+  edit of 2026-11-14T05:12:20Z, was
+  true at its read; the reviews then
+  read 10,898 characters at a last
+  edit of 2026-11-14T05:16:09Z, and
+  the shell drifted twice in all after
+  the body's read, four characters in
+  the edit at 2026-11-14T05:16:09Z and
+  two in its final edit at
+  2026-11-14T05:25:20Z, both edits
+  landing before the landing comment
+  and neither moving any disposition
+  fact, every trait the earlier reads
+  recorded standing unchanged in the
+  final form at this read. The owner's
+  repair of checklist item 9 in the
+  body is graded as repaired: the body
+  as it stands states at that item
+  that neither CONTRIBUTING.md nor
+  CITATION.cff stands in the tree,
+  both deferred fleet-wide, with the
+  owner's repair note on the body's
+  face recording that the earlier
+  wording claimed CITATION.cff present
+  and that the standards review's
+  Minor on that phrase stands repaired
+  there, the repair changing no tree;
+  read segment by segment, the claimed
+  phrase stands in the body only
+  inside that note, quoting the
+  earlier wording as the record of
+  what was repaired, the item's
+  operative wording claims no file the
+  tree does not carry, and the head
+  tree's twenty-five files carry
+  neither name. No late CodeRabbit
+  finding stands on PR 16: nothing was
+  posted after the landing comment, no
+  review and no review comment exists
+  on the pull request, and the
+  follow-up reply carries no finding,
+  so nothing stands undisposed.
+  ST-55(a) stands open and untouched,
+  as the repository owner's reserved
+  question.
+
+- ST-89. The judgment band re-measured
+  at its boundaries, nineteen cells
+  twin-compared byte for byte in exit,
+  stdout, stderr, and every file under
+  each twin root including the judge
+  call log, against a scripted fake
+  judge standing at the wire shape of
+  judge.py, its call command in the
+  environment and its answers driven
+  by the environment, with no live
+  model called. Every cell ran on two
+  builds and agreed on both: this
+  round's fresh build from the staged
+  tree, standing at md5
+  d71227c59a09908659318f4b8c3facd6,
+  and the banked Round 14 binary,
+  standing at md5
+  cd5d4e11dc8f3caa6b7045c2479b58d4 as
+  banked and as read back in this
+  round. Five cells are never
+  consulted on either side: an
+  agreement cell the armed judge is
+  never called on, proposal keep under
+  the conclusive reason; a
+  two-regressions cell over cost and
+  time, proposal revert, never
+  consulted; a two-regressions cell
+  over cost and rework, proposal
+  revert, never consulted; a cell
+  below the pair floor, one matched
+  pair against a registered floor of
+  two, ending in proposal abstain,
+  status not consulted, reason
+  insufficient pairs, 1 of 2, the
+  judge never called; and a band cell
+  with no judge configured, proposal
+  tune standing as not consulted under
+  no judge configured. Three cells are
+  judged after calls in choice,
+  severity, match order: tune at
+  confidence exactly 0.6; keep at
+  confidence given as the integer 1;
+  revert at 0.600001. Five cells
+  abstain: revert at 0.599999, with
+  that cell's inputs verified byte for
+  byte unchanged and its stated reason
+  naming the judge's confidence
+  0.599999 as below 0.6; revert at
+  0.59; revert at integer 0; an
+  abstain choice at 0.9; and an
+  abstain choice at exactly 0.6. Five
+  cells stand unavailable: failures at
+  the choice, severity, and match
+  calls, each stopping at the failing
+  call; a malformed choice answer
+  whose probabilities sum to two; and
+  a missing call script. The shipped
+  fixture's recorded card is replayed
+  and judged at one cell, a tune at
+  0.85. The floor stands inclusive on
+  both builds: a judged choice at
+  confidence exactly 0.6 lands as
+  judged, and a choice at 0.599999
+  stands as abstained.
+
+- ST-90. The resolver bands
+  re-measured in fifteen cells on the
+  same two builds named at ST-89, the
+  fresh build and the banked Round 14
+  binary, every cell agreeing on both:
+  five structural, six chain, and four
+  re-meeting, over the one shared walk
+  of ST-57. The chains run at the
+  round's route, python3 -m
+  secondtake.cli with the output
+  spelled as an absolute path through
+  the chain: at 989, 990, and 991
+  links both sides state the named
+  refusal byte-identically; at 992 and
+  993 links, and at 1100 links, the
+  oracle takes the crash class, a
+  RecursionError traceback out of its
+  resolver, while the port still
+  refuses by name, the split standing
+  at exactly 991 and 992 at this
+  route. At 11, 1001, and 4096 follows
+  both sides refuse by name; at 4097
+  follows the oracle refuses by name
+  while the port takes the crash
+  class, silent at exit 1. The
+  dead-component cell's shared line is
+  named outright: error, cannot write
+  the comparison, gone/blink/out.json,
+  byte-identical on both sides. The
+  loop cell's oracle crash class is an
+  untrapped RuntimeError, Symlink
+  loop, out of pathlib's resolve, read
+  directly off the oracle's stderr at
+  this round's own probe, the port
+  silent at exit 1. The flighttape pin
+  stands reconfirmed in this round's
+  build: commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e,
+  exactly 50 blobs untruncated,
+  verified through the API in this
+  round; the golden digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  executed at the pinned checkout in
+  this round's build, its suite
+  passing whole, the digest command
+  printing the golden digest over the
+  converted synthetic session and
+  verify accepting at exit 0, the
+  converted tape standing at 1,663
+  bytes.
+
+- ST-91. The realistic pass and the
+  differential rerun at Round 14's
+  shapes, run on this round's fresh
+  build named at ST-89. The realistic
+  pass runs one hundred sixty steps of
+  fresh matched tape pairs over the
+  standard registration, twin-compared
+  at every step on exit, stdout, and
+  stderr byte for byte, and on every
+  file under each twin root byte for
+  byte, the scripts and the judge call
+  logs included: one hundred
+  forty-eight compare events and
+  twelve refusal steps. The compare
+  events divide as forty agreement
+  steps, sixty band steps under a
+  scripted judge rotating six postures
+  (keep at 0.9, tune at exactly 0.6,
+  revert at 0.59, abstain at 0.9,
+  revert at 0.600001, keep at the
+  integer 1), twenty-four
+  two-regressions steps, twelve steps
+  below the pair floor, and twelve
+  band steps with no judge configured.
+  The proposals over the pass stand at
+  sixty keep, twenty-two tune,
+  thirty-four revert, and thirty-two
+  abstain; the judgments at
+  eighty-eight not consulted, forty
+  judged, and twenty abstained. The
+  twelve refusal steps stand apart
+  from the compare events: four aiming
+  inside the before set and four
+  inside the after set, each refused
+  under secondtake writes nothing
+  inside the tape sets it reads, and
+  two over the registration file and
+  two over the judgments file the run
+  replays through, each refused under
+  secondtake writes nothing over the
+  files it reads, every refusal
+  landing on both arms at exit 1 with
+  no file under either twin root
+  changed. The differential reruns its
+  thirty-three cases, each
+  twin-compared on exit, stdout,
+  stderr byte for byte apart from the
+  harness normalizing each twin root's
+  own absolute path out of the
+  streams, and every output file: the
+  help and parse surfaces in seven
+  (top-level help, compare help, a
+  missing subcommand, an unknown
+  subcommand, compare with no
+  arguments, compare with an unknown
+  flag, an extra positional argument),
+  set and registration loading in ten
+  (a missing before directory, a
+  missing after directory, the before
+  path naming a file, a missing
+  registration file, malformed
+  registration JSON, a registration
+  that is not an object, a missing
+  description, a missing task class,
+  missing identified_by, and margins
+  absent entirely), tape set shapes in
+  six (an empty before set, a tape
+  that is not JSON, a tape whose JSON
+  is not an object, a tape with no
+  events, the same tape in both sets,
+  and an extra unknown file suffix
+  standing in a set), judge loading in
+  four (a judgments file missing, a
+  judgments file malformed, a
+  judgments file with no matching
+  card, and a live judge with the call
+  command unset), output and option
+  forms in four (the --json flag, the
+  --registration equals form, the -o
+  equals form, and the
+  --before/--after flag forms), and
+  comparison shapes in two (a two-pair
+  set with one pair improving and one
+  regressing, and a matched pair whose
+  tapes carry extra unknown fields).
+  No live model is called anywhere in
+  this item; the oracle side runs as
+  python3 -m secondtake.cli at every
+  step.
+
+- ST-92. Closure. The round closes on
+  its gate and stands for the owner's
+  three reviews at landing. Under the
+  standing rule the README's rounds
+  line moves in this commit, to 15 of
+  100. The gate on the final tree:
+  cargo test 39 passed and none failed
+  (library 0, binary 0, compare 22,
+  judge 17, documentation 0), clippy
+  --all-targets -- -D warnings clean,
+  and fmt --check clean. The batteries
+  ran on two builds: this round's
+  fresh build, built from the staged
+  base tree before the round's items
+  were appended and standing at md5
+  d71227c59a09908659318f4b8c3facd6,
+  the final tree differing from that
+  tree in CONTRACT.md and the README
+  rounds line only; and the banked
+  Round 14 binary at md5
+  cd5d4e11dc8f3caa6b7045c2479b58d4,
+  read back at that figure in this
+  round before the runs. No byte-exact
+  reproduction of the banked figure
+  from a fresh build is claimed: the
+  fresh build stands at its own md5,
+  and the round's behavioral evidence
+  rests on the two builds agreeing at
+  every battery cell, never on one
+  artifact alone. The final Python
+  oracle stands verified against
+  commit
+  18bf37b4aaec5d96ed680c0050b9af758db8e393
+  through the API before the runs, its
+  thirteen files matching the local
+  copy blob for blob by recomputed
+  blob id. The round's totals are
+  traceable: 34 battery cells run on
+  each of the two builds, 160
+  realistic steps, and 33 differential
+  cases, 261 measured runs in all,
+  every run a twin comparison unless
+  its item says otherwise. ST-55(a)
+  stands open and untouched, as the
+  repository owner's reserved
+  question. The round's environment
+  effects stand stated in full: the
+  lane's working scratch, the cargo
+  target directories, and every run
+  root stood in the durable scratch
+  tree under
+  ~/workspace/retro-line/st15-scratch/
+  for the whole round, no write was
+  refused, and no measurement was
+  taken in a faulted state, with each
+  finished family banked server-side
+  as soon as it was written.
+
+- ST-93. Repair record, appended after
+  step 0. The CodeRabbit review's one
+  actionable comment (review
+  5904113420, comment 4573323062)
+  finds that ST-91 describes what the
+  realistic pass and the differential
+  compared without stating whether the
+  comparisons matched. The finding is
+  verified against the item as written
+  and stands: ST-91 states the shapes,
+  the tallies, and the refusal
+  landings, and nowhere states the
+  compare events' or the cases'
+  results. This record states the
+  outcomes ST-91 omits, and ST-91
+  stands unrewritten. The realistic
+  pass matched at every one of its one
+  hundred sixty steps, the twins
+  agreeing on exit, stdout, and stderr
+  byte for byte and on every file
+  under each twin root byte for byte:
+  zero mismatches and zero problems in
+  the run. The differential matched at
+  every one of its thirty-three cases
+  in the same terms, apart from the
+  harness normalizing each twin root's
+  own absolute path out of the
+  streams: zero mismatches and zero
+  problems. No figure ST-91 states
+  moves: its compare-event division,
+  its proposal and judgment tallies,
+  and its refusal account stand as
+  written, and the outcomes also stand
+  in this round's PR body at its
+  Verified block. This record changes
+  no behavior and no count.
