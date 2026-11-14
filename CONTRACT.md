@@ -3234,3 +3234,119 @@ ST-61. The CodeRabbit disposition
   stands open and untouched, as the
   repository owner's reserved
   question.
+
+- ST-95. The judgment band
+  re-measured. The battery's nineteen
+  judgment cells ran fresh on both
+  builds, each twin-compared against
+  the Python oracle on exit, stdout,
+  stderr, and every file under the
+  cell root, the judge call logs
+  included, and each run closed with
+  zero mismatches and zero problems:
+  five never-consulted cells
+  (agreement with the judge armed and
+  never called, the two-regressions
+  shapes on cost plus time and on cost
+  plus rework, below the pair floor,
+  and the band with no judge
+  configured), three judged cells,
+  five abstained cells, five failure
+  cells, and the replay cell
+  re-judging the shipped fixture. The
+  floor stands inclusive at its exact
+  points on both builds: a tune choice
+  at exactly 0.6 is judged and the
+  proposal becomes tune, a revert
+  choice at 0.600001 is judged and the
+  proposal becomes revert, and a
+  revert choice at 0.599999 abstains
+  with the deterministic tune
+  standing, the reason on both twins
+  naming the confidence as below 0.6;
+  a keep choice at the integer 1 is
+  judged. The judge's own abstain
+  choice abstains at 0.9 and at
+  exactly 0.6, the reason recording
+  the abstention itself rather than
+  the floor. The five failure cells
+  (failure at the choice, severity,
+  and match calls, a malformed choice
+  answer, and a missing call script)
+  each leave the deterministic tune
+  standing with status unavailable
+  after the round's recorded prefix of
+  calls, one, two, three, one, and
+  zero calls respectively. Judgment
+  still enters only where exactly one
+  measure regresses; outside the band
+  the judge is not consulted and the
+  deterministic proposal stands.
+
+- ST-96. The resolver bands
+  re-measured, and the pins
+  reconfirmed. The battery's fifteen
+  resolver cells ran fresh on both
+  builds under the same twin
+  comparison and closed with zero
+  mismatches and zero problems in each
+  run. Of the five structural cells,
+  the remainder link and the dotdot
+  that pops a file component refuse
+  under the guard line on both sides;
+  a link met only after a dead
+  component takes the cannot-write
+  line naming the spelled path,
+  byte-identical on both sides; a
+  completed link met again after
+  completion is followed again and the
+  write lands through it; and the loop
+  waiting in the remainder splits the
+  arms, the oracle exiting 1 with an
+  untrapped RuntimeError out of
+  pathlib's resolve, read directly off
+  the oracle's stderr at this round's
+  own probe, against the port's silent
+  exit 1. The chain cells ran at the
+  round's named route, python3 -m
+  secondtake.cli with the output
+  spelled as an absolute path through
+  the chain: chains of 989, 990, and
+  991 links refuse under the guard
+  line, byte-identical on both sides,
+  and chains of 992, 993, and 1,100
+  links split the arms, the oracle
+  exiting 1 with a RecursionError
+  traceback out of its resolver
+  against the port's named refusal,
+  the split holding at every length
+  probed through 1,100. The re-meeting
+  cells hold their split: spellings
+  that follow the link 11, 1,001, and
+  4,096 times refuse under the guard
+  line on both sides, and the spelling
+  that follows it 4,097 times splits
+  the arms, the oracle refusing under
+  the guard line against the port's
+  crash class, an exit 1 with an empty
+  stderr. The flighttape pin stands
+  reconfirmed: the pinned commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e
+  read through the API in the
+  flighttape repository at tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  with exactly fifty blobs, its suite
+  passing whole at the pinned checkout
+  in this round's build, and the
+  golden digest executed at that
+  checkout: the conversion of the
+  synthetic session produced the
+  1,663-byte tape, the digest printed
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  and verify accepted it at exit 0.
+  The description sentence of ST-51
+  was read again in its three homes in
+  this round and stands identical in
+  the repository description, the
+  README lede, and the Cargo.toml
+  description.
