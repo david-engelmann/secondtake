@@ -3793,3 +3793,79 @@ ST-61. The CodeRabbit disposition
   the repository description, the
   README lede, and the Cargo.toml
   description.
+
+- ST-103. The realistic pass and the
+  differential, re-run. The realistic
+  pass ran fresh in this round at
+  Round 13's shape, one hundred sixty
+  steps twin-compared byte for byte
+  against the Python oracle at every
+  step on exit, stdout, stderr, and
+  every file under the step root, the
+  judge call logs included, launched
+  detached with its work root spelled
+  as an absolute path and contracted
+  on its completed final accounting on
+  that launch: one hundred forty-eight
+  compare steps (agreement forty, the
+  contested band sixty under a
+  scripted judge rotating six
+  postures, two-regressions
+  twenty-four, below the pair floor
+  twelve, and the band with no judge
+  configured twelve) and twelve
+  refusal steps (four outputs spelled
+  inside the before set, four inside
+  the after set, two over the
+  registration file, and two over the
+  judgments file). The twins matched
+  at every step: the pass closed with
+  zero mismatches and zero problems,
+  its proposals standing at keep
+  sixty, tune twenty-two, revert
+  thirty-four, and abstain thirty-two,
+  and its judgment statuses at not
+  consulted eighty-eight, judged
+  forty, and abstained twenty, exactly
+  the ST-86 figures; the eight
+  tape-set refusal steps draw the sets
+  refusal and the four file refusal
+  steps draw the files refusal on both
+  arms, the split ST-81 named. A first
+  launch of the pass in this round
+  stands disclosed and counted
+  nowhere: spelled with a relative
+  work root, its judge call path
+  resolved against each step's own
+  directory, so the scripted judge
+  stood missing on both twins at all
+  sixty band steps; the twins still
+  matched at every step while the
+  harness's outcome checks recorded
+  the band as unavailable, and the
+  pass was re-run whole at the
+  absolute path above, no figure in
+  this item coming from the first
+  launch. The differential ran fresh
+  over its thirty-three cases across
+  the help and parse surfaces, set and
+  registration loading, tape set
+  shapes, judge loading, output and
+  option forms, and comparison shapes,
+  each twin root's own absolute path
+  normalized out of stdout and stderr
+  before comparing, and the twins
+  matched at every case: zero
+  mismatches and zero problems. The
+  round's measured total is 261 runs
+  traced as 34 + 34 + 160 + 33: the
+  battery's thirty-four cells on the
+  fresh build, the battery's
+  thirty-four cells on the banked
+  Round 15 binary, the realistic
+  pass's one hundred sixty steps, and
+  the differential's thirty-three
+  cases. The cargo suite (39 tests)
+  and the flighttape suite at the pin
+  are counted separately as suites,
+  not runs.
