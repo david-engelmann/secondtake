@@ -4280,3 +4280,66 @@ ST-61. The CodeRabbit disposition
   exactly as it stood at Round 17's
   close. Closed perfection rounds move
   to 18 of 100.
+
+- ST-110. Repair record, appended on
+  the owner's Round 18 gate,
+  qualifying the mechanism formula of
+  ST-84, ST-95, and ST-101, which
+  stand unrewritten. Those items carry
+  the judgment band's abstention cells
+  as abstaining with the deterministic
+  tune standing: in ST-95 and ST-101
+  the sentence stands on the revert
+  choice at 0.599999, its reason
+  naming the confidence as below 0.6,
+  and in ST-84 the phrase heads the
+  five abstention cells and closes the
+  item, abstention and failure both
+  leaving the deterministic suggestion
+  standing. The formula misdescribes
+  the recorded proposal on the judged
+  paths. In the oracle's compare.py,
+  the outcome function returns abstain
+  where the judge's own choice is
+  abstain, returns abstain where a
+  choice comes back at a confidence
+  below the 0.6 floor, the judge's
+  choice not taken and the reason
+  naming the confidence as below 0.6,
+  and returns the judge's choice where
+  the confidence stands at or above
+  the floor; within the band the
+  deterministic proposal is returned
+  only where no judge is configured
+  and where the judge is unavailable,
+  and the proposal rule states the
+  same division in its own words, a
+  configured judge's choice standing
+  at confidence 0.6 or better,
+  abstaining below it, and an
+  unavailable judge leaving the tune
+  standing. The deterministic tune
+  therefore does not stand on any
+  judged path that ends in abstention,
+  and the formula the three items
+  state holds only on the
+  not-consulted and judge-unavailable
+  paths. ST-106's phrasing, the
+  document's proposal standing at
+  abstain with the judge's choice not
+  taken, is the correction of the
+  earlier formula, stated as such
+  here. The three items' outcome
+  claims stand true as measured: the
+  cells abstained at their stated
+  points on both builds in their
+  rounds, the battery twin-comparing
+  the documents byte for byte, so the
+  recorded abstain stood in the
+  compared files all along, and this
+  round's battery cell J09 drives the
+  below-floor cell on both twins and
+  records proposal abstain with the
+  below-0.6 reason. Only the mechanism
+  clause is qualified; this record
+  changes no behavior and no count.
