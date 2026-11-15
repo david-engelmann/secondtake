@@ -3530,3 +3530,145 @@ ST-61. The CodeRabbit disposition
   supplies the exclusion ST-96's
   opening sentence left unstated, and
   no behavior and no count changes.
+
+- ST-100. Round 17 opens with the
+  standing read-back of PR 18 in full,
+  on its closed record. The census
+  stands at one review, one review
+  comment, and four issue comments:
+  the lane's trigger 6884418678
+  (2026-11-14T21:24:20Z, twenty
+  characters, never edited), the
+  CodeRabbit shell 6884419287, the
+  review 5907230673 (COMMENTED,
+  submitted 2026-11-14T21:26:41Z on
+  the closure head
+  58f7f3dcc0f9d7b85ec9b61fab49e649b070a01f),
+  its one review comment 4575710940
+  (created 2026-11-14T21:26:40Z and
+  last edited 2026-11-14T21:30:56Z,
+  its thread carrying no reply), the
+  bot's follow-up 6884464418 (the
+  action-not-completed reply recording
+  that the bot had already reviewed
+  the last commit, created
+  2026-11-14T21:28:06Z and last edited
+  2026-11-14T21:28:10Z, at 573
+  characters, carrying no finding and
+  no correction), and the owner's
+  landing comment 6884954769
+  (2026-11-14T22:08:55Z, at 2,476
+  characters). The shell is contracted
+  in its true final form at this read:
+  a completed review of the closure
+  head
+  58f7f3dcc0f9d7b85ec9b61fab49e649b070a01f,
+  the head its own change assessment
+  names in full, created
+  2026-11-14T21:24:23Z and last edited
+  2026-11-14T21:35:20Z at 8,483
+  characters, carrying a walkthrough,
+  Merge Risk Low up to 58f7f, four
+  passed pre-merge checks (Title,
+  Linked Issues, Out of Scope Changes,
+  Description), the word Docstring
+  occurring zero times, no rate-limit
+  banner standing in it, and no Run ID
+  standing in the shell itself, the
+  Run ID
+  934b839e-964d-4395-8fad-9f87bc860d47
+  standing in the review object, which
+  also records that the review used
+  the included allowance and that none
+  remains. The Round 16 step 0 account
+  in the body is graded against it:
+  the form it stated, 8,471 characters
+  at a last edit of
+  2026-11-14T21:26:44Z, was true at
+  its read; the shell drifted twelve
+  characters in all after the body's
+  read, landing at the form above with
+  no disposition fact moved, every
+  trait the earlier reads recorded
+  standing unchanged in the final form
+  at this read. The review's one
+  actionable comment is graded as it
+  stands: comment 4575710940 (Minor)
+  finds that ST-96 reports zero
+  mismatches under the same twin
+  comparison while recording different
+  stderr for the loop, chain, and
+  re-meeting cells, where ST-95 states
+  that the comparison includes stderr,
+  without stating that the five split
+  cells compare by contracted class
+  rather than byte for byte; the
+  finding was valid and stands fixed
+  inside Round 16's own gate by repair
+  record ST-99, and the comment
+  carries the bot's own marker,
+  Addressed in commit cf575e5. ST-99's
+  standing is graded on the merged
+  record: it stands appended after
+  ST-98 in the merged tree, stating
+  the exclusion ST-96's opening
+  sentence left unstated (the five
+  split cells named, the port's stderr
+  asserted exactly at them, the
+  oracle's recorded class standing in
+  both runs, and exit, stdout, and
+  files still byte-compared there, the
+  remaining ten resolver cells and all
+  nineteen judgment cells comparing
+  stderr byte for byte), ST-96 stands
+  unrewritten, its text in the merged
+  tree byte-identical to its text at
+  its own slice commit
+  9df0b2a939ad9cd0de6a3825f86b3001b9727bc3
+  as verified through the API in this
+  round, and the landing comment's
+  gate record (spec fidelity PASS,
+  standards APPROVE, red team APPROVE,
+  no findings on any axis) matches the
+  body's account, so ST-99 stands as
+  the repair record of Round 16's
+  gate, its repair graded as repaired.
+  The shell's Merge Risk prose makes
+  the same observation as the comment
+  and is answered by the same repair.
+  No prose reservation stands: the
+  Title check passed, its prose
+  calling the title related to the
+  primary change and specific to the
+  changeset and noting only that the
+  internal round and item naming
+  scheme may need context for a
+  teammate, which is the line's
+  standing title form, identical in
+  shape to PR 17's title, refine:
+  secondtake Round 15, ST-88 to ST-92,
+  read through the API in this round,
+  and no reservation against it. No
+  late CodeRabbit finding stands on PR
+  18: nothing was posted after the
+  landing comment, the shell's, the
+  review comment's, and the
+  follow-up's last edits all preceding
+  it, and the follow-up carries no
+  finding, so nothing stands
+  undisposed. The merge, its tree, and
+  its parents stand verified firsthand
+  in this round against the remote
+  read through the API, main's head
+  standing at the merge commit
+  53062a5f59a4893c85b38282c41a94ad0cce7d59
+  itself, its tree equal to the repair
+  tree and hosted CI green on the
+  repair head (push 43643196427 and
+  pull request 43643201098, each
+  re-read through the API in this
+  round and standing completed at
+  success on cf575e5a). ST-55(a)
+  stands open and untouched, as the
+  repository owner's reserved
+  question.
