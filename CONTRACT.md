@@ -3926,3 +3926,105 @@ ST-61. The CodeRabbit disposition
   exactly as it stood at Round 16's
   close. Closed perfection rounds move
   to 17 of 100.
+
+- ST-105. Round 18 opens with the
+  standing read-back of PR 19 in full,
+  on its closed record. The census
+  stands at no reviews, no review
+  comments, and two issue comments:
+  the CodeRabbit shell 6888920152 and
+  the owner's landing comment
+  6889196206 (2026-11-15T04:31:30Z, at
+  1,962 characters, never edited). No
+  trigger comment stands: the bot
+  reviewed automatically at the PR's
+  opening, before any trigger stood,
+  and no review object stands on the
+  PR. The shell is contracted in its
+  true final form at this read: a
+  completed review of the closure head
+  b07e2c8d09506604aa4b6115bcec0c2362734f2e,
+  the head its own change assessment
+  names in full, created
+  2026-11-15T04:03:58Z and last edited
+  2026-11-15T04:09:48Z at 11,262
+  characters, carrying a walkthrough,
+  Merge Risk Minimal up to b07e2, four
+  passed pre-merge checks (Title,
+  Linked Issues, Out of Scope Changes,
+  Description), the word Docstring
+  occurring zero times, no rate-limit
+  banner standing in it, and the Run
+  ID
+  556ae5ef-6950-4a03-9eb6-003148d16330
+  standing in the shell's own review
+  info, which also records that the
+  review used the included allowance
+  and that none remains. The shell
+  records that no actionable comments
+  were generated in the recent review,
+  and no actionable comment stands.
+  The Round 17 step 0 account in the
+  body is graded against it: the form
+  it stated, 11,260 characters at a
+  last edit of 2026-11-15T04:05:29Z,
+  was true at its read; the shell
+  drifted two characters in all after
+  the body's read, landing at the form
+  above with no disposition fact
+  moved, every trait the earlier reads
+  recorded standing unchanged in the
+  final form at this read. One prose
+  reservation stands and is re-graded
+  here: the Title check passed, and
+  its full details add that the title
+  does not say what the round did,
+  that it uses internal ticket IDs a
+  teammate scanning history would not
+  learn the main outcome from, and
+  that the title is partially related
+  but not specific about the main
+  point. The dismissal stands on
+  counted grounds: the title is the
+  line's standing title form,
+  identical in shape to the titles of
+  PR 17 and PR 18 (refine: secondtake
+  Round 15, ST-88 to ST-92 and refine:
+  secondtake Round 16, ST-94 to ST-98,
+  each read through the API in this
+  round), the round and item range is
+  the information the line's history
+  is scanned by, and the check itself
+  passed; no finding stands. No
+  appendix stands on PR 19's body: the
+  whole-body read in this round finds
+  no bot appendix standing in it, the
+  body standing as the lane authored
+  it. No late CodeRabbit finding
+  stands on PR 19: nothing was posted
+  after the landing comment, the
+  shell's last edit preceding it, so
+  nothing stands undisposed. The
+  merge, its tree, and its parents
+  stand verified firsthand in this
+  round against the remote read
+  through the API, main's head
+  standing at the merge commit
+  f080a46ddf92dd3c2ef3abe4feb3c02f1a96a903
+  itself, its tree
+  5f89917e32d8e163be04ca6d8394021ae8bfedac
+  equal to the reviewed closure tree,
+  its parents
+  53062a5f59a4893c85b38282c41a94ad0cce7d59
+  and
+  b07e2c8d09506604aa4b6115bcec0c2362734f2e,
+  and hosted CI green on the closure
+  head (push 43674858297 and pull
+  request 43675082841, each re-read
+  through the API in this round and
+  standing completed at success on
+  b07e2c8d). ST-55(a) stands open and
+  untouched, as the repository owner's
+  reserved question, and is carried
+  open by name at this round's
+  closure.
