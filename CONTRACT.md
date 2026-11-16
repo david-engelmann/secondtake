@@ -4343,3 +4343,123 @@ ST-61. The CodeRabbit disposition
   below-0.6 reason. Only the mechanism
   clause is qualified; this record
   changes no behavior and no count.
+
+- ST-111. The eighteenth round's pull
+  request read back whole. Pull
+  request 20 carries no review and no
+  review comments, and exactly two
+  issue comments. The first is the
+  CodeRabbit shell 6893961227, and the
+  second is the landing comment
+  6894597396 at 2,313 characters,
+  created 2026-11-15T12:52:13Z, never
+  edited, standing last. No trigger
+  comment stands, because the bot
+  reviewed automatically at the pull
+  request's opening. The shell is a
+  completed review of the Round 18
+  closure head
+  5798dd34c0e90ef1832e5e617eb3c495f061ff6e,
+  created 2026-11-15T11:58:11Z,
+  standing at its true final form of
+  11,168 characters, last edited
+  2026-11-15T12:43:27Z, unchanged
+  since the Round 18 delta reviews
+  read it. Its walkthrough states the
+  branch's Round 18 records, its
+  verdict line reads Merge Risk
+  Minimal up to 5798dd, its four
+  pre-merge checks all passed, its
+  Docstring Coverage section appears
+  zero times, no rate limit banner
+  stands, and its Run section names
+  the included allowance used with
+  none remaining and Run ID
+  b6fe1171-aa81-4c48-9c44-c30df0b750be.
+  No actionable comments were
+  generated in the review. The Round
+  18 body's step 0 account of the
+  shell at 11,162 characters, last
+  edited 2026-11-15T11:59:52Z, was the
+  shell as it then stood; the shell
+  drifted two characters to 11,164 at
+  the full gate's reads and four more
+  to 11,168 at the delta reviews'
+  reads, and no fact any disposition
+  rests on moved in either drift. No
+  reservation stands in the shell to
+  disposition: the Title check passed,
+  and its full details find the title
+  specific enough for a reader
+  scanning history to see the primary
+  change, remarking only that the
+  project's terms are opaque to
+  readers without context, which it
+  does not hold against the title, so
+  no dismissal stands this round and
+  none is carried to re-grade. No
+  appendix stands on pull request 20's
+  body at this round's whole-body
+  read, and nothing was posted on the
+  pull request after the landing
+  comment. The repair head
+  fef9f0b7b522a8afcfb755ad0ef4d08080a49c1d
+  is read back whole as the body's
+  repair note charges: its tree is
+  7c82633e79355d83f007c6d157c7fd614a0a97e4,
+  its parent is the closure head, and
+  the compare through the API shows
+  CONTRACT.md alone at 63 insertions
+  and no deletions. ST-110's
+  qualification is graded at this
+  round's own read of the oracle
+  source: compare.py's outcome
+  function returns abstain where the
+  judge's own choice is abstain and
+  where a choice comes back below the
+  confidence floor with the judge's
+  choice not taken, returns the
+  judge's choice at or above the
+  floor, and returns the deterministic
+  proposal only where no judge is
+  configured and where the judge is
+  unavailable, and the rule text the
+  module carries states the same
+  division, so the qualification
+  stands sound and ST-84, ST-95, and
+  ST-101 stand unrewritten beneath it.
+  The merge itself is verified through
+  the API: main stands at
+  f086db11d6a36aa825d91bedf4fa7e0283024549
+  with tree
+  7c82633e79355d83f007c6d157c7fd614a0a97e4,
+  equal to the reviewed repair tree,
+  and parents
+  f080a46ddf92dd3c2ef3abe4feb3c02f1a96a903
+  and
+  fef9f0b7b522a8afcfb755ad0ef4d08080a49c1d,
+  and continuous integration stands
+  green on both heads, the closure
+  head's push run 43711362679 and pull
+  request run 43711439618 and the
+  repair head's push run 43715082745
+  and pull request run 43715086337 all
+  completed at success on their exact
+  heads. One charge from the landing
+  comment rides on this round's gate
+  rather than on its build, and its
+  posture is named here so the record
+  carries it: the Round 18 red team's
+  differential and realistic
+  re-executions stand untested under
+  that round's write fault wave,
+  counted neither for nor against, and
+  the discharge belongs to this
+  round's red team re-executing both
+  passes whole in its own window,
+  while this round's build re-runs
+  both passes as usual at ST-114.
+  ST-55(a) stays open, carried by
+  name: the abstain document omits the
+  confidence floor, and the question
+  stands with the repository owner.
