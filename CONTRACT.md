@@ -4463,3 +4463,103 @@ ST-61. The CodeRabbit disposition
   name: the abstain document omits the
   confidence floor, and the question
   stands with the repository owner.
+
+- ST-112. The judgment band
+  re-measured. The battery's nineteen
+  judgment cells run on both builds,
+  the fresh build from the base tree
+  and the banked Round 15 binary, and
+  report zero problems on each, the
+  documents matching byte for byte on
+  both twins in all nineteen. The
+  floor cells stand at their exact
+  points on both builds. A tune choice
+  at confidence exactly 0.6 is judged.
+  A revert choice at 0.600001 is
+  judged. A revert choice at 0.599999
+  is abstained, the proposal standing
+  at abstain with the judge's choice
+  not taken, the reason naming the
+  judge's confidence 0.599999 as below
+  0.6. A keep choice at the integer 1
+  is judged. The judge's own abstain
+  abstains at 0.9 and at 0.6, the
+  reason naming the abstention. Five
+  failure cells, the call failing at
+  the choice, the severity, and the
+  match call in turn, a malformed
+  choice answer, and the call script
+  missing outright, leave the
+  deterministic tune standing with
+  status unavailable after call
+  prefixes of one, two, three, one,
+  and zero calls. The mechanism is the
+  one ST-106 states and ST-110
+  qualifies the earlier record
+  against: below the floor the
+  recorded proposal becomes abstain,
+  and the deterministic proposal
+  stands only where no judge is
+  configured and where the judge is
+  unavailable. The shipped fixture's
+  recorded judgments replay by digest
+  with the port's proposal matching
+  the oracle's.
+
+- ST-113. The resolver bands and the
+  pins re-measured. The battery's
+  fifteen resolver cells run on both
+  builds and report zero problems on
+  each. Five of the fifteen compare by
+  their contracted class under ST-99,
+  the chain lengths that split and the
+  re-meeting and loop cells below; the
+  other ten resolver cells and all
+  nineteen judgment cells compare
+  stderr byte for byte. The five
+  structural cells stand as
+  contracted: the remainder link and
+  the dotdot pop refuse by name on
+  both twins, the link after a dead
+  component fails byte-identically on
+  both, a completed link met again is
+  followed again on both, and the loop
+  cell splits by class, the oracle's
+  crash class an untrapped
+  RuntimeError out of pathlib's
+  resolve and the port exiting 1 with
+  empty stderr. The chain cells stand
+  at their contracted lengths beside
+  the named route, python3 -m
+  secondtake.cli over absolute-target
+  chains. At 991 the named refusal is
+  byte-identical on both sides. At
+  992, 993, and 1,100 the cells split:
+  the oracle ends in RecursionError
+  and the port refuses by name, and
+  the 992, 993, and 1,100 chains
+  record the identical stderr digest
+  at this round's probes on both
+  builds. At a re-meeting of 4,096
+  both sides refuse by name, and at
+  4,097 the oracle refuses by name
+  against the port's crash class, exit
+  1 with empty stderr. The flighttape
+  pin is reconfirmed through the API
+  at commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e
+  with tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  and exactly 50 blobs; the checkout
+  standing at the pinned tree matches
+  it blob for blob, its suite passes
+  whole at 241 tests, and the golden
+  digest is executed there: the digest
+  of the 1,663-byte tape prints
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  and verify accepts it at exit 0. The
+  ST-51 sentence stands read again in
+  its three homes, the repository
+  description, the README lede, and
+  the Cargo.toml description,
+  byte-identical in all three.
