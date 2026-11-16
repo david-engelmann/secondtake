@@ -4887,3 +4887,58 @@ ST-61. The CodeRabbit disposition
   description, the README lede, and
   the Cargo.toml description,
   byte-identical in all three.
+- ST-119. The realistic and
+  differential passes re-run whole.
+  The realistic pass, 160 steps over
+  the synthetic history, was launched
+  detached with its work root spelled
+  as an absolute path and completed on
+  that launch with zero problems. Its
+  148 compare steps split as 40
+  agreement, 60 band, 24 two
+  regressions, 12 below the pair
+  floor, and 12 band steps with no
+  judge configured, and 12 refusal
+  steps stand beside them, the eight
+  tape set refusals drawing the
+  refusal line naming sets and the
+  four file refusals the line naming
+  files, the split ST-81 records. The
+  expected proposals run keep 60, tune
+  22, revert 34, and abstain 32, and
+  the judgment statuses run not
+  consulted 88, judged 40, and
+  abstained 20, the judged and
+  abstained statuses summing to the 60
+  band steps, so the judge was
+  genuinely consulted wherever the
+  band called for it. Two earlier
+  launches stand outside this
+  accounting, each counted nowhere.
+  The realistic pass's first launch
+  died at step 92 when the box's
+  file-count quota refused a write,
+  and the pass was relaunched whole
+  after writes were restored under the
+  standing tactic, the download caches
+  already standing clear and spent
+  target directories of closed rounds
+  pruned; the completed pass above is
+  the relaunch, and no step of the
+  killed launch is counted. The
+  differential's first launch failed
+  at its output redirect before any
+  case ran; the counted run is its
+  second launch. The differential runs
+  its 33 cases against the verified
+  oracle extraction with the twin root
+  paths normalized and reports zero
+  problems. The measured runs this
+  round total 261: the battery's 34
+  cells on the fresh build and 34 on
+  the banked binary, the realistic
+  pass's 160 steps, and the
+  differential's 33 cases. The cargo
+  suite and the flighttape suite are
+  counted separately, as suites and
+  not runs.
