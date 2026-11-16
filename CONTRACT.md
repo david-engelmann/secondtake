@@ -4942,3 +4942,49 @@ ST-61. The CodeRabbit disposition
   suite and the flighttape suite are
   counted separately, as suites and
   not runs.
+- ST-120. Round 20 closes on the full
+  gate. Cargo runs 39 tests on the
+  closure tree, 22 compare and 17
+  judge, clippy is clean with warnings
+  denied, fmt is clean, and the
+  codepoint scan finds zero U+2014 and
+  zero U+2013 over the tree and over
+  all 25 blobs of the closure head.
+  The gate also ran on the base tree
+  before the round's items were
+  appended, at the same figures.
+  Provenance holds at its contracted
+  scope: a fresh release build from
+  the base tree reproduces the banked
+  Round 15 binary byte for byte at md5
+  d71227c59a09908659318f4b8c3facd6.
+  The oracle is verified through the
+  API against commit
+  18bf37b4aaec5d96ed680c0050b9af758db8e393,
+  its thirteen files matching the
+  local copy blob for blob by
+  recomputed blob id. The round's
+  measured total stands at 261 runs,
+  traced at ST-119. The attempt
+  history stands complete on this
+  record: the base gate's first launch
+  was killed by a service restart
+  after the scan, fmt, and clippy
+  completed, and the gate was re-run
+  whole on a detached chain; the
+  realistic and differential first
+  launches stand disclosed at ST-119;
+  no counted pass rests on a killed or
+  refused attempt, and no gate run
+  failed. ST-55(a) stays open, carried
+  by name: the abstain document omits
+  the confidence floor, and the
+  question stands with the repository
+  owner. The README's rounds line
+  moves to 20 of 100 in this commit;
+  nothing else in the README changes.
+  From the base to the head of this
+  round, only CONTRACT.md and
+  README.md change, and the head
+  contract carries the base contract
+  as an exact byte prefix.
