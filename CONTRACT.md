@@ -4828,3 +4828,62 @@ ST-61. The CodeRabbit disposition
   recorded judgments replay by digest
   with the port's proposal matching
   the oracle's.
+- ST-118. The resolver bands and the
+  pins re-measured. The battery's
+  fifteen resolver cells run on both
+  builds and report zero problems on
+  each. Five of the fifteen compare by
+  their contracted class under ST-99,
+  the chain lengths that split and the
+  re-meeting and loop cells below; the
+  other ten resolver cells and all
+  nineteen judgment cells compare
+  stderr byte for byte. The five
+  structural cells stand as
+  contracted: the remainder link and
+  the dotdot pop refuse by name on
+  both twins, the link after a dead
+  component fails byte-identically on
+  both, a completed link met again is
+  followed again on both, and the loop
+  cell splits by class, the oracle's
+  crash class an untrapped
+  RuntimeError out of pathlib's
+  resolve and the port exiting 1 with
+  empty stderr. The chain cells stand
+  at their contracted lengths beside
+  the named route, python3 -m
+  secondtake.cli over absolute-target
+  chains. At 989, 990, and 991 the
+  named refusal is byte-identical on
+  both sides. At 992, 993, and 1,100
+  the cells split: the oracle ends in
+  RecursionError and the port refuses
+  by name, and the 992, 993, and 1,100
+  chains record the identical stderr
+  digest at this round's probes on
+  both builds. At re-meetings of 11,
+  1,001, and 4,096 both sides refuse
+  by name, and at 4,097 the oracle
+  refuses by name against the port's
+  crash class, exit 1 with empty
+  stderr. The flighttape pin is
+  reconfirmed through the API at
+  commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e
+  with tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  and exactly 50 blobs; the checkout
+  materialized blob by blob in this
+  round's scratch matches it tree for
+  tree, its suite passes whole at 241
+  tests, and the golden digest is
+  executed there: the digest of the
+  1,663-byte tape prints
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  and verify accepts it at exit 0. The
+  ST-51 sentence stands read again in
+  its three homes, the repository
+  description, the README lede, and
+  the Cargo.toml description,
+  byte-identical in all three.
