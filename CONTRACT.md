@@ -4988,3 +4988,154 @@ ST-61. The CodeRabbit disposition
   README.md change, and the head
   contract carries the base contract
   as an exact byte prefix.
+- ST-121. The twentieth round's pull
+  request read back whole. Pull
+  request 22 carries no reviews and no
+  review comments, and exactly two
+  issue comments. The first is the
+  CodeRabbit shell 6916300831, and the
+  second is the landing comment
+  6917008861 at 3,235 characters,
+  created 2026-11-16T12:55:24Z, never
+  edited, standing last. No trigger
+  comment stands, because the bot
+  reviewed automatically at the pull
+  request's opening. The shell is a
+  completed review of the Round 20
+  closure head
+  a5a970e015fd63ecf0c122e0b62dbdb9b378609e,
+  created 2026-11-16T12:22:54Z,
+  standing at its true final form of
+  10,924 characters, last edited
+  2026-11-16T12:30:33Z. It took three
+  forms: 5,208 characters in progress
+  at its creation, 10,922 at the
+  body's read, last edited
+  2026-11-16T12:25:33Z, and 10,924 in
+  closing form, the closing form a two
+  character cosmetic re-render of the
+  body's read in which two blank lines
+  were added after the change
+  assessment marker and the
+  Description Check row was reordered
+  inside the checks table, and no
+  disposition-bearing element moved.
+  Its walkthrough states the branch's
+  Round 20 records, its verdict line
+  reads Merge Risk Minimal up to
+  a5a97, its four pre-merge checks all
+  passed, the word Docstring appears
+  zero times, no rate limit banner
+  stands, and its Run section names
+  the included allowance used with
+  none remaining and Run ID
+  23badd20-450a-4f7c-b499-a6a941be49fc.
+  No actionable comments were
+  generated in the review. One
+  dismissal stands on the round's
+  body, of the Title check's prose,
+  and it is graded at this round's own
+  read. The check passed rather than
+  failed. The title, refine:
+  secondtake Round 20, ST-116 to
+  ST-120, stands at exactly 45
+  characters, and pull request 21's
+  title, read through the API in this
+  round, stands at the same 45
+  characters in the identical shape.
+  The range the title names is exactly
+  the range the branch carries, the
+  compare through the API showing five
+  commits,
+  e7eda63cdf8f09bbd804309c9112b70f7d5591ed,
+  f74e1483fe77b22ad217161dc9bc883ab4912f97,
+  773f2c4efb48ecde8c52cc75101db7bbd1e67186,
+  1fe304a096bc86e8a19252136520a169282fda9d,
+  and the closure head, with
+  CONTRACT.md at 345 insertions and no
+  deletions and README.md at one
+  insertion and one deletion. The
+  check's own full details concede the
+  title names the round and the ticket
+  range matching the stated
+  objectives, so it is related. The
+  dismissal stands sound on its
+  counted grounds, and no other
+  reservation stands in the shell to
+  disposition. The bot's release-notes
+  appendix stands on pull request 22's
+  body at this round's whole-body
+  read, the body at 10,846 characters,
+  the appendix at 528 characters from
+  its own marker and 530 counting the
+  two separating newlines before the
+  marker, the origin the body's own
+  figure counts from, so preservation
+  verifies in substance and in count
+  at both origins. Its three bullets
+  under Documentation are each correct
+  at their scope: Round 19's review
+  and merge details, release-notes
+  appendix, and validation outcomes;
+  Round 20's gate results, build and
+  evaluation records, measured-run
+  totals, and attempt history; and the
+  README progress count at 20 of 100.
+  It stands preserved byte for byte
+  through the body's one patch on the
+  lane's record, and it is censused
+  here as the bot's own text inside
+  its own markers. One observation
+  stands on the closed round, carried
+  from its landing comment and not a
+  charge: pull request 22's body names
+  the oracle's thirteen files as 13
+  Python files, where ST-120's its
+  thirteen files is the precise form,
+  eleven Python sources plus two
+  fixture files; the count and the
+  blob-for-blob verification are
+  exact, the contract's text is
+  correct, and this round's records
+  use the precise form. The push route
+  disclosure the standing charge
+  requires stands on pull request 22's
+  body itself, the branch created at
+  the base through the API and every
+  commit landed server-side through
+  the GitHub Data API with each pushed
+  tree asserted equal to the local
+  tree, so the charge stands
+  discharged in its own form. The
+  merge itself is verified through the
+  API: main stands at
+  962784b32d49be7eca0ac0024c806c15fb0e76ee
+  with tree
+  c71894b6cab13d480296b9908fa46bb18c721cb8,
+  equal to the reviewed closure tree,
+  and parents
+  de82658b2e98108a9a94afcab6a23086b10f6dd3
+  and
+  a5a970e015fd63ecf0c122e0b62dbdb9b378609e,
+  and continuous integration stands
+  green on the closure head, its push
+  run 43865418340 and pull request run
+  43866015806 both completed at
+  success on that exact head, re-read
+  through the API in this round. The
+  range this round extends stands read
+  from the base contract itself: ST-1
+  to ST-120, with ST-110 outside it as
+  the eighteenth round's repair
+  record, ST-61 standing in paragraph
+  form, and ST-67 standing as the
+  owner's record comment on pull
+  request 12, referenced inside ST-68,
+  and this round's items run from
+  ST-121. Nothing was posted on the
+  pull request after the landing
+  comment. ST-55(a) stays open,
+  carried by name: the abstain
+  document omits the confidence floor,
+  and the question stands with the
+  repository owner.
