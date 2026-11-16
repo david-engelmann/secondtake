@@ -4787,3 +4787,44 @@ ST-61. The CodeRabbit disposition
   document omits the confidence floor,
   and the question stands with the
   repository owner.
+- ST-117. The judgment band
+  re-measured. The battery's nineteen
+  judgment cells run on both builds,
+  the fresh build from the base tree
+  and the banked binary, and report
+  zero problems on each, the documents
+  matching byte for byte on both twins
+  in all nineteen. The floor cells
+  stand at their exact points on both
+  builds. A tune choice at confidence
+  exactly 0.6 is judged. A revert
+  choice at 0.600001 is judged. A
+  revert choice at 0.599999 is
+  abstained, the proposal standing at
+  abstain with the judge's choice not
+  taken, the reason naming the judge's
+  confidence 0.599999 as below 0.6. A
+  keep choice at the integer 1 is
+  judged. The judge's own abstain
+  abstains at 0.9 and at 0.6, the
+  reason naming the abstention. Five
+  failure cells, the call failing at
+  the choice, the severity, and the
+  match call in turn, a malformed
+  choice answer, and the call script
+  missing outright, leave the
+  deterministic tune standing with
+  status unavailable after call
+  prefixes of one, two, three, one,
+  and zero calls. The mechanism is the
+  one ST-106 states and ST-110
+  qualifies the earlier record
+  against: below the floor the
+  recorded proposal becomes abstain,
+  and the deterministic proposal
+  stands only where no judge is
+  configured and where the judge is
+  unavailable. The shipped fixture's
+  recorded judgments replay by digest
+  with the port's proposal matching
+  the oracle's.
