@@ -5488,3 +5488,75 @@ ST-61. The CodeRabbit disposition
   abstain document omits the
   confidence floor, and the question
   stands with the repository owner.
+- ST-127. The twenty-first round's
+  closure-tree gate, carried
+  unexecuted at that round's gate,
+  stands executed in this round. At
+  the round's opening two runners
+  stood armed to execute it, and
+  neither had run. The build lane's
+  first closure gate script waited on
+  the build slot from
+  2026-11-17T05:34:36Z and died in its
+  queue, its log standing at its
+  waiting line. Its probe-gated
+  relaunch verified a write window at
+  2026-11-17T07:28:02Z, and its gate
+  script then waited on the build slot
+  from that minute, its log again
+  standing at the waiting line. The
+  red team's runner stood in its probe
+  loop with no gate log written, its
+  probe file standing at zero bytes in
+  the write fault's zero-byte regime.
+  This lane stood both runners down at
+  the round's opening, before either
+  had produced a figure, and executed
+  the gate itself, so no armed
+  duplicate stands behind it. FIGURES:
+  on the closure tree, which is this
+  round's base tree, taken from the
+  restored local commit whose tree is
+  4f769461c9f912181fa6bbb3404c1b4ff1a5a2c0,
+  in an isolated target directory
+  under the build slot: the codepoint
+  scan finds zero U+2014 and zero
+  U+2013 over the tree, formatting is
+  clean, clippy finishes clean with
+  warnings denied, the full cargo
+  suite passes 39 tests, 22 compare
+  and 17 judge, and the release build
+  reproduces the banked binary byte
+  for byte at md5
+  d71227c59a09908659318f4b8c3facd6.
+  The battery re-ran on the closure
+  build at 34 cells with zero
+  problems, and the differential
+  re-ran at 33 cases with zero
+  problems. The figures the red team
+  listed as untested at its hand stand
+  tested, and they agree with the
+  base-tree gate the twenty-first
+  round contracted at ST-125 and with
+  the hosted suite that ran green on
+  the closure head. The execution
+  itself crossed the write fault's
+  hard regime and its route stands on
+  this round's record in full. A first
+  execution, queued two hours behind a
+  window verified before the queue,
+  landed the read-only limbs, the scan
+  and the formatting check, and lost
+  every writing limb to refused
+  writes. A second execution,
+  probe-gating every segment inside
+  the slot, landed the test suite, the
+  release build, the battery, and the
+  differential, and lost clippy alone
+  to a disk quota refusal after every
+  crate had checked clean. A repair
+  pass re-ran clippy on the closure
+  tree to a clean finish with warnings
+  denied, and the figures above are
+  stated from those completed runs and
+  no other.
