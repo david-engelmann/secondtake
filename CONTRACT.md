@@ -5601,3 +5601,57 @@ ST-61. The CodeRabbit disposition
   one, two, three, one, and zero
   calls. The shipped fixture's
   recorded judgments replay by digest.
+- ST-129. The resolver band and the
+  pins re-measured. The battery's
+  fifteen resolver cells ran on both
+  builds of the judgment item's pair
+  and every cell stands ok with zero
+  problems on both runs. Five cells
+  compare by contracted class, as
+  ST-99 contracts, and the other ten
+  resolver cells and all nineteen
+  judgment cells compare stderr byte
+  for byte. Beside the named route,
+  python3 -m secondtake.cli over
+  absolute-target chains, a chain
+  meeting itself at 989, 990, and 991
+  links stands at a named refusal
+  byte-identical on both sides, and at
+  992, 993, and 1,100 links the cell
+  splits, the oracle dying in
+  RecursionError and the port
+  answering the named refusal, the
+  three chains recording the identical
+  stderr digest on both builds.
+  Re-meetings at 11, 1,001, and 4,096
+  links stand at a named refusal on
+  both sides, and at 4,097 links the
+  oracle answers the named refusal
+  against the port's crash class, exit
+  1 with empty stderr. A loop waiting
+  in the remainder splits by class,
+  the oracle raising an untrapped
+  RuntimeError out of pathlib's
+  resolve and the port exiting 1 with
+  empty stderr. Two remainder cells
+  stand at named refusals
+  byte-identical on both sides, a link
+  after a dead component answers
+  identically on both sides, and a
+  completed link re-met resolves at
+  exit 0. The resolver stands as ST-57
+  states it. The flighttape pin stands
+  reconfirmed through the API at
+  commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e
+  with tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  and exactly 50 blobs, and the pin's
+  own suite passes 241 tests on the
+  blob-by-blob checkout of that pin.
+  The golden fixture converts to a
+  1,663-byte tape with digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  verify accepts the tape at exit 0,
+  and the tape stands byte-identical
+  to the oracle's own fixture tape.
