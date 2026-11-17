@@ -6045,3 +6045,25 @@ ST-61. The CodeRabbit disposition
   the shell figure of its step 0
   record excepted, which ST-132
   contracts at its true final form.
+- ST-134. The judgment band stands
+  re-measured. The battery's nineteen
+  judgment cells pass on both builds,
+  0 problems, the floor celled at
+  exactly 0.6 judged, at 0.599999
+  abstained, at 0.600001 judged, the
+  mechanism of ST-106 as qualified by
+  ST-110: the outcome is abstain where
+  the judge's own choice is abstain
+  and where a choice comes back below
+  the floor, the judge's choice stands
+  only at or above the floor, and
+  within the band the deterministic
+  proposal stands only where no judge
+  is configured and where the judge is
+  unavailable. The abstain behavior
+  stands untouched this round;
+  ST-55(a) stands carried open by name
+  into the next round, the abstain
+  document omitting the confidence
+  floor, the question the repository
+  owner's.
