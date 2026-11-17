@@ -5356,3 +5356,433 @@ ST-61. The CodeRabbit disposition
   the confidence floor, and the
   question stands with the repository
   owner.
+- ST-126. The twenty-first round's
+  pull request read back whole. Pull
+  request 23 carries no reviews and no
+  review comments, and exactly two
+  issue comments. The first is the
+  CodeRabbit shell 6941479730, and the
+  second is the landing comment
+  6943744459 at 1,747 characters,
+  created 2026-11-17T09:12:24Z, never
+  edited, standing last. No trigger
+  comment stands, because the bot
+  reviewed automatically at the pull
+  request's opening. The shell is a
+  completed review of the Round 21
+  closure head
+  b25672758642ca09461a298392274624d59d6c33,
+  created 2026-11-17T07:17:45Z,
+  standing at its true final form of
+  11,295 characters, last edited
+  2026-11-17T09:10:52Z. It took four
+  forms: 5,208 characters in progress
+  at its creation, 11,291 at the
+  lane's closing read, last edited
+  2026-11-17T07:21:40Z, 11,293 at the
+  owner's gate read, last edited
+  2026-11-17T07:26:28Z, and 11,295 in
+  the form the merge moment left, the
+  later forms cosmetic re-renders in
+  which no disposition-bearing element
+  moved, each verified element by
+  element at the reads that graded
+  them. Its walkthrough states the
+  branch's Round 21 records and the
+  carried posture correctly, its
+  verdict line reads Merge Risk
+  Minimal up to b2567 with coverage of
+  the closure head as reviewed, its
+  four pre-merge checks all passed,
+  the word Docstring appears zero
+  times, no rate limit banner stands,
+  and its review info names the
+  included allowance used with none
+  remaining and Run ID
+  1a2b78d7-c258-4b03-970b-239930c000d4.
+  No actionable comments were
+  generated in the review. One
+  dismissal stands on the round's
+  body, of the Title check's prose,
+  and it is graded at this round's own
+  read. The check passed rather than
+  failed. The title, refine:
+  secondtake Round 21, ST-121 to
+  ST-125, stands at exactly 45
+  characters, and pull request 22's
+  title, read through the API in this
+  round, stands at the same 45
+  characters in the identical shape.
+  The range the title names is exactly
+  the range the branch carries, five
+  commits with CONTRACT.md at 368
+  insertions and no deletions and
+  README.md at one insertion and one
+  deletion. The check's own full
+  details concede the title names the
+  round and the ticket range matching
+  the stated objectives, so it is
+  related. The dismissal stands sound
+  on its counted grounds, and no other
+  reservation stands in the shell to
+  disposition. The bot's release-notes
+  appendix stands on pull request 23's
+  body at this round's whole-body
+  read, the body at 13,620 characters,
+  the appendix at 381 characters from
+  its own marker and 383 counting the
+  two separating newlines before the
+  marker. Its two bullets under
+  Documentation are each correct at
+  their scope: the record of Round 20
+  measurements, comparison results,
+  and closure checks, and the README
+  progress count at 21 of 100. It
+  stands preserved byte for byte
+  through the body's one patch, the
+  owner's gate patch stating the
+  shell's third form, and it is
+  censused here as the bot's own text
+  inside its own markers. The push
+  route disclosure the standing charge
+  requires stands on pull request 23's
+  body itself, the branch created at
+  the base through the API and every
+  commit landed server-side through
+  the GitHub Data API with each pushed
+  tree asserted equal to the local
+  tree, so the charge stands
+  discharged in its own form. The
+  merge itself is verified through the
+  API: main stands at
+  f2a3edc029523c5c8f8bd082ff8b4f8d35bac1b9
+  with tree
+  4f769461c9f912181fa6bbb3404c1b4ff1a5a2c0,
+  equal to the reviewed closure tree,
+  and parents
+  962784b32d49be7eca0ac0024c806c15fb0e76ee
+  and
+  b25672758642ca09461a298392274624d59d6c33,
+  and continuous integration stands
+  green on the closure head, its push
+  run 44036924666 and pull request run
+  44037568274 both completed at
+  success on that exact head, re-read
+  through the API in this round. The
+  range this round extends stands read
+  from the base contract itself: ST-1
+  to ST-125, with ST-110 outside it as
+  the eighteenth round's repair
+  record, ST-61 standing in paragraph
+  form, and ST-67 standing as the
+  owner's record comment on pull
+  request 12, referenced inside ST-68,
+  and this round's items run from
+  ST-126. Nothing was posted on the
+  pull request after the landing
+  comment, and the shell's last edit
+  predates the landing, so nothing
+  stands to disposition under the
+  landing's fourth charge. ST-55(a)
+  stays open, carried by name: the
+  abstain document omits the
+  confidence floor, and the question
+  stands with the repository owner.
+- ST-127. The twenty-first round's
+  closure-tree gate, carried
+  unexecuted at that round's gate,
+  stands executed in this round. At
+  the round's opening two runners
+  stood armed to execute it, and
+  neither had run. The build lane's
+  first closure gate script waited on
+  the build slot from
+  2026-11-17T05:34:36Z and died in its
+  queue, its log standing at its
+  waiting line. Its probe-gated
+  relaunch verified a write window at
+  2026-11-17T07:28:02Z, and its gate
+  script then waited on the build slot
+  from that minute, its log again
+  standing at the waiting line. The
+  red team's runner stood in its probe
+  loop with no gate log written, its
+  probe file standing at zero bytes in
+  the write fault's zero-byte regime.
+  This lane stood both runners down at
+  the round's opening, before either
+  had produced a figure, and executed
+  the gate itself, so no armed
+  duplicate stands behind it. FIGURES:
+  on the closure tree, which is this
+  round's base tree, taken from the
+  restored local commit whose tree is
+  4f769461c9f912181fa6bbb3404c1b4ff1a5a2c0,
+  in an isolated target directory
+  under the build slot: the codepoint
+  scan finds zero U+2014 and zero
+  U+2013 over the tree, formatting is
+  clean, clippy finishes clean with
+  warnings denied, the full cargo
+  suite passes 39 tests, 22 compare
+  and 17 judge, and the release build
+  reproduces the banked binary byte
+  for byte at md5
+  d71227c59a09908659318f4b8c3facd6.
+  The battery re-ran on the closure
+  build at 34 cells with zero
+  problems, and the differential
+  re-ran at 33 cases with zero
+  problems. The figures the red team
+  listed as untested at its hand stand
+  tested, and they agree with the
+  base-tree gate the twenty-first
+  round contracted at ST-125 and with
+  the hosted suite that ran green on
+  the closure head. The execution
+  itself crossed the write fault's
+  hard regime and its route stands on
+  this round's record in full. A first
+  execution, queued two hours behind a
+  window verified before the queue,
+  landed the read-only limbs, the scan
+  and the formatting check, and lost
+  every writing limb to refused
+  writes. A second execution,
+  probe-gating every segment inside
+  the slot, landed the test suite, the
+  release build, the battery, and the
+  differential, and lost clippy alone
+  to a disk quota refusal after every
+  crate had checked clean. A repair
+  pass re-ran clippy on the closure
+  tree to a clean finish with warnings
+  denied, and the figures above are
+  stated from those completed runs and
+  no other.
+- ST-128. The judgment band
+  re-measured on both builds. The
+  battery's nineteen judgment cells
+  ran on the fresh build from the base
+  tree and on the banked binary, Round
+  15's build reproduced byte for byte,
+  and every cell stands ok with zero
+  problems on both runs, the documents
+  byte-identical on both twins in all
+  nineteen. Below the band the judge
+  is never called. An agreement keeps
+  with the judge armed and uncalled,
+  two regressions revert, a pair below
+  the pair floor abstains naming
+  insufficient pairs, and a band tune
+  stands unjudged where no judge is
+  configured. Inside the band the
+  confidence floor stands inclusive at
+  0.6, the mechanism ST-106 states as
+  qualified by the record at ST-110. A
+  tune at exactly 0.6 is judged, a
+  revert at 0.600001 is judged, a
+  revert at 0.599999 abstains, its
+  proposal becoming abstain and its
+  reason naming the judge's confidence
+  0.599999 as below 0.6, and a keep at
+  integer confidence 1 is judged. The
+  judge's own abstain abstains the
+  proposal at confidence 0.9 and at
+  0.6 alike. Five failure cells, the
+  call failing at the choice question,
+  the call failing at the severity
+  question, the call failing at the
+  match call, a malformed choice
+  answer, and the call script missing,
+  leave the deterministic tune
+  standing with judgment status
+  unavailable after call prefixes of
+  one, two, three, one, and zero
+  calls. The shipped fixture's
+  recorded judgments replay by digest.
+- ST-129. The resolver band and the
+  pins re-measured. The battery's
+  fifteen resolver cells ran on both
+  builds of the judgment item's pair
+  and every cell stands ok with zero
+  problems on both runs. Five cells
+  compare by contracted class, as
+  ST-99 contracts, and the other ten
+  resolver cells and all nineteen
+  judgment cells compare stderr byte
+  for byte. Beside the named route,
+  python3 -m secondtake.cli over
+  absolute-target chains, a chain
+  meeting itself at 989, 990, and 991
+  links stands at a named refusal
+  byte-identical on both sides, and at
+  992, 993, and 1,100 links the cell
+  splits, the oracle dying in
+  RecursionError and the port
+  answering the named refusal, the
+  three chains recording the identical
+  stderr digest on both builds.
+  Re-meetings at 11, 1,001, and 4,096
+  links stand at a named refusal on
+  both sides, and at 4,097 links the
+  oracle answers the named refusal
+  against the port's crash class, exit
+  1 with empty stderr. A loop waiting
+  in the remainder splits by class,
+  the oracle raising an untrapped
+  RuntimeError out of pathlib's
+  resolve and the port exiting 1 with
+  empty stderr. Two remainder cells
+  stand at named refusals
+  byte-identical on both sides, a link
+  after a dead component answers
+  identically on both sides, and a
+  completed link re-met resolves at
+  exit 0. The resolver stands as ST-57
+  states it. The flighttape pin stands
+  reconfirmed through the API at
+  commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e
+  with tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  and exactly 50 blobs, and the pin's
+  own suite passes 241 tests on the
+  blob-by-blob checkout of that pin.
+  The golden fixture converts to a
+  1,663-byte tape with digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  verify accepts the tape at exit 0,
+  and the tape stands byte-identical
+  to the oracle's own fixture tape.
+- ST-130. The realistic and
+  differential passes re-run whole.
+  The realistic pass, 160 steps over
+  the synthetic history, ran with its
+  work root spelled as an absolute
+  path and completed with zero
+  problems. Its 148 compare steps
+  split as 40 agreement steps, 60 band
+  steps, 24 steps with two
+  regressions, 12 steps below the pair
+  floor, and 12 band steps with no
+  judge configured. Its 12 refusal
+  steps stand beside them, eight tape
+  set refusals naming the sets they
+  refuse and four file refusals naming
+  the files, the split ST-81 records.
+  The proposals over the compare steps
+  are keep 60, tune 22, revert 34, and
+  abstain 32, and the judgment
+  statuses are not consulted 88,
+  judged 40, and abstained 20. The
+  judged and abstained statuses sum to
+  the 60 band steps, the proof the
+  judge was genuinely consulted across
+  the band. The differential pass
+  re-ran its 33 cases against the
+  verified oracle extraction and
+  closed with zero problems. The round
+  total re-adds from its parts as 261
+  runs, the battery's 34 cells on the
+  fresh build, the battery's 34 cells
+  on the banked binary, the realistic
+  pass's 160 steps, and the
+  differential's 33 cases. The cargo
+  suite's 39 tests and the pin suite's
+  241 tests are counted separately, as
+  suites and not runs. The round's
+  attempt history stands here whole,
+  and every attempt in it counts
+  nowhere. A runtime restart killed
+  the round's first census fetch
+  mid-save, its scratch saves landing
+  at zero bytes, and the census re-ran
+  in the foreground. The fleet rate
+  limit stopped all API work once, at
+  zero of 5,000, and work resumed on a
+  single probe after the reset. The
+  read-back family's local commit was
+  refused by the write fault and the
+  family was pushed server-side first,
+  and a tooling script's rewrite was
+  truncated to zero bytes and
+  rewritten through the file tools.
+  The closure gate's first execution
+  queued two hours behind a window
+  verified before the queue, landed
+  its read-only limbs, and lost every
+  writing limb to refused writes. The
+  measurement chain's first launch
+  acquired the slot behind it and was
+  killed by a restart within the
+  minute, no segment run. The closure
+  gate's second execution landed every
+  segment but clippy, which a disk
+  quota refusal took after every crate
+  had checked clean. The chain's
+  second launch landed the cargo
+  suite, lost its release build to a
+  fault flicker mid-build, and aborted
+  before the battery after forty-five
+  minutes of probes in the hard wave.
+  The first repair launch was killed
+  by a restart while it queued and ran
+  nothing. The second repair launch
+  landed clippy, the release build,
+  and both battery runs, then died to
+  a restart inside the realistic
+  segment's probe wait. The tail
+  repair's first launch acquired and
+  probed ninety minutes without a
+  window and aborted, a foreground
+  probe at that minute landing zero of
+  forty writes. Its second launch was
+  killed by a restart while it queued.
+  Its third launch, seated in the
+  restart's first minute, acquired at
+  once and completed whole, and its
+  run is the counted run of the
+  realistic pass, the differential,
+  the pin suite, and the golden
+  execution.
+- ST-131. Round 22 closes. The README
+  rounds line moves from 21 of 100 to
+  22 of 100 in this commit, and
+  nothing else in the README changes.
+  The full gate ran on the base tree
+  before the round's items were
+  appended, at these figures: the
+  codepoint scan finds zero U+2014 and
+  zero U+2013 over the tree, clippy
+  finishes clean with warnings denied,
+  formatting is clean, and the full
+  cargo suite passes 39 tests, 22
+  compare and 17 judge. The
+  measurement chain re-ran the cargo
+  suite on the tree carrying ST-126 at
+  the same figures, 39 passed and 0
+  failed, and the codepoint scan
+  re-run over the closure contract and
+  the README finds zero of each again.
+  Provenance holds at its contracted
+  scope: the fresh release build
+  reproduces the banked Round 15
+  binary byte for byte at md5
+  d71227c59a09908659318f4b8c3facd6, at
+  the target/release/secondtake build
+  path. The oracle stands verified
+  through the API blob by blob at
+  commit
+  18bf37b4aaec5d96ed680c0050b9af758db8e393,
+  thirteen files, eleven Python
+  sources and two fixture files, 0
+  mismatches. From base to head only
+  CONTRACT.md and README.md change,
+  and the head contract carries the
+  base contract as an exact byte
+  prefix. ST-55(a) stays open, carried
+  by name: the abstain document omits
+  the confidence floor, and the
+  question stands with the repository
+  owner.
