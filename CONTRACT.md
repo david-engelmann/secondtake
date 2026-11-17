@@ -5234,3 +5234,84 @@ ST-61. The CodeRabbit disposition
   verify accepts the tape at exit 0,
   and the tape stands byte-identical
   to the oracle's own fixture tape.
+- ST-124. The realistic and
+  differential passes re-run whole.
+  The realistic pass, 160 steps over
+  the synthetic history, ran as a
+  segment of the measurement chain's
+  fifth launch with its work root
+  spelled as an absolute path and
+  completed on that launch with zero
+  problems. Its 148 compare steps
+  split as 40 agreement steps, 60 band
+  steps, 24 steps with two
+  regressions, 12 steps below the pair
+  floor, and 12 band steps with no
+  judge configured. Its 12 refusal
+  steps stand beside them, eight tape
+  set refusals naming the sets they
+  refuse and four file refusals naming
+  the files, the split ST-81 records.
+  The proposals over the compare steps
+  are keep 60, tune 22, revert 34, and
+  abstain 32, and the judgment
+  statuses are not consulted 88,
+  judged 40, and abstained 20. The
+  judged and abstained statuses sum to
+  the 60 band steps, the proof the
+  judge was genuinely consulted across
+  the band. The differential pass
+  re-ran its 33 cases against the
+  verified oracle extraction with the
+  twin root paths normalized and
+  closed with zero problems. The round
+  total re-adds from its parts as 261
+  runs, the battery's 34 cells on the
+  fresh build, the battery's 34 cells
+  on the banked binary, the realistic
+  pass's 160 steps, and the
+  differential's 33 cases. The cargo
+  suite's 39 tests and the pin suite's
+  241 tests are counted separately, as
+  suites and not runs. Four killed or
+  refused chain launches and two
+  further refused attempts stand in
+  the attempt history and count
+  nowhere. The first chain waited on
+  the build slot behind other lanes'
+  passes, acquired it, and failed
+  inside four seconds in the box's
+  write fault, every segment log
+  standing at zero bytes. The second
+  chain waited, acquired, and met the
+  same fate. The third chain queued 69
+  minutes, acquired as the fault
+  returned, and failed inside eight
+  seconds, landing only the two
+  release binaries' shared md5. The
+  fourth chain stood first in the slot
+  queue for four hours and forty
+  minutes and was killed where it
+  waited by a box restart, never
+  acquiring. A foreground run in the
+  clean window between the second and
+  third chains ran the battery's 34
+  cells on the fresh build on disk and
+  died during the banked battery at
+  ten cells when its tool call's
+  timeout killed its process tree, its
+  printed accounting lost with the
+  pipe, and two foreground cargo runs
+  were refused inside the fault, the
+  tests' own writes denied by the box.
+  A background probe loop read no
+  successful writes on ten probes
+  across twenty-five minutes and died
+  with the restart that opened the
+  clean window. The fifth chain,
+  launched in the first minute after
+  the restart that killed the fourth,
+  probe-gated every segment on
+  verified write windows and completed
+  whole, and its run is the only
+  counted run of every segment.
