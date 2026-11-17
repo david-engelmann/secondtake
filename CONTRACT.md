@@ -5655,3 +5655,94 @@ ST-61. The CodeRabbit disposition
   verify accepts the tape at exit 0,
   and the tape stands byte-identical
   to the oracle's own fixture tape.
+- ST-130. The realistic and
+  differential passes re-run whole.
+  The realistic pass, 160 steps over
+  the synthetic history, ran with its
+  work root spelled as an absolute
+  path and completed with zero
+  problems. Its 148 compare steps
+  split as 40 agreement steps, 60 band
+  steps, 24 steps with two
+  regressions, 12 steps below the pair
+  floor, and 12 band steps with no
+  judge configured. Its 12 refusal
+  steps stand beside them, eight tape
+  set refusals naming the sets they
+  refuse and four file refusals naming
+  the files, the split ST-81 records.
+  The proposals over the compare steps
+  are keep 60, tune 22, revert 34, and
+  abstain 32, and the judgment
+  statuses are not consulted 88,
+  judged 40, and abstained 20. The
+  judged and abstained statuses sum to
+  the 60 band steps, the proof the
+  judge was genuinely consulted across
+  the band. The differential pass
+  re-ran its 33 cases against the
+  verified oracle extraction and
+  closed with zero problems. The round
+  total re-adds from its parts as 261
+  runs, the battery's 34 cells on the
+  fresh build, the battery's 34 cells
+  on the banked binary, the realistic
+  pass's 160 steps, and the
+  differential's 33 cases. The cargo
+  suite's 39 tests and the pin suite's
+  241 tests are counted separately, as
+  suites and not runs. The round's
+  attempt history stands here whole,
+  and every attempt in it counts
+  nowhere. A runtime restart killed
+  the round's first census fetch
+  mid-save, its scratch saves landing
+  at zero bytes, and the census re-ran
+  in the foreground. The fleet rate
+  limit stopped all API work once, at
+  zero of 5,000, and work resumed on a
+  single probe after the reset. The
+  read-back family's local commit was
+  refused by the write fault and the
+  family was pushed server-side first,
+  and a tooling script's rewrite was
+  truncated to zero bytes and
+  rewritten through the file tools.
+  The closure gate's first execution
+  queued two hours behind a window
+  verified before the queue, landed
+  its read-only limbs, and lost every
+  writing limb to refused writes. The
+  measurement chain's first launch
+  acquired the slot behind it and was
+  killed by a restart within the
+  minute, no segment run. The closure
+  gate's second execution landed every
+  segment but clippy, which a disk
+  quota refusal took after every crate
+  had checked clean. The chain's
+  second launch landed the cargo
+  suite, lost its release build to a
+  fault flicker mid-build, and aborted
+  before the battery after forty-five
+  minutes of probes in the hard wave.
+  The first repair launch was killed
+  by a restart while it queued and ran
+  nothing. The second repair launch
+  landed clippy, the release build,
+  and both battery runs, then died to
+  a restart inside the realistic
+  segment's probe wait. The tail
+  repair's first launch acquired and
+  probed ninety minutes without a
+  window and aborted, a foreground
+  probe at that minute landing zero of
+  forty writes. Its second launch was
+  killed by a restart while it queued.
+  Its third launch, seated in the
+  restart's first minute, acquired at
+  once and completed whole, and its
+  run is the counted run of the
+  realistic pass, the differential,
+  the pin suite, and the golden
+  execution.
