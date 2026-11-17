@@ -5315,3 +5315,44 @@ ST-61. The CodeRabbit disposition
   verified write windows and completed
   whole, and its run is the only
   counted run of every segment.
+- ST-125. Round 21 closes. The README
+  rounds line moves from 20 of 100 to
+  21 of 100 in this commit, and
+  nothing else in the README changes.
+  The full gate ran on the base tree
+  before the round's items were
+  appended, at these figures: the
+  codepoint scan finds zero U+2014 and
+  zero U+2013 over the tree, clippy
+  finishes clean with warnings denied,
+  formatting is clean, and the full
+  cargo suite passes 39 tests, 22
+  compare and 17 judge. The
+  measurement chain re-ran the cargo
+  suite on the tree carrying ST-121 at
+  the same figures, 39 passed and 0
+  failed, and the codepoint scan
+  re-run over the closure tree and
+  over all 25 blobs of the closure
+  head finds zero of each again.
+  Provenance holds at its contracted
+  scope: the fresh release build
+  reproduces the banked Round 15
+  binary byte for byte at md5
+  d71227c59a09908659318f4b8c3facd6, at
+  the target/release/secondtake build
+  path. The oracle stands verified
+  through the API blob by blob at
+  commit
+  18bf37b4aaec5d96ed680c0050b9af758db8e393,
+  thirteen files, eleven Python
+  sources and two fixture files, 0
+  mismatches. From base to head only
+  CONTRACT.md and README.md change,
+  and the head contract carries the
+  base contract as an exact byte
+  prefix. ST-55(a) stays open, carried
+  by name: the abstain document omits
+  the confidence floor, and the
+  question stands with the repository
+  owner.
