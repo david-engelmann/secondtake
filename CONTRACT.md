@@ -5139,3 +5139,44 @@ ST-61. The CodeRabbit disposition
   document omits the confidence floor,
   and the question stands with the
   repository owner.
+- ST-122. The judgment band
+  re-measured on both builds. The
+  battery's nineteen judgment cells
+  ran on the fresh build from the base
+  tree and on the banked binary, Round
+  15's build reproduced byte for byte,
+  and every cell stands ok with zero
+  problems on both runs, the documents
+  byte-identical on both twins in all
+  nineteen. Below the band the judge
+  is never called. An agreement keeps
+  with the judge armed and uncalled,
+  two regressions revert, a pair below
+  the pair floor abstains naming
+  insufficient pairs, and a band tune
+  stands unjudged where no judge is
+  configured. Inside the band the
+  confidence floor stands inclusive at
+  0.6, the mechanism ST-106 states as
+  qualified by the record at ST-110. A
+  tune at exactly 0.6 is judged, a
+  revert at 0.600001 is judged, a
+  revert at 0.599999 abstains, its
+  proposal becoming abstain and its
+  reason naming the judge's confidence
+  0.599999 as below 0.6, and a keep at
+  integer confidence 1 is judged. The
+  judge's own abstain abstains the
+  proposal at confidence 0.9 and at
+  0.6 alike. Five failure cells, the
+  call failing at the choice question,
+  the call failing at the severity
+  question, the call failing at the
+  match call, a malformed choice
+  answer, and the call script missing,
+  leave the deterministic tune
+  standing with judgment status
+  unavailable after call prefixes of
+  one, two, three, one, and zero
+  calls. The shipped fixture's
+  recorded judgments replay by digest.
