@@ -6538,3 +6538,41 @@ ST-61. The CodeRabbit disposition
   here, convert with its output flag
   and verify against the printed
   digest.
+- ST-142. The realistic pass and the
+  differential stand re-run. The
+  realistic pass passes 160 steps with
+  0 problems on an absolute work root:
+  148 proposal steps and 12 refusal
+  steps, the proposal steps standing
+  at 40 agreement, 60 band, 24 two
+  regressions, 12 below floor, and 12
+  band with no judge configured, the
+  judgment statuses over the proposal
+  steps standing at judged 40,
+  abstained 20, and not_consulted 88,
+  the judged and abstained statuses
+  summing to the 60 band steps, so the
+  judge stands genuinely consulted at
+  every band step. The differential
+  passes 33 cases with 0 problems, its
+  Python arm pointed at the verified
+  oracle extraction of ST-141. The
+  round's executed total re-adds to
+  261: the battery's 34 cells on the
+  fresh build, the battery's 34 cells
+  on the banked binary, the realistic
+  pass's 160 steps, and the
+  differential's 33 cases, cargo's 39
+  tests and the pin suite's 241 tests
+  counted separately. The round's
+  measurement attempt history, each
+  entry counted nowhere, stands at
+  ST-139's account: the gate's first
+  runner was killed mid-realistic by
+  the box's restart with the pass dead
+  at step 10, and every counted
+  segment then passed on its first
+  launch inside the build slot on the
+  second seating, the golden's first
+  invocation excepted, which ST-141
+  records.
