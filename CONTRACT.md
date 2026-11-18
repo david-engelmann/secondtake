@@ -6463,3 +6463,78 @@ ST-61. The CodeRabbit disposition
   document omitting the confidence
   floor, the question the repository
   owner's.
+- ST-141. The resolver band and the
+  pins stand re-measured. The
+  battery's fifteen resolver cells
+  pass on both builds, 0 problems: the
+  chain stands at 991 named refusal
+  byte-identical on both sides and
+  splits from 992 through 1100, the
+  oracle's crash class against the
+  port's named refusal, on the module
+  route over absolute-target chains
+  named at ST-65, the walk of ST-57;
+  the re-meetings stand at 4096 named
+  refusal on both sides and split at
+  4097, the oracle's named refusal
+  against the port's crash class; the
+  loop cell compares by the contracted
+  class of ST-99, its digest
+  root-dependent at ST-139's
+  reproduction, and the remaining
+  cells compare stderr byte for byte.
+  The flighttape pin stands
+  reconfirmed through the API at
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  its tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  carrying exactly 50 blobs, extracted
+  whole on this round's own pin
+  extraction and verified blob by blob
+  with 0 mismatches; its suite passes
+  whole at the pinned checkout, 241
+  tests; the golden stands executed
+  there: the converted synthetic
+  session stands at 1,663 bytes, the
+  digest printed
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  verify accepted it at exit 0, and
+  the tape stands byte-identical to
+  the oracle's own fixture tape. The
+  oracle stands verified through the
+  API against commit
+  18bf37b4aaec5d96ed680c0050b9af758db8e393
+  before any harness reliance: its
+  thirteen files (eleven Python
+  sources and two fixture files) match
+  the local copy blob for blob by
+  recomputed blob id, 0 mismatches,
+  the tree's remaining files standing
+  outside the contracted set, and the
+  harnesses' Python arm stands pointed
+  at that verified extraction. The
+  golden's attempt history this round,
+  each entry counted nowhere: its
+  first invocation named the output as
+  a bare second positional argument
+  and failed at exit 2 on usage; a
+  queued re-run in the corrected shape
+  produced an empty log and no output
+  file as the write fault hardened; a
+  foreground run then named the wrong
+  source, the oracle's tape fixture,
+  which the pin binary refuses as a
+  session, the pin's own session
+  fixture standing in the pin
+  extraction, and by then the fault
+  refused content writes on every
+  surface; three probe-gated retry
+  loops exhausted over the ninety
+  minutes that followed with no
+  window, a fourth stood killed by the
+  box's restart, and the window that
+  restart opened then executed the
+  standing form clean as recorded
+  here, convert with its output flag
+  and verify against the printed
+  digest.
