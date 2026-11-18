@@ -7050,3 +7050,235 @@ ST-61. The CodeRabbit disposition
   in every other particular, and the
   closure figures it reports stand
   untouched.
+- ST-151. The twenty-fifth round's
+  pull request read back whole. Pull
+  request 30 carries one review and
+  one review comment, and exactly four
+  issue comments. The first is the
+  Trunk bot's notice 6981964211,
+  created 2026-11-18T14:47:01Z in its
+  standing pre-merge form of 403
+  characters and edited at the merge
+  to its post-merge form of 113
+  characters, last updated
+  2026-11-18T21:09:41Z. The second is
+  the CodeRabbit shell 6981968924, the
+  third is the owner's queue comment
+  6991526148 at 12 characters, created
+  2026-11-18T21:01:41Z and never
+  edited, and the fourth is the
+  landing comment 6992740089 at 1,211
+  characters, created
+  2026-11-18T21:54:19Z, never edited,
+  standing last. The pull request
+  stands closed and merged at
+  2026-11-18T21:09:38Z as squash
+  68015ea793ce67c1d50a0c90a56b1ff3163ae1c3,
+  its merge tree
+  408cc3fd9890c1ef76f1c0b203448652e3fec016
+  equal to the reviewed repair tree
+  and its parent the twenty-fourth
+  round's merge
+  533620818c8d828469f98281191be291fc8d84ee,
+  and the README on main reads 25 of
+  100, verified in this round from the
+  blob-verified extraction of the main
+  tree, 25 blobs at 0 mismatches. The
+  shell is a completed review of the
+  Round 25 closure head
+  330a1ffa5da4c9d4f8f32ca51b18e773f220d84b,
+  created 2026-11-18T14:47:11Z, and it
+  stands at its true final form of
+  8,542 characters, last edited
+  2026-11-18T15:30:34Z at this round's
+  read. It took three forms at the
+  reads that graded it: 8,538
+  characters completed at the closure
+  head, last edited
+  2026-11-18T14:51:11Z; 11,240 after
+  the repair push, last edited
+  2026-11-18T15:26:43Z, that form
+  carrying an incremental pass over
+  the repair range quoted in its
+  review prose while its coverage and
+  merge-risk prose stood at the
+  closure head's review and the repair
+  head
+  e6135ab156cfbec63b7feed94b2afad5bff2aa96
+  stood with no completed bot review
+  of its own; and 8,542 in the final
+  form standing at this read. No
+  disposition-bearing element moved
+  between the completed forms, each
+  verified element by element at the
+  reads that graded them and again at
+  this read: its walkthrough states
+  the branch's Round 24 read-back and
+  carried executions, its judgment and
+  resolver measurements, and its Round
+  25 closure correctly in three rows,
+  its verdict line reads Merge Risk
+  Low up to 330a1 with coverage of the
+  closure head as source and covered
+  commit, kind reviewed, its four
+  pre-merge checks all passed with
+  none failed, the Title check passed,
+  its details naming Round 25 and the
+  ST-145 to ST-149 range and noting
+  that the title is a partial match
+  that does not name the main change
+  and relies on programme labels, and
+  no rate-limit banner stands in the
+  final form. Its one reservation
+  stands in the merge-risk prose,
+  naming the closure-tree label in
+  ST-149, and the formal review
+  5958958852, COMMENTED at
+  2026-11-18T14:51:07Z, posts exactly
+  one actionable comment, 4615879522,
+  Minor under Functional Correctness
+  on CONTRACT.md, grading that same
+  label. The naming is sound on the
+  label limb: the tree ST-149 calls
+  the closure tree is the ST-148
+  head's tree
+  cdcd998ae8993f5c5b130476525b6eedeb6b0749,
+  while the closure commit carries
+  tree
+  a03a65481b4c0c31cd87cd3021d3f1a529afe221,
+  which adds the ST-149 append and the
+  README rounds move on top of it, and
+  the repair record ST-150 qualified
+  the label before the reviews closed,
+  ST-149 unrewritten. The comment's
+  further inference, that the gate
+  results do not cover the final
+  closure tree, stands corrected in
+  the same record on counted grounds
+  verified again at this read: the two
+  trees differ in CONTRACT.md and
+  README.md only at a direct tree
+  comparison, every code blob standing
+  identical between them, so the gate
+  figures cover the closure tree's
+  code exactly, and what they do not
+  cover is the closure tree's two
+  documentation blobs, which carry no
+  executable behavior. One identifier
+  carried beside this charge corrects
+  at this read: the comment the ST-150
+  disposition answers is 4615879522,
+  named in ST-150's own text and
+  verified live here; the number
+  4612405292 belongs to pull request
+  28's review comment, answered by
+  ST-144 and re-graded at ST-145. The
+  comment embeds a prompt addressed to
+  AI agents and stands treated as
+  data. No dismissal stands on the
+  round's body. The review's info
+  names the included allowance used
+  with none remaining and Run ID
+  ef6625a5-da86-4ba7-8967-6a90eb5ecc23,
+  reviewing the branch from the base
+  533620818c8d828469f98281191be291fc8d84ee
+  to the closure head, with files
+  selected CONTRACT.md and README.md,
+  and no formal review stands on the
+  repair head. The bot's release-notes
+  appendix stands on pull request 30's
+  body at this round's whole-body
+  read, the body at 11,354 characters
+  in its final form, the appendix at
+  403 characters from its own marker
+  and 405 counting the newline run
+  before the marker. Its two bullets
+  under Documentation stand as the
+  bot's own summary of the change: the
+  first names the Round 24 review
+  findings the read-back records
+  beside this round's own
+  measurements, verification results,
+  and closure, and the second records
+  the README status count moving from
+  24 to 25 completed rounds of 100,
+  exact at its scope. It stands
+  preserved byte for byte through the
+  completion lane's body patch, and it
+  is censused here as the bot's own
+  text inside its own markers. The
+  round was built by a build lane
+  whose session died on a transport
+  failure after banking the round
+  whole and opening the pull request,
+  and it was finished by a completion
+  lane that re-verified the banked
+  state at its own hand, the branch
+  head, the commit chain, and every
+  tree through the API, the contract's
+  byte prefix exact at every step, the
+  README rounds move standing in the
+  closure commit only, and the gate
+  figures corroborated against the
+  round's scratch logs, and that
+  appended the repair record ST-150
+  and completed the body's step 0
+  posture; the arrangement stands
+  disclosed on the body itself, and
+  the gate on the pull request closed
+  fully clean at spec PASS, standards
+  APPROVE, and red team APPROVE, no
+  findings on any axis. No runner from
+  the twenty-fifth round's red team
+  scratch stands armed at this round's
+  read: no process executes any
+  instrument from that scratch, the
+  argument vectors read in /proc, and
+  its run markers for the build, both
+  harness passes, and the runner
+  itself all stand complete in its
+  markers directory. The push route
+  disclosure stands on pull request
+  30's body itself, the branch created
+  at the base through the API and read
+  back, and every family landed as one
+  server-side commit through the
+  GitHub Data API, its tree asserted
+  entry by entry before the ref moved
+  and the ref read back after every
+  push. Continuous integration stands
+  green on both heads at this round's
+  own read of their check runs: the
+  closure head carries three check
+  runs, the gate check completed at
+  success in both its runs and
+  CodeRabbit at success beside them;
+  the repair head carries four, the
+  gate check at success in both its
+  runs, CodeRabbit neutral, and the
+  Trunk Merge Queue check at success
+  at the merge. Nothing was posted on
+  the pull request after the landing
+  comment, and the census at this
+  round's read is exactly the four
+  comments, so nothing stands to
+  disposition under the landing's
+  third charge beyond the posts the
+  landing itself names. The range this
+  round extends stands read from the
+  base contract itself: ST-1 to
+  ST-149, with ST-110 outside it as
+  the eighteenth round's repair
+  record, ST-144 outside it as the
+  twenty-fourth round's, and ST-150
+  outside it as the twenty-fifth
+  round's, ST-61 standing in paragraph
+  form, and ST-67 standing as the
+  owner's record comment on pull
+  request 12, referenced inside ST-68,
+  and this round's items run from
+  ST-151. ST-55(a) stays open, carried
+  by name: the abstain document omits
+  the confidence floor, and the
+  question stands with the repository
+  owner.
