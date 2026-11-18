@@ -6324,3 +6324,120 @@ ST-61. The CodeRabbit disposition
   the confidence floor, and the
   question stands with the repository
   owner.
+- ST-139. The twenty-third round's red
+  team closed APPROVE with no
+  findings, its own executions
+  standing untested behind the write
+  fault, its probe-gated runner
+  standing armed in its scratch at its
+  report with the carried set charged
+  to this round by name in PR 26's
+  landing comment. This item
+  discharges that charge. The runner
+  stands down at this round's census,
+  taken in its scratch and in the
+  process table: no process carries
+  its script path in /proc and no
+  process stands with its scratch as
+  working directory, no marker stands
+  (no rt_gate_done, no rt_runner_done,
+  no rt_gate_nowindow), its runner log
+  stands at zero bytes, no gate log
+  exists, and its probe file stands at
+  zero bytes, last written
+  2026-11-17T23:49Z, about twenty-two
+  minutes after its launch. The runner
+  died unexecuted before any probe
+  verified a window; nothing was
+  contracted from it, and nothing
+  stands armed undisclosed at this
+  round's closure. The carried set was
+  executed whole at this round's own
+  hand on both trees the charge names.
+  On the twenty-third round's closure
+  tree
+  57c30b4348074a7ac686ece61e74c523ea013941,
+  which is this round's base tree: the
+  tree was extracted from the remote
+  blob by blob and verified whole
+  against the tree before any build
+  ran on it, the codepoint scan reads
+  U+2014 and U+2013 at 0, the format
+  check passes, clippy passes with
+  warnings denied, cargo's suite
+  passes whole at 39 tests (22 compare
+  and 17 judge), the release build
+  reproduces the standing provenance
+  figure at build-path scope, its md5
+  d71227c59a09908659318f4b8c3facd6 at
+  this round's target path, the
+  battery passes 34 cells with 0
+  problems on the fresh build and on
+  the banked binary alike, the
+  realistic pass passes 160 steps with
+  0 problems with the judged plus
+  abstained proof of ST-142, the
+  differential passes 33 cases with 0
+  problems, and the pin suite and the
+  golden stand at ST-141's figures. On
+  the twenty-second round's closure
+  tree
+  f067cf407c64d6da0edc40b3efc3ed7d7e6e02d2:
+  the tree was extracted from the
+  remote blob by blob and verified
+  whole against the tree before any
+  build ran on it, the format check
+  passes, clippy passes with warnings
+  denied, cargo's suite passes whole
+  at 39 tests, the release build
+  reproduces the standing provenance
+  figure at build-path scope, its md5
+  d71227c59a09908659318f4b8c3facd6 at
+  this round's second target path, and
+  the battery passes 34 cells with 0
+  problems on that build. The loop
+  cell's two-root stderr reproduction
+  stands executed: the oracle's loop
+  stderr digest differs between the
+  two roots (807567604c at the first
+  root, 0d7a5428d0 at the second) and
+  the two stderr texts stand identical
+  after root-path normalization, the
+  traceback's own tail showing the
+  untrapped RuntimeError out of
+  pathlib's resolve with the root's
+  absolute path embedded in its last
+  line; the battery's own loop-cell
+  digests this round (fresh
+  a0848cc890, banked 5de928fcc4, and
+  61747151d6 on the twenty-second
+  round tree's build) differ the same
+  way, the cell ok in all three runs
+  by the contracted class of ST-99,
+  the two battery logs of the base
+  builds differing in exactly that one
+  recorded fact. The executions' own
+  attempt history, each entry counted
+  nowhere: the three extractions (the
+  base tree, the twenty-second round's
+  tree, and the pin) each completed
+  whole on their first run, verified
+  blob by blob; the gate's first
+  runner completed the scan, the
+  format check, clippy, cargo, the
+  release build, and both base battery
+  runs, and was then killed
+  mid-realistic by the box's restart,
+  the pass dead at step 10 of 160; the
+  gate's second seating ran every
+  remaining segment whole, each
+  counted segment passing on its first
+  launch inside the build slot, the
+  golden's first invocation excepted,
+  which ST-141 records. What the
+  twenty-third round's gate claimed
+  for its closure tree stands
+  confirmed at this round's execution,
+  the shell figure of its step 0
+  record excepted, which ST-138
+  contracts at its true final form.
