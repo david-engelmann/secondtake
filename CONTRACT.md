@@ -6611,3 +6611,26 @@ ST-61. The CodeRabbit disposition
   in its true final form, and with the
   disposition of any post-landing
   material standing on it.
+- ST-144. Repair record, qualifying
+  ST-142. The CodeRabbit review of
+  this round's pull request names
+  ST-142's consultation sentence, and
+  the naming is sound: the item's own
+  breakdown lists 12 band steps with
+  no judge configured beside the
+  judgment statuses, so its closing
+  claim, that the judge stands
+  genuinely consulted at every band
+  step, reads over both kinds at once.
+  The claim's true scope is the 60
+  judge-configured band steps, at
+  every one of which the judge stands
+  consulted, judged 40 and abstained
+  20; the 12 band steps with no judge
+  configured stand as their own kind,
+  their statuses inside the 88
+  not_consulted, and no consultation
+  is claimed for them. ST-142 stands
+  unrewritten in every other
+  particular, and the round total it
+  re-adds stands untouched.
