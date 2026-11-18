@@ -7018,3 +7018,35 @@ ST-61. The CodeRabbit disposition
   standing last, with the appendix
   measured at its hand and any
   dismissal confirmed standing or not.
+- ST-150. Repair record, qualifying
+  ST-149. The CodeRabbit review of
+  this round's pull request (review
+  comment 4615879522) names ST-149's
+  closure-tree label, and the naming
+  is sound on the label: the tree
+  ST-149 calls the closure tree and
+  reports gated whole is the ST-148
+  head's tree
+  cdcd998ae8993f5c5b130476525b6eedeb6b0749,
+  while the closure commit
+  330a1ffa5da4c9d4f8f32ca51b18e773f220d84b
+  carries tree
+  a03a65481b4c0c31cd87cd3021d3f1a529afe221,
+  which adds this round's ST-149
+  append and the README rounds move on
+  top of it. The two trees differ in
+  CONTRACT.md and README.md only,
+  every code blob standing identical
+  between them, so ST-149's gate
+  figures cover the closure tree's
+  code exactly; what they do not cover
+  is the closure tree's two
+  documentation blobs, which carry no
+  executable behavior, and the
+  review's inference that the gate
+  results do not cover the final
+  closure tree stands corrected on
+  that limb. ST-149 stands unrewritten
+  in every other particular, and the
+  closure figures it reports stand
+  untouched.
