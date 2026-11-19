@@ -8186,3 +8186,89 @@ ST-61. The CodeRabbit disposition
   (J01 to J03), where the pair count
   falls below the floor (J04), and
   where no judge is configured (J05).
+- ST-164. The resolver band
+  re-measured on the same base, and
+  the pins re-verified. The battery's
+  15 resolver cells pass on both
+  builds. The walk is one component
+  walk both resolution seats of the
+  port share, as ST-57 contracts it
+  and ST-156 qualifies the record:
+  what the two implementations share
+  is not a resolver but a measured
+  agreement, the Python side run by
+  its own resolver and the Rust side
+  by the port's. The chain at length
+  989, 990, and 991 and the re-meet at
+  length 11, 1001, and 4096 end in the
+  named refusal on both sides with
+  byte-identical standard error; the
+  chain at length 992, 993, and 1100
+  splits by its contracted class, the
+  Python side failing with an unnamed
+  error at digest 9f4fce46ef on both
+  of this round's battery roots and
+  the Rust side ending in the named
+  refusal; the re-meet at length 4097
+  splits by exit alone, the Python
+  side ending in the named refusal and
+  the Rust side exiting 1 with empty
+  standard error. The remainder cells
+  hold: a link standing in the
+  remainder and a dotdot popping a
+  file component end in the named
+  refusal on both sides; a link met
+  after a dead component fails
+  identically on both sides at digest
+  3979892dd1; a completed link re-met
+  resolves on both sides. The loop
+  cell stands apart by its contracted
+  class, as ST-99 contracts it: both
+  sides exit 1, the Python side
+  failing with its unnamed loop error
+  and the Rust side with empty
+  standard error; its standard error
+  digest embeds the work root's
+  absolute path and so moves with the
+  root, standing at a5ed901eb6 on the
+  fresh build's root and 5592c8e857 on
+  the banked build's root across this
+  round's two battery runs, and at
+  e0c61577ca and 38a832ce41 on this
+  round's two purpose-built roots, the
+  texts identical after root-path
+  normalization on the purpose-built
+  pair, verified directly. The oracle
+  side runs by the route `python3 -m
+  secondtake.cli` over absolute-target
+  chains, named here beside the
+  figures as ST-100 requires. The pins
+  stand as pinned: the oracle at
+  commit
+  18bf37b4aaec5d96ed680c0050b9af758db8e393,
+  extracted through the API in this
+  round and verified blob by blob
+  before any harness reliance, its 13
+  contracted files matching at 0
+  mismatches, and every harness arm
+  pointed at that verified extraction;
+  the flighttape pin at commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  its tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  standing at exactly 50 blobs, the
+  checkout verified blob by blob with
+  0 mismatches before its suite ran;
+  the pin suite passes 241 tests with
+  the golden executed inside it and
+  separately, the convert at exit 0
+  writing the tape at 1,663 bytes, its
+  digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the verify at exit 0, and the
+  written tape byte-identical to the
+  oracle's fixture tape. The release
+  binary stands at md5
+  d71227c59a09908659318f4b8c3facd6,
+  scoped to the build path that
+  produced it.
