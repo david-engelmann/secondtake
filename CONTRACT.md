@@ -7396,3 +7396,34 @@ ST-61. The CodeRabbit disposition
   d71227c59a09908659318f4b8c3facd6,
   scoped to the build path that
   produced it.
+- ST-154. The realistic and
+  differential passes re-run on the
+  same base. The realistic pass holds
+  its census at 160 steps, 0 problems,
+  its proposals standing at 60 keep,
+  34 revert, 22 tune, and 32 abstain
+  over the 148 proposal steps, with
+  the 12 refusal steps standing
+  outside the proposal counts. Its
+  judgment statuses stand at 40
+  judged, 20 abstained, and 88
+  not_consulted: the judged and the
+  abstained together account for the
+  60 band steps where a judge was
+  consulted, the judge configured on
+  those steps alone, and the 12 band
+  steps with no judge configured stand
+  as their own kind inside the 88, no
+  consultation claimed for them. Its
+  work root stands absolute at
+  /home/hatch/workspace/retro-line/st26-scratch/work-base/realistic.
+  The differential harness passes 33
+  cases, 0 problems. The round total
+  re-adds from its parts: 261 contract
+  executions, the battery's 34 cells
+  counted on each of the two builds
+  beside the realistic pass's 160
+  steps and the differential's 33
+  cases, with the 39 cargo tests and
+  the pin suite's 241 standing outside
+  the total as harness and pin counts.
