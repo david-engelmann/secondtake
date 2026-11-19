@@ -7477,3 +7477,29 @@ ST-61. The CodeRabbit disposition
   standing last, with the appendix
   measured at its hand and any
   dismissal confirmed standing or not.
+- ST-156. Repair record, qualifying
+  ST-153. The CodeRabbit review of
+  this round's pull request (review
+  comment 4623673665) names ST-153's
+  resolver sentence, and the naming is
+  sound on the attribution: ST-153
+  calls the walk one resolver shared
+  by both implementations, as ST-57
+  contracts it, and ST-57 contracts no
+  sharing between the implementations.
+  Its own text replaces the fallback's
+  lexical append with the
+  interpreter-shaped component walk,
+  factored into one walk both
+  resolution seats of the port share,
+  and holds the loop arm's adjudicated
+  behavior undisturbed; what the two
+  implementations share is not a
+  resolver but a measured agreement,
+  the battery's 15 resolver cells
+  compared cell by cell with the
+  Python side run by its own resolver
+  and the Rust side by the port's.
+  ST-153 stands unrewritten in every
+  other particular, and the resolver
+  figures it reports stand untouched.
