@@ -7282,3 +7282,40 @@ ST-61. The CodeRabbit disposition
   the confidence floor, and the
   question stands with the repository
   owner.
+- ST-152. The judgment band
+  re-measured on the base tree, the
+  twenty-fifth round's squash
+  68015ea793ce67c1d50a0c90a56b1ff3163ae1c3,
+  its tree the contract's base for
+  this round. The battery's 19
+  judgment cells pass on the fresh
+  build and on the banked binary
+  alike, every cell agreeing with the
+  Python oracle on exit code, standard
+  error class, judgment call sequence,
+  proposal, status, and reason. The
+  confidence floor stands exact: a
+  judgment at confidence exactly 0.6
+  stands judged, its proposal tune
+  (J06); at 0.600001 it stands judged,
+  its proposal revert (J08); at
+  0.599999 the document abstains, its
+  reason naming the floor it fell
+  below (J09). The band's remaining
+  cells hold their standing behavior:
+  a judgment at integer 1 stands
+  judged keep (J07); the judge's own
+  abstain at 0.6 stands abstained
+  (J13); failures at the choice,
+  severity, and match calls and a
+  malformed choice answer stand
+  unavailable with the deterministic
+  proposal (J14 to J17); a missing
+  call script stands unavailable with
+  no calls made (J18); the shipped
+  fixture replays judged (J19); an
+  armed judge is never called where
+  the deterministic rule is conclusive
+  (J01 to J03), where the pair count
+  falls below the floor (J04), and
+  where no judge is configured (J05).
