@@ -8303,3 +8303,53 @@ ST-61. The CodeRabbit disposition
   cases, with the 39 cargo tests and
   the pin suite's 241 standing outside
   the total as harness and pin counts.
+- ST-166. Round 28 closes. The
+  contract stands at 294,694 bytes
+  with this item appended, its first
+  292,902 bytes byte-identical to the
+  contract blob of the ST-165 commit
+  2029222923360c008f5c9edf3c6eb1daf647f204,
+  the prefix property verified at the
+  append, and the appended span scans
+  U+2014 = 0, U+2013 = 0 under the
+  standing scan with its planted
+  control proven. The pre-closure
+  tree, the ST-165 head's tree
+  3500778b5bac41205605be8eccce8902b2315963
+  extracted blob by blob at 0
+  mismatches and gated whole, stands
+  clean: its own codepoint scan at 0
+  and 0 with a planted control proven
+  at the same sitting, cargo fmt and
+  clippy clean, its cargo suite at 39
+  (22 compare and 17 judge), its
+  release binary at md5
+  d71227c59a09908659318f4b8c3facd6 at
+  build-path scope, and its battery at
+  34 cells, 0 problems. This closure
+  commit adds this item and the README
+  rounds move on top of that tree, and
+  no code blob changes in it. The
+  README's rounds count moves from 27
+  of 100 to 28 of 100 in this commit
+  and no other. Nothing contracted for
+  this round stands unexecuted: the
+  read-back of pull request 34 stands
+  at ST-162, the judgment band at
+  ST-163, the resolver band and the
+  pins at ST-164, and the realistic
+  and differential passes with the
+  round total of 261 at ST-165.
+  ST-55(a) carries open untouched: the
+  abstain document omits the
+  confidence floor, and the question
+  stands with the repository owner.
+  The next round reads back this
+  round's step 0 whole in its first
+  item: the shell in its true final
+  form at its read, the owner's queue
+  comment, the Trunk notice's final
+  form, and the landing comment
+  standing last, with the appendix
+  measured at its hand and any
+  dismissal confirmed standing or not.
