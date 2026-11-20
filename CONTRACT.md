@@ -7951,3 +7951,405 @@ ST-61. The CodeRabbit disposition
   standing last, with the appendix
   measured at its hand and any
   dismissal confirmed standing or not.
+- ST-162. The twenty-seventh round's
+  pull request read back whole. Pull
+  request 34 carries no review and no
+  review comments, and exactly four
+  issue comments. The first is the
+  Trunk bot's notice 7002696643,
+  created 2026-11-19T07:27:55Z in its
+  standing informational form of 403
+  characters and edited at the merge
+  to its post-merge form of 113
+  characters, last updated
+  2026-11-19T12:12:30Z, recording the
+  merge as successful with the queue's
+  details link. The second is the
+  CodeRabbit shell 7002700157, the
+  third is the owner's queue comment
+  7008566970 at 12 characters, created
+  2026-11-19T12:05:01Z and never
+  edited, and the fourth is the
+  landing comment 7009943726 at 1,123
+  characters, created
+  2026-11-19T13:04:35Z, never edited,
+  standing last. The pull request
+  stands closed and merged at
+  2026-11-19T12:12:28Z as squash
+  fc2854af619c5fe8919cf8ec41b9b31575d82812,
+  its merge tree
+  3fc28364210b452179ad28f9d9f24575e791953b
+  equal to the reviewed closure tree
+  and its parent the twenty-sixth
+  round's merge
+  b8af5cb502c019568d44b06155002a989df01c68,
+  and the README on main reads 27 of
+  100, verified in this round from the
+  blob-verified extraction of the main
+  tree, 25 blobs at 0 mismatches. The
+  shell is a completed review of the
+  Round 27 closure head
+  970fb848d440a9379096f327f61a9dcaebee8e41,
+  created 2026-11-19T07:28:07Z, and it
+  stands at its true final form of
+  10,846 characters, last edited
+  2026-11-19T12:04:48Z at this round's
+  read. It took four forms at the
+  reads that graded it: 5,208
+  characters in progress, counted
+  nowhere; 10,842 completed at the
+  closure head, last edited
+  2026-11-19T07:31:33Z, the form the
+  build lane stated; 10,844 at the
+  lane's post-patch check, last edited
+  2026-11-19T07:33:04Z, the form the
+  owner's patch restated; and 10,846
+  in the final form standing at this
+  read, the difference between that
+  final form and the lane's saved form
+  of 10,842 characters standing at
+  blank lines only, four added blank
+  lines and no nonblank change,
+  verified by direct diff at this
+  read. No disposition-bearing element
+  moved between the completed forms,
+  each verified element by element at
+  this read: its recent-review status
+  records that no actionable comments
+  were generated in the recent review,
+  so no dismissal stands and no
+  finding called for a repair record;
+  its walkthrough states the branch's
+  Round 26 read-back, its judgment,
+  resolver, and pin records, and its
+  closure and count correctly in three
+  rows; its change assessment stands
+  pinned to the closure head; its
+  verdict line reads Merge Risk
+  Minimal up to 970fb, coverage of the
+  closure head as source and covered
+  commit, kind reviewed, its prose
+  recording that the pull request
+  changes no code or behavior and no
+  merge-blocking risk remains; its
+  four pre-merge checks all passed
+  with none failed, the Title check
+  passed, its details noting that the
+  title does not say the change is
+  documentation only while passing as
+  related and specific enough; its
+  review info names Run ID
+  87db06f6-a897-471c-81c5-0c18856466d2,
+  the review of the branch from the
+  base
+  b8af5cb502c019568d44b06155002a989df01c68
+  to the closure head over CONTRACT.md
+  and README.md, and the included
+  allowance used with none remaining;
+  and no rate-limit banner stands in
+  the final form. The owner's
+  pre-merge body patch stands graded
+  exact against this record: the
+  body's step 0 section restates the
+  shell in its completed form at
+  10,844 characters, last edited
+  2026-11-19T07:33:04Z, the shell
+  having re-rendered once more two
+  characters longer after the form the
+  lane stated, with no
+  disposition-bearing element moving,
+  which is the record as it stood at
+  the patch's read; the one further
+  re-render after the patch, to the
+  10,846 characters standing at this
+  read, arrived after the patch and
+  stands contracted here under the
+  body's own closing charge. The bot's
+  release-notes appendix stands on
+  pull request 34's body at this
+  round's whole-body read, the body at
+  10,891 characters in its final form,
+  the appendix at 403 characters from
+  its own marker and 405 counting the
+  newline run before the marker. Its
+  two bullets under Documentation
+  stand as the bot's own summary of
+  the change: the first names the
+  records added for Round 26's
+  reviews, judgments, resolver
+  measurements, test results, and
+  closure, and the second records the
+  README showing 27 of 100 perfection
+  rounds completed, exact at its
+  scope. It stands preserved byte for
+  byte through the owner's body patch,
+  verified at this read against the
+  body's final form, and it is
+  censused here as the bot's own text
+  inside its own markers. The gate on
+  the pull request closed at spec
+  REPAIR one Minor and standards
+  REPAIR one Minor, the same fact on
+  both axes, the step 0 shell figure
+  stale by one further re-render, and
+  red team APPROVE, the two Minors
+  closed by the owner's pre-merge body
+  patch with the appendix
+  byte-identical after the patch and
+  the head unchanged. No runner from
+  the twenty-seventh round's red team
+  scratch stands armed at this round's
+  read: no process executes any
+  instrument from that scratch, the
+  argument vectors read in /proc, and
+  its gate marker stands complete in
+  its scratch. The push route
+  disclosure stands on pull request
+  34's body itself, the branch created
+  at the base through the API and read
+  back, and every family landed as one
+  server-side commit through the
+  GitHub Data API, its tree asserted
+  entry by entry before the ref moved
+  and the ref read back after every
+  push. Continuous integration stands
+  green on the closure head at this
+  round's own read of its check runs:
+  the head carries four check runs,
+  the gate check completed at success
+  in both its runs, CodeRabbit at
+  success beside them, and the Trunk
+  Merge Queue check at success at the
+  merge, its workflow runs standing at
+  the push run 44479698452 and the
+  pull request run 44479816019, both
+  completed success. Nothing was
+  posted on the pull request after the
+  landing comment, and the census at
+  this round's read is exactly the
+  four comments, so nothing stands to
+  disposition under the landing's
+  third charge beyond the posts the
+  landing itself names. The range this
+  round extends stands read from the
+  base contract itself: ST-1 to
+  ST-155, with ST-110 outside it as
+  the eighteenth round's repair
+  record, ST-144 outside it as the
+  twenty-fourth round's, ST-150
+  outside it as the twenty-fifth
+  round's, and ST-156 outside it as
+  the twenty-sixth round's, ST-61
+  standing in paragraph form, and
+  ST-67 standing as the owner's record
+  comment on pull request 12,
+  referenced inside ST-68, and this
+  round's items run from ST-162.
+  ST-55(a) stays open, carried by
+  name: the abstain document omits the
+  confidence floor, and the question
+  stands with the repository owner.
+- ST-163. The judgment band
+  re-measured on the base tree, the
+  twenty-seventh round's squash
+  fc2854af619c5fe8919cf8ec41b9b31575d82812,
+  its tree the contract's base for
+  this round. The battery's 19
+  judgment cells pass on the fresh
+  build and on the banked binary
+  alike, every cell agreeing with the
+  Python oracle on exit code, standard
+  error class, judgment call sequence,
+  proposal, status, and reason. The
+  confidence floor stands exact: a
+  judgment at confidence exactly 0.6
+  stands judged, its proposal tune
+  (J06); at 0.600001 it stands judged,
+  its proposal revert (J08); at
+  0.599999 the document abstains, its
+  reason naming the floor it fell
+  below (J09). The band's remaining
+  cells hold their standing behavior:
+  a judgment at integer 1 stands
+  judged keep (J07); the judge's own
+  abstain at 0.6 stands abstained
+  (J13); failures at the choice,
+  severity, and match calls and a
+  malformed choice answer stand
+  unavailable with the deterministic
+  proposal (J14 to J17); a missing
+  call script stands unavailable with
+  no calls made (J18); the shipped
+  fixture replays judged (J19); an
+  armed judge is never called where
+  the deterministic rule is conclusive
+  (J01 to J03), where the pair count
+  falls below the floor (J04), and
+  where no judge is configured (J05).
+- ST-164. The resolver band
+  re-measured on the same base, and
+  the pins re-verified. The battery's
+  15 resolver cells pass on both
+  builds. The walk is one component
+  walk both resolution seats of the
+  port share, as ST-57 contracts it
+  and ST-156 qualifies the record:
+  what the two implementations share
+  is not a resolver but a measured
+  agreement, the Python side run by
+  its own resolver and the Rust side
+  by the port's. The chain at length
+  989, 990, and 991 and the re-meet at
+  length 11, 1001, and 4096 end in the
+  named refusal on both sides with
+  byte-identical standard error; the
+  chain at length 992, 993, and 1100
+  splits by its contracted class, the
+  Python side failing with an unnamed
+  error at digest 9f4fce46ef on both
+  of this round's battery roots and
+  the Rust side ending in the named
+  refusal; the re-meet at length 4097
+  splits by exit alone, the Python
+  side ending in the named refusal and
+  the Rust side exiting 1 with empty
+  standard error. The remainder cells
+  hold: a link standing in the
+  remainder and a dotdot popping a
+  file component end in the named
+  refusal on both sides; a link met
+  after a dead component fails
+  identically on both sides at digest
+  3979892dd1; a completed link re-met
+  resolves on both sides. The loop
+  cell stands apart by its contracted
+  class, as ST-99 contracts it: both
+  sides exit 1, the Python side
+  failing with its unnamed loop error
+  and the Rust side with empty
+  standard error; its standard error
+  digest embeds the work root's
+  absolute path and so moves with the
+  root, standing at a5ed901eb6 on the
+  fresh build's root and 5592c8e857 on
+  the banked build's root across this
+  round's two battery runs, and at
+  e0c61577ca and 38a832ce41 on this
+  round's two purpose-built roots, the
+  texts identical after root-path
+  normalization on the purpose-built
+  pair, verified directly. The oracle
+  side runs by the route `python3 -m
+  secondtake.cli` over absolute-target
+  chains, named here beside the
+  figures as ST-100 requires. The pins
+  stand as pinned: the oracle at
+  commit
+  18bf37b4aaec5d96ed680c0050b9af758db8e393,
+  extracted through the API in this
+  round and verified blob by blob
+  before any harness reliance, its 13
+  contracted files matching at 0
+  mismatches, and every harness arm
+  pointed at that verified extraction;
+  the flighttape pin at commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  its tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  standing at exactly 50 blobs, the
+  checkout verified blob by blob with
+  0 mismatches before its suite ran;
+  the pin suite passes 241 tests with
+  the golden executed inside it and
+  separately, the convert at exit 0
+  writing the tape at 1,663 bytes, its
+  digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the verify at exit 0, and the
+  written tape byte-identical to the
+  oracle's fixture tape. The release
+  binary stands at md5
+  d71227c59a09908659318f4b8c3facd6,
+  scoped to the build path that
+  produced it.
+- ST-165. The realistic and
+  differential passes re-run on the
+  same base. The realistic pass holds
+  its census at 160 steps, 0 problems,
+  its proposals standing at 60 keep,
+  34 revert, 22 tune, and 32 abstain
+  over the 148 proposal steps, with
+  the 12 refusal steps standing
+  outside the proposal counts. Its
+  judgment statuses stand at 40
+  judged, 20 abstained, and 88
+  not_consulted: the judged and the
+  abstained together account for the
+  60 band steps where a judge was
+  consulted, the judge configured on
+  those steps alone, and the 12 band
+  steps with no judge configured stand
+  as their own kind inside the 88, no
+  consultation claimed for them. Its
+  work root stands absolute at
+  /home/hatch/workspace/retro-line/st28-scratch/work-base/realistic.
+  The differential harness passes 33
+  cases, 0 problems. The round total
+  re-adds from its parts: 261 contract
+  executions, the battery's 34 cells
+  counted on each of the two builds
+  beside the realistic pass's 160
+  steps and the differential's 33
+  cases, with the 39 cargo tests and
+  the pin suite's 241 standing outside
+  the total as harness and pin counts.
+- ST-166. Round 28 closes. The
+  contract stands at 294,694 bytes
+  with this item appended, its first
+  292,902 bytes byte-identical to the
+  contract blob of the ST-165 commit
+  2029222923360c008f5c9edf3c6eb1daf647f204,
+  the prefix property verified at the
+  append, and the appended span scans
+  U+2014 = 0, U+2013 = 0 under the
+  standing scan with its planted
+  control proven. The pre-closure
+  tree, the ST-165 head's tree
+  3500778b5bac41205605be8eccce8902b2315963
+  extracted blob by blob at 0
+  mismatches and gated whole, stands
+  clean: its own codepoint scan at 0
+  and 0 with a planted control proven
+  at the same sitting, cargo fmt and
+  clippy clean, its cargo suite at 39
+  (22 compare and 17 judge), its
+  release binary at md5
+  d71227c59a09908659318f4b8c3facd6 at
+  build-path scope, and its battery at
+  34 cells, 0 problems. This closure
+  commit adds this item and the README
+  rounds move on top of that tree, and
+  no code blob changes in it. The
+  README's rounds count moves from 27
+  of 100 to 28 of 100 in this commit
+  and no other. Nothing contracted for
+  this round stands unexecuted: the
+  read-back of pull request 34 stands
+  at ST-162, the judgment band at
+  ST-163, the resolver band and the
+  pins at ST-164, and the realistic
+  and differential passes with the
+  round total of 261 at ST-165.
+  ST-55(a) carries open untouched: the
+  abstain document omits the
+  confidence floor, and the question
+  stands with the repository owner.
+  The next round reads back this
+  round's step 0 whole in its first
+  item: the shell in its true final
+  form at its read, the owner's queue
+  comment, the Trunk notice's final
+  form, and the landing comment
+  standing last, with the appendix
+  measured at its hand and any
+  dismissal confirmed standing or not.
