@@ -8353,3 +8353,255 @@ ST-61. The CodeRabbit disposition
   standing last, with the appendix
   measured at its hand and any
   dismissal confirmed standing or not.
+- ST-167. The twenty-eighth round's
+  pull request read back whole. Pull
+  request 36 carries no review and no
+  review comments, and exactly four
+  issue comments. The first is the
+  Trunk bot's notice 7016657419,
+  created 2026-11-19T17:23:52Z in its
+  standing informational form of 403
+  characters and edited at the merge
+  to its post-merge form of 113
+  characters, last updated
+  2026-11-20T04:37:03Z, recording the
+  merge as successful with the queue's
+  details link. The second is the
+  CodeRabbit shell 7016662440, the
+  third is the owner's queue comment
+  7030441207 at 12 characters, created
+  2026-11-20T04:29:47Z and never
+  edited, and the fourth is the
+  landing comment 7032219477 at 2,024
+  characters, created
+  2026-11-20T06:24:21Z, never edited,
+  standing last. The pull request
+  stands closed and merged at
+  2026-11-20T04:37:00Z as squash
+  305266d683c2580c917518d209b90f822dc64206,
+  its merge tree
+  243a3b59183d9c39956c7b99a55f54e82b49dc3b
+  equal to the reviewed closure tree
+  and its parent the twenty-seventh
+  round's landing
+  fc2854af619c5fe8919cf8ec41b9b31575d82812,
+  and the README on main reads 28 of
+  100, verified in this round from the
+  blob-verified extraction of the main
+  tree, 25 blobs at 0 mismatches. The
+  shell is a completed review of the
+  Round 28 closure head
+  8bfbbb53facdc1125d1121a83ae3688e905912ff,
+  created 2026-11-19T17:24:04Z, and it
+  stands at its true final form of
+  10,798 characters, last edited
+  2026-11-20T04:29:30Z at this round's
+  read. It took two completed forms at
+  the reads that graded it: 10,796
+  characters, last edited
+  2026-11-19T17:28:09Z, the form the
+  standards axis read, the red team's
+  completing lane read, and the
+  owner's gate patch restated; and
+  10,798 characters in the final form
+  standing at this read, one further
+  two-character re-render that arrived
+  after the owner's patch and
+  seventeen seconds before the owner's
+  queue comment, with every
+  disposition-bearing element verified
+  element by element at this read to
+  stand exactly as the earlier reads
+  recorded it. No disposition-bearing
+  element moved between the completed
+  forms: its recent-review status
+  records that no actionable comments
+  were generated in the recent review,
+  so no dismissal stood against any
+  shell finding and no finding called
+  for a repair record; its walkthrough
+  states the contract's Round 28
+  read-back, measurement, and closure
+  record and the README's move from 27
+  to 28 of 100 correctly in two rows;
+  its change assessment stands pinned
+  to the closure head; its verdict
+  line reads Merge Risk Minimal up to
+  8bfbb, coverage of the closure head
+  as source and covered commit, kind
+  reviewed, its prose recording that
+  the pull request changes no code or
+  runtime behavior and the merge risk
+  is minimal; its four pre-merge
+  checks all passed with none failed,
+  the Title check passed, its details
+  holding the title partially related
+  and generic about its substance; its
+  review info names Run ID
+  e590e334-7c83-4e24-839d-0f32e7d47ce7,
+  the review of the branch from the
+  base
+  fc2854af619c5fe8919cf8ec41b9b31575d82812
+  to the closure head over CONTRACT.md
+  and README.md, and the included
+  allowance used with none remaining;
+  and no rate-limit banner stands in
+  the final form. The one dismissal on
+  the record stands re-graded at this
+  round's own hand and confirmed sound
+  on counted grounds: the Title check
+  stands Passed under its own
+  criteria, the title stands at
+  exactly 45 characters in the
+  standing shape naming the round and
+  the item range ST-162 to ST-166
+  exactly, and the changeset those
+  names describe is exactly the two
+  files the shell itself lists,
+  CONTRACT.md and README.md, so the
+  reservation in the passed check's
+  details, that the title stays
+  generic about the round's substance
+  and uses internal identifiers, is
+  prose commentary inside a passed
+  check and carries no actionable
+  comment, exactly as the owner's
+  dismissal on the body's face records
+  it. The owner's pre-merge body patch
+  stands graded exact against this
+  record: the body's step 0 section,
+  completed by the patch in past-tense
+  form after the standards axis graded
+  the section as it stood before the
+  patch REPAIR one Minor body-only for
+  standing incomplete in its entirety
+  and contracting nothing about the
+  shell, restates the shell at 10,796
+  characters, created
+  2026-11-19T17:24:04Z and last edited
+  2026-11-19T17:28:09Z, which is the
+  record as it stood at the patch's
+  read, and records the Run ID, the
+  four passed checks, the Title
+  reservation's dismissal, and the
+  appendix at 401 characters from its
+  opening marker; the one further
+  re-render after the patch, to the
+  10,798 characters standing at this
+  read, arrived after the patch and
+  stands contracted here under the
+  patch's own closing charge. The
+  bot's release-notes appendix stands
+  on pull request 36's body at this
+  round's whole-body read, the body at
+  9,987 characters in its final form,
+  the appendix at 401 characters from
+  its own marker and 404 counting the
+  newline run before the marker. Its
+  two bullets under Documentation
+  stand as the bot's own summary of
+  the change: the first names the
+  Round 28 review read-back,
+  measurement results, and closure
+  record added to the contract, and
+  the second records the README
+  showing 28 of 100, exact at its
+  scope. It stands preserved byte for
+  byte through the owner's body patch,
+  verified at this read against the
+  body's final form, and it is
+  censused here as the bot's own text
+  inside its own markers. The gate on
+  the pull request closed at spec PASS
+  with no findings, standards REPAIR
+  one Minor body-only closed by the
+  owner's patch with the appendix
+  byte-identical after the patch and
+  the head unchanged, and red team
+  APPROVE with no findings and its
+  untested set empty, the red team's
+  report recording a review completed
+  across three lanes: the first lane
+  verified the record side whole and
+  banked the pin suite and the golden
+  before the file-count quota killed
+  its secondtake segments, ending with
+  the report at PENDING; the second
+  lane banked the cargo gate on both
+  trees and the battery, realistic,
+  and differential passes on the base
+  build and died at the battery-head
+  launch in a runtime restart;
+  remainder v1 died on its first log
+  write in a hard write-fault phase
+  banking nothing, remainder v2 was
+  SIGTERMed with zero output banking
+  nothing, and v2 relaunched detached
+  was killed queued on the build slot
+  in the restart at about
+  2026-11-19T23:48Z banking nothing;
+  and the third lane re-derived the
+  banked base figures from the second
+  lane's logs, executed the whole head
+  side at its own hand, and re-ran the
+  pin suite and the golden, its
+  driver's first two launches killed
+  queued in the restarts at about
+  2026-11-20T01:39Z and 04:02Z and its
+  third launch acquiring the slot at
+  04:11:26Z and banking the whole
+  remaining set by 04:19:53Z. No
+  runner from the twenty-eighth
+  round's red team scratches stands
+  armed at this round's read: no
+  process executes any instrument from
+  those scratches, verified in the
+  process table at this read. The push
+  route disclosure stands on pull
+  request 36's body itself, the branch
+  created at the base through the API
+  and read back, and every family
+  landed as one server-side commit
+  through the GitHub Data API, its
+  tree asserted entry by entry before
+  the ref moved and the ref read back
+  after every push. Continuous
+  integration stands green on the
+  closure head at this round's own
+  read of its check runs: the head
+  carries four check runs, the gate
+  check completed at success in both
+  its runs, CodeRabbit at success
+  beside them, and the Trunk Merge
+  Queue check at success at the merge,
+  its workflow runs standing at the
+  push run 44575516472 and the pull
+  request run 44576733576, both
+  completed success. Nothing was
+  posted on the pull request after the
+  landing comment, and the census at
+  this round's read is exactly the
+  four comments, so the landing's
+  third charge stands discharged here:
+  the post-landing material of the
+  round, this landing comment and the
+  Trunk notice's final form, stands
+  contracted in this item. The range
+  this round extends stands read from
+  the base contract itself: ST-1 to
+  ST-166, with ST-110 outside it as
+  the eighteenth round's repair
+  record, ST-144 outside it as the
+  twenty-fourth round's, ST-150
+  outside it as the twenty-fifth
+  round's, and ST-156 outside it as
+  the twenty-sixth round's, ST-61
+  standing in paragraph form, and
+  ST-67 standing as the owner's record
+  comment on pull request 12,
+  referenced inside ST-68, and this
+  round's items run from ST-167.
+  ST-55(a) stays open, carried by
+  name: the abstain document omits the
+  confidence floor, and the question
+  stands with the repository owner.
