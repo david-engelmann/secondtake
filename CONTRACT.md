@@ -9233,3 +9233,47 @@ ST-61. The CodeRabbit disposition
   realistic pass at 160 steps, and the
   differential at 33 cases, 34 + 34 +
   160 + 33 = 261.
+- ST-176. Closure of Round 30. The
+  round's items stand ST-172 to ST-176
+  and the contract closes at 327,632
+  bytes. The closure gate discharged
+  whole on the pre-closure tree, the
+  ST-175 head's tree
+  faa426ecdc899eb1ec74f1dbcd56651e54d380ee,
+  extracted into the closure worktree
+  and verified blob by blob against
+  the API manifest before any
+  reliance, 25 blobs with no
+  mismatches. On that tree the
+  codepoint scan counted U+2014 = 0
+  and U+2013 = 0, and the same scan on
+  a copy carrying a planted control
+  counted 1 and 1 and exited 1, the
+  control caught first. Cargo fmt
+  --check stood clean and clippy over
+  all targets with warnings denied
+  stood clean. The cargo suite counted
+  39 with each Running header paired
+  against its own result line:
+  unittests in src/lib.rs 0, unittests
+  in src/main.rs 0, tests/compare.rs
+  22, tests/judge.rs 17, doc-tests 0,
+  no failures anywhere. The closure
+  release build reproduced the banked
+  binary byte for byte, md5
+  d71227c59a09908659318f4b8c3facd6,
+  and the battery ran on the closure
+  build at 34 cells with no problems,
+  the judgment floor standing exact in
+  the closure tree as on the base
+  tree, J06 judged with proposal tune
+  at confidence exactly 0.6, J08
+  judged with proposal revert at
+  0.600001, and J09 abstained at
+  0.599999. The README's rounds line
+  moves from 29 of 100 to 30 of 100 in
+  this commit, the only README change
+  in the round. ST-55(a) stands
+  carried open by name at the round's
+  close, untouched, exactly as it
+  stood at the round's opening.
