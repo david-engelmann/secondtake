@@ -9043,3 +9043,77 @@ ST-61. The CodeRabbit disposition
   standing verbatim in its three
   homes, and the question stands with
   the repository owner.
+- ST-173. The base tree's own gate and
+  the judgment band, Round 30 pass.
+  The base tree at 73c3589361a6 (tree
+  3d9cd1267c0727e06dc358dd50185f98e0998bca)
+  stood in the worktree with its
+  contract pristine at 319,276 bytes
+  after ST-172, and its codepoint
+  scan, run on the pristine tree,
+  counted U+2014 = 0 and U+2013 = 0.
+  Cargo fmt --check stood clean,
+  clippy over all targets with
+  warnings denied stood clean, and the
+  cargo suite counted 39 tests with
+  each Running header paired against
+  its own result line: unittests in
+  src/lib.rs 0, unittests in
+  src/main.rs 0, tests/compare.rs 22,
+  tests/judge.rs 17, doc-tests 0, no
+  failures anywhere. The release build
+  reproduced the banked binary byte
+  for byte, md5
+  d71227c59a09908659318f4b8c3facd6, so
+  the fresh build and the banked build
+  are one binary by hash, the banked
+  arm in this round running on the
+  Round 29 base build standing in the
+  Round 29 scratch at that same md5,
+  the Round 20 banked binary itself no
+  longer standing on disk. The
+  battery's judgment band, cells J01
+  to J19, ran on both builds and
+  counted 19 cells ok with no problems
+  on either. The deterministic shapes
+  held: J01 agreement with the judge
+  armed and never called, proposal
+  keep, status not_consulted; J02 and
+  J03 two regressions each, proposal
+  revert, not_consulted; J04 below the
+  pair floor, proposal abstain with
+  the reason insufficient pairs, 1 of
+  2; J05 in the band with no judge
+  configured, proposal tune,
+  not_consulted. The confidence floor
+  stood probed exact at its three
+  points: J06 judged with proposal
+  tune at confidence exactly 0.6, J08
+  judged with proposal revert at
+  0.600001, and J09 abstained with
+  proposal abstain at 0.599999, its
+  reason naming the confidence
+  0.599999 as below 0.6, the floor
+  inclusive at 0.6 by the ST-106
+  mechanism as ST-110 qualifies it.
+  Around those points the band held
+  its shape: J07 judged keep at
+  integer confidence 1; J10 abstained
+  at 0.59 and J11 at integer 0; J12
+  abstained on the judge's own
+  abstention at 0.9 and J13 likewise
+  at 0.6, the abstention standing over
+  the floor; J14, J15, and J16 stood
+  unavailable on a judge call failing
+  at the choice, severity, and match
+  calls respectively, each holding the
+  deterministic proposal tune; J17
+  stood unavailable on a malformed
+  choice answer; J18 stood unavailable
+  with the call script missing; J19
+  replayed the shipped fixture and
+  stood judged with proposal tune.
+  Every judgment cell's Python and
+  Rust exits stood at 0 with both
+  stderrs empty, and the two builds
+  agreed cell for cell.
