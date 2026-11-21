@@ -9117,3 +9117,76 @@ ST-61. The CodeRabbit disposition
   Rust exits stood at 0 with both
   stderrs empty, and the two builds
   agreed cell for cell.
+- ST-174. The resolver band and the
+  pin suite, Round 30 pass. The
+  battery's resolver band, cells S1 to
+  S5, C989 to C993, C1100, M11, M1001,
+  M4096, and M4097, ran on both builds
+  and counted 15 cells ok with no
+  problems on either, the Python side
+  of every cell running through the
+  route python3 -m secondtake.cli and
+  the Rust side through the build
+  under test. The named refusals held
+  byte-identical on both sides: S1 on
+  the remainder link and S2 on the
+  dotdot that pops a file component,
+  each exiting 1 with the named
+  refusal in both stderrs; the chain
+  cells C989, C990, and C991 likewise,
+  C991 the contracted 991 named
+  refusal standing byte-identical on
+  both sides at exit 1; and the
+  re-meeting cells M11, M1001, and
+  M4096 likewise, M4096 the contracted
+  re-meeting named refusal on both
+  sides. S3, the link after a dead
+  component, exited 1 on both sides
+  with the same digest in both
+  stderrs, 3979892dd1, measured on
+  both battery roots and standing at
+  that value on each. S4, the
+  completed link re-met, stood ok at
+  exit 0 with both stderrs empty. The
+  chain split held its contracted
+  shape from 992 through 1100: at
+  C992, C993, and C1100 the Python
+  side exited 1 with a digest stderr,
+  42ea29cbde, the same digest measured
+  on both battery roots, while the
+  Rust side exited 1 with the named
+  refusal, the split standing by class
+  as contracted. The re-meeting split
+  at M4097 held its shape: the Python
+  side exited 1 with the named refusal
+  and the Rust side exited 1 with an
+  empty stderr. The loop cell S5, a
+  loop waiting in the remainder, stood
+  ok under its contracted class
+  comparison per ST-99: the Python
+  side exited 1 with a digest stderr
+  and the Rust side exited 1 with an
+  empty stderr, and the digest is
+  root-scoped, measured at f8287fa33a
+  on the fresh battery root and at
+  7b286eceb1 on the banked battery
+  root, stated root-scoped in both
+  places. The pin suite ran on the pin
+  extraction at commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  its tree verified at exactly 50
+  blobs against the API manifest
+  before any reliance, and counted 241
+  tests passed with none failed across
+  its suites. The golden executed in
+  its standing form on that pin build:
+  the conversion of the synthetic
+  session fixture exited 0 and wrote a
+  tape of 1,663 bytes, its digest read
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the digest command matched that
+  value, verify against it exited 0,
+  and the tape stood byte-identical to
+  the oracle fixture
+  tape_synthetic.json in the oracle
+  extraction.
