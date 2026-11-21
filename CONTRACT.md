@@ -9190,3 +9190,46 @@ ST-61. The CodeRabbit disposition
   the oracle fixture
   tape_synthetic.json in the oracle
   extraction.
+- ST-175. The realistic pass, the
+  differential, and the round total,
+  Round 30. The realistic pass ran 160
+  steps on the fresh build, every step
+  twin-compared byte for byte against
+  the Python oracle, and counted 160
+  steps with no problems. Its
+  distribution fell as follows. The
+  proposals over the proposal steps
+  counted 148: keep 60, revert 34,
+  abstain 32, tune 22, the 12 refusal
+  steps standing outside that count.
+  The judgment statuses counted the
+  judge-configured band at 60 steps,
+  judged 40 and abstained 20, and the
+  steps the judge never reached at 88
+  not_consulted, the 12 steps in the
+  band with no judge configured
+  standing inside that 88 per ST-144.
+  The differential ran its 33 cases,
+  each twin-compared, and counted 33
+  cases with no problems, the last
+  case, extra unknown fields, ok at
+  exit 0. The loop probe ran the loop
+  cell on two fresh roots and counted
+  the comparison by its contracted
+  class per ST-99: both roots exited 1
+  with no stdout, the oracle stderrs
+  standing at digest 1125e4e85f on
+  rootA and 35f5a2afa1 on rootB, each
+  root-scoped and stated so, the two
+  stderrs not identical raw and
+  identical after root-path
+  normalization, the rootA stderr
+  ending in the symlink loop
+  RuntimeError naming its own root's
+  path. The round's counted total
+  re-adds from its parts: the battery
+  at 34 cells on the fresh build and
+  34 on the banked build, the
+  realistic pass at 160 steps, and the
+  differential at 33 cases, 34 + 34 +
+  160 + 33 = 261.
