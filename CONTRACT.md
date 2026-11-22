@@ -9745,3 +9745,30 @@ ST-61. The CodeRabbit disposition
   SHA, every blob's recomputed id
   matching the manifest at this lane's
   hand.
+- ST-181. The realistic pass, the
+  differential, and the round total.
+  The realistic pass ran on the fresh
+  build at 160 steps with 0 problems:
+  148 proposals in total, keep 60,
+  revert 34, abstain 32, tune 22, and
+  the judgment statuses over the pass
+  stand at judged 40 and abstained 20,
+  the 60 judge-configured band steps,
+  with not_consulted at 88, inside
+  which the 12 no-judge band steps
+  stand as ST-144 establishes, 60 plus
+  88 plus 12 equaling the 160 steps.
+  The differential ran against the
+  Python oracle at 33 cases with 0
+  problems, every case agreeing across
+  the two implementations. With the
+  battery at 34 cells on the fresh
+  build and 34 on the banked build
+  from ST-179 and ST-180, the
+  realistic at 160, and the
+  differential at 33, the round total
+  stands at 261, 34 plus 34 plus 160
+  plus 33, every part executed on the
+  genuine device in this round and
+  traceable to the gate logs named in
+  ST-179 and ST-180.
