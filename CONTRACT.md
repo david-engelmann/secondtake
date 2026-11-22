@@ -9772,3 +9772,173 @@ ST-61. The CodeRabbit disposition
   genuine device in this round and
   traceable to the gate logs named in
   ST-179 and ST-180.
+- ST-182. Closure of Round 31. The
+  round's items stand ST-177 to ST-182
+  in the Status range: the read-back
+  of pull request 40 graded whole, the
+  Round 30 red team's untested cargo
+  limb discharged by execution, the
+  base gate with the judgment band,
+  the resolver band with the pin suite
+  and the golden, the realistic pass
+  with the differential and the round
+  total of 261, and this closure. The
+  closure gate ran whole on the
+  closure tree, staged fresh from the
+  ST-181 head tree and verified at
+  twenty-five of twenty-five blobs
+  before the run: the codepoint scan
+  of the closure tree returned U+2014
+  at 0 and U+2013 at 0 with the
+  planted control counted at 1 and 1
+  with exit 1 on a control copy, cargo
+  fmt --check and cargo clippy
+  --all-targets both exited 0, cargo
+  test exited 0 paired at thirty-nine
+  (library 0, binary 0, compare 22,
+  judge 17, doc 0), the release build
+  reproduced the binary of record at
+  md5
+  d71227c59a09908659318f4b8c3facd6,
+  the battery ran at 34 cells with 0
+  problems on the closure build and at
+  34 cells with 0 problems on the
+  round's base build with the
+  confidence floor exact at all three
+  probes on both, the realistic ran at
+  160 steps with 0 problems, the
+  differential at 33 cases with 0
+  problems, the pin suite at 241
+  passed with no failures, and the
+  golden executed through the pin
+  build at 1,663 bytes with its digest
+  matched, verify at exit 0, and the
+  output byte-identical to the oracle
+  fixture tape. The itemized
+  verification stands in ST-177 to
+  ST-181, each figure naming the
+  execution or read that produced it.
+  The round's whole attempt history
+  stands here. The lane opened into
+  the write fault's hard phase: a
+  first verification pass died on its
+  own record write after sixty refused
+  attempts, counted nowhere, and the
+  fleet REST pool stood exhausted at
+  the lane's first API pass, remaining
+  0 with reset at
+  2026-11-22T01:02:40Z, and exhausted
+  again repeatedly through the round,
+  every API attempt inside an
+  exhaustion counted nowhere. The
+  first extraction chain's base leg
+  refused all six hundred write
+  attempts on its first file over
+  about fifty minutes and its oracle
+  and pin legs died on API refusals,
+  the chain counted nowhere whole; the
+  patient extraction holder was reaped
+  with its launching session once,
+  killed by the box restart of about
+  2026-11-22T02:26Z once, and killed
+  again by the restart of about 04:24Z
+  after landing the base tree whole
+  and the oracle at thirty-four of
+  thirty-five blobs, the pin and
+  oracle then completed by verified
+  hardlink staging from the Round 30
+  lane's extractions, every source
+  file's recomputed blob id checked
+  against the API manifest before
+  linking and every destination
+  re-verified after. The base gate's
+  first launch waited in the build
+  slot queue from 02:59:10Z until the
+  04:24Z restart killed it before
+  acquisition, counted nowhere;
+  relaunched, it acquired the slot at
+  04:35:32Z and banked whole on its
+  first launch. The pin tree's
+  tests/identity.rs stood at zero
+  bytes at the base gate's pin run,
+  zeroed at about 04:24Z through a
+  hardlink shared with the Round 30
+  scratch after its blob id had
+  verified at staging, so that run's
+  sum of 228 counts nowhere; a full
+  re-verification of all three trees
+  found the base and oracle trees
+  intact and the pin at forty-nine of
+  fifty, the single file was restored
+  from its API blob after a repair
+  ride of five hundred sixty refused
+  attempts and one restart death, and
+  the pin re-run then rode the slot
+  queue through a missing-cargo-path
+  exit at 69 with no tests run and two
+  further restart deaths in queue
+  before banking 241 passed at about
+  09:42Z, each of those attempts
+  counted nowhere. The first contract
+  append of the round truncated the
+  worktree contract to zero bytes on a
+  refused write; it was restored from
+  the local verified copy of the base
+  blob after the restore rode four
+  hundred refused attempts and one
+  restart death, landing on its first
+  attempt in the post-restart window,
+  and the appending tool was rebuilt
+  to write by temp file and rename.
+  The closure gate script was found
+  before its first launch to be
+  missing five of its segments, the
+  battery pairing, the realistic, the
+  differential, the pin suite, and the
+  golden, and was completed from the
+  base gate's own forms before it ran,
+  so the gate of record is the full
+  family. The closure gate's first
+  launch held the build slot from
+  2026-11-22T10:58:32Z in its
+  write-probe loop through a shut
+  window until the service restart
+  killed it with no segment banked,
+  counted nowhere; relaunched into the
+  post-restart window, it acquired the
+  slot at once and banked whole on its
+  first launch, slot released
+  2026-11-22T11:37:46Z. The standalone
+  two-root loop probe stands not
+  executed in this round: the Round 30
+  probe source stands under an
+  execution-risk flag at this lane's
+  read, so it was not run, not copied,
+  and not reproduced, and the loop's
+  evidence in this round is the
+  battery's S5 cell on both builds
+  under its ST-99 class comparison,
+  stated here for the owner's
+  attention. This closure item's own
+  contract figure was set by the
+  placeholder method: the item was
+  drafted with a placeholder in the
+  figure's place, appended and
+  measured, and the placeholder then
+  exchanged for the measured figure at
+  equal width, the exchange itself
+  disclosed here as the symmetry
+  lesson of Round 30 requires. The
+  contract stands at 351,195 bytes in
+  the closure commit. The README
+  rounds line moves to 31 of 100 in
+  this commit only. ST-55(a) carries
+  open by name at the round's close,
+  untouched, exactly as it stood at
+  the round's opening. The description
+  line of ST-51 stands verified
+  byte-identical in the repo
+  description, the README lede, and
+  Cargo.toml at the round's opening
+  read, and nothing in this round
+  changes it.
