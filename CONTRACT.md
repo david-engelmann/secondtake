@@ -9990,3 +9990,205 @@ ST-61. The CodeRabbit disposition
   contract prose only; the closure
   gate of ST-182 ran on the closure
   tree and its figures are unaffected.
+- ST-184. The thirty-first round's
+  pull request read back whole. Pull
+  request 42 carries one review and
+  one review comment, and exactly four
+  issue comments. The first is the
+  Trunk bot's notice 7078600975,
+  created 2026-11-22T11:40:57Z in its
+  standing informational form of 403
+  characters and edited at the merge
+  to its post-merge form of 113
+  characters, last updated
+  2026-11-22T17:16:24Z, recording the
+  merge as successful with the queue's
+  details link. The second is the
+  CodeRabbit shell 7078602701, the
+  third is the owner's queue comment
+  7082601222 at 12 characters, created
+  2026-11-22T17:07:49Z and never
+  edited, and the fourth is the
+  landing comment 7082739314 at 1,125
+  characters, created
+  2026-11-22T17:18:36Z, never edited,
+  standing last. The pull request
+  stands closed and merged at
+  2026-11-22T17:16:20Z as squash
+  21f6f0e1a636b9cbc9f60b9c1435d45463d899f3,
+  its merge tree
+  bb73010b6a2fb2437031a09efd294191d03ee200
+  equal to the reviewed final tree and
+  its parent the thirtieth round's
+  landing
+  d73c7912f1849340487c88b58f9390eda8e9bc0e,
+  and the README on main reads 31 of
+  100, verified in this round from the
+  blob-verified extraction of the main
+  tree, 25 blobs at 0 mismatches. The
+  shell is a completed review of the
+  Round 31 closure head
+  18d425d8699bcdd9925c128724346e7bcf12ad34,
+  created 2026-11-22T11:41:06Z in an
+  in-progress form of 5,208
+  characters, and it stands at its
+  true final form of 8,483 characters,
+  last edited 2026-11-22T17:07:39Z at
+  this round's read. It took three
+  completed forms at the reads that
+  graded it before this one: 8,475
+  characters, last edited
+  2026-11-22T11:44:39Z, the finished
+  form the build lane's body read and
+  dispositioned; 8,479 characters,
+  last edited 2026-11-22T12:07:34Z,
+  the form standing over the repair
+  head; and 8,481 characters at the
+  two review readings, each step a
+  further two-character re-render, the
+  steps after the first arriving after
+  the body's step 0 was written and
+  standing charged to this read-back
+  on that body's own closing sentence,
+  with every disposition-bearing
+  element verified element by element
+  at this read to stand exactly as the
+  earlier reads recorded it. No
+  disposition-bearing element moved
+  between the completed forms: its
+  walkthrough states the contract's
+  Round 30 read-back and cargo check
+  record, its Round 31 gates and
+  measurements records, and its
+  closure and progress count record,
+  with the README's move from 30 to 31
+  of 100, in three rows; its change
+  assessment stands pinned to the
+  closure head as source and covered
+  commit, kind reviewed, effort 2
+  (Simple), Change Other; its verdict
+  line reads Merge Risk Low up to
+  18d42, its prose recording the one
+  finding named below; its four
+  pre-merge checks all passed with
+  none failed, the Title check passed
+  with a prose reservation the body
+  dismissed on counted grounds; and
+  its finishing touches and Autofix
+  checkboxes stand unticked. The bot's
+  formal review 6012035981 stands
+  COMMENTED at 3,887 characters with
+  one actionable comment, Run ID
+  79158768-2a66-44d9-b5ae-1afda217d975,
+  the included allowance used with
+  none remaining, reviewing
+  CONTRACT.md and README.md over the
+  span from the base
+  d73c7912f1849340487c88b58f9390eda8e9bc0e
+  to the closure head. Its inline
+  comment 4657946444 stands at 2,236
+  characters, graded Minor under Data
+  Integrity and Integration: ST-181's
+  realistic sentence compresses two
+  different twelves, the 12 no-judge
+  band steps inside the 88
+  not_consulted and the 12 refusal
+  steps outside the 148 proposals,
+  into one mention. The finding was a
+  true positive against the harness's
+  own accounting, and it stands
+  repaired by the appended repair
+  record ST-183 with the original item
+  unrewritten and no figure of the
+  round changed; the bot has itself
+  marked the comment as addressed in
+  commit 0177f19. The body stands at
+  15,635 characters in its
+  owner-patched form. The owner's
+  patch is graded mechanically exact
+  at this read: its one added sentence
+  of 278 characters, recording in the
+  attempt history the placeholder
+  drafting step by which the closure
+  item's contract figure was set,
+  stands exactly once, and the body
+  with that sentence removed measures
+  15,357 characters, the build lane's
+  reported final form, whose saved
+  draft in turn stands as an exact
+  prefix of the body as the lane left
+  it; the bot appendix stands
+  preserved at 453 characters from
+  offset 14,904 by the lane's
+  counting, 451 characters from its
+  own marker. The title stands at
+  exactly 45 characters in the
+  standing shape. The branch carried
+  seven commits in order, the contract
+  measuring 337,053 bytes at ST-177,
+  339,256 at ST-178, 341,210 at
+  ST-179, 344,208 at ST-180, 345,169
+  at ST-181, 351,195 at the closure,
+  and 352,849 at the repair record,
+  each step an exact byte prefix of
+  the next, verified in this round
+  from the branch's own blobs,
+  CONTRACT.md alone in every commit
+  but the closure, which carried the
+  README's rounds line alone besides.
+  Continuous integration stands green
+  on the closure head at this round's
+  own read of its workflow runs: the
+  push run 45018397986 and the pull
+  request run 45018509911, each
+  completed success; and green again
+  on the final head: the push run
+  45020454876 and the pull request run
+  45020460447, each completed success.
+  The gate's three verdicts stand
+  graded: the spec axis PASS with no
+  findings, its one observation, the
+  shell's further re-render after the
+  body's read, charged forward on the
+  body's face and discharged by this
+  read-back; the standards axis REPAIR
+  on one body-only Minor, the attempt
+  history's omission of the
+  placeholder drafting step the
+  closure figure was set by,
+  discharged whole by the owner's
+  patch graded above, no delta review
+  owed on a body edit; and the red
+  team APPROVE with no findings, its
+  own harness re-executions honestly
+  standing untested against the write
+  fault and charged forward to this
+  round's red team, its judgment
+  sustaining the build lane's refusal
+  to execute the standalone loop
+  probe, whose non-execution ST-182
+  disclosed and no contracted claim
+  depends on. The range this round
+  extends stands read from the base
+  contract itself: ST-1 to ST-176,
+  with ST-110 outside it as the
+  eighteenth round's repair record,
+  ST-144 outside it as the
+  twenty-fourth round's, ST-150
+  outside it as the twenty-fifth
+  round's, ST-156 outside it as the
+  twenty-sixth round's, and ST-183
+  outside it as the thirty-first
+  round's, ST-61 standing in paragraph
+  form, and ST-67 standing as the
+  owner's record comment on pull
+  request 12, referenced inside ST-68,
+  and this round's items run from
+  ST-184. ST-55(a) stays open, carried
+  by name: the shared description
+  names only keep, tune, and revert
+  while abstain stands among the
+  proposal field's four values, the
+  line standing verbatim in its three
+  homes, and the question stands with
+  the repository owner.
