@@ -10473,3 +10473,36 @@ ST-61. The CodeRabbit disposition
   description, the README lede, and
   Cargo.toml at this round's read, and
   nothing in this round changes it.
+- ST-189. Repair record for ST-187,
+  appended after the round's closure
+  on the step 0 finding of pull
+  request 44, the original item
+  standing unrewritten. ST-187's
+  closing sentence claims the round
+  total's parts are traceable to the
+  gate logs named in ST-185 and
+  ST-186; ST-185 and ST-186 name no
+  gate logs, so the reference does not
+  trace as written and a reader of the
+  contract cannot follow it. The
+  measured position is this: each
+  figure of the round traces to the
+  execution its item records, and the
+  gate logs stand in the Round 32 lane
+  scratch, the base gate's segment
+  logs in its logs/hold directory
+  (scan-base, fmt-base, clippy-base,
+  cargo-base, build-base, md5-base,
+  battery-fresh, battery-banked,
+  realistic, differential, pin, and
+  golden) and the closure gate's in
+  its logs/closure-hold directory
+  (scan-control, scan-closure,
+  fmt-closure, clippy-closure,
+  cargo-closure, build-closure,
+  md5-closure, battery-closure,
+  battery-base, realistic,
+  differential, pin, and golden), and
+  the traceability claim stands
+  corrected to that naming. No figure
+  of the round changes.
