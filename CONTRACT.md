@@ -9942,3 +9942,51 @@ ST-61. The CodeRabbit disposition
   Cargo.toml at the round's opening
   read, and nothing in this round
   changes it.
+- ST-183. Repair record for ST-181,
+  appended after the round's closure
+  on the step 0 finding of pull
+  request 42, the original item
+  standing unrewritten. ST-181's
+  realistic sentence compresses two
+  different twelves into one mention
+  and invites a misreading of the
+  round's own figures. The measured
+  decomposition is this: the realistic
+  pass walks 160 steps, of which 148
+  are compare events and 12 are
+  refusal steps; proposals and
+  judgment statuses are counted over
+  the 148 compare events only,
+  proposals at keep 60, revert 34,
+  abstain 32, tune 22, and statuses at
+  judged 40, abstained 20, and
+  not_consulted 88. The 88
+  not_consulted comprises the 40
+  agreement steps, the 24
+  two-regressions steps, the 12
+  below-the-pair-floor steps, and the
+  12 band steps with no judge
+  configured, those last being the
+  twelve ST-144 names as standing
+  inside the 88. The judge-configured
+  band is 60 steps, judged 40 and
+  abstained 20. ST-181's closing
+  equation, 60 plus 88 plus 12
+  equaling the 160 steps, holds only
+  with its final 12 read as the 12
+  refusal steps, not as the no-judge
+  band steps already counted inside
+  the 88; read the other way it
+  double-counts, and the sentence
+  stands corrected here to the
+  decomposition above. Every figure in
+  this record is taken from the
+  realistic harness's own accounting
+  in the gate logs of ST-179 and
+  ST-182, and no figure of the round
+  changes: the pass stands at 160
+  steps with 0 problems and the round
+  total at 261. This record touches
+  contract prose only; the closure
+  gate of ST-182 ran on the closure
+  tree and its figures are unaffected.
