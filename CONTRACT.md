@@ -9606,3 +9606,59 @@ ST-61. The CodeRabbit disposition
   gate on the genuine device, and
   nothing in this item rests on the
   hosted runs.
+- ST-179. The base gate and the
+  judgment band. The base gate ran
+  whole on the pristine fresh
+  extraction of the Round 31 base tree
+  described in ST-178, under the build
+  slot acquired at
+  2026-11-22T04:35:32Z on the gate
+  holder's relaunched first launch,
+  the first launch having waited in
+  the slot queue from 02:59:10Z until
+  the box restart at about 04:24Z
+  killed it before acquisition,
+  counted nowhere. The codepoint scan
+  of the base tree returned U+2014 at
+  0 and U+2013 at 0 with exit 0, the
+  scan proven at this lane's hand on a
+  planted control copy, which counted
+  the planted pair at 1 and 1 with
+  exit 1. Cargo fmt --check exited 0
+  and cargo clippy --all-targets
+  exited 0 with no warnings. Cargo
+  test exited 0 with the thirty-nine
+  paired as contracted, library 0,
+  binary 0, compare 22, judge 17, doc
+  0; that cargo leg is the same single
+  execution ST-178 registers as the
+  owed Round 30 limb discharged, one
+  execution standing in both
+  registrations and counted once in
+  the round's work. The release build
+  exited 0 and reproduced the binary
+  of record at md5
+  d71227c59a09908659318f4b8c3facd6.
+  The battery then ran on the fresh
+  build at 34 cells with 0 problems,
+  its nineteen judgment cells all
+  passing: the confidence floor probed
+  exact, the tune at exactly 0.6
+  judged with proposal tune (cell
+  J06), the revert at 0.600001 judged
+  with proposal revert (cell J08), and
+  the case at 0.599999 abstained with
+  proposal abstain (cell J09), the
+  floor mechanism of ST-106 as
+  qualified by ST-110 holding at all
+  three probes. The battery ran again
+  on the banked build, the Round 30
+  release binary carried in the Round
+  30 scratch and verified at md5
+  d71227c59a09908659318f4b8c3facd6
+  before the run, at 34 cells with 0
+  problems and the floor identical at
+  all three probes, so the judgment
+  band stands paired across the two
+  builds exactly as the family
+  contracts.
