@@ -9543,3 +9543,66 @@ ST-61. The CodeRabbit disposition
   standing verbatim in its three
   homes, and the question stands with
   the repository owner.
+- ST-178. The owed execution,
+  discharged. The Round 30 red team's
+  Stage 2 local cargo re-execution of
+  the Round 30 final tree stood
+  UNTESTED at its hand: the extraction
+  it attempted across sixty and then
+  one hundred twenty loop attempts was
+  refused at every write, its fallback
+  tree verified read-only at
+  twenty-three of twenty-five blobs,
+  and its thirty cargo attempts
+  between 2026-11-21T23:49:51Z and
+  2026-11-22T00:19:36Z were each
+  refused at their startup writes
+  under the build slot, every one
+  counted nowhere, the limb charged to
+  this round in IP-189's form with
+  hosted green on the identical tree
+  standing as corroboration only. This
+  round discharges the limb by
+  execution. The Round 30 final tree
+  e044897d9e549881364f3766fe78fbd59dc967bc
+  was extracted fresh at this lane's
+  hand from the API, all twenty-five
+  blobs, each file's recomputed git
+  blob id verified against the tree
+  manifest at the moment it landed, in
+  the post-restart window of
+  2026-11-22T02:30Z after the first
+  extraction chain's fifty-minute
+  refusal run on the workflows file
+  and the patient holder's two restart
+  deaths, each of those attempts
+  counted nowhere and recorded in
+  ST-182's attempt history. On that
+  pristine extraction, under the build
+  slot acquired at
+  2026-11-22T04:35:32Z, the gate's
+  first launch ran whole: the
+  codepoint scan returned U+2014 at 0
+  and U+2013 at 0, cargo fmt --check
+  exited 0, cargo clippy --all-targets
+  exited 0 with no warnings, and cargo
+  test exited 0 with the results
+  paired by their Running headers
+  exactly as contracted: library unit
+  tests 0, binary unit tests 0,
+  tests/compare.rs 22, tests/judge.rs
+  17, doc tests 0, thirty-nine in
+  total, no failures. The release
+  build exited 0 and reproduced the
+  binary of record at md5
+  d71227c59a09908659318f4b8c3facd6,
+  and the built binary was banked at
+  the scratch for the round's paired
+  runs. The limb is registered
+  EXECUTED with these figures: the
+  Round 30 final tree, extracted fresh
+  and verified blob by blob at this
+  lane's hand, passes its full local
+  gate on the genuine device, and
+  nothing in this item rests on the
+  hosted runs.
