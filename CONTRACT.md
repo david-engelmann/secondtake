@@ -12093,3 +12093,84 @@ ST-61. The CodeRabbit disposition
   description, the README lede, and
   Cargo.toml at this round's read, and
   nothing in this round changes it.
+- ST-206. Repair record for ST-205
+  and ST-201, appended after the
+  round's closure on the gate
+  findings of pull request 50,
+  standing outside the Status range,
+  the original items standing
+  unrewritten. ST-205 states the
+  closure gate ran whole on the
+  closure tree. The measured
+  position is this: the build lane's
+  closure gate ran whole on a
+  staging of the ST-204 head tree, a
+  fresh API extraction verified at
+  25 of 25 against that tree's own
+  manifest, 5ec27f61, and the gate's
+  figures stand as executed on that
+  staging. The closure tree's
+  content verifies at 25 of 25
+  against its own manifest,
+  1d38e9e5, and at 23 of 25 against
+  the ST-204 head tree's manifest,
+  the two differing blobs being
+  CONTRACT.md and README.md, as the
+  spec reviewer, the standards
+  reviewer, and the red team each
+  measured at their own hand. Every
+  executed code blob is
+  byte-identical between the two
+  trees, and no figure of the round
+  changes. The round's red team ran
+  its own gate whole on the closure
+  tree itself at the figures ST-205
+  states, so the closure tree stands
+  gated at those figures at the red
+  team's hand. The closure content's
+  own codepoints stand checked by
+  the scan of the final closure
+  content recorded on the pull
+  request body, returned at 0 and 0.
+  The attribution stands corrected
+  to the ST-204 head tree's staging,
+  and this statement discharges the
+  CodeRabbit comment 4670148979
+  under the second of its two
+  offered options, the gate's scope
+  stated clearly. ST-201's
+  accounting of the step in pull
+  request 48's body does not trace
+  as stated. The body stands at
+  14,917 chars, the appendix at 385
+  chars from its opening marker at
+  offset 13,157 to its end at
+  13,542, and the owner's gate
+  record at 1,375 chars from there
+  to the body's end, the appendix
+  and the gate record together at
+  1,760 against the stated step of
+  1,802 from 13,115 to 14,917. The
+  remaining 42 chars stand ahead of
+  the appendix's opening marker, in
+  the owner's in-place corrections
+  and the patch's separators, which
+  the sentence did not name. The
+  decomposition stands corrected to
+  its three parts. The gate's
+  verdicts stand as rendered: spec
+  REPAIR on F-1 and F-2, standards
+  REPAIR on S-1 and S-2, and the red
+  team REPAIR concurring on both
+  findings, every limb executed and
+  nothing charged forward. F-2
+  stands in the pull request body
+  alone, the omission of the
+  truncated local body copy from the
+  body's attempt history, and is
+  discharged by the owner's patch to
+  the body; it owes no contract
+  text, and none is entered here.
+  The body's parallel claims on the
+  closure gate stand corrected by
+  the owner's patch.
