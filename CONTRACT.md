@@ -10863,3 +10863,47 @@ ST-61. The CodeRabbit disposition
   SHA, every blob's recomputed id
   matching the manifest at this lane's
   hand.
+- ST-193. The realistic pass, the
+  differential, and the round total.
+  The realistic pass ran on the fresh
+  build at 160 steps with 0 problems
+  (log realistic.log in this round's
+  scratch at logs/hold), stated in the
+  decomposition ST-183 established:
+  148 compare events and 12 refusal
+  steps, proposals and judgment
+  statuses counted over the 148
+  compare events only, proposals at
+  keep 60, revert 34, abstain 32, tune
+  22, and statuses at judged 40,
+  abstained 20, and not_consulted 88,
+  the 88 comprising the 40 agreement
+  steps, the 24 two-regressions steps,
+  the 12 below-the-pair-floor steps,
+  and the 12 band steps with no judge
+  configured, and the judge-configured
+  band standing at 60 steps, judged 40
+  and abstained 20. The differential
+  ran against the Python oracle at 33
+  cases with 0 problems, every case
+  agreeing across the two
+  implementations (log
+  differential.log). With the battery
+  at 34 cells on the fresh build and
+  34 on the banked build from ST-191
+  and ST-192, the realistic at 160,
+  and the differential at 33, the
+  round total stands at 261, 34 plus
+  34 plus 160 plus 33, every part
+  executed on the genuine device in
+  this round and traceable to the base
+  gate's segment logs in this round's
+  scratch at logs/hold, named in
+  ST-191 and ST-192 and here:
+  scan-base.log, fmt-base.log,
+  clippy-base.log, cargo-base.log,
+  build-base.log, md5-base.log,
+  battery-fresh.log,
+  battery-banked.log, realistic.log,
+  differential.log, pin.log, and
+  golden.log.
