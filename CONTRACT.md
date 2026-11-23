@@ -10730,3 +10730,63 @@ ST-61. The CodeRabbit disposition
   standing verbatim in its three
   homes, and the question stands with
   the repository owner.
+- ST-191. The base gate and the
+  judgment band. The base gate ran
+  whole on the round's staging of the
+  new base tree
+  ec9227747bf7af16768f6b21fd40ef7839e28ef5
+  in the Round 33 worktree, 25 blobs
+  at 0 mismatches, staged by hardlink
+  from the thirty-second round's
+  verified copies under the hard write
+  fault and re-verified blob by blob
+  after linking, under the build slot
+  acquired at 2026-11-23T05:25:21Z and
+  released at 2026-11-23T05:29:52Z,
+  every segment of the banking run on
+  its first launch, the segment logs
+  standing in this round's scratch at
+  logs/hold. The codepoint scan (log
+  scan-base.log) returned U+2014 at 0
+  and U+2013 at 0 with exit 0, the
+  scan proven at this lane's hand on a
+  planted control copy, which counted
+  the planted pair at 1 and 1 with
+  exit 1. Cargo fmt --check exited 0
+  (log fmt-base.log) and cargo clippy
+  --all-targets exited 0 with no
+  warnings (log clippy-base.log).
+  Cargo test exited 0 with the
+  thirty-nine paired as contracted,
+  library 0, binary 0, compare 22,
+  judge 17, doc 0 (log
+  cargo-base.log). The release build
+  exited 0 and reproduced the binary
+  of record at md5
+  d71227c59a09908659318f4b8c3facd6
+  (logs build-base.log and
+  md5-base.log). The battery then ran
+  on the fresh build at 34 cells with
+  0 problems (log battery-fresh.log),
+  its nineteen judgment cells all
+  passing: the confidence floor probed
+  exact, the tune at exactly 0.6
+  judged with proposal tune (cell
+  J06), the revert at 0.600001 judged
+  with proposal revert (cell J08), and
+  the case at 0.599999 abstained with
+  proposal abstain (cell J09), the
+  floor mechanism of ST-106 as
+  qualified by ST-110 holding at all
+  three probes. The battery ran again
+  on the banked build, the Round 32
+  base release binary carried in the
+  Round 32 scratch and verified at md5
+  d71227c59a09908659318f4b8c3facd6
+  before the run, at 34 cells with 0
+  problems and the floor identical at
+  all three probes (log
+  battery-banked.log), so the judgment
+  band stands paired across the two
+  builds exactly as the family
+  contracts.
