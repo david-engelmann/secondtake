@@ -11306,3 +11306,76 @@ ST-61. The CodeRabbit disposition
   so the judgment band stands paired
   across the two builds exactly as the
   family contracts.
+- ST-197. The resolver band, the pin
+  suite, and the golden. The battery's
+  fifteen resolver cells passed on
+  both builds inside the 34-cell runs
+  of ST-196 (logs battery-fresh.log
+  and battery-banked.log in this
+  round's scratch at logs/hold2),
+  their figures root-scoped as
+  contracted. The link after a dead
+  component (cell S3) exits 1 on both
+  sides with the cannot-write line's
+  digest at 3979892dd1 on the Python
+  and Rust sides alike, identical on
+  both battery roots. The chain cells
+  run at the round's route, python3 -m
+  secondtake.cli on the Python side,
+  with the output spelled as an
+  absolute path through the chain. The
+  chain of 991 links (cell C991) ends
+  in the named refusal on both sides,
+  byte-identical; the chains of 992,
+  993, and 1100 links (cell C992 and
+  its siblings) split by class, the
+  Rust side holding the named refusal
+  while the Python side raises its
+  traceback, whose digest stands at
+  c30c4b4cd4 on both battery roots in
+  this round. That digest is scoped to
+  the oracle extraction's location, as
+  ST-180 proved the mechanism by
+  direct execution: the traceback's
+  text carries the oracle source path
+  under the round's scratch, and this
+  round's value differs from Round
+  33's 690cb86dbe by the scratch path
+  in the traceback and nothing else;
+  the split itself, both sides exiting
+  1, is unchanged. The loop waiting in
+  the remainder (cell S5) splits by
+  class under ST-99, its Python digest
+  root-scoped at 24520e63f2 on the
+  fresh battery root and eb70f18d6d on
+  the banked root, the Rust side empty
+  on both. The re-meetings stand as
+  contracted: 4096 re-spellings end in
+  the named refusal on both sides, and
+  the 4097th splits by class. The pin
+  suite ran against the pinned
+  flighttape tree
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  verified at exactly 50 blobs on tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  before the run, at 241 tests passed
+  with no failures (log pin.log in
+  logs/hold). The golden executed
+  through the pin build: the convert
+  of the synthetic session produced
+  1,663 bytes at digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the digest matched the stated
+  digest, verify exited 0, and the
+  output stood byte-identical to the
+  oracle fixture tape (log golden.log
+  in logs/hold). The oracle itself
+  stands verified at 35 blobs on
+  commit
+  18bf37b4aaec5d96ed680c0050b9af758db8e393,
+  tree
+  b1ea368b770c7731bcc84af71ce138ff02411049,
+  reached through the API by its full
+  SHA, every blob's recomputed id
+  matching the manifest at this lane's
+  hand.
