@@ -11958,3 +11958,138 @@ ST-61. The CodeRabbit disposition
   battery-banked.log, realistic.log,
   differential.log, pin.log, and
   golden.log, all in logs/hold.
+- ST-205. Closure of Round 35. The
+  round's items stand ST-201 to ST-205
+  in the Status range: the read-back
+  of pull request 48 graded whole, the
+  base gate with the judgment band,
+  the resolver band with the pin suite
+  and the golden, the realistic pass
+  with the differential and the round
+  total of 261, and this closure. The
+  closure gate ran whole on the
+  closure tree, staged from the ST-204
+  head tree and verified at
+  twenty-five of twenty-five blobs
+  against that tree's own manifest
+  before the run: the codepoint scan
+  of the closure tree returned U+2014
+  at 0 and U+2013 at 0 with the
+  planted control counted at 1 and 1
+  with exit 1 on a control copy, cargo
+  fmt --check and cargo clippy
+  --all-targets both exited 0, cargo
+  test exited 0 paired at thirty-nine
+  (library 0, binary 0, compare 22,
+  judge 17, doc 0), the release build
+  reproduced the binary of record at
+  md5
+  d71227c59a09908659318f4b8c3facd6,
+  the battery ran at 34 cells with 0
+  problems on the closure build and at
+  34 cells with 0 problems on the
+  round's base build with the
+  confidence floor exact at all three
+  probes on both, the realistic ran at
+  160 steps with 0 problems, the
+  differential at 33 cases with 0
+  problems, the pin suite at 241
+  passed with no failures, and the
+  golden executed through the pin
+  build at 1,663 bytes with its digest
+  matched, verify at exit 0, and the
+  output byte-identical to the oracle
+  fixture tape. The itemized
+  verification stands in ST-201 to
+  ST-204, each figure naming the
+  execution or read that produced it.
+  The round's whole attempt history
+  stands here. The lane opened in the
+  write fault's hard phase:
+  fresh-write probes landed 0 of 10
+  through the process channel at the
+  opening and at every probe until the
+  phase broke, appends and a reflink
+  copy refused alike, while the file
+  channel landed throughout. The first
+  staging and tool-derivation scripts
+  ran in write-retry loops from about
+  2026-11-23T16:35Z and
+  2026-11-23T16:41Z, the staging
+  script creating the round's branch
+  at the base before stalling on the
+  contract's write, and both loops
+  were stopped at this lane's hand at
+  about 2026-11-23T17:20Z, superseded
+  by the file-channel route: the tools
+  derived from printed transforms and
+  byte-compared against the in-memory
+  derivation, the two gate scripts
+  each taking a one-character repair,
+  a dropped equals sign in an echo
+  line, fixed and re-verified, and the
+  harness trio held back from
+  transcription for its escape nesting
+  and left to the mechanical
+  derivation. The staging stood at 24
+  of 25 files hardlinked from the
+  thirty-fourth round's verified
+  copies and re-verified blob by blob,
+  the oracle verified at 35 of 35 and
+  the pin at 50 of 50 by the same
+  route, the contract's own write
+  refused through the whole phase, its
+  staging file standing at 0 bytes; a
+  window waiter was seated to land the
+  contract, the tools, and the base
+  gate when the phase broke. The
+  runtime restart of about
+  2026-11-23T17:49Z killed the waiter,
+  and the fresh-write probe then
+  landed 10 of 10: the contract was
+  fetched fresh through the API and
+  landed on its first attempt, the
+  tool derivation ran whole with every
+  write on its first attempt and the
+  harness transform proven full, and
+  the base worktree verified whole at
+  25 of 25 with no extras. The base
+  gate banked whole on its first
+  launches, the slot held from
+  2026-11-23T17:50:42Z to
+  2026-11-23T17:55:31Z. The closure
+  tree was staged by fresh API
+  extraction of the ST-204 head tree,
+  every blob on a single write
+  attempt, and verified at 25 of 25
+  against that tree's own manifest
+  with no extras. The closure gate
+  queued on the build slot behind a
+  sibling lane from its
+  2026-11-23T18:03:16Z start, acquired
+  the slot at 2026-11-23T18:11:48Z,
+  and banked whole on its first
+  launches, the slot released at
+  2026-11-23T18:18:40Z. Every event in
+  this history is counted nowhere.
+  This closure item's own contract
+  figure was set by the placeholder
+  method: the item was drafted with a
+  placeholder in the figure's place,
+  appended and measured, and the
+  placeholder then exchanged for the
+  measured figure at equal width, the
+  exchange itself disclosed here as
+  the symmetry lesson of Round 30
+  requires. The contract stands at
+  427,294 bytes in the closure commit.
+  The README rounds line moves to 35
+  of 100 in this commit only. ST-55(a)
+  carries open by name at the round's
+  close, untouched, exactly as it
+  stood at the round's opening. The
+  description line of ST-51 stands
+  verified byte-identical in the repo
+  description, the README lede, and
+  Cargo.toml at this round's read, and
+  nothing in this round changes it.
