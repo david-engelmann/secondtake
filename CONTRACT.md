@@ -11759,3 +11759,84 @@ ST-61. The CodeRabbit disposition
   line standing verbatim in its three
   homes, and the question stands with
   the repository owner.
+- ST-202. The base gate and the
+  judgment band. The base gate ran
+  whole on the round's staging of the
+  new base tree
+  b261a242c13f969facea1133d69c76c61b5b0c7c
+  in the Round 35 worktree, 25 blobs
+  at 0 mismatches with no extras,
+  staged under the hard write fault by
+  hardlink from the thirty-fourth
+  round's verified copies and
+  re-verified blob by blob after
+  linking, the contract alone fetched
+  fresh through the API and landed
+  when the fault's hard phase broke,
+  under the build slot acquired at
+  2026-11-23T17:50:42Z and released at
+  2026-11-23T17:55:31Z, every segment
+  on its first launch, the segment
+  logs standing in this round's
+  scratch at logs/hold. The codepoint
+  scan (log scan-base.log) returned
+  U+2014 at 0 and U+2013 at 0 with
+  exit 0, the scan proven at this
+  lane's hand on a planted control
+  copy of the same tree, which counted
+  the planted pair at 1 and 1 with
+  exit 1. Cargo fmt --check exited 0
+  (log fmt-base.log) and cargo clippy
+  --all-targets exited 0 with no
+  warnings (log clippy-base.log).
+  Cargo test exited 0 with the
+  thirty-nine paired as contracted,
+  library 0, binary 0, compare 22,
+  judge 17, doc 0 (log
+  cargo-base.log). The release build
+  exited 0 and reproduced the binary
+  of record at md5
+  d71227c59a09908659318f4b8c3facd6
+  (logs build-base.log and
+  md5-base.log). The harness copies
+  for this round were derived fresh
+  from the standing originals with the
+  full substitution transform applied,
+  this round's scratch and oracle path
+  pairs included, and proven exact
+  against the transform before any
+  run, the derivation asserting that
+  no prior-round reference survives in
+  any harness file and that each
+  carries this round's own oracle
+  path; the chain-split digest at this
+  round's oracle root, recorded in
+  ST-203, differs from both prior
+  rounds' values, so the thirty-fourth
+  round's dropped-pair defect did not
+  recur. The battery then ran on the
+  fresh build at 34 cells with 0
+  problems (log battery-fresh.log),
+  its nineteen judgment cells all
+  passing: the confidence floor probed
+  exact, the tune at exactly 0.6
+  judged with proposal tune (cell
+  J06), the revert at 0.600001 judged
+  with proposal revert (cell J08), and
+  the case at 0.599999 abstained with
+  proposal abstain (cell J09), the
+  floor mechanism of ST-106 as
+  qualified by ST-110 holding at all
+  three probes. The battery ran again
+  on the banked build, the release
+  binary banked by the thirty-fourth
+  round's base gate in the Round 34
+  scratch and verified at md5
+  d71227c59a09908659318f4b8c3facd6
+  before the run, at 34 cells with 0
+  problems and the floor identical at
+  all three probes (log
+  battery-banked.log), so the judgment
+  band stands paired across the two
+  builds exactly as the family
+  contracts.
