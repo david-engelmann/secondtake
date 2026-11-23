@@ -11538,3 +11538,34 @@ ST-61. The CodeRabbit disposition
   description, the README lede, and
   Cargo.toml at this round's read, and
   nothing in this round changes it.
+- ST-200. Repair record for ST-199,
+  appended after the round's closure
+  on the gate findings of pull request
+  48, standing outside the Status
+  range, the original item standing
+  unrewritten. ST-199's attempt
+  history states the closure tree was
+  staged by hardlink from the Round 34
+  worktree and re-verified blob by
+  blob against the ST-198 head tree's
+  manifest at 25 of 25 with no extras.
+  The measured position is this: the
+  staged closure content verifies at
+  25 of 25 against the closure tree's
+  own manifest, 708b6f5c, and at 23 of
+  25 against the ST-198 head tree's
+  manifest, ff91cf38, the two
+  differing blobs being CONTRACT.md
+  and README.md, exactly the two files
+  that make the closure tree the
+  closure tree, as the standards
+  reviewer and the red team each
+  measured at their own hand. The
+  attribution stands corrected to the
+  closure tree's own manifest. The
+  closure gate ran whole on the
+  closure tree itself, and no figure
+  of the round changes. The
+  corresponding figure in the pull
+  request body's attempt history
+  stands corrected by this record.
