@@ -14831,3 +14831,129 @@ ST-61. The CodeRabbit disposition
   with no occurrence, so no figure in
   this round rests on it and no cell's
   behavior is affected by its state.
+- ST-227. The thirty-ninth round
+  closes. Its record stands at ST-1 to
+  ST-227, with ST-110 outside it as
+  the eighteenth round's repair
+  record, ST-144 outside it as the
+  twenty-fourth round's, ST-150
+  outside it as the twenty-fifth
+  round's, ST-156 outside it as the
+  twenty-sixth round's, ST-183 outside
+  it as the thirty-first round's,
+  ST-189 outside it as the
+  thirty-second round's, ST-200
+  outside it as the thirty-fourth
+  round's, ST-206 outside it as the
+  thirty-fifth round's, and ST-217
+  outside it as the thirty-seventh
+  round's repair record appended after
+  its closure, the contract standing
+  at 528,475 bytes with this item
+  appended, the figure set by the
+  placeholder method this item
+  discloses: the item was composed
+  with a placeholder of the same digit
+  count standing where the figure now
+  stands, the wrapped item measured,
+  and the total computed from the
+  pre-closure contract and the
+  measured item, the computation
+  checked by the append itself, which
+  asserts the resulting size before
+  the closure commit is pushed. The
+  round opened from main at
+  d9b4dc0bd63ec7188098d3ffa338ca5f75560fa5,
+  the thirty-eighth round's landing,
+  its tree
+  e15ecb39835d84c45ff98be35e3149885d5620a9,
+  its contract at 503,487 bytes and
+  its README at 38 of 100, and it
+  closes on the same code, the round
+  changing CONTRACT.md alone in its
+  four item families and CONTRACT.md
+  and README.md in this closure. The
+  round read the thirty-eighth round's
+  pull request back whole and graded
+  its gate in the open, spec PASS,
+  standards APPROVE, and the red team
+  REPAIR on one body-only Minor
+  discharged by the owner's patch, and
+  graded whole the charge the
+  thirty-eighth round carried forward,
+  the appendix-regeneration charge in
+  the review comment 4676109902,
+  naming the regeneration in full on
+  this round's record so the charge
+  closes here (ST-223); ran the whole
+  base gate fresh on the new base, the
+  scan at 0 and 0 with its planted
+  control at 1 and 1, the cargo suite
+  paired at 39, the battery at 34 with
+  0 problems on both builds with the
+  floor exact, the realistic at 160,
+  the differential at 33, the pin
+  suite at 241 over 19 targets, and
+  the golden whole (ST-224 to ST-226);
+  and ran the closure gate in its
+  strongest form, whole on this
+  closure tree itself, the tree
+  extracted fresh from the closure
+  head into the gate's own staging at
+  ~/workspace/secondtake-r39-gate and
+  verified 25 of 25 against the
+  closure tree's own manifest with no
+  extras, the closure authored in the
+  round's closure staging at
+  ~/workspace/secondtake-r39-closure,
+  the two stagings distinct and the
+  gate claimed for the closure tree
+  alone. On that staging the scan
+  stands at 0 and 0 with the planted
+  control on a copy of the closure
+  tree counted at 1 and 1 with exit 1;
+  format and clippy stand clean at
+  exit 0; the cargo suite stands
+  paired at 39, library 0, binary 0,
+  compare 22, judge 17, doc 0; the
+  release binary built in the gate
+  staging carries md5
+  d71227c59a09908659318f4b8c3facd6 at
+  the gate staging's own target path,
+  the figure build-path scoped and
+  stated so; the paired battery stands
+  at 34 cells with 0 problems on the
+  gate staging's fresh build and at 34
+  cells with 0 problems on the banked
+  build, the floor exact at its three
+  probes and the chain-split digest at
+  this round's oracle root standing at
+  898c9099e9 on both builds; the
+  realistic stands at 160 steps with 0
+  problems in the ST-183
+  decomposition; the differential
+  stands at 33 cases with 0 problems;
+  the pin suite stands at 241 passed
+  over 19 targets; and the golden
+  stands whole, its conversion at
+  1,663 bytes with digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3
+  matched and its tape byte-identical
+  to the oracle fixture. The README's
+  rounds line moves to 39 of 100 in
+  this closure commit alone. The
+  fortieth round will read this
+  round's pull request back whole, the
+  shell's true final form charged to
+  that read-back as ever, will re-run
+  the family fresh on the new base,
+  and will close at ST-232 if the
+  standing five-item shape holds.
+  ST-55(a) stays open, carried by name
+  into the fortieth round: the shared
+  description names only keep, tune,
+  and revert while abstain stands
+  among the proposal field's four
+  values, the line standing verbatim
+  in its three homes, and the question
+  stands with the repository owner.
