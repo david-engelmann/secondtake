@@ -13862,3 +13862,105 @@ ST-61. The CodeRabbit disposition
   values, the line standing verbatim
   in its three homes, and the question
   stands with the repository owner.
+- ST-219. The base gate and the
+  judgment band. The base gate ran
+  whole on the round's staging of the
+  new base tree
+  4fd95b5308ff0a05eae1f2f43e5907524c170736
+  in the Round 38 worktree, 25 blobs
+  at 0 mismatches with no extras,
+  staged under the write fault by
+  hardlink from the thirty-seventh
+  round's verified gate-staging
+  copies, the base tree differing from
+  that staging's tree in CONTRACT.md
+  alone, and re-verified blob by blob
+  after linking, the contract alone
+  fetched fresh through the API and
+  landed on its first attempt, under
+  the build slot (log gate-hold.log in
+  this round's scratch at logs). The
+  gate's first launch, at
+  2026-11-24T04:01:46Z, queued behind
+  the sibling lanes' holds, a
+  realistic run of the onrecord round,
+  the flighttape red team's pin run,
+  and the bluepencil round's gate,
+  each verified live at this lane's
+  checks and none wedged, and died
+  with the box's process tree before
+  acquiring the slot, no segment run
+  under it and nothing counted from
+  it; the second launch, at
+  2026-11-24T05:32:34Z, acquired the
+  slot at 2026-11-24T05:34:42Z and
+  released it at 2026-11-24T05:37:35Z,
+  every segment on its first launch,
+  the segment logs standing in this
+  round's scratch at logs/hold. The
+  codepoint scan (log scan-base.log)
+  returned U+2014 at 0 and U+2013 at 0
+  with exit 0, the scan proven at this
+  lane's hand on a planted control
+  copy of the same tree, which counted
+  the planted pair at 1 and 1 with
+  exit 1. Cargo fmt --check exited 0
+  (log fmt-base.log) and cargo clippy
+  --all-targets exited 0 with no
+  warnings (log clippy-base.log).
+  Cargo test exited 0 with the
+  thirty-nine paired as contracted,
+  library 0, binary 0, compare 22,
+  judge 17, doc 0 (log
+  cargo-base.log). The release build
+  exited 0 and reproduced the binary
+  of record at md5
+  d71227c59a09908659318f4b8c3facd6 at
+  this round's target path, the value
+  build-path scoped and stated so
+  (logs build-base.log and
+  md5-base.log). The harness copies
+  for this round were derived fresh
+  from the standing originals with the
+  full substitution transform applied,
+  this round's scratch and oracle path
+  pairs included, the derivation
+  asserting the first substitution
+  pair as the thirty-fourth round's
+  lesson requires, and proven exact
+  against the transform before any
+  run, the derivation asserting that
+  no prior-round reference survives in
+  any harness file and that each
+  carries this round's own oracle
+  path; the chain-split digest at this
+  round's oracle root, recorded in
+  ST-220, differs from all five prior
+  rounds' values, so the thirty-fourth
+  round's dropped-pair defect did not
+  recur. The battery then ran on the
+  fresh build at 34 cells with 0
+  problems (log battery-fresh.log),
+  its nineteen judgment cells all
+  passing: the confidence floor probed
+  exact, the tune at exactly 0.6
+  judged with proposal tune (cell
+  J06), the revert at 0.600001 judged
+  with proposal revert (cell J08), and
+  the case at 0.599999 abstained with
+  proposal abstain (cell J09), the
+  floor mechanism of ST-106 as
+  qualified by ST-110 holding at all
+  three probes. The battery ran again
+  on the banked build, the release
+  binary banked by the thirty-seventh
+  round's base gate in the Round 37
+  scratch and verified at md5
+  d71227c59a09908659318f4b8c3facd6
+  before the run, at 34 cells with 0
+  problems and the floor identical at
+  all three probes (log
+  battery-banked.log), so the judgment
+  band stands paired across the two
+  builds exactly as the family
+  contracts.
