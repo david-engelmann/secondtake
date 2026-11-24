@@ -14614,3 +14614,81 @@ ST-61. The CodeRabbit disposition
   values, the line standing verbatim
   in its three homes, and the question
   stands with the repository owner.
+- ST-224. The base gate whole on the
+  new base, main at
+  d9b4dc0bd63ec7188098d3ffa338ca5f75560fa5
+  with tree
+  e15ecb39835d84c45ff98be35e3149885d5620a9,
+  staged fresh at this lane's hand
+  into the round's base worktree, 25
+  blobs at 0 mismatches with no
+  extras, the tree's own manifest the
+  standard. The gate ran under the
+  build slot in one hold launched
+  once, the slot free at its launch
+  and held from 2026-11-24T07:58:32Z
+  to its release at
+  2026-11-24T08:06:27Z, every segment
+  banking on its first launch or
+  attempt. The codepoint scan over the
+  base tree stands at 0 em dashes and
+  0 en dashes, the scan proven at this
+  lane's hand on a planted control
+  copy of the same tree, which counted
+  the planted pair at 1 and 1 with
+  exit 1. Format stands clean at exit
+  0 and clippy at exit 0 with no
+  warnings. The cargo suite stands
+  paired at 39 tests: library 0,
+  binary 0, compare 22, judge 17, doc
+  0, every suite ok with 0 failed. The
+  release binary built fresh in the
+  base worktree carries md5
+  d71227c59a09908659318f4b8c3facd6 at
+  this round's target path,
+  target-base/release/secondtake under
+  this round's scratch, identical to
+  the banked build of the
+  thirty-eighth round standing at its
+  own path, the figure build-path
+  scoped as ever and stated so,
+  reproduced on every round since the
+  sixteenth. The paired battery stands
+  at 34 cells with 0 problems on the
+  fresh build and at 34 cells with 0
+  problems on the banked build, the
+  battery run against both builds as
+  the standing form requires, its 19
+  judgment cells and its 15 resolver
+  cells all ok on both. The confidence
+  floor stands exact at its three
+  probes on both builds: the cell at
+  confidence 0.6 judged with proposal
+  tune, the cell at 0.600001 judged
+  with proposal revert, and the cell
+  at 0.599999 abstained with the
+  reason naming the confidence below
+  0.6, the floor inclusive as ST-106
+  contracts it, qualified by ST-110.
+  The judgment band stands as
+  contracted: the judge called in the
+  order choice, severity, match; the
+  confidence rounded half away from
+  zero to six places on both sides of
+  the boundary, the rounding cells in
+  the battery passing on both builds;
+  the proposals keep, revert, abstain,
+  and tune each exercised; and the
+  judge scripted, a fake judge
+  standing in for the decision model
+  as in every round since the ninth,
+  no live model calls in rounds nine
+  to thirty-nine, the harmonized
+  budget standing with its per-repo
+  monthly hard stop at five dollars
+  and cumulative spend of about two
+  tenths of a cent, and the one
+  missing piece, an OpenAI API key for
+  the comparison arm that has never
+  run, still missing and named as
+  missing.
