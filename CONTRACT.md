@@ -15522,3 +15522,52 @@ ST-61. The CodeRabbit disposition
   before the append. ST-55(a) stays
   open, carried by name into the
   forty-first round.
+- ST-233. Repair record for ST-231,
+  appended after the round's closure
+  on the step 0 finding of pull
+  request 60, the original item
+  standing unrewritten. ST-231's
+  realistic sentence compresses two
+  different twelves into one mention
+  and misassigns one of the 88's
+  classes, inviting a misreading of
+  the round's own figures, the same
+  compression ST-183 corrected in
+  ST-181. The measured decomposition
+  is this: the realistic pass walks
+  160 steps, of which 148 are compare
+  events and 12 are refusal steps;
+  proposals and judgment statuses are
+  counted over the 148 compare events
+  only, proposals at keep 60, revert
+  34, abstain 32, tune 22, and
+  statuses at judged 40, abstained 20,
+  and not_consulted 88. The 88
+  not_consulted comprises the 40
+  agreement steps, the 24
+  two-regressions steps, the 12
+  below-the-pair-floor steps, and the
+  12 band steps with no judge
+  configured. The judge-configured
+  band is 60 steps, judged 40 and
+  abstained 20. ST-231's closing
+  equation, 60 plus 88 plus 12
+  equaling the 160 steps, holds only
+  with its final 12 read as the 12
+  refusal steps; its enumeration of
+  the 88, which assigns the 24 to the
+  pair floor and names a refusal class
+  among the 88's four parts,
+  double-counts the refusals read the
+  other way, and the sentence stands
+  corrected here to the decomposition
+  above. Every figure is taken from
+  the realistic harness's own
+  accounting in this round's gate
+  logs, and no figure of the round
+  changes: the pass stands at 160
+  steps with 0 problems and the round
+  total at 261. This record touches
+  contract prose only; the closure
+  gate of ST-232 ran on the closure
+  tree and its figures are unaffected.
