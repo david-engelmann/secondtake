@@ -15218,3 +15218,111 @@ ST-61. The CodeRabbit disposition
   values, the line standing verbatim
   in its three homes, and the question
   stands with the repository owner.
+- ST-229. The fortieth round's base
+  gate and the battery's judgment
+  band. The fortieth round's base is
+  the thirty-ninth round's landing
+  88f7fce35580cbd0e56b8b4e78254b75665836a0,
+  the merge of pull request 58, its
+  parent the thirty-eighth round's
+  landing
+  d9b4dc0bd63ec7188098d3ffa338ca5f75560fa5
+  and its tree
+  cf257d5f799c8f89e95556c1b9c0d8d3ba0ab36e
+  the reviewed closure tree of the
+  round before, verified whole at the
+  read-back this round records at
+  ST-228. The full local gate ran on
+  that base in this round's own
+  staging of it, its scratch and
+  target directories its own, under
+  the build slot's exclusive flock for
+  the whole of its counted hold: the
+  gate's first launch queued behind
+  the onrecord closure-stage gate,
+  verified live at the launch, and was
+  terminated while queued before
+  acquiring, counted nowhere; its
+  second launch acquired and
+  probe-waited inside its first
+  segment through a hard wave of the
+  box write fault, this lane's own
+  probe writes to the gate's work root
+  refused with EPERM at two checks
+  inside that wave, and the box's
+  restart at about 2026-11-24T15:49Z
+  killed the hold before any segment
+  banked, counted nowhere; its third
+  launch, queued behind the slot's new
+  live holder, acquired at
+  2026-11-24T15:59:32Z and banked the
+  whole gate on its counted hold,
+  released at 2026-11-24T16:06:33Z,
+  every segment on its first attempt.
+  cargo test stands green with the
+  true pairing of 39 counted by
+  target: library 0, binary 0, compare
+  22, judge 17, doc 0. cargo fmt
+  --check is clean and clippy is clean
+  under -D warnings over all targets.
+  The codepoint scan stands at 0 em
+  dashes and 0 en dashes over the
+  whole base tree, the round's append
+  tooling counting its planted control
+  first at 1 and 1 before every item
+  span it appends, so the zero is a
+  measurement and not a blind
+  instrument. The release build at
+  this round's own target path carries
+  md5
+  d71227c59a09908659318f4b8c3facd6,
+  equal to the banked thirty-ninth
+  round build's md5 at its own target
+  path, so the paired battery below
+  compares two builds of one source at
+  two target paths. The battery's
+  nineteen judgment cells stand at 0
+  problems on the fresh build, and the
+  same nineteen stand at 0 problems on
+  the banked build: J01 agrees on both
+  sides that a conclusive comparison
+  never consults an armed judge; J02
+  and J03 agree that two regressions
+  make a revert without consultation,
+  on cost with time and on cost with
+  rework respectively; J04 agrees that
+  one pair of two abstains below the
+  pair floor without consultation; J05
+  agrees that inside the contested
+  band with no judge configured the
+  deterministic proposal stands at
+  tune, not consulted. The 0.6 floor
+  stands probed exact in the same
+  hold: J06 at exactly 0.6 stands
+  judged, its proposal tune; J08 at
+  0.600001 stands judged, its proposal
+  revert; J09 at 0.599999 stands
+  abstained with the below-floor
+  reason naming the figure. J07 at
+  integer 1 stands judged keep. J10 at
+  0.59 and J11 at integer 0 stand
+  abstained below the floor. J12 and
+  J13 stand abstained on the judge's
+  own abstention, at 0.9 and at
+  exactly 0.6 respectively, the floor
+  never rescuing an abstaining judge.
+  J14, J15, and J16 stand unavailable
+  where the judge call fails at
+  choice, at severity, and at match,
+  the deterministic proposal standing
+  in each; J17 stands unavailable on a
+  malformed choice answer and J18 on a
+  missing call script. J19 replays the
+  shipped judge fixture and stands
+  judged tune, byte-identical across
+  both sides. So all nineteen judgment
+  cells agree outright, and the
+  round's judgment total stands at 19
+  of the battery's 34, the remaining
+  fifteen resolver cells standing at
+  ST-230.
