@@ -15326,3 +15326,87 @@ ST-61. The CodeRabbit disposition
   of the battery's 34, the remaining
   fifteen resolver cells standing at
   ST-230.
+- ST-230. The battery's resolver band,
+  the tape-format pin, and the golden
+  tape. The battery's fifteen resolver
+  cells stand at 0 problems on the
+  fresh build, and the same fifteen
+  stand at 0 problems on the banked
+  build. S1 and S2 agree that a
+  remainder link and a dotdot popping
+  a file component refuse by name on
+  both sides. S3 agrees that a link
+  after a dead component splits
+  nothing: both sides exit 1 with the
+  same stderr digest 3979892dd1. S4
+  agrees that a completed link re-met
+  inside its own remainder resolves
+  clean on both sides. S5 agrees by
+  contracted class: a loop waiting in
+  the remainder exits 1 on both sides,
+  the oracle's stderr an untrapped
+  crash whose digest is root-scoped,
+  standing at 48361ac457 at the fresh
+  battery's root and at 48c255eab8 at
+  the banked battery's root, the
+  port's stderr empty, the cell
+  comparing by contracted class per
+  ST-99. The chains C989, C990, and
+  C991 agree that a chain inside the
+  walk's depth refuses by name on both
+  sides at exit 1, byte-identical. The
+  chains C992, C993, and C1100 agree
+  on the split: both sides exit 1, the
+  oracle's stderr a crash class
+  carrying the digest 620e43cdee at
+  this round's oracle root, the port's
+  stderr the named refusal,
+  byte-identical across the three
+  depths. The digest differs from the
+  thirty-ninth round's 898c9099e9 and
+  from 645ed4da1f, 17ccacf6b7,
+  4f14d15784, 4bfc031b22, c30c4b4cd4,
+  and 690cb86dbe by path scope alone
+  and is stated so, with its root: the
+  route-relative oracle's traceback
+  carries the root it ran from, and
+  this round's harness derivation
+  carries the strengthened guard, its
+  substitution list applied whole with
+  the first pair asserted in the
+  derivation itself and no reference
+  to the prior round's scratch
+  surviving in any harness file. The
+  re-meetings M11, M1001, and M4096
+  agree that a re-met link inside the
+  re-meeting budget refuses by name on
+  both sides, and M4097 agrees on the
+  split one past it: the oracle
+  refuses by name and the port exits 1
+  with empty stderr, the crash class
+  contracted at ST-65. So all fifteen
+  resolver cells agree outright or by
+  their contracted split or class, and
+  the battery stands at 34 cells and 0
+  problems on each build. The
+  tape-format pin stands whole: the
+  pin suite at the fleet pin commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  staged fresh this round from that
+  commit's tree
+  afd4d7d1d4cc3c2a10ee6c5e3b2242b04b01e9b6
+  at 50 of 50, stands at 241 tests
+  over 19 targets with 0 failed, run
+  offline and locked under the same
+  hold. The golden tape stands whole
+  on the pin's own binary: convert on
+  the pin's synthetic session log
+  exits 0, its output measures 1,663
+  bytes and digests to
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  verify on that output exits 0, and
+  the output stands byte-identical to
+  the oracle's fixture tape at this
+  round's staged oracle tree b1ea368b,
+  the oracle staged fresh this round
+  from its commit 18bf37b at 35 of 35.
