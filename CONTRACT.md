@@ -15410,3 +15410,57 @@ ST-61. The CodeRabbit disposition
   round's staged oracle tree b1ea368b,
   the oracle staged fresh this round
   from its commit 18bf37b at 35 of 35.
+- ST-231. The realistic battery, the
+  differential, and the round total.
+  The realistic battery stands at 160
+  steps and 0 problems on the fresh
+  build under the same hold. Its
+  judgment decomposition stands in the
+  shape ST-183 contracted: 88 steps
+  stand not consulted, as 40
+  conclusive comparisons, 24 below the
+  pair floor, 12 inside the band with
+  no judge configured, and 12 where
+  the comparison itself refuses before
+  any judgment; the proposal tally
+  stands over the 148 proposal steps
+  at 60 keep, 34 revert, 32 abstain,
+  and 22 tune, the 12 refusal steps
+  standing outside the tally, so 60
+  plus 88 plus 12 makes the 160; and
+  the 60 judge-configured band steps
+  stand at 40 judged and 20 abstained.
+  The differential stands at 33 cases
+  and 0 problems under the same hold,
+  the port and the oracle agreeing on
+  every case the harness drives. The
+  round's counted total therefore
+  stands at 261 cells: 34 battery
+  cells on the fresh build, 34 on the
+  banked build, 160 realistic steps,
+  and 33 differential cases, every one
+  at 0 problems, the pin suite and the
+  golden standing beside the total as
+  ST-230 records. One environment fact
+  stands recorded whole: /dev/full
+  stood the genuine character device,
+  major 1 minor 7 with a write refused
+  ENOSPC, at this lane's probe at the
+  round's opening, and it stands a
+  regular file of 2,082 bytes at this
+  lane's probe after the box's restart
+  of about 2026-11-24T15:49Z, the two
+  probes bounding the gate's counted
+  hold between them. Nothing in this
+  round's family reads or writes that
+  device: this lane searched the
+  round's harness files and found no
+  occurrence of its path, and the base
+  tree's single occurrence stands in
+  the contract's own ST-226 record
+  text, so no figure in this round
+  rests on the device in either form,
+  and the fact stands recorded because
+  the two sessions of this lane
+  carried the two different forms
+  across one round.
