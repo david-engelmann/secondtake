@@ -14692,3 +14692,90 @@ ST-61. The CodeRabbit disposition
   the comparison arm that has never
   run, still missing and named as
   missing.
+- ST-225. The resolver band and the
+  pins on the new base. The resolver
+  stands on one shared walk, as ST-57
+  contracts it, and its boundary cells
+  stand where the contract puts them
+  on both builds. The chain of 991
+  spelled links ends in the named
+  refusal, byte-identical on the
+  oracle and the port, both exiting 1
+  with the refusal on stderr. The
+  chains of 992, 993, and 1100 links
+  split as contracted: the oracle
+  falls in its crash class with the
+  route-relative chain in its error,
+  the route python3 -m secondtake.cli
+  over absolute-target chains, and the
+  port answers with the named refusal,
+  the split holding at every length
+  through 1100. The re-meetings at 11,
+  1001, and 4096 links end in the
+  named refusal on both sides, and the
+  re-meeting at 4097 splits, the
+  oracle naming the refusal and the
+  port falling silent in its crash
+  class, the loop cell compared by its
+  contracted class as ST-99 contracts
+  it. The S3 cell, a link standing
+  after a dead component, carries
+  digest 3979892dd1 on both sides and
+  at both battery roots, unchanged
+  across every round it has been
+  measured. The S5 loop cell's digest
+  stands root-scoped as ever,
+  7c18bb3b67 at this round's fresh
+  battery root and 2785bfd79f at the
+  banked root, the port's stderr empty
+  on both. The chain-split digest
+  stands measured at this round's
+  oracle root as 898c9099e9, the
+  oracle sources the pristine commit
+  18bf37b staged fresh for this round
+  and verified 35 of 35 against its
+  own tree b1ea368b before reliance,
+  the harness derived under the
+  strengthened guard, its derivation
+  asserting the first substitution
+  pair, the scratch-root pair, so the
+  harness's oracle path provably names
+  this round's staging and no earlier
+  round's path survives in any harness
+  file, each harness audited line by
+  line at this lane's hand. The digest
+  differs from 645ed4da1f at the
+  thirty-eighth round's root and from
+  17ccacf6b7, 4f14d15784, 4bfc031b22,
+  c30c4b4cd4, and 690cb86dbe at the
+  five roots before it, by path scope
+  alone, the proof's shape as executed
+  being that the same byte-identical
+  oracle sources, staged fresh from
+  the same commit at this round's
+  root, returned the one digest
+  898c9099e9 on both builds, while the
+  same sources at last round's root
+  returned 645ed4da1f, the oracle tree
+  identical across the two rounds. The
+  pin suite stands at 241 tests passed
+  over 19 targets in the base
+  worktree, 0 failed, the suite run in
+  its pinned form against the fleet
+  tape-format pin, the pin commit
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e
+  staged fresh for this round and
+  verified 50 of 50 against its tree
+  afd4d7d1, the format standing at
+  version 1.0 under the key
+  tape_version, its canonical form
+  sorting keys by UTF-16 code units
+  with ECMAScript float rendering and
+  SHA-256 hex digests. The golden
+  stands whole: the conversion of the
+  golden fixture exits 0 and produces
+  1,663 bytes carrying digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  byte-identical to the oracle's
+  fixture tape, and the verification
+  of that tape exits 0.
