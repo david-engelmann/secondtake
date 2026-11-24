@@ -14089,3 +14089,170 @@ ST-61. The CodeRabbit disposition
   battery-banked.log, realistic.log,
   differential.log, pin.log, and
   golden.log, all in logs/hold.
+- ST-222. Closure of Round 38. The
+  round's items stand ST-218 to ST-222
+  in the Status range: the read-back
+  of pull request 54 graded whole,
+  with the CodeRabbit comment
+  4674561295 and its corrected
+  disposition graded whole inside it
+  and ST-217's final standing on the
+  thirty-sixth round's appendix
+  restated, the base gate with the
+  judgment band, the resolver band
+  with the pin suite and the golden,
+  the realistic pass with the
+  differential and the round total of
+  261, and this closure. The Status
+  range stands ST-1 to ST-222, with
+  ST-110 outside it as the eighteenth
+  round's repair record, ST-144
+  outside it as the twenty-fourth
+  round's, ST-150 outside it as the
+  twenty-fifth round's, ST-156 outside
+  it as the twenty-sixth round's,
+  ST-183 outside it as the
+  thirty-first round's, ST-189 outside
+  it as the thirty-second round's,
+  ST-200 outside it as the
+  thirty-fourth round's, ST-206
+  outside it as the thirty-fifth
+  round's, and ST-217 outside it as
+  the thirty-seventh round's repair
+  record appended after that round's
+  closure. The closure gate ran whole
+  on the closure tree itself, staged
+  in the gate's own staging directory,
+  secondtake-r38-gate, by fresh API
+  extraction of the closure head and
+  verified at twenty-five of
+  twenty-five blobs against the
+  closure tree's own manifest before
+  the run: the codepoint scan of the
+  closure tree returned U+2014 at 0
+  and U+2013 at 0 with the planted
+  control counted at 1 and 1 with exit
+  1 on a control copy, cargo fmt
+  --check and cargo clippy
+  --all-targets both exited 0, cargo
+  test exited 0 paired at thirty-nine
+  (library 0, binary 0, compare 22,
+  judge 17, doc 0), the release build
+  reproduced the binary of record at
+  md5
+  d71227c59a09908659318f4b8c3facd6,
+  the battery ran at 34 cells with 0
+  problems on the closure build and at
+  34 cells with 0 problems on the
+  round's base build with the
+  confidence floor exact at all three
+  probes on both, the realistic ran at
+  160 steps with 0 problems, the
+  differential at 33 cases with 0
+  problems, the pin suite at 241
+  passed with no failures, and the
+  golden executed through the pin
+  build at 1,663 bytes with its digest
+  matched, verify at exit 0, and the
+  output byte-identical to the oracle
+  fixture tape. The two stagings of
+  this closure stand named distinctly:
+  the authoring staging, in the
+  directory secondtake-r38-closure,
+  staged by fresh API extraction of
+  the ST-221 head tree to carry this
+  closure commit's composition, and
+  the gate's staging, in the directory
+  secondtake-r38-gate, staged by fresh
+  API extraction of the closure head
+  after the closure push and verified
+  against the closure tree's own
+  manifest before the gate ran; the
+  gate checked the gate's staging
+  alone, and no figure above rests on
+  the authoring staging. The itemized
+  verification stands in ST-218 to
+  ST-221, each figure naming the
+  execution or read that produced it.
+  The round's whole attempt history
+  stands here. The lane opened with
+  the pool at 2,584 core calls
+  remaining and the write fault in a
+  soft phase, the device probed
+  genuine at the lane's own hand,
+  every tool write and every staging
+  write landing on its first attempt,
+  the tool derivation run whole with
+  the harness transform proven full
+  before any run, and the staging
+  verified whole, the base worktree at
+  25 of 25 with no extras, the oracle
+  at 35 of 35, and the pin at 50 of
+  50. The read-back of pull request 54
+  measured the figures the owner's
+  brief carried and found them
+  standing as charged, the body at
+  13,900 characters in its final form,
+  the shell at its true final form of
+  11,540 characters, and the review
+  comment at 2,379 characters in its
+  final form with the bot's appended
+  addressed line standing at its end.
+  The base gate's first launch, at
+  2026-11-24T04:01:46Z, queued on the
+  build slot behind the sibling lanes'
+  holds, the onrecord round's
+  realistic run, the flighttape red
+  team's pin run, and the bluepencil
+  round's gate, each holder checked
+  live at this lane's hand during the
+  wait and none wedged, and died with
+  the box's process tree before
+  acquiring the slot, no segment run
+  under it; the second launch, at
+  2026-11-24T05:32:34Z, acquired the
+  slot at 2026-11-24T05:34:42Z and
+  banked whole on its first launches,
+  the slot released at
+  2026-11-24T05:37:35Z. The four item
+  families were appended in the
+  worktree in order; the lane's first
+  push invocation for each family
+  omitted the path argument the push
+  tool requires, and each returned 422
+  at the tree step, no commit created
+  and the ref unmoved, the four
+  appends standing in the worktree;
+  the lane banked the four prefix
+  states the appends had measured and
+  pushed one commit per family from
+  those states in order, each tree
+  asserted after its push and the ref
+  read back. The authoring staging was
+  staged by fresh API extraction of
+  the ST-221 head tree, every blob on
+  a single write attempt, each blob's
+  recomputed id matching that tree's
+  manifest. Every event in this
+  history is counted nowhere. This
+  closure item's own contract figure
+  was set by the placeholder method:
+  the item was drafted with a
+  placeholder in the figure's place,
+  appended and measured, and the
+  placeholder then exchanged for the
+  measured figure at equal width, the
+  exchange itself disclosed here as
+  the symmetry lesson of Round 30
+  requires. The contract stands at
+  503,487 bytes in the closure commit.
+  The README rounds line moves to 38
+  of 100 in this commit only. ST-55(a)
+  carries open by name at the round's
+  close, untouched, exactly as it
+  stood at the round's opening. The
+  description line of ST-51 stands
+  verified byte-identical in the repo
+  description, the README lede, and
+  Cargo.toml at this round's read, and
+  nothing in this round changes it.
