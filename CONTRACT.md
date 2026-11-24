@@ -13543,3 +13543,322 @@ ST-61. The CodeRabbit disposition
   or on the appendix; this round's
   figures rest on the live body as it
   stands.
+- ST-218. The thirty-seventh round's
+  pull request read back whole. Pull
+  request 54 carries one review and
+  one review comment, and exactly four
+  issue comments. The first is the
+  Trunk bot's notice 7119642367,
+  created 2026-11-24T01:59:07Z in its
+  standing informational form of 403
+  characters and edited at the merge
+  to its post-merge form of 113
+  characters, last updated
+  2026-11-24T03:52:41Z, recording the
+  merge as successful with the queue's
+  details link. The second is the
+  CodeRabbit shell 7119644898, the
+  third is the owner's queue comment
+  7121389553 at 12 characters, created
+  2026-11-24T03:45:21Z and never
+  edited, and the fourth is the
+  landing comment 7121546515 at 1,178
+  characters, created
+  2026-11-24T03:55:31Z, never edited,
+  standing last. Trunk's own queue
+  pull request 55, on the trunk-merge
+  branch for pull request 54, opened
+  at 2026-11-24T03:52:15Z and closed
+  unmerged at 2026-11-24T03:52:34Z
+  inside the merge; it is the queue's
+  artifact and no part of this round's
+  record beyond this note. The pull
+  request stands closed and merged at
+  2026-11-24T03:52:38Z as squash
+  b666b1fbd25d0065f49432e3ee12a41120cc98cf,
+  its merge tree
+  4fd95b5308ff0a05eae1f2f43e5907524c170736
+  equal to the reviewed repair tree
+  and its parent the thirty-sixth
+  round's landing
+  128c4224fc3933621a3f5e62529bcedca63380a8,
+  and the README on main reads 37 of
+  100, verified in this round from the
+  round's own staging of the main
+  tree, 25 blobs at 0 mismatches with
+  no extras, staged under the write
+  fault by hardlink from the
+  thirty-seventh round's verified
+  gate-staging copies, the base tree
+  differing from that staging's tree
+  in CONTRACT.md alone, and
+  re-verified blob by blob after
+  linking, the contract alone fetched
+  fresh through the API. The body
+  stands at 13,900 characters in its
+  final form at this round's read: the
+  build lane's patched body at 12,111
+  characters with the bot's
+  release-notes appendix standing in
+  it at offset 11,720 spanning 391,
+  the owner's patch then carrying the
+  body to 13,077 characters with the
+  appendix preserved byte for byte at
+  offset 12,489 spanning 588 in the
+  patched body, and the owner's gate
+  record appended after the appendix
+  carrying the body to its final
+  13,900, the appendix's end marker
+  ending at 13,077 at this read, the
+  pair and the record summing to the
+  body's whole length exactly. The
+  shell stands at its true final form
+  of 11,540 characters, last edited
+  2026-11-24T03:45:24Z at this round's
+  read, the form the landing comment
+  charged to this read-back. It stood
+  at 5,208 characters in its
+  in-progress form at the build lane's
+  first read and at 8,663 characters,
+  last edited 2026-11-24T02:02:03Z, in
+  the form the build lane's patch read
+  and dispositioned, and the
+  post-repair re-render carried it to
+  11,540 at the owner's landing read,
+  the shell not edited at or after the
+  merge, with every
+  disposition-bearing element verified
+  element by element at this read. In
+  its true final form its
+  recent-review status records that no
+  actionable comments were generated
+  in the recent review; its
+  walkthrough states the
+  thirty-seventh round's gate and
+  measurement results, its
+  pull-request read-back and
+  correction, and its closure and
+  progress count, in three rows over
+  CONTRACT.md and README.md; its
+  change assessment stands pinned to
+  the repair head
+  9dddf395ba7b3b7b26cdc997b2765bc6ce79880e
+  as source and covered commit, kind
+  reviewed, effort 2 (Simple), Change
+  Other, naming no possibly related
+  pull request; its verdict line reads
+  Merge Risk Minimal up to 9dddf, its
+  prose recording that the change only
+  adds round records and updates the
+  closed-round count, that it has no
+  effect on runtime behavior, and that
+  the earlier concern about the
+  appendix-preservation record has
+  been addressed, and that it is ready
+  to merge; its four pre-merge checks
+  all passed, the Title check passing
+  with its full explanation standing,
+  that the title names the round and
+  the item range and matches the pull
+  request's main change of appending
+  the round's items, that it does not
+  mention the README round-count
+  update or the ST-212 repair context,
+  and that its refine prefix and
+  internal identifier may not be
+  recognized by a reader outside the
+  project, the Linked Issues check and
+  the Out of Scope Changes check each
+  skipped for no linked issues found,
+  and the Description check skipped
+  with the high-level summary enabled;
+  and its finishing touches and
+  Autofix checkboxes stand unticked. A
+  recent-review information section
+  stands in the shell's final form,
+  carrying the re-review's Run ID
+  5d08591d-ea4b-4d22-90e5-ddd855ecddf9,
+  reviewing the files changed between
+  a781cb85d45d1105e4571841af25a5fa52168fda
+  and
+  9dddf395ba7b3b7b26cdc997b2765bc6ce79880e
+  over CONTRACT.md, one file selected
+  for processing and one skipped as
+  similar to previous changes, and the
+  included allowance used with none
+  remaining. The review, 6032519176,
+  stands COMMENTED at 3,801
+  characters, submitted
+  2026-11-24T02:01:59Z on the closure
+  head, carrying Run ID
+  9a809b2b-06ed-4df4-94fb-47e6a99ce2a2
+  and reviewing the files changed
+  between
+  128c4224fc3933621a3f5e62529bcedca63380a8
+  and
+  a781cb85d45d1105e4571841af25a5fa52168fda
+  over CONTRACT.md and README.md, two
+  files selected for processing,
+  recording one actionable comment
+  posted and the included allowance
+  used with none remaining. The one
+  review comment, 4674561295 on
+  CONTRACT.md, stands at 2,379
+  characters in its final form at this
+  read, created 2026-11-24T02:01:58Z
+  and last edited
+  2026-11-24T03:38:19Z, graded Minor,
+  Functional Correctness, a quick win,
+  headed Do not discharge the appendix
+  preservation charge by reporting
+  absence, asking that the record
+  either show that the gate-era
+  appendix was preserved or state that
+  it was not preserved, how it was
+  removed, and that the preservation
+  charge is not met; it carries at its
+  end the bot's own appended line
+  marking it addressed in commit
+  9dddf39, the line its last edit
+  added to the 2,348 characters the
+  build lane's patch read. Its
+  disposition stands graded here
+  whole, as the thirty-seventh round's
+  gate charged. The disposition
+  standing on the body, corrected at
+  the gate by the owner's patch, is
+  sustained in part, and it stands
+  correct on the full record and is
+  graded SOUND: the repair record
+  ST-217, appended after the closure
+  with ST-212 unrewritten, states the
+  final standing plainly, that the
+  gate-era body measured 18,979
+  characters with its text ahead of
+  the appendix at 18,467 and the
+  appendix spanning 512, that the body
+  standing at the read-back is the
+  earlier composed text at 16,352
+  characters, 2,115 characters shorter
+  than the gate-era pre-appendix text
+  alone, so the standing body is not
+  the gate-era body with its appendix
+  removed, that the thirty-sixth
+  round's scratch carries one
+  instrument with exactly this effect,
+  patch_body36.py, timed
+  2026-11-23T23:50:20Z, after the
+  gate's reads and before that round's
+  merge, with the actor and the moment
+  unproven by the API and no cause
+  stated beyond the instrument's
+  existence and its timing, and that
+  the thirty-sixth round's
+  preservation charge stands answered
+  as failed after the gate, the
+  appendix preserved byte for byte at
+  the patch the gate verified and not
+  preserved into the body that stood
+  at the merge. In its narrow part the
+  comment is sustained, that the
+  record state plainly the appendix
+  was not preserved into the final
+  body and the preservation charge
+  stands unmet as to that final form,
+  and in its wider framing it is not
+  sustained, the standing body being
+  the build lane's composed text and
+  not a recomposed text, and the
+  preservation it demands having been
+  accomplished at the patch moment the
+  gate verified. No figure of either
+  round rests on the vanished form,
+  the thirty-sixth round's merge
+  having rested on the equality of its
+  merge tree with the reviewed closure
+  tree. The comment stands unamended
+  in its text on the pull request's
+  record beyond the bot's own appended
+  line, its disposition standing as
+  graded here. The title stands at
+  exactly 45 characters in the
+  standing shape. The branch carried
+  six commits in order, the four item
+  families, the closure, and the
+  repair commit, the contract
+  measuring 462,494 bytes at ST-212,
+  465,543 at ST-213, 468,238 at
+  ST-214, 469,958 at ST-215, 475,035
+  at the closure, and 478,271 at the
+  repair commit, each step an exact
+  byte prefix of the next, verified in
+  this round from the branch's own
+  trees read through the API,
+  CONTRACT.md alone in every commit
+  but the closure, which carried the
+  README's rounds line alone besides,
+  and the Signed-off-by trailer
+  standing on every commit. Continuous
+  integration stands green on the
+  closure head at this round's own
+  read of its workflow runs, the push
+  run 45305314184 and the pull request
+  run 45309007905, each completed
+  success, and green on the repair
+  head, the push run 45320873397 and
+  the pull request run 45320880106,
+  each completed success. The gate's
+  verdicts stand graded: the spec axis
+  PASS with no findings; the standards
+  axis APPROVE with no findings; and
+  the red team REPAIR on one Minor,
+  F-1, that ST-212's discharge framing
+  and the body's original disposition
+  of the review comment answered the
+  thirty-sixth round's patch moment
+  rather than the body that stood at
+  the merge, discharged by the repair
+  record ST-217 with ST-212
+  unrewritten and by the owner's patch
+  to the body correcting the
+  disposition's ground, the Verified
+  block, the CI line, and the
+  checklist's eleventh item, the
+  appendix preserved byte for byte
+  through that patch; and the two
+  delta reviews on the repair stand
+  clean, the spec delta PASS with no
+  findings and the standards delta
+  APPROVE with no findings, the gate
+  record standing appended after the
+  appendix on the body as read above.
+  The range this round extends stands
+  read from the base contract itself:
+  ST-1 to ST-216, with ST-110 outside
+  it as the eighteenth round's repair
+  record, ST-144 outside it as the
+  twenty-fourth round's, ST-150
+  outside it as the twenty-fifth
+  round's, ST-156 outside it as the
+  twenty-sixth round's, ST-183 outside
+  it as the thirty-first round's,
+  ST-189 outside it as the
+  thirty-second round's, ST-200
+  outside it as the thirty-fourth
+  round's, ST-206 outside it as the
+  thirty-fifth round's, and ST-217
+  outside it as the thirty-seventh
+  round's repair record appended after
+  its closure, ST-61 standing in
+  paragraph form, and ST-67 standing
+  as the owner's record comment on
+  pull request 12, referenced inside
+  ST-68, and this round's items run
+  from ST-218. ST-55(a) stays open,
+  carried by name: the shared
+  description names only keep, tune,
+  and revert while abstain stands
+  among the proposal field's four
+  values, the line standing verbatim
+  in its three homes, and the question
+  stands with the repository owner.
