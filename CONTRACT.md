@@ -14779,3 +14779,55 @@ ST-61. The CodeRabbit disposition
   byte-identical to the oracle's
   fixture tape, and the verification
   of that tape exits 0.
+- ST-226. The realistic and the
+  differential on the new base, and
+  the round's total. The realistic
+  stands at 160 steps with 0 problems,
+  run once on the fresh build under
+  the same slot hold as the rest of
+  the base gate, its single launch
+  banking the counted pass. Its
+  decomposition stands as ST-183
+  contracts it: 148 proposal steps and
+  12 refusal steps outside them, the
+  proposals standing at keep 60,
+  revert 34, abstain 32, and tune 22
+  over the compare events, and the
+  judgment statuses standing at judged
+  40, abstained 20, and not consulted
+  88, the 88 standing as 40 plus 24
+  plus 12 plus 12 across the four
+  contracted classes, the corpus
+  synthetic throughout, no real trace,
+  transcript, or session standing in
+  any fixture, and the judge scripted
+  as in the battery. The differential
+  stands at 33 cases with 0 problems,
+  the port and the oracle agreeing on
+  every case the harness puts to them
+  outside the resolver band's
+  contracted splits, which the battery
+  carries. The round's executed total
+  stands at 261 cells, traced from its
+  parts: the battery's 34 on the fresh
+  build, the battery's 34 on the
+  banked build, the realistic's 160,
+  and the differential's 33, the cargo
+  suite's 39 and the pin suite's 241
+  standing outside that total as the
+  standing form has them, each suite's
+  own figure standing in its own item.
+  The one environmental fact of the
+  round stands recorded honestly:
+  /dev/full in this lane's session is
+  a regular file and not the genuine
+  character device, the device node
+  absent since the box's
+  reprovisioning on 2026-11-24, and
+  nothing in this repository's family
+  reads or writes that device at any
+  cell, the harness files and both
+  trees searched at this lane's hand
+  with no occurrence, so no figure in
+  this round rests on it and no cell's
+  behavior is affected by its state.
