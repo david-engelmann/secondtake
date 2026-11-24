@@ -13451,3 +13451,95 @@ ST-61. The CodeRabbit disposition
   description, the README lede, and
   Cargo.toml at this round's read, and
   nothing in this round changes it.
+- ST-217. Repair record for ST-212,
+  appended after the round's closure
+  on the gate findings of pull request
+  54, standing outside the Status
+  range, the original item standing
+  unrewritten. ST-212 discharges the
+  thirty-sixth round's appendix
+  preservation charge on the ground
+  that no appendix stands on pull
+  request 52's body at this round's
+  read. The measured position is this:
+  at the thirty-sixth round's gate,
+  each of the three review axes
+  measured the live body of pull
+  request 52 at 18,979 characters with
+  the bot's release-notes appendix
+  standing in it, measured from its
+  opening marker at offset 18,467 and
+  spanning 512 characters, 18,467 plus
+  512 equals 18,979, and their reports
+  stand in the line's records. The
+  gate-era text ahead of the appendix
+  therefore measured 18,467
+  characters. At this round's read,
+  and verified again at this repair's
+  own hand, the live body stands at
+  16,352 characters, byte-identical to
+  the build lane's composed final text
+  standing in the thirty-sixth round's
+  scratch, its appendix's opening
+  marker absent. The standing body is
+  2,115 characters shorter than the
+  gate-era text ahead of the appendix
+  alone, 18,467 minus 16,352 equals
+  2,115, so the body that stands is
+  not the gate-era body with its
+  appendix removed; it is the earlier
+  composed text. The thirty-sixth
+  round's scratch carries one
+  instrument with exactly this effect,
+  patch_body36.py, timed
+  2026-11-23T23:50:20Z, which patches
+  the pull request's body to the
+  composed file and asserts a
+  byte-identical read-back; it is
+  timed after the gate's reads and
+  before the merge at
+  2026-11-24T00:20:50Z. The API
+  exposes no body edit history and
+  proves neither the actor nor the
+  moment, and no cause is stated here
+  beyond the instrument's existence
+  and its timing. The thirty-sixth
+  round's charge, recorded in its
+  body's Step 0 text, was the
+  preservation of any later appendix
+  byte for byte, charged to this
+  round's read-back. That charge
+  stands answered as failed after the
+  gate: the gate-era appendix,
+  preserved byte for byte at the patch
+  the gate verified, was not preserved
+  into the body that stood at the
+  merge, and ST-212's sentence stands
+  corrected to that answer. The
+  CodeRabbit comment 4674561295 on
+  this round's pull request is
+  sustained in its narrow part, that
+  the record state plainly the
+  appendix was not preserved into the
+  final body and the preservation
+  charge stands unmet as to that final
+  form, and it is not sustained in its
+  wider framing: the standing body is
+  the build lane's composed text, not
+  a recomposed text, and the
+  preservation the comment demands was
+  accomplished at the patch moment the
+  gate verified. The pull request
+  body's disposition of the comment
+  stands corrected in its ground by
+  the owner's patch to the body. No
+  figure of either round moves: the
+  thirty-sixth round's merge rested on
+  the equality of its merge tree,
+  e9f40960, with the reviewed closure
+  tree, and no figure contracted in
+  ST-207 to ST-211 or in ST-212 to
+  ST-216 rested on the body's length
+  or on the appendix; this round's
+  figures rest on the live body as it
+  stands.
