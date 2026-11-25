@@ -16158,3 +16158,140 @@ ST-61. The CodeRabbit disposition
   verified unchanged before the
   append. ST-55(a) stays open, carried
   by name into the forty-second round.
+- ST-239. Post-closure record for the
+  forty-first round, appended after
+  the round's closure by the
+  completion lane that finished the
+  round, standing outside the Status
+  range of ST-1 to ST-238 that ST-238
+  states. ST-238 charged the closure
+  gate in its strongest form, the
+  whole gate executed on the closure
+  tree itself with its figures
+  standing on the pull request's
+  record; this record sets that
+  execution down in the contract
+  itself, whole, in its two sittings.
+  The gate's staging stood at
+  secondtake-r41-gate, verified file
+  by file against the closure tree's
+  own manifest at 25 of 25 with no
+  extras, named distinctly from the
+  authoring staging at
+  secondtake-r41-closure where the
+  round's records and the README's
+  rounds line were prepared. Before
+  the first sitting, two launches
+  stand counted nowhere: a first try
+  at 2026-11-25T05:17:28Z died on its
+  output redirect in a wave of the box
+  write fault before the script
+  started, and a standing launch
+  acquired the slot and stood
+  probe-waiting in the wave inside its
+  first segment until the restart of
+  about 2026-11-25T07:19Z killed it
+  with no segment banked, five further
+  starts of the same script killed by
+  the build lane's own hand before any
+  acquired the slot. The first
+  sitting, the relaunched gate
+  starting 2026-11-25T07:20:23Z and
+  acquiring the slot at once, banked
+  every segment through the
+  differential on its first launch,
+  each exit 0: the codepoint scan at
+  zero of each character with its
+  planted control proven at one of
+  each, cargo fmt and cargo clippy
+  clean, the cargo suite at its 39
+  tests paired 0, 0, 22, 17, 0, the
+  release build reproducing the banked
+  digest outright at md5
+  d71227c59a09908659318f4b8c3facd6 at
+  the gate's own target path, the
+  battery at 34 cells and 0 problems
+  on the closure build and at 34 cells
+  and 0 problems on the banked base
+  build, the chain walk splitting at
+  digest 9096f14424 at this round's
+  oracle root in both runs, the
+  realistic at 160 steps and 0
+  problems with proposals keep 60,
+  revert 34, abstain 32, tune 22 and
+  statuses judged 40, abstained 20,
+  not_consulted 88, and the
+  differential at 33 cases and 0
+  problems. The sitting's pin-suite
+  segment was OOM-killed on its first
+  launch, exit 137, mid-run with the
+  screen suite's 13 already printed,
+  and the gate's holder then retried
+  that one segment in an unbounded
+  sixty-second loop for roughly three
+  hours with no build running between
+  attempts, holding the build slot
+  while four fleet gates queued behind
+  it, until Main cleared the holder
+  from the hub; the holder stands dead
+  and the lock free, verified at the
+  build lane's hand at
+  2026-11-25T10:41Z, and the banked
+  segments stand and count as
+  executed, nothing banked lost. The
+  second sitting is the reseat under
+  the owner's direction, the two
+  remaining segments relaunched only
+  in bounded, memory-fitting form with
+  the unbounded loop prohibited. The
+  pin suite ran as cargo test in the
+  pinned tree with build jobs and test
+  threads each limited to 2: its first
+  attempt, at 2026-11-25T10:41:25Z,
+  queued on the build slot behind
+  sibling work for about two hours ten
+  minutes and was killed by the
+  restart of about 2026-11-25T12:51Z
+  before the suite started, nothing
+  banked; its second attempt, launched
+  detached at 2026-11-25T12:53:16Z,
+  exited 0 with 241 passing over 19
+  result lines and the screen suite at
+  13, the total summed from the log's
+  own result lines at the completion
+  lane's hand. The golden ran under
+  the same bound at the completion
+  lane's hand, its first attempt at
+  2026-11-25T19:21:46Z exiting 0: the
+  conversion at 1,663 bytes digesting
+  to
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the verify command exiting 0, and
+  the output byte-identical to the
+  oracle's own fixture tape. With the
+  reseat the closure gate stands
+  executed whole on the closure tree
+  itself, every segment banked, in the
+  shape the thirty-sixth round set.
+  The build lane's own record ends
+  with the reseat's second attempt
+  standing launched; a completion lane
+  adopted the banked state, verified
+  the branch's chain of six commits
+  and every banked segment log at its
+  own hand, executed the golden,
+  appended this record, and opened the
+  round's pull request, the two lanes'
+  work disclosed here and on the pull
+  request's body. The contract stands
+  at 576,130 bytes with this record
+  appended, the figure computed by the
+  placeholder method: this record was
+  composed with a placeholder of the
+  same digit count standing where the
+  figure now stands, the wrapped
+  record measured, the total computed
+  and substituted, and the wrap
+  verified unchanged before the
+  append. ST-55(a) stays open, carried
+  by name into the forty-second round.
