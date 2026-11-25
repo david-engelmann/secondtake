@@ -16050,3 +16050,52 @@ ST-61. The CodeRabbit disposition
   byte-identical to the oracle's own
   fixture tape, the verify command
   exiting 0.
+- ST-237. The realistic run passes
+  whole: 160 steps with no problems,
+  the run's steps standing in the
+  decomposition ST-183 contracts, read
+  from the base contract itself for
+  this item. Of the 160 steps, 148 are
+  compare events and 12 are refusal
+  steps, and proposals and statuses
+  are counted over the 148 compare
+  events alone. The proposals over
+  those events stand at keep 60,
+  revert 34, abstain 32, and tune 22,
+  summing to the 148 compare events.
+  The statuses stand at judged 40,
+  abstained 20, and not_consulted 88,
+  also summing to the 148, and the 88
+  not_consulted steps decompose as 40
+  agreement steps, 24 steps at two
+  regressions, 12 steps below the pair
+  floor, and 12 band steps with no
+  judge configured; the
+  judge-configured band is 60 steps,
+  judged 40 and abstained 20. The
+  three parts sum as contracted, 60
+  plus 88 plus 12 refusals equaling
+  the 160 steps. The differential run
+  passes its 33 cases with no
+  problems, the help and usage
+  surfaces, the argument refusals, and
+  the registration and tape refusals
+  behaving as the standing items
+  record them, so the round's counted
+  total stands at 261, the battery's
+  34 cells on each of two builds, the
+  realistic run's 160 steps, and the
+  differential run's 33 cases. The
+  /dev/full state stands as observed
+  this round, a character device at
+  major 1 minor 7 in this lane's
+  process tree at its opening probe
+  and standing genuine again at the
+  check after each of the night's
+  restarts, its write failing with the
+  no-space error at the opening probe;
+  no cell of this round's family reads
+  or writes the device, and the base
+  tree's two occurrences of its path
+  stand in the record texts of ST-226
+  and ST-231.
