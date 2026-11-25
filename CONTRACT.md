@@ -16000,3 +16000,53 @@ ST-61. The CodeRabbit disposition
   sources unchanged this round and
   verified among the staged tree's 25
   files.
+- ST-236. The resolver band passes
+  whole on both builds. Against the
+  fresh build and against the banked
+  binary the battery's 15 resolver
+  cells pass with no problems in each
+  run: the remainder and re-meet
+  refusals named and byte-identical on
+  both sides, the link after a dead
+  component returning the digest
+  3979892dd1 on both sides in both
+  runs, and the loop waiting in the
+  remainder returning a digest on the
+  oracle side against an empty port
+  side in both runs, 0271a87169 in the
+  fresh build's run and 677aca3225 in
+  the banked binary's run, the two
+  runs' digests differing as the
+  oracle's text carries its own run's
+  working path, each digest the first
+  ten hex digits of the SHA-256 of
+  that side's standard error. The
+  chain walk splits where ST-65 puts
+  it in both runs: length 991 refusing
+  by name on both sides, and lengths
+  992 through 1100 in the crash class
+  on the oracle side against the named
+  refusal on the port side, the
+  oracle's crash text digesting to
+  9096f14424 in both runs at this
+  round's oracle root, the digest
+  stated root-scoped as the family has
+  stood since Round 33, the harness
+  derived under the strengthened guard
+  with the derivation asserting the
+  first substitution pair, so the
+  battery that ran is the battery
+  pointed at this round's extraction
+  of the oracle tree and this round's
+  two binaries. The pin suite runs
+  against the tape library pinned at
+  74a83298 and reports 241 passing
+  tests over 19 result lines, the
+  screen suite at 13, and the golden
+  tape verifies whole: the port's
+  conversion of the shipped fixture
+  record at 1,663 bytes, digesting to
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  byte-identical to the oracle's own
+  fixture tape, the verify command
+  exiting 0.
