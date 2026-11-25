@@ -15910,3 +15910,93 @@ ST-61. The CodeRabbit disposition
   homes, verified byte-identical at
   this round's read, and the question
   stands with the repository owner.
+- ST-235. The base gate ran whole on
+  the Round 40 final tree, the
+  contract at 550,370 bytes on the
+  main of 49c6fb65, in one hold of the
+  build slot, the completing execution
+  acquiring the slot at
+  2026-11-25T03:24:10Z and releasing
+  it at 03:33:08Z with every segment
+  passing on its first launch. Four
+  earlier launches of the same script
+  stand disclosed whole and counted
+  nowhere: the first acquired the slot
+  after a queue behind sibling holds
+  verified live in the process table
+  and stood probe-waiting in a hard
+  wave of the box write fault until
+  the restart of about
+  2026-11-24T19:51Z killed it with no
+  segment banked; the second banked
+  every segment through the
+  differential, its pin segment's
+  first launch exiting 101 on a write
+  refusal inside the pin build's
+  object write, and was killed in that
+  segment's probe-wait by the restart
+  of about 21:54Z; the third banked
+  through both battery runs, its
+  realistic segment's first launch
+  exiting 1 at its step 63 on a write
+  refusal inside the run's own fixture
+  writes, and was killed in the retry
+  wait by the restart of about 23:32Z;
+  the fourth banked every segment
+  through the differential, its pin
+  segment's first launch exiting 101
+  on write refusals in the pin build's
+  fingerprint and dep-info writes with
+  the library itself compiled, and was
+  killed in a further probe-wait by
+  the restart of about
+  2026-11-25T03:12Z, the wave before
+  that restart measured at this lane's
+  own hand at no successes in twenty
+  tries on each of three write routes.
+  In the completing execution the
+  codepoint scan over the tree's
+  Markdown and text files stands at
+  zero of each character, the gate's
+  own segment printing the zero
+  figures and a recount at this lane's
+  hand over the staged tree standing
+  at the same figures with a planted
+  control counted first in that
+  recount at one of each character.
+  Cargo fmt and cargo clippy stand
+  clean, and the cargo suite passes
+  its 39 tests paired as the standing
+  split, 0, 0, 22 in the compare
+  suite, 17 in the judge suite, and 0.
+  The release build under the gate's
+  own target directory reproduces the
+  banked binary's digest outright, md5
+  d71227c59a09908659318f4b8c3facd6 for
+  the fresh build and for the banked
+  binary of Round 40 alike, the
+  equality holding at those two build
+  paths and stated build-path scoped
+  as the digest has stood since Round
+  16. Against that build the judgment
+  battery's 19 judgment cells pass
+  with no problems, the deterministic
+  cells and the failure and malformed
+  classes behaving as the standing
+  items record them, and the
+  confidence floor exact at its three
+  probes in the judged cells: a
+  scripted tune at confidence 0.6
+  judged with proposal tune, a
+  scripted revert at 0.600001 judged
+  with proposal revert, and a scripted
+  revert at 0.599999 abstained with
+  the reason naming the confidence
+  below 0.6. The census reading the
+  identifier's full form 22 times in
+  the compare suite and 17 in the
+  judge suite stands as the prior
+  rounds measured it, the two suites'
+  sources unchanged this round and
+  verified among the staged tree's 25
+  files.
