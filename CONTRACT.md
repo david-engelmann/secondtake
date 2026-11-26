@@ -16519,3 +16519,75 @@ ST-61. The CodeRabbit disposition
   round's gate   scripts carry the
   bound by   construction, as ST-241
   records their   first use.
+- ST-241. The base gate, executed
+  whole   on a pristine fresh staging
+  of the   forty-first round's final
+  tree,   af174ae2, in the base
+  worktree at   secondtake-r42, staged
+  from the   standing verified copies
+  and asserted   file by file against
+  the tree's own   manifest at 25 of
+  25 with no extras:   hardlinks from
+  the forty-first   round's gate
+  staging, whose tree   differs from
+  this base in CONTRACT.md   alone,
+  and the contract itself taken   from
+  the forty-first round's closure
+  worktree at its post-record length
+  of   576,130 bytes, its blob id
+  asserted   against the manifest like
+  every other   file. The staging's
+  first performance   through the API
+  reported the same   verification
+  whole, but its local   writes did
+  not persist on this box   and the
+  staging was performed again
+  locally from the review clones'
+  object stores, the same manifests
+  resolving to the same trees, and
+  verified standing from a separate
+  session before the gate relied on
+  it;   the episode stands disclosed
+  here and   in the lane's record, no
+  figure   resting on the lost
+  performance. The   gate ran under
+  the line's build slot   in the
+  bounded form the forty-first
+  round's holder incident set
+  standing:   every segment bounded at
+  three   attempts, the pin suite in
+  its   memory-fitting form. It
+  completed on   its first launch: the
+  scan segment   banked on its second
+  attempt, its   first attempt, exit
+  2, having run   before the local
+  staging stood   complete, and every
+  other segment   banked on its first
+  attempt, the slot   released at the
+  gate's end. The   codepoint scan
+  counted zero U+2014   and zero
+  U+2013 over the tree, its   control
+  counted at this lane's hand   over a
+  planted string carrying one of
+  each character, counted one and one
+  before the zero was relied on. The
+  format check exited 0 with its log
+  empty, clippy exited 0 with no
+  warnings, and the test suite exited
+  0   with 39 tests paired against the
+  oracle across five result lines:   0
+  library, 0 binary, 22 compare,   17
+  judge, 0 doc. The release build
+  exited 0 and the fresh binary's
+  digest stands at
+  d71227c59a09908659318f4b8c3facd6,
+  taken by md5sum at
+  st42-scratch/target-base/release/secondtake,
+  equal to the banked binary's digest
+  at its own path in the forty-first
+  round's scratch, the equality
+  build-path scoped as the
+  thirty-ninth   round established.
+  The judgment band   of the battery
+  stands in ST-242 with   the resolver
+  band.
