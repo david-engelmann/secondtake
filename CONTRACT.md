@@ -16708,3 +16708,63 @@ ST-61. The CodeRabbit disposition
   to it raising no-space, and no
   figure   in this round rests on it
   either way.
+- ST-244. The forty-second round
+  closes. With this record the
+  contract's Status range stands at
+  ST-1 to ST-244, with ST-110 outside
+  it as the eighteenth round's repair
+  record, ST-144 outside it as the
+  twenty-fourth round's, ST-150
+  outside it as the twenty-fifth
+  round's, ST-156 outside it as the
+  twenty-sixth round's, ST-183 outside
+  it as the thirty-first round's,
+  ST-189 outside it as the
+  thirty-second round's, ST-200
+  outside it as the thirty-fourth
+  round's, ST-206 outside it as the
+  thirty-fifth round's, ST-217 outside
+  it as the thirty-seventh round's,
+  and ST-233 outside it as the
+  fortieth round's repair record
+  appended after its closure. The
+  round's five records stand at ST-240
+  to ST-244: the forty-first round's
+  pull request read back whole with
+  its gate graded in the open, the
+  base gate and the battery's judgment
+  band, the resolver band with the
+  tape-format pin and the golden, the
+  realistic and the differential with
+  the round total, and this closure.
+  The closure gate stands charged in
+  its strongest form: the whole gate
+  executed on this closure tree
+  itself, the round's gate staging at
+  secondtake-r42-gate verified file by
+  file against this closure tree's own
+  manifest at 25 of 25 with no extras,
+  named distinctly from the authoring
+  staging at secondtake-r42-closure
+  where this record and the README's
+  rounds line were prepared, its
+  figures standing on the pull
+  request's record, in the shape the
+  thirty-sixth round set and the
+  thirty-seventh, thirty-eighth,
+  thirty-ninth, fortieth, and
+  forty-first rounds held. The
+  README's rounds line moves to 42 of
+  100 in this closure commit alone.
+  The contract stands at 592,925 bytes
+  with this record appended, the
+  figure computed by the placeholder
+  method: this record was composed
+  with a placeholder of the same digit
+  count standing where the figure now
+  stands, the wrapped record measured,
+  the total computed and substituted,
+  and the wrap verified unchanged
+  before the append. ST-55(a) stays
+  open, carried by name into the
+  forty-third round.
