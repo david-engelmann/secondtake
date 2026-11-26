@@ -16910,3 +16910,253 @@ ST-61. The CodeRabbit disposition
   ST-244 that ST-244 states, as ST-245
   does. ST-55(a) stays open, carried
   by name into the forty-third round.
+- ST-247. Round 43 opens with the
+  read-back of pull request 64, the
+  Round 42 pull request, read whole at
+  this round's hand through the API:
+  the pull request itself, its seven
+  commits, its three issue comments,
+  its absent reviews and absent review
+  comments, its Actions runs on two
+  heads, its queue pull request, and
+  main at the merge. Pull request 64,
+  titled "refine: secondtake Round 42,
+  ST-240 to ST-244" at 45 chars,
+  stands merged: the Trunk queue
+  squash-merged it at
+  2026-11-26T21:33:02Z as
+  f8c711b86c85c7accec4fb8e14d8a23aaaee9daf,
+  whose tree
+  6432cefcbf5c643f5715b22fe44c29c3cccff1eb
+  equals the reviewed repair tree byte
+  for byte, its single parent the
+  Round 41 head
+  a7a6f47601a25e49c73f98ced3aad8c30f56c2ae,
+  and main stands at that commit with
+  25 blobs and CONTRACT.md at 597,952
+  bytes. The chain stands as the delta
+  reviews read it: ST-240 in
+  789d9dc95da345b4ba41e7d0d3fbcb8b70ee9d0b
+  at contract 584,086 bytes on
+  CONTRACT.md alone, ST-241 in
+  206eafe99943a49bca5fe1e04cd31fcaeaf82607
+  at 586,623 on CONTRACT.md alone,
+  ST-242 in
+  287357d8d8e5c6594cbc2f2fcbd33e2f8c6c0f16
+  at 589,192 on CONTRACT.md alone,
+  ST-243 in
+  191b9de427f1e5ccfaae5f35a8b54db7a45e6c3c
+  at 590,808 on CONTRACT.md alone, the
+  closure ST-244 in
+  72f87c70189148d2d2d0c3fdc9ca303b26b1f9d6
+  at 592,925 on CONTRACT.md and
+  README.md, the post-closure record
+  ST-245 in
+  c37cb00de2497b3d015669fe2ef6102b4ca9eb7a
+  at 596,043 on CONTRACT.md alone, and
+  the repair ST-246 in
+  ed22249f3584c5188a0129f06e443a40492bb8d0
+  at 597,952 on CONTRACT.md alone, the
+  Signed-off-by trailer standing on
+  all seven. Hosted CI stands green on
+  both heads: on the repair head, push
+  run 45887919282, dynamic run
+  45887920191, and pull_request run
+  45887926911, each completed success,
+  and on the reviewed head push run
+  45757161982, dynamic run
+  45757380263, and pull_request run
+  45757385107, each completed success.
+  The body stands at 18,844 chars in
+  its final form, its bot appendix
+  standing at offset 18,337 spanning
+  507 with its end marker closing the
+  body, and no gate record stands
+  after it. The census at this read is
+  three issue comments, no reviews,
+  and no review comments. The Trunk
+  note 7182899757, created
+  2026-11-26T04:47:06Z, stands in its
+  merged form at 113 chars, its last
+  edit the merge's own at
+  2026-11-26T21:33:05Z, recording the
+  successful merge with its queue
+  details link, at 403 chars in the
+  pre-merge form the gate read. The
+  owner's enqueue comment 7203720758,
+  the bare merge command at 12 chars,
+  created 2026-11-26T21:25:57Z and
+  never edited, stands last. The queue
+  pull request 65 stands closed
+  unmerged, created
+  2026-11-26T21:32:41Z and closed
+  2026-11-26T21:32:56Z on its queue
+  branch
+  trunk-merge/pr-64/185abc5b-c786-49ca-976c-8cde730cc6fd.
+  The CodeRabbit shell 7182902298
+  stands settled at its true final
+  form of 11,425 chars at this read,
+  last edited 2026-11-26T20:09:37Z and
+  not edited at or after the merge: it
+  stood at 10,957 chars at the build
+  lane's Step 0 read (created
+  2026-11-26T04:47:16Z, updated
+  2026-11-26T04:49:03Z), at 10,959 at
+  the build lane's final verification
+  and at the red team's read, and the
+  bot's re-review of the repair commit
+  carried it to 11,425 at 20:09:37Z,
+  where it stands. Its substance
+  grades clean against the record at
+  this read. The re-review (Run ID
+  c7f03b44-5682-4e3a-8e46-1b495541553c)
+  reviewed the range
+  c37cb00de2497b3d015669fe2ef6102b4ca9eb7a
+  to
+  ed22249f3584c5188a0129f06e443a40492bb8d0
+  with CONTRACT.md alone selected for
+  processing and one file skipped as
+  similar to previous changes, and it
+  generated no actionable comments.
+  Its walkthrough stands in three rows
+  over CONTRACT.md and README.md and
+  is accurate, the third row carrying
+  the closure, the post-closure gate
+  record, and the correction of four
+  pull-request timestamps, and its
+  summary states plainly that the
+  changes document verification
+  results and do not change runtime
+  behavior. Its change assessment
+  stands pinned to
+  ed22249f3584c5188a0129f06e443a40492bb8d0
+  as source and covered commit at kind
+  reviewed, effort 2 (Simple) at about
+  ten minutes, priority p3, Change
+  type Other. Its merge risk stands
+  Minimal up to ed22249f, the risk
+  icon again reading unassessed
+  against its own Minimal label, as in
+  Round 41's shell. Its pre-merge
+  checks stand at four passed: the
+  Title check passed with its full
+  detail standing (the title names a
+  Round 42 record update for ST-240 to
+  ST-244 in CONTRACT.md matching the
+  summary and objectives, the refine
+  prefix a conventional commit type,
+  and secondtake and the identifier
+  range unexplained labels), the
+  Description check passed as skipped
+  under the enabled high-level
+  summary, and the Linked Issues and
+  Out of Scope checks passed as
+  skipped for no linked issues. Its
+  finishing touches and its Autofix
+  checkbox stand unticked, and its
+  review stands on the included
+  allowance with none remaining. No
+  "Addressed in commit" line stands
+  anywhere on the shell: the bot
+  generated no actionable comment for
+  the repair to answer, and the ST-246
+  corrections answered the two
+  reviews' Minor, not a bot comment.
+  The Round 42 gate grades as follows,
+  from the five reports on disk read
+  at this round's hand. The standards
+  axis returned APPROVE at 6,945 chars
+  with no findings. The spec axis
+  returned REPAIR at 13,281 chars on
+  one Minor, S-1, at its reseated
+  seating, its first seating having
+  ended silently with only its
+  655-byte skeleton banked: ST-240's
+  four-stamp cluster for pull request
+  62's record (the shell's last edit,
+  the enqueue's creation, the queue
+  pull request's opening and closing,
+  and the Trunk note's last edit)
+  stood wrong against the live record
+  in the four particulars ST-246 later
+  enumerated. The red team returned
+  APPROVE at 12,241 bytes with the
+  same Minor at its limb L6, every
+  other limb executed: the base and
+  the oracle and the pin re-derived
+  from the live record, the chain
+  re-walked, the base gate's logs
+  re-read segment by segment, the
+  battery and the realistic and the
+  differential re-derived from their
+  banked cells, the closure staging
+  attribution proven against the
+  closure tree's own manifest, and the
+  chain-split digest proven
+  root-scoped, its own root digesting
+  the split at 16dffa56fd with the 992
+  stderrs byte-identical across three
+  roots. The repair stands as ST-246:
+  one server-side commit
+  ed22249f3584c5188a0129f06e443a40492bb8d0
+  appended over the reviewed head,
+  CONTRACT.md alone, correcting all
+  four stamps from the live record
+  with ST-240 unrewritten, the item's
+  substance standing entire, and the
+  body patched in its Verified block
+  alone with the bot appendix
+  preserved whole in its re-rendered
+  form spanning 507. The spec delta
+  review returned PASS at 7,140 chars
+  with no findings, the Minor
+  discharged, and the standards delta
+  review returned APPROVE at 8,200
+  chars with no findings at the fourth
+  seating of that axis: the first
+  seating failed at bootstrap on a
+  database write admission timeout,
+  the second ended silently having
+  banked nothing, the third banked the
+  report skeleton with sections 1, 3,
+  4, and 6 filled and then ended
+  silently with sections 2 and 5
+  pending and the verdict unentered,
+  and the fourth read the banked
+  report whole, re-read the live
+  record at its own hand, filled
+  sections 2 and 5, and entered the
+  verdict. One charge from that gate
+  stands open by name, and this item
+  carries it forward in the open: the
+  red team's limb L5, the pin suite
+  execution and the golden conversion
+  re-run at that axis, stood UNTESTED
+  across three bounded attempts (the
+  first ended on a cargo argument
+  error of the red team's own
+  scripting before any test ran, the
+  second launched into the slot queue
+  and was terminated at
+  2026-11-26T13:50:10Z with no segment
+  executed, and the third never
+  acquired the slot behind the closure
+  holds and stood down at
+  2026-11-26T15:00:45Z) and stands
+  charged by name to Round 43's red
+  team, to be discharged by execution
+  at that axis. This round's own pin
+  suite and golden executions in the
+  family below are the build lane's
+  standing business; they grade this
+  round's tree, and they do not
+  discharge that charge. The
+  verification family follows on this
+  base: the base gate whole on
+  f8c711b86c85c7accec4fb8e14d8a23aaaee9daf,
+  the resolver band with the pin suite
+  and the golden, the realistic run
+  and the differential, then the
+  closure. ST-55(a) stays open,
+  carried by name into the
+  forty-fourth round.
