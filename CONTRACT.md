@@ -16591,3 +16591,75 @@ ST-61. The CodeRabbit disposition
   The judgment band   of the battery
   stands in ST-242 with   the resolver
   band.
+- ST-242. The resolver band, the pin
+  suite, and the golden tape, executed
+  as part of the same base gate on the
+  same base tree. The battery ran 34
+  cells against the fresh release
+  build   and 34 against the banked
+  binary,   every cell ok on both: the
+  19   judgment cells J01 to J19 and
+  the 15   resolver cells. The
+  confidence floor   stands exact at
+  its probes on both   builds: a
+  judged tune at confidence   0.6
+  exactly, a judged revert at
+  0.600001, and an abstention at
+  0.599999 carrying the reason that
+  the   judge's confidence is below
+  0.6, the   three probes' full status
+  and call   sequences standing in the
+  gate's   battery logs. The chain
+  split stands   at ST-65's points on
+  both builds:   C989, C990, and C991
+  a named refusal   on both sides,
+  C992, C993, and C1100   split, the
+  oracle in its crash class   and the
+  port at its named refusal.   The
+  split's digest stands at
+  490c7ea816 at this round's oracle
+  root, stated as root-scoped in the
+  form the forty-first round's reviews
+  established: the digest is taken
+  over   a text carrying the scratch
+  root, so   the figure differs from
+  the   forty-first round's 9096f14424
+  as the   root differs, and what
+  carries is the   class, crash class
+  against named   refusal, not the
+  digest. S3's digest   stands at
+  3979892dd1 on both sides,   and S5's
+  Python side again carries a
+  run-scoped digest, b2b583bebb on the
+  fresh build and a11d4289e3 on the
+  banked, the cell ok on both. The pin
+  suite ran in its memory-fitting
+  form,   two build jobs and two test
+  threads   under its own target
+  directory, the   standing remedy for
+  the full-parallel   form's death by
+  the memory limit in   the
+  forty-first round, and banked on
+  the gate's first launch: 241 tests
+  passed with none failed, summed at
+  this lane's hand from the suite's
+  own   19 result lines in its gate
+  log, the   screen suite among them
+  at 13. The   pin tree, 74a83298 at
+  tree afd4d7d1,   stood verified
+  whole before reliance,   50 blobs
+  asserted by blob id at the
+  staging. The golden tape converted
+  on   its first attempt under the
+  same   bound: the closure of the
+  shipped   fixture set converts to
+  1,663 bytes   whose SHA-256 stands
+  at
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the verify step exiting 0 and the
+  output standing byte-identical to
+  the   oracle fixture tape. The
+  oracle   itself, commit 18bf37b at
+  tree   b1ea368b, stood verified
+  whole before   reliance, 35 blobs
+  asserted the same   way.
