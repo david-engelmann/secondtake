@@ -16295,3 +16295,227 @@ ST-61. The CodeRabbit disposition
   verified unchanged before the
   append. ST-55(a) stays open, carried
   by name into the forty-second round.
+- ST-240. Read-back of pull request
+  62,   the forty-first round's pull
+  request,   read whole at this
+  round's opening   against the live
+  record, and the   forty-first
+  round's gate graded   against its
+  three review reports. The   title
+  stands at "refine: secondtake
+  Round 41, ST-234 to ST-238", 45
+  characters. The body stands at
+  20,871   characters in its final
+  form: the   build lane's composed
+  body of 20,329   characters, its
+  opening placeholder   replaced by
+  patch, and the owner's   gate record
+  of 542 characters   appended after
+  the bot's appendix at   the landing.
+  The bot's release-notes   appendix
+  stands inside the lane's   body at
+  offset 19,926 spanning 403
+  characters to its end marker at
+  20,329, the offset and the span
+  summing to the lane body's length
+  exactly: a Summary by CodeRabbit
+  naming the round records and the
+  move   to 41 of 100 under its
+  Documentation   head. The owner's
+  gate record, 542   characters with
+  its separator, names   the three
+  reviews complete and clean   with
+  their figures, states that CI
+  completed success on the head, and
+  lands the round on that record; no
+  separate landing comment stands
+  anywhere on the pull request. The
+  shell, comment 7172236824, stands at
+  its TRUE FINAL FORM of 10,755
+  characters at this read, last edited
+  2026-11-25T19:31:03Z, not edited at
+  or after the merge: its growth
+  closes   at 10,751 characters at the
+  build   lane's patch read, its
+  last-edit   stamp then reading
+  19:25:26Z, 10,753   at the three
+  reviewers' reads, and   10,755 at
+  the owner's landing read   and at
+  this read. Its substance   stands as
+  the lane graded it in the   body and
+  the spec review confirmed at   its
+  own read: no actionable comments;
+  the walkthrough accurate in
+  substance,   naming the records and
+  the README's   move to 41 of 100,
+  its one loose   phrase presenting
+  ST-234's   duplicated-accounting
+  correction,   a finding the lane
+  raised and   corrected inside that
+  item, in the   dress of a review
+  finding about the   pull request;
+  merge risk minimal to   the head
+  commit; the four pre-merge   checks
+  passed, the title check's own
+  caveat naming the ST-239 omission
+  exactly as the body's register does;
+  and the configuration tail standing
+  as the lane recorded it, the source
+  fields unavailable, the included
+  allowance spent. This lane's own
+  re-fetch of the shell's verbatim
+  text   stands undisposed after an
+  hour in   the helper's retry cycle
+  at this   writing and is disclosed
+  as such; the   grading above rests
+  on the three   reads the round's own
+  record carries   and on the figure
+  and last-edit stamp   at this lane's
+  hand, and no figure in   this item
+  rests on the lost fetch.   The
+  census at this read is three   issue
+  comments, no reviews, and no
+  review comments: the Trunk note,
+  comment 7172233020, created
+  2026-11-25T19:23:43Z, standing at
+  113   characters in its merged form
+  at this   read against the 403
+  characters of   its pre-merge form
+  at the gate, its   last edit the
+  merge's own at
+  2026-11-26T01:06:10Z; the shell; and
+  the owner's enqueue, comment
+  7179191158, "/trunk merge" at 12
+  characters, created
+  2026-11-26T01:04:35Z, never edited,
+  standing last of the three. Two
+  comments stood at the gate, the
+  enqueue the third; the brief's
+  census   of two is settled as the
+  gate's   moment rather than this
+  read's, the   one figure in the
+  brief this record   corrects. The
+  queue's own pull   request, 63,
+  stands closed and   unmerged, opened
+  2026-11-26T01:05:10Z   on the queue
+  branch and closed at   01:06:08Z
+  inside the merge. The merge   is the
+  squash commit
+  a7a6f47601a291204baf45f5f6b86a5673b75b37
+  on main, a single parent 49c6fb65,
+  its tree
+  af174ae22e434a3f47bee73287f7612d56ae2c97
+  equal to the reviewed head's tree.
+  The chain stands as the pull request
+  carried it, each commit read at this
+  lane's hand with its tree, its
+  contract size, and its Signed-off-by
+  trailer present: ST-234 at 297a12a1,
+  tree c7e5810b, the contract at
+  562,384   bytes, CONTRACT.md alone;
+  ST-235 at   4044f5ba, tree f66e71e6,
+  565,583   bytes, CONTRACT.md alone;
+  ST-236 at   b47097a6, tree a04f0cf5,
+  567,397   bytes, CONTRACT.md alone;
+  ST-237 at   ccdaa595, tree 738caa3c,
+  569,140   bytes, CONTRACT.md alone;
+  the closure   ST-238 at 25caff10,
+  tree fefbe890,   571,239 bytes,
+  CONTRACT.md and   README.md; and
+  ST-239 at 418311db,   tree af174ae2,
+  576,130 bytes,   CONTRACT.md alone.
+  The byte-prefix   law holds over the
+  chain at this   lane's hand, each
+  contract an exact   byte prefix of
+  the next from the   base's 550,370
+  bytes to the head's   576,130,
+  verified against the local   clone
+  whose tree the API read   confirms.
+  Hosted CI on the final head   stands
+  completed success at this read   in
+  all three runs: the push run
+  45684696877, the dynamic run
+  45684745130, and the pull request
+  run   45684756374, and the closure
+  head's   push run 45552027322
+  completed   success before them. The
+  base this   round builds on stands
+  verified live:   main at a7a6f476,
+  tree af174ae2, 25   blobs, the
+  contract at 576,130 bytes,   the
+  README's rounds line at 41 of   100,
+  and item 3 PASSING outright, the
+  canonical line standing
+  byte-identical   in the repository's
+  description, the   README's lede,
+  and the Cargo.toml   description at
+  this read. The   forty-first round's
+  gate, graded   against its three
+  review reports on   disk, each read
+  whole at this lane's   hand: the
+  spec review PASS at 9,459
+  characters with no findings, its one
+  observation standing open without
+  text owed, that the closure gate's
+  format segment log stands empty at
+  0 bytes, its exit 0 resting on the
+  gate script's accounting as ST-239
+  and the lane's record state it, with
+  nothing anywhere contradicting it;
+  the standards review APPROVE at
+  9,521   characters with no findings
+  at the   second seating, the first
+  standards   lane having ended
+  silently with only   its skeleton
+  banked, its reseat   grading the
+  reseat's bounded form   honored
+  exactly; and the red team   APPROVE
+  at 10,164 characters with no
+  findings, all eight limbs executed
+  at   its own hand, the whole gate
+  re-run   on its own extraction, the
+  binary   digest reproduced outright
+  at its   path, the chain-split
+  path-scoping   proven in the
+  strongest form at   9096f14424 under
+  its own oracle root,   and the pin
+  suite re-summed at 241   over its 19
+  lines. The closure gate's   own
+  history stands as the record
+  states it: executed whole on the
+  closure tree across two sittings,
+  the   first sitting banking every
+  segment   through the differential
+  on its first   launch, its pin
+  segment killed by the   memory limit
+  at exit 137 with the   screen
+  already printed, and its   holder
+  then retrying that one segment   in
+  an unbounded loop of 60-second
+  attempts for roughly three hours,
+  holding the line's build slot, until
+  Main cleared it from the hub; the
+  reseat then ran under owner
+  direction   in bounded,
+  memory-fitting form, its   first
+  attempt queued some two hours   ten
+  minutes and killed by the restart
+  of about 2026-11-25T12:51Z with
+  nothing banked, its second attempt
+  launched detached at 12:53:16Z and
+  exiting 0 at 12:53:49Z with 241 over
+  19 and the screen at 13; and the
+  golden executed by the completion
+  lane on its first attempt at
+  19:21:46Z, exit 0, two lanes having
+  built the round between them, as
+  ST-239 and the body disclose. The
+  consequence standing from the holder
+  episode is the bounded-retry law
+  this   line now runs under, three
+  attempts   per segment at most, each
+  disclosed,   unbounded loops under
+  the slot   prohibited, and this
+  round's gate   scripts carry the
+  bound by   construction, as ST-241
+  records their   first use.
