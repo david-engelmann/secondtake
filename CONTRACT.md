@@ -16855,3 +16855,58 @@ ST-61. The CodeRabbit disposition
   before the append. ST-55(a) stays
   open, carried by name into the
   forty-third round.
+- ST-246. Repair record for ST-240,
+  appended after the round's closure
+  on the forty-second round's own
+  gate, the original item standing
+  unrewritten. The spec fidelity
+  review's Minor S-1 and the red team
+  re-audit's Minor at its limb L6 name
+  one defect between them: ST-240's
+  stamp cluster for the forty-first
+  round's pull request record does not
+  match the live record in four
+  places, each corrected here from the
+  live record read firsthand at this
+  repair's hand. First, the shell,
+  comment 7172236824: ST-240 states
+  its last edit as
+  2026-11-25T19:31:03Z; the live
+  record reads 2026-11-26T00:51:57Z,
+  the second at which the owner's
+  enqueue was created. Second, the
+  owner's enqueue, comment 7179191158:
+  ST-240 states it created
+  2026-11-26T01:04:35Z; the live
+  record reads created
+  2026-11-26T00:51:57Z, never edited.
+  Third, the queue's pull request 63:
+  ST-240 states it opened
+  2026-11-26T01:05:10Z and closed at
+  01:06:08Z; the live record reads
+  created 2026-11-26T00:58:38Z and
+  closed 2026-11-26T01:06:03Z, the
+  01:06:08Z stamp being the merge's
+  own. Fourth, the Trunk note, comment
+  7172233020: ST-240 states its last
+  edit at 2026-11-26T01:06:10Z; the
+  live record reads
+  2026-11-26T01:06:11Z. The
+  settlement's substance stands entire
+  and is not disturbed by these
+  corrections: the shell stands at its
+  true final form of 10,755
+  characters, and every stamp in the
+  corrected cluster precedes the merge
+  at 2026-11-26T01:06:08Z, the shell's
+  last edit at 00:51:57Z by some
+  fourteen minutes, so ST-240's
+  statement that the shell was not
+  edited at or after the merge holds
+  as written. Every other figure in
+  ST-240 stands as the two reviews
+  verified it. This record stands
+  outside the Status range of ST-1 to
+  ST-244 that ST-244 states, as ST-245
+  does. ST-55(a) stays open, carried
+  by name into the forty-third round.
