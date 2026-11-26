@@ -16663,3 +16663,48 @@ ST-61. The CodeRabbit disposition
   tree   b1ea368b, stood verified
   whole before   reliance, 35 blobs
   asserted the same   way.
+- ST-243. The realistic run and the
+  differential, executed as part of
+  the   same base gate, and the round
+  total.   The realistic run drove the
+  fresh   binary and the oracle in
+  lockstep   over the shipped fixture
+  corpus and   its generated tapes:
+  160 steps, no   problems, every
+  step's outputs in   agreement. The
+  run decomposes as   ST-183
+  established it, 148 compare   events
+  and 12 refusal steps standing
+  outside them. Its proposals stand at
+  keep 60, revert 34, abstain 32, and
+  tune 22, summing to the 148 events,
+  and its judgment statuses at judged
+  40, abstained 20, and not_consulted
+  88, the 88 standing as 40 agreement
+  and conclusive-rule steps, 24
+  two-regression steps, 12
+  insufficient-pair steps, and 12 band
+  steps with no judge configured, the
+  60 consulted steps and the 88
+  unconsulted steps and the 12 refusal
+  steps summing to the run's 160. The
+  differential ran 33 cases over the
+  command surface, no problems, the
+  port and the oracle in agreement on
+  exit codes and output shape from the
+  help texts to the malformed-input
+  refusals. The round total stands at
+  261, traced from its parts: 34
+  battery cells on the fresh build and
+  34 on the banked, 160 realistic
+  steps, and 33 differential cases. No
+  cell of this round's family reads or
+  writes /dev/full, searched at this
+  lane's hand over the family's three
+  harnesses before this was written;
+  the device stands genuine in this
+  lane's own process tree at this
+  round, character device 1,7, a write
+  to it raising no-space, and no
+  figure   in this round rests on it
+  either way.
