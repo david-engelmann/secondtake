@@ -17160,3 +17160,72 @@ ST-61. The CodeRabbit disposition
   closure. ST-55(a) stays open,
   carried by name into the
   forty-fourth round.
+- ST-248. The base gate, executed
+  whole on a pristine staging of the
+  forty-second round's final tree,
+  6432cefc, in the base worktree at
+  secondtake-r43, staged from the
+  standing verified copies and
+  asserted file by file against the
+  tree's own manifest at 25 of 25 with
+  no extras: hardlinks from the
+  forty-second round's closure gate
+  staging, whose tree differs from
+  this base in CONTRACT.md alone, and
+  the contract itself taken from the
+  forty-second round's closure
+  worktree at its final length of
+  597,952 bytes, its blob id asserted
+  against the manifest like every
+  other file. The manifests resolved
+  from this line's local clones, the
+  secondtake clone for the base and
+  the oracle and the flighttape clone
+  for the pin, the same trees the
+  read-back read through the API, and
+  the staging stood verified from a
+  separate session before the gate
+  relied on it. The gate ran under the
+  line's build slot in the bounded
+  form the forty-first round's holder
+  incident set standing: every segment
+  bounded at three attempts, the pin
+  suite in its memory-fitting form. It
+  completed on its second launch: the
+  first launch, begun
+  2026-11-26T22:38:10Z, died in the
+  slot queue to a runtime restart at
+  about 2026-11-26T22:53Z with no
+  segment executed, counted nowhere,
+  the queue ahead of it standing live
+  at its last check, and the second
+  launch, begun 2026-11-26T22:54:46Z,
+  held the slot to
+  2026-11-26T23:02:59Z and banked
+  every segment on its first attempt.
+  The codepoint scan counted zero
+  U+2014 and zero U+2013 over the
+  tree, its control counted at this
+  lane's hand over a planted copy
+  carrying one of each character,
+  counted one and one with exit 1
+  before the zero was relied on. The
+  format check exited 0 with its log
+  empty, clippy exited 0 with no
+  warnings, and the test suite exited
+  0 with 39 tests paired against the
+  oracle across five result lines: 0
+  library, 0 binary, 22 compare, 17
+  judge, 0 doc. The release build
+  exited 0 and the fresh binary's
+  digest stands at
+  d71227c59a09908659318f4b8c3facd6,
+  taken by md5sum at
+  st43-scratch/target-base/release/secondtake,
+  equal to the banked binary's digest
+  at its own path in the forty-second
+  round's scratch, the equality
+  build-path scoped as the
+  thirty-ninth round established. The
+  judgment band of the battery stands
+  in ST-249 with the resolver band.
