@@ -17857,3 +17857,55 @@ ST-61. The CodeRabbit disposition
   closure. ST-55(a) stays open,
   carried by name into the forty-fifth
   round.
+- ST-255. The base gate for Round 44
+  stands executed whole under the
+  build slot's exclusive hold on a
+  pristine staging of the forty-third
+  round's final tree
+  d6090d5ccc2421f9bc95e65263e343c4685a04a2,
+  the tree main carries at the Round
+  43 merge
+  b079176da7292812fcc0d3fa0fc01bbad895061a:
+  the staging was assembled fresh
+  through the API at this round's own
+  path and verified file by file
+  against the tree's manifest before
+  the gate relied on it, 25 files of
+  25 with no extras, CONTRACT.md
+  standing at 619,873 bytes. The
+  gate's first launch died queued in a
+  daemon restart before the slot and
+  counts nowhere; the gate then ran in
+  one sitting on its second launch,
+  the slot held from
+  2026-11-27T05:40:52Z to
+  2026-11-27T06:00:15Z, and every
+  segment stands at attempt 1 inside
+  the hold. The codepoint scan over
+  the tree counts U+2014 0 and U+2013
+  0, the scanner's planted control
+  counted first at this round's hand:
+  a control file carrying one of each
+  counts 1 and 1 with exit 1 standing
+  in the tree, and the tree counts 0
+  and 0 with the control removed. The
+  format check exits 0 with its log
+  empty, clippy with warnings denied
+  exits 0, and the cargo suite passes
+  paired at 39 tests with none failed:
+  0 in the library, 0 in the binary,
+  22 in the compare tests, and 17 in
+  the judge tests, no doc tests
+  standing. The release build exits 0,
+  and its binary stands at MD5
+  d71227c59a09908659318f4b8c3facd6 at
+  this round's own target path, the
+  same digest the Round 43 gate banked
+  at its own path, the digest being
+  build-path scoped and read here at
+  this round's path alone. The
+  batteries, the resolver band, the
+  pin, and the golden follow in
+  ST-256, and the realistic run, the
+  differential, and the round total in
+  ST-257.
