@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 480" width="1040" height="480" role="img" aria-label="secondtake technical architecture">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#34D399"/>
+    </marker>
+    <marker id="arrMuted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#64748B"/>
+    </marker>
+  </defs>
+  <rect width="1040" height="480" rx="14" fill="#0B0F17" stroke="#1E293B" stroke-width="2"/>
+  <text x="28" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="700" fill="#F8FAFC">secondtake  //  TECHNICAL ARCHITECTURE &amp; INVARIANT BOUNDARIES</text>
+  <text x="28" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" fill="#94A3B8">Evaluates cost, time, rework, and rescue rate into a deterministic keep, tune, revert, or abstain.</text>
+  <line x1="28" y1="72" x2="1012" y2="72" stroke="#1E293B" stroke-width="1.2"/>
+  <rect x="28" y="96" width="220" height="165" rx="10" fill="#111827" stroke="#334155" stroke-width="1.8"/>
+  <text x="42" y="120" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="700" fill="#F8FAFC">1. Inputs &amp; Registration</text>
+  <text x="42" y="140" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">before/*.json (tapes v1.0)</text>
+  <text x="42" y="157" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">after/*.json  (tapes v1.0)</text>
+  <text x="42" y="174" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">registration.json:</text>
+  <text x="42" y="191" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">  cost_pct (def 10%)</text>
+  <text x="42" y="208" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">  time_pct (def 10%)</text>
+  <text x="42" y="225" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">  rework_per_pair (def 1)</text>
+  <text x="42" y="242" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">  rescue_points (def 5pp)</text>
+  <text x="42" y="259" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">  min_pairs (def 1)</text>
+  <rect x="284" y="96" width="235" height="165" rx="10" fill="#111827" stroke="#34D399" stroke-width="1.8"/>
+  <text x="298" y="120" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="700" fill="#F8FAFC">2. Task-Key Pairing</text>
+  <text x="298" y="140" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">Validate every tape; list</text>
+  <text x="298" y="157" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">invalid in excluded[]</text>
+  <text x="298" y="174" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">Extract 1st main-chain</text>
+  <text x="298" y="191" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">user message text</text>
+  <text x="298" y="208" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">Compute Canonical Form 1</text>
+  <text x="298" y="225" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">SHA-256 task key</text>
+  <text x="298" y="242" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">1:1 match -&gt; pairs[];</text>
+  <text x="298" y="259" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">1:N -&gt; ambiguous[]</text>
+  <rect x="555" y="96" width="225" height="165" rx="10" fill="#111827" stroke="#334155" stroke-width="1.8"/>
+  <text x="569" y="120" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="700" fill="#F8FAFC">3. Four-Axis Scoring</text>
+  <text x="569" y="140" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">1. Cost (USD or tokens)</text>
+  <text x="569" y="157" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">2. Duration (seconds)</text>
+  <text x="569" y="174" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">3. Rework (redo moments)</text>
+  <text x="569" y="191" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">4. Rescue rate (% of error</text>
+  <text x="569" y="208" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">   tapes ending completed)</text>
+  <text x="569" y="225" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">Compare aggregate deltas</text>
+  <text x="569" y="242" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">against registered margins</text>
+  <rect x="816" y="96" width="196" height="165" rx="10" fill="#06281E" stroke="#34D399" stroke-width="1.8"/>
+  <text x="830" y="120" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="700" fill="#34D399">4. Proposal Band</text>
+  <text x="830" y="140" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">pairs &lt; min_pairs:</text>
+  <text x="830" y="157" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">  -&gt; abstain</text>
+  <text x="830" y="174" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">0 regressions:</text>
+  <text x="830" y="191" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">  -&gt; keep</text>
+  <text x="830" y="208" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">&gt;= 2 regressions:</text>
+  <text x="830" y="225" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">  -&gt; revert</text>
+  <text x="830" y="242" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">1 regression:</text>
+  <text x="830" y="259" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">  -&gt; tune / JEV judge</text>
+  <line x1="248" y1="178" x2="282" y2="178" stroke="#34D399" stroke-width="2.2" marker-end="url(#arr)"/>
+  <line x1="519" y1="178" x2="553" y2="178" stroke="#34D399" stroke-width="2.2" marker-end="url(#arr)"/>
+  <line x1="780" y1="178" x2="814" y2="178" stroke="#34D399" stroke-width="2.2" marker-end="url(#arr)"/>
+  <rect x="28" y="294" width="491" height="152" rx="10" fill="#111827" stroke="#334155" stroke-width="1.8"/>
+  <text x="42" y="318" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="700" fill="#F8FAFC">One-Regression Judge Protocol (Replay or Live JEV)</text>
+  <text x="42" y="338" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">- Invoked ONLY when pairs &gt;= min_pairs and exactly 1 measure regresses</text>
+  <text x="42" y="355" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">- Deterministic comparison card passed to --judge &lt;file&gt; or --judge live</text>
+  <text x="42" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">- Judge verdict stands iff confidence &gt;= 0.60; below 0.60 -&gt; abstain</text>
+  <text x="42" y="389" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">- Unavailable live judge preserves deterministic &#x27;tune&#x27; with status noted</text>
+  <rect x="555" y="294" width="457" height="152" rx="10" fill="#111827" stroke="#334155" stroke-width="1.8"/>
+  <text x="569" y="318" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="700" fill="#F8FAFC">Write-Isolation &amp; Determinism</text>
+  <text x="569" y="338" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">- Refuses -o inside before/ or after/, or matching registration/judge</text>
+  <text x="569" y="355" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">- Atomic sibling tempfile via OS CSPRNG + rename into destination</text>
+  <text x="569" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">- Zero model calls on keep, revert, or pair-floor abstain paths</text>
+  <text x="569" y="389" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#94A3B8">- Pinned JSON Schemas: registration, judgments, and comparison</text>
+</svg>

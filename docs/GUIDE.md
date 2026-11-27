@@ -1,3 +1,18 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="media/lockup-dark.svg">
+    <img src="media/lockup-light.svg" alt="secondtake" width="760">
+  </picture>
+</p>
+
+<p align="center">
+  <img src="media/money-shot.gif" alt="secondtake matched-pair comparison showcase" width="880">
+</p>
+
+<p align="center">
+  <img src="media/architecture.svg" alt="secondtake four-axis evaluation architecture" width="900">
+</p>
+
 # Secondtake Operator and Integrator Guide
 
 `secondtake` evaluates agent setup changes (system prompts, `AGENTS.md` / `CLAUDE.md` edits, model upgrades, tool harness updates) by pairing `flighttape` `1.0` session tapes recorded before and after a registered change, scoring four behavioral measures, and emitting a single deterministic JSON comparison document with a `keep`, `tune`, `revert`, or `abstain` proposal.
@@ -71,7 +86,8 @@ Every comparison requires `--registration <path>` pointing to a JSON object writ
 ### Fields and Defaults
 
 - `change` (required): Non-empty single-line UTF-8 string naming the setup change (`
-`, ``, `	`, ASCII control characters `< 0x20`, `0x7F`, `U+0085`, `U+2028`, and `U+2029` are refused).
+`, `
+`, `	`, ASCII control characters `< 0x20`, `0x7F`, `U+0085`, `U+2028`, and `U+2029` are refused).
 - `date` (required): Non-empty single-line UTF-8 string recording the registration date (conventionally `YYYY-MM-DD`).
 - `margins` (optional, or `null`): Object overriding one or more non-negative numeric regression margins. Unknown keys inside `margins` are refused immediately. Defaults when omitted:
   - `cost_pct`: `10` (percent increase allowed)
@@ -250,3 +266,15 @@ print(f"secondtake proposal={proposal} regressions={doc["regressions"]}")
 sys.exit(0 if proposal == "keep" else 1)
 '
 ```
+
+---
+
+## Shell Completions & `cargo-binstall`
+
+```sh
+cargo binstall secondtake
+
+# Shell completions (bash, zsh, fish, PowerShell)
+source completions/secondtake.bash
+```
+

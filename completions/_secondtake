@@ -1,0 +1,15 @@
+#compdef secondtake
+
+_secondtake() {
+    local -a subcommands
+    subcommands=(
+        'compare:secondtake compare subcommand'
+    )
+    if (( CURRENT == 2 )); then
+        _describe -t commands 'secondtake subcommand' subcommands
+        return
+    fi
+    _arguments -s '--registration' '--judge' '-o' '--output' '-h' '--help' '*:file:_files'
+}
+
+_secondtake "$@"
