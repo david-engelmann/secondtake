@@ -1,0 +1,683 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/david-engelmann/secondtake/schema/comparison.schema.json",
+  "title": "Secondtake Comparison Output",
+  "description": "Comparison document emitted by `secondtake compare`.",
+  "type": "object",
+  "required": [
+    "registration",
+    "matching_rule",
+    "proposal_rule",
+    "before",
+    "after",
+    "pairs",
+    "aggregates",
+    "unmatched",
+    "ambiguous",
+    "unmatchable",
+    "regressions",
+    "proposal",
+    "judgment"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "registration": {
+      "type": "object",
+      "required": [
+        "change",
+        "date",
+        "margins",
+        "min_pairs"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "change": {
+          "type": "string",
+          "minLength": 1
+        },
+        "date": {
+          "type": "string",
+          "minLength": 1
+        },
+        "margins": {
+          "type": "object",
+          "required": [
+            "cost_pct",
+            "time_pct",
+            "rework_per_pair",
+            "rescue_points"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "cost_pct": {
+              "type": "number",
+              "minimum": 0
+            },
+            "time_pct": {
+              "type": "number",
+              "minimum": 0
+            },
+            "rework_per_pair": {
+              "type": "number",
+              "minimum": 0
+            },
+            "rescue_points": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "min_pairs": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "matching_rule": {
+      "type": "string",
+      "const": "tapes match by task key: the canonical form 1 digest of the text of the first main-chain user message"
+    },
+    "proposal_rule": {
+      "type": "string",
+      "const": "abstain for insufficient evidence below the pair floor; keep when no measure regresses past its margin, revert when two or more do; in the one-regression band a configured judge's choice stands at confidence 0.6 or better, abstains below it, and an unavailable judge leaves the tune standing; a measure with no usable pairs neither regresses nor clears"
+    },
+    "before": {
+      "$ref": "#/$defs/setSummary"
+    },
+    "after": {
+      "$ref": "#/$defs/setSummary"
+    },
+    "pairs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/pairRow"
+      }
+    },
+    "aggregates": {
+      "type": "object",
+      "required": [
+        "pairs",
+        "cost",
+        "time",
+        "rework",
+        "rescue"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "pairs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cost": {
+          "$ref": "#/$defs/relativeAggregate"
+        },
+        "time": {
+          "$ref": "#/$defs/relativeAggregate"
+        },
+        "rework": {
+          "$ref": "#/$defs/absoluteAggregate"
+        },
+        "rescue": {
+          "$ref": "#/$defs/rescueAggregate"
+        }
+      }
+    },
+    "unmatched": {
+      "type": "object",
+      "required": [
+        "before",
+        "after"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "before": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/unmatchedEntry"
+          }
+        },
+        "after": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/unmatchedEntry"
+          }
+        }
+      }
+    },
+    "ambiguous": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "before",
+          "after"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "before": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "after": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "unmatchable": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "side",
+          "file",
+          "reason"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "side": {
+            "type": "string",
+            "enum": [
+              "before",
+              "after"
+            ]
+          },
+          "file": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "regressions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "cost",
+          "time",
+          "rework",
+          "rescue rate"
+        ]
+      }
+    },
+    "proposal": {
+      "type": "string",
+      "enum": [
+        "keep",
+        "tune",
+        "revert",
+        "abstain"
+      ]
+    },
+    "judgment": {
+      "$ref": "#/$defs/judgment"
+    }
+  },
+  "$defs": {
+    "setSummary": {
+      "type": "object",
+      "required": [
+        "tapes_read",
+        "tapes_scored",
+        "excluded"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "tapes_read": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tapes_scored": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "excluded": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "file",
+              "reason",
+              "defects"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "file": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "defects": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "measures": {
+      "type": "object",
+      "required": [
+        "cost",
+        "time_seconds",
+        "rework",
+        "rescued",
+        "has_error"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "cost": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "time_seconds": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "rework": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "rescued": {
+          "type": "boolean"
+        },
+        "has_error": {
+          "type": "boolean"
+        }
+      }
+    },
+    "pairRow": {
+      "type": "object",
+      "required": [
+        "key",
+        "before",
+        "after",
+        "before_file",
+        "after_file",
+        "deltas"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "before": {
+          "$ref": "#/$defs/measures"
+        },
+        "after": {
+          "$ref": "#/$defs/measures"
+        },
+        "before_file": {
+          "type": "string"
+        },
+        "after_file": {
+          "type": "string"
+        },
+        "deltas": {
+          "type": "object",
+          "required": [
+            "cost",
+            "time_seconds",
+            "rework"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "cost": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "time_seconds": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "rework": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "relativeAggregate": {
+      "type": "object",
+      "required": [
+        "before_mean",
+        "after_mean",
+        "pairs_counted"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "before_mean": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "after_mean": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "pairs_counted": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "delta_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "absoluteAggregate": {
+      "type": "object",
+      "required": [
+        "before_mean",
+        "after_mean",
+        "pairs_counted"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "before_mean": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "after_mean": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "pairs_counted": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "delta": {
+          "type": "number"
+        }
+      }
+    },
+    "rescueAggregate": {
+      "type": "object",
+      "required": [
+        "before_rate",
+        "after_rate",
+        "before_denominator",
+        "after_denominator"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "before_rate": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "after_rate": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "before_denominator": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "after_denominator": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "delta_points": {
+          "type": "number"
+        }
+      }
+    },
+    "unmatchedEntry": {
+      "type": "object",
+      "required": [
+        "file",
+        "key"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "probabilities": {
+      "type": "object",
+      "required": [
+        "keep",
+        "tune",
+        "revert",
+        "abstain"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "keep": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "tune": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "revert": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "abstain": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        }
+      }
+    },
+    "judgment": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "status",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "type": "string",
+              "const": "not_consulted"
+            },
+            "reason": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "card_sha256",
+            "card",
+            "status",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "card_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "card": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "const": "unavailable"
+            },
+            "reason": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "card_sha256",
+            "card",
+            "model",
+            "choice",
+            "confidence",
+            "probabilities",
+            "severity",
+            "match_confidence",
+            "status",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "card_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "card": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string",
+              "const": "jev-1.13.0"
+            },
+            "choice": {
+              "type": "string",
+              "enum": [
+                "keep",
+                "tune",
+                "revert",
+                "abstain"
+              ]
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 1.0
+            },
+            "probabilities": {
+              "$ref": "#/$defs/probabilities"
+            },
+            "severity": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 10.0
+            },
+            "match_confidence": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 10.0
+            },
+            "status": {
+              "type": "string",
+              "const": "abstained"
+            },
+            "reason": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "card_sha256",
+            "card",
+            "model",
+            "choice",
+            "confidence",
+            "probabilities",
+            "severity",
+            "match_confidence",
+            "status"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "card_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "card": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string",
+              "const": "jev-1.13.0"
+            },
+            "choice": {
+              "type": "string",
+              "enum": [
+                "keep",
+                "tune",
+                "revert"
+              ]
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0.6,
+              "maximum": 1.0
+            },
+            "probabilities": {
+              "$ref": "#/$defs/probabilities"
+            },
+            "severity": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 10.0
+            },
+            "match_confidence": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 10.0
+            },
+            "status": {
+              "type": "string",
+              "const": "judged"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

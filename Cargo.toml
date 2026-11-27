@@ -2,8 +2,16 @@
 name = "secondtake"
 version = "0.1.0"
 edition = "2021"
+rust-version = "1.74"
 description = "The regression watch for setup changes: traces from before and after any change, matched by task class and compared on cost, time, rework, and rescue rate, ending in a keep, tune, or revert proposal with the numbers attached."
 license = "MIT"
+repository = "https://github.com/david-engelmann/secondtake"
+homepage = "https://github.com/david-engelmann/secondtake"
+documentation = "https://docs.rs/secondtake"
+readme = "README.md"
+keywords = ["agents", "evaluation", "regression", "benchmark", "cli"]
+categories = ["command-line-utilities", "development-tools"]
+exclude = ["CONTRACT.md", "scripts/**", ".github/**", "tests/**"]
 
 [lib]
 name = "secondtake"

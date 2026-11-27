@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/david-engelmann/secondtake/schema/registration.schema.json",
+  "title": "Secondtake Registration",
+  "description": "Pre-declared change registration consumed by `secondtake compare --registration`.",
+  "type": "object",
+  "required": [
+    "change",
+    "date"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "change": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[^\\u0000-\\u001f\\u007f\\u0085\\u2028\\u2029]+$",
+      "description": "Single-line description of the setup change under evaluation."
+    },
+    "date": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[^\\u0000-\\u001f\\u007f\\u0085\\u2028\\u2029]+$",
+      "description": "Registration date string (conventionally ISO 8601 YYYY-MM-DD)."
+    },
+    "margins": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "description": "Non-negative regression margins. Omitted keys use defaults (10, 10, 1, 5).",
+      "properties": {
+        "cost_pct": {
+          "type": "number",
+          "minimum": 0,
+          "default": 10,
+          "description": "Maximum allowed relative increase in mean token cost (percent)."
+        },
+        "time_pct": {
+          "type": "number",
+          "minimum": 0,
+          "default": 10,
+          "description": "Maximum allowed relative increase in mean wall duration (percent)."
+        },
+        "rework_per_pair": {
+          "type": "number",
+          "minimum": 0,
+          "default": 1,
+          "description": "Maximum allowed absolute increase in mean redo moments per pair."
+        },
+        "rescue_points": {
+          "type": "number",
+          "minimum": 0,
+          "default": 5,
+          "description": "Maximum allowed percentage-point drop in rescue rate."
+        }
+      }
+    },
+    "min_pairs": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 1,
+      "description": "Minimum matched task pairs required before making a non-abstain proposal."
+    }
+  }
+}
