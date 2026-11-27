@@ -17978,3 +17978,45 @@ ST-61. The CodeRabbit disposition
   the verify step exited 0, and the
   converted tape stands byte-identical
   to the oracle fixture tape.
+- ST-257. The realistic run stands at
+  160 steps with no problems on the
+  fresh build, driven over tape sets
+  drawn at the standing shapes: the
+  run ends in 60 keep, 34 revert, 32
+  abstain, and 22 tune proposals over
+  its 148 compare events, the
+  remaining 12 steps being refusal
+  steps, and its judgment outcomes
+  stand at 40 judged, 20 abstained,
+  and 88 not consulted, the
+  not-consulted count standing as 40
+  judged reruns, 24 abstentions past
+  the floor, 12 judge failures, and 12
+  missing scripts under the ST-183
+  accounting, the abstain proposals
+  standing as the 20 judged
+  abstentions and the 12 refusal steps
+  under the ST-144 accounting, the two
+  accounting identities closing as 60
+  + 88 + 12 = 160. The differential
+  harness stands at 33 cases with no
+  problems, the port held to the
+  oracle on the shipped fixtures and
+  the boundary cases. No family cell
+  reads or writes /dev/full: the three
+  harness sources were searched at
+  this round's hand and no cell names
+  the device, the device itself
+  standing verified as the genuine
+  full device, character device 1,7,
+  so the ST-206 and ST-217 repair
+  records stand undisturbed and no new
+  device fact stands in need of one.
+  The round total stands traced from
+  its parts: the battery's 34 cells
+  counted on each of the two builds,
+  the realistic run's 160 steps, and
+  the differential's 33 cases sum to
+  261, the same total the forty-third
+  round closed at, its composition
+  unchanged.
