@@ -717,15 +717,46 @@ fn normpath_bytes(bytes: &[u8]) -> Vec<u8> {
 #[cfg(any(windows, test))]
 fn normpath_windows_bytes(bytes: &[u8]) -> Vec<u8> {
     let is_sep = |b: u8| b == b'/' || b == b'\\';
-    let (prefix, rest): (Vec<u8>, &[u8]) =
+    let (prefix, rest, rooted): (Vec<u8>, &[u8], bool) =
         if bytes.len() >= 2 && bytes[0].is_ascii_alphabetic() && bytes[1] == b':' {
-            (vec![bytes[0], b':', b'\\'], &bytes[2..])
+            let after_drive = &bytes[2..];
+            if !after_drive.is_empty() && is_sep(after_drive[0]) {
+                (vec![bytes[0], b':', b'\\'], &after_drive[1..], true)
+            } else {
+                (vec![bytes[0], b':'], after_drive, false)
+            }
         } else if bytes.len() >= 2 && is_sep(bytes[0]) && is_sep(bytes[1]) {
-            (vec![b'\\', b'\\'], &bytes[2..])
+            let mut idx = 2;
+            while idx < bytes.len() && is_sep(bytes[idx]) {
+                idx += 1;
+            }
+            let server_start = idx;
+            while idx < bytes.len() && !is_sep(bytes[idx]) {
+                idx += 1;
+            }
+            let server = &bytes[server_start..idx];
+            while idx < bytes.len() && is_sep(bytes[idx]) {
+                idx += 1;
+            }
+            let share_start = idx;
+            while idx < bytes.len() && !is_sep(bytes[idx]) {
+                idx += 1;
+            }
+            let share = &bytes[share_start..idx];
+            if !server.is_empty() && !share.is_empty() {
+                let mut unc = vec![b'\\', b'\\'];
+                unc.extend_from_slice(server);
+                unc.push(b'\\');
+                unc.extend_from_slice(share);
+                unc.push(b'\\');
+                (unc, &bytes[idx..], true)
+            } else {
+                (vec![b'\\', b'\\'], &bytes[2..], true)
+            }
         } else if !bytes.is_empty() && is_sep(bytes[0]) {
-            (vec![b'\\'], &bytes[1..])
+            (vec![b'\\'], &bytes[1..], true)
         } else {
-            (Vec::new(), bytes)
+            (Vec::new(), bytes, false)
         };
     let mut kept: Vec<&[u8]> = Vec::new();
     for part in rest.split(|byte| is_sep(*byte)) {
@@ -737,7 +768,11 @@ fn normpath_windows_bytes(bytes: &[u8]) -> Vec<u8> {
                 Some(last) if *last != b".." => {
                     kept.pop();
                 }
-                _ => {}
+                _ => {
+                    if !rooted {
+                        kept.push(part);
+                    }
+                }
             }
             continue;
         }
@@ -749,6 +784,9 @@ fn normpath_windows_bytes(bytes: &[u8]) -> Vec<u8> {
             out.push(b'\\');
         }
         out.extend_from_slice(part);
+    }
+    if out.len() > 3 && out.ends_with(b"\\") && !kept.is_empty() {
+        out.pop();
     }
     out
 }
@@ -785,6 +823,15 @@ fn lexical_abspath(parent: &[u8]) -> std::io::Result<Vec<u8>> {
     }
     #[cfg(windows)]
     {
+        #[link(name = "kernel32")]
+        extern "system" {
+            fn GetFullPathNameW(
+                lpFileName: *const u16,
+                nBufferLength: u32,
+                lpBuffer: *mut u16,
+                lpFilePart: *mut *mut u16,
+            ) -> u32;
+        }
         let is_sep = |b: u8| b == b'/' || b == b'\\';
         let drive_abs = parent.len() >= 3
             && parent[0].is_ascii_alphabetic()
@@ -793,6 +840,33 @@ fn lexical_abspath(parent: &[u8]) -> std::io::Result<Vec<u8>> {
         let unc_abs = parent.len() >= 2 && is_sep(parent[0]) && is_sep(parent[1]);
         if drive_abs || unc_abs {
             return Ok(normpath_bytes(parent));
+        }
+        let wide_in: Vec<u16> = String::from_utf8_lossy(parent)
+            .encode_utf16()
+            .chain(std::iter::once(0))
+            .collect();
+        let needed = unsafe {
+            GetFullPathNameW(
+                wide_in.as_ptr(),
+                0,
+                std::ptr::null_mut(),
+                std::ptr::null_mut(),
+            )
+        };
+        if needed > 0 {
+            let mut buf = vec![0u16; needed as usize];
+            let written = unsafe {
+                GetFullPathNameW(
+                    wide_in.as_ptr(),
+                    needed,
+                    buf.as_mut_ptr(),
+                    std::ptr::null_mut(),
+                )
+            };
+            if written > 0 && (written as usize) < buf.len() {
+                let resolved = String::from_utf16_lossy(&buf[..written as usize]);
+                return Ok(normpath_bytes(resolved.as_bytes()));
+            }
         }
         let cwd = std::env::current_dir()?;
         let cwd_bytes = cwd.to_string_lossy().into_owned().into_bytes();
@@ -1174,6 +1248,14 @@ mod tests {
         assert_eq!(
             normpath_windows_bytes(b"\\\\server\\share\\dir\\..\\out"),
             b"\\\\server\\share\\out"
+        );
+        assert_eq!(
+            normpath_windows_bytes(b"\\\\server\\share\\..\\..\\out"),
+            b"\\\\server\\share\\out"
+        );
+        assert_eq!(
+            normpath_windows_bytes(b"\\\\server\\share\\.."),
+            b"\\\\server\\share\\"
         );
     }
 
