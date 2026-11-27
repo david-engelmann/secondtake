@@ -17909,3 +17909,72 @@ ST-61. The CodeRabbit disposition
   ST-256, and the realistic run, the
   differential, and the round total in
   ST-257.
+- ST-256. The judgment and resolver
+  battery stands at 34 cells with no
+  problems on both builds, the fresh
+  release build of the base tree and
+  the Round 43 banked release build,
+  every cell comparing the Python
+  oracle and the Rust port on exit
+  class and output class. The
+  confidence floor stands probed exact
+  at its boundary: J06 judges a tune
+  proposal at confidence 0.6 exactly,
+  J08 judges a revert proposal at
+  0.600001, and J09 abstains at
+  0.599999 with the reason that the
+  judge's confidence 0.599999 is below
+  0.6, the floor holding inclusive at
+  0.6 under ST-106 as qualified by
+  ST-110. The chain law stands at
+  ST-65's split points: chains of 989,
+  990, and 991 links end in the named
+  refusal on both sides with stderr
+  byte-identical, chains of 992, 993,
+  and 1,100 links split there, the
+  oracle ending in the crash class and
+  the port in the named refusal, and
+  re-meetings of 4,096 links end in
+  the named refusal on both sides
+  while 4,097 splits with the oracle
+  in the named refusal and the port in
+  the crash class, compared as classes
+  under ST-99. The chain digest for
+  this run reads b90d227a03 at the
+  oracle side, a digest of message
+  text naming this run's own oracle
+  root at this round's scratch path
+  and therefore read as this run's
+  figure alone. S3's digest stands at
+  3979892dd1 on both sides. S5's
+  digest is run-scoped and reads
+  0ebee791fd for the fresh build's run
+  against 1365a2448a for the banked
+  build's run. The pin suite stands
+  executed as standing business under
+  the same hold in the pinned
+  flighttape tree at commit
+  74a83298cfd97bd2518087452aab0abae160c9ee,
+  staged fresh through the API at this
+  round's own path and verified file
+  by file against the pin's manifest,
+  50 files of 50 with no extras: 241
+  tests passed with none failed,
+  summed at this round's hand from the
+  suite's own 19 result lines, 3, 0,
+  22, 19, 34, 5, 13, 8, 17, 12, 15,
+  22, 3, 5, 13, 24, 1, 25, and 0, the
+  pin tree's own library standing at 3
+  tests and the screen suite at 13.
+  The golden tape stands whole on its
+  first attempt under the same hold:
+  the pin tree's own converter, run
+  from its debug build in the pin
+  staging, converted the pin tree's
+  synthetic session fixture at exit 0
+  to a tape of 1,663 bytes whose
+  SHA-256 stands at
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the verify step exited 0, and the
+  converted tape stands byte-identical
+  to the oracle fixture tape.
