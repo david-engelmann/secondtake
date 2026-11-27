@@ -17529,3 +17529,784 @@ ST-61. The CodeRabbit disposition
   ST-251 states, as ST-252 does.
   ST-55(a) stays open, carried by
   name into the forty-fourth round.
+- ST-254. Round 44 opens with the
+  read-back of pull request 66, the
+  Round 43 pull request, read whole at
+  this round's hand through the API:
+  the pull request itself, its seven
+  commits, its three issue comments,
+  its one review and its one review
+  comment, its Actions runs on two
+  heads, its queue pull request, and
+  main at the merge. Pull request 66,
+  titled "refine: secondtake Round 43,
+  ST-247 to ST-251" at 45 chars,
+  stands merged: the Trunk queue
+  squash-merged it at
+  2026-11-27T02:28:23Z as
+  b079176da7292812fcc0d3fa0fc01bbad895061a,
+  whose tree
+  d6090d5ccc2421f9bc95e65263e343c4685a04a2
+  equals the reviewed repair tree byte
+  for byte, its single parent the
+  Round 42 head
+  f8c711b86c85c7accec4fb8e14d8a23aaaee9daf,
+  and main stands at that commit with
+  25 blobs and CONTRACT.md at 619,873
+  bytes. The chain stands as the delta
+  reviews read it: ST-247 in
+  989faaa542dfb55a9782020ff263dd4ab698fb57
+  at contract 606,721 bytes on
+  CONTRACT.md alone, ST-248 in
+  be540438e5a768483a03ada8e503cbe4099e9210
+  at 609,142 on CONTRACT.md alone,
+  ST-249 in
+  9fed7ffff6d622a6a987b27cb17afb4c5ff994c5
+  at 611,655 on CONTRACT.md alone,
+  ST-250 in
+  22bb408339f94db1630a5d42a53c79b14dcb0a6c
+  at 613,251 on CONTRACT.md alone, the
+  closure ST-251 in
+  71b32f715810a1ef86a77817095aa9f90e1d2909
+  at 615,552 on CONTRACT.md and
+  README.md, the post-closure record
+  ST-252 in
+  c34939d23159f9bed9b2ec4ca5bc65e00277a0fa
+  at 618,712 on CONTRACT.md alone, and
+  the repair ST-253 in
+  b0814fed68fa7e5c9d2e03e5ebded4c745a26097
+  at 619,873 on CONTRACT.md alone, the
+  Signed-off-by trailer standing on
+  all seven. Hosted CI stands green on
+  both heads: on the repair head, push
+  run 45926806829, dynamic run
+  45926807626, and pull_request run
+  45926811034, each completed success,
+  and on the reviewed head push run
+  45917476312, dynamic run
+  45917566983, and pull_request run
+  45917570675, each completed success.
+  The body stands at 21,330 chars in
+  its final form: the authored body as
+  patched by the owner at the landing
+  at 19,292 chars, its bot appendix
+  standing at offset 18,808 spanning
+  484 with its end marker ending at
+  19,292, and the owner's gate record
+  standing after the appendix, closing
+  the body. The census stands settled
+  whole at this read, as the gate
+  record on that body charged this
+  read-back expressly: three issue
+  comments, one review, and one review
+  comment. The Trunk note 7206582157,
+  created 2026-11-27T00:35:06Z, stands
+  in its merged form at 113 chars, its
+  last edit the merge's own at
+  2026-11-27T02:28:25Z, recording the
+  successful merge with its queue
+  details link, at 403 chars in the
+  pre-merge form the gate read. The
+  owner's enqueue comment 7208034399,
+  the bare merge command at 12 chars,
+  created 2026-11-27T02:20:14Z and
+  never edited, stands last. The queue
+  pull request 67 stands closed
+  unmerged, created
+  2026-11-27T02:27:42Z and closed
+  2026-11-27T02:28:03Z on its queue
+  branch
+  trunk-merge/pr-66/9cb66d5c-9f4e-409d-95b3-7905f1865dd1.
+  The CodeRabbit shell 7206584737
+  stands settled at its true final
+  form of 11,618 chars at this read,
+  last edited 2026-11-27T02:19:55Z and
+  not edited at or after the merge: it
+  stood at 8,872 chars at the build
+  lane's Step 0 read (created
+  2026-11-27T00:35:17Z, updated
+  2026-11-27T00:38:28Z), at 8,874 at
+  the red team's read, and the bot's
+  re-review of the repair commit
+  carried it to 11,618 at 02:19:55Z,
+  where it stands. Its substance
+  grades clean against the record at
+  this read. The first review (Run ID
+  19098b31-cfc2-46f5-bbab-b38ae420afeb)
+  reviewed the range
+  f8c711b86c85c7accec4fb8e14d8a23aaaee9daf
+  to
+  c34939d23159f9bed9b2ec4ca5bc65e00277a0fa
+  with CONTRACT.md and README.md
+  selected for processing, and the
+  re-review (Run ID
+  f471664a-25d0-4a3e-9126-a919361f8954)
+  reviewed the range
+  c34939d23159f9bed9b2ec4ca5bc65e00277a0fa
+  to
+  b0814fed68fa7e5c9d2e03e5ebded4c745a26097
+  with CONTRACT.md alone selected for
+  processing and one file skipped as
+  similar to previous changes, and it
+  generated no actionable comments.
+  Its walkthrough stands in three rows
+  over CONTRACT.md and README.md and
+  is accurate, the first row carrying
+  the Round 42 read-back with the
+  ST-253 correction stated in it, the
+  second row the gates and runs, and
+  the third row the closure and the
+  post-closure verification with the
+  README's move to 43 of 100, and its
+  summary states plainly that the
+  change adds records for the Round 42
+  pull-request read-back, Round 43
+  execution and closure, and
+  post-closure verification and
+  updates the README count from 42 to
+  43 of 100. Its change assessment
+  stands pinned to
+  b0814fed68fa7e5c9d2e03e5ebded4c745a26097
+  as source and covered commit at kind
+  reviewed, effort 2 (Simple) at about
+  ten minutes, priority p3, Change
+  type Other. Its merge risk stands
+  Low up to b0814fed, the risk icon
+  matching its Low label this round,
+  its prose recording that the pull
+  request adds Round 43 records and
+  moves the README's closed-round
+  count to 43 of 100 with nothing in
+  the product or runtime changed, and
+  raising the one point in the open,
+  that the count may be ahead of the
+  red-team step the README's own
+  counting rule requires, so the
+  red-team result should be recorded
+  or the count adjusted before it is
+  relied on. Its pre-merge checks
+  stand at four passed: the Title
+  check passed with its full detail
+  standing (the title names a Round 43
+  refinement with an ST-247 to ST-251
+  item range and refers to the real
+  change; it does not name the README
+  update or the ST-253 parent-SHA
+  correction, and the ST-number range
+  is terse for a teammate scanning
+  history; the title is specific
+  enough to identify the primary
+  change, so it passes), the
+  Description check passed as skipped
+  under the enabled high-level
+  summary, and the Linked Issues and
+  Out of Scope checks passed as
+  skipped for no linked issues. Its
+  finishing touches and its Autofix
+  checkbox stand unticked, and its
+  reviews stand on the included
+  allowance with none remaining. The
+  bot's formal review 6082010765
+  stands read to its end at this read:
+  state COMMENTED, submitted
+  2026-11-27T00:38:24Z on the reviewed
+  head
+  c34939d23159f9bed9b2ec4ca5bc65e00277a0fa,
+  its body at 3,693 chars recording
+  that one actionable comment was
+  posted, its review info carrying the
+  first review's Run ID and range as
+  above, its run configuration
+  standing at source mode Auto, review
+  profile CHILL, and plan Advanced
+  with the repository, branch, file,
+  and commit fields unavailable. Its
+  one actionable review comment
+  4714568022 stands read to its end at
+  this read: 2,133 chars on README.md
+  at its rounds line, created
+  2026-11-27T00:38:23Z and last edited
+  2026-11-27T00:38:24Z, graded Minor
+  at functional correctness as a quick
+  win, carrying the shell's merge-risk
+  point in actionable form, that the
+  Round 43 red-team result be recorded
+  before the round counts as closed or
+  the count be held at 42. No
+  "Addressed in commit" line stands
+  anywhere on the comment or on the
+  shell: the repair ST-253 answered
+  the red team's Minor, not a bot
+  comment, and the comment itself was
+  answered on the pull request's
+  record by the owner's gate record,
+  which dismissed it on the ground its
+  own substance carries, that the
+  three reviews stood between the pull
+  request and any merge and the count
+  moved only at the landing; the Round
+  43 red team's result stands recorded
+  in the gate grading below, the very
+  record the comment asked for. The
+  Round 43 gate grades as follows,
+  from the seven reports on disk read
+  at this round's hand. The spec axis
+  returned PASS at 14,331 chars on one
+  Minor, F-1, body only: the body's
+  appendix bullet carried the literal
+  token APPENDIX_SPAN where the span
+  figure belongs, the appendix itself
+  verified preserved byte for byte at
+  offset 18,818 spanning 471 in the
+  body as gated, and the defect
+  confined to that one token; it
+  stands discharged by the owner's
+  patch at the landing, which restated
+  the pair numerically against the
+  bot's re-rendered appendix. The
+  standards axis returned APPROVE at
+  10,058 chars on two Minors, both
+  body only: S-1, the same
+  placeholder, and S-2, the body's
+  Step 0 record standing overtaken by
+  the bot's formal review, its census
+  figures expressly moment-bounded and
+  not false as written, the Minor
+  attaching to the unqualified
+  no-disposition sentence; and one
+  observation below finding severity,
+  that the body's Summary stands as a
+  full paragraph in this repo's
+  standing form rather than the single
+  sentence the review-readiness rule
+  names, its substance complete and
+  the form the repo's settled one,
+  named and not graded. The red team
+  returned APPROVE at 14,942 chars on
+  two Minors, every limb executed at
+  its own hand: L7-1, against ST-247
+  itself, whose printed full SHA for
+  pull request 64's merge parent names
+  no commit where the merge commit's
+  own object names
+  a7a6f47601a291204baf45f5f6b86a5673b75b37,
+  the parentage, the short prefix, and
+  every other figure in the item
+  standing entire; and L8-1, the
+  census point convergent with S-2,
+  the true census standing at two
+  issue comments, one review, and one
+  review comment against the body's
+  two, zero, and zero. At its first
+  limb the red team discharged by
+  execution the standing charge from
+  Round 42, which ST-247 had carried
+  forward in the open: the pin suite
+  ran whole in its memory-fitting form
+  at 241 tests passed with none
+  failed, summed at that lane's hand
+  from the suite's own 19 result lines
+  with the pin tree's own library at 3
+  and the screen suite at 13 among
+  them, and the golden converted at
+  exit 0 to 1,663 bytes whose SHA-256
+  stands at
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the verify step exiting 0 and the
+  output standing byte-identical to
+  the oracle fixture tape, so nothing
+  of that charge carries forward. The
+  repair stands as ST-253: one
+  server-side commit
+  b0814fed68fa7e5c9d2e03e5ebded4c745a26097
+  appended over the reviewed head,
+  CONTRACT.md alone, correcting all of
+  the parent figure from the live
+  record with ST-247 unrewritten, and
+  the body patched by the owner in its
+  appendix bullet alone with the bot
+  appendix preserved whole in its
+  re-rendered form spanning 484, the
+  owner's gate record appended after
+  it naming the true census and
+  charging this read-back. The spec
+  delta review returned PASS at 7,953
+  chars with no findings, the Minor
+  discharged, and the standards delta
+  review returned APPROVE at 4,961
+  chars with no findings at any grade.
+  No charge from that gate stands
+  open: its three Minors stand
+  discharged in their standing forms,
+  ST-253 the repair for L7-1, the
+  owner's body patch for F-1 and S-1,
+  and the owner's gate record for S-2
+  and L8-1, and this read-back,
+  charged by that gate record to read
+  the review and its comment to their
+  ends alongside the shell's true
+  final form and to settle the round's
+  census whole, discharges that charge
+  here. The verification family
+  follows on this base: the base gate
+  whole on
+  b079176da7292812fcc0d3fa0fc01bbad895061a,
+  the resolver band with the pin suite
+  and the golden, the realistic run
+  and the differential, then the
+  closure. ST-55(a) stays open,
+  carried by name into the forty-fifth
+  round.
+- ST-255. The base gate for Round 44
+  stands executed whole under the
+  build slot's exclusive hold on a
+  pristine staging of the forty-third
+  round's final tree
+  d6090d5ccc2421f9bc95e65263e343c4685a04a2,
+  the tree main carries at the Round
+  43 merge
+  b079176da7292812fcc0d3fa0fc01bbad895061a:
+  the staging was assembled fresh
+  through the API at this round's own
+  path and verified file by file
+  against the tree's manifest before
+  the gate relied on it, 25 files of
+  25 with no extras, CONTRACT.md
+  standing at 619,873 bytes. The
+  gate's first launch died queued in a
+  daemon restart before the slot and
+  counts nowhere; the gate then ran in
+  one sitting on its second launch,
+  the slot held from
+  2026-11-27T05:40:52Z to
+  2026-11-27T06:00:15Z, and every
+  segment stands at attempt 1 inside
+  the hold. The codepoint scan over
+  the tree counts U+2014 0 and U+2013
+  0, the scanner's planted control
+  counted first at this round's hand:
+  a control file carrying one of each
+  counts 1 and 1 with exit 1 standing
+  in the tree, and the tree counts 0
+  and 0 with the control removed. The
+  format check exits 0 with its log
+  empty, clippy with warnings denied
+  exits 0, and the cargo suite passes
+  paired at 39 tests with none failed:
+  0 in the library, 0 in the binary,
+  22 in the compare tests, and 17 in
+  the judge tests, no doc tests
+  standing. The release build exits 0,
+  and its binary stands at MD5
+  d71227c59a09908659318f4b8c3facd6 at
+  this round's own target path, the
+  same digest the Round 43 gate banked
+  at its own path, the digest being
+  build-path scoped and read here at
+  this round's path alone. The
+  batteries, the resolver band, the
+  pin, and the golden follow in
+  ST-256, and the realistic run, the
+  differential, and the round total in
+  ST-257.
+- ST-256. The judgment and resolver
+  battery stands at 34 cells with no
+  problems on both builds, the fresh
+  release build of the base tree and
+  the Round 43 banked release build,
+  every cell comparing the Python
+  oracle and the Rust port on exit
+  class and output class. The
+  confidence floor stands probed exact
+  at its boundary: J06 judges a tune
+  proposal at confidence 0.6 exactly,
+  J08 judges a revert proposal at
+  0.600001, and J09 abstains at
+  0.599999 with the reason that the
+  judge's confidence 0.599999 is below
+  0.6, the floor holding inclusive at
+  0.6 under ST-106 as qualified by
+  ST-110. The chain law stands at
+  ST-65's split points: chains of 989,
+  990, and 991 links end in the named
+  refusal on both sides with stderr
+  byte-identical, chains of 992, 993,
+  and 1,100 links split there, the
+  oracle ending in the crash class and
+  the port in the named refusal, and
+  re-meetings of 4,096 links end in
+  the named refusal on both sides
+  while 4,097 splits with the oracle
+  in the named refusal and the port in
+  the crash class, compared as classes
+  under ST-99. The chain digest for
+  this run reads b90d227a03 at the
+  oracle side, a digest of message
+  text naming this run's own oracle
+  root at this round's scratch path
+  and therefore read as this run's
+  figure alone. S3's digest stands at
+  3979892dd1 on both sides. S5's
+  digest is run-scoped and reads
+  0ebee791fd for the fresh build's run
+  against 1365a2448a for the banked
+  build's run. The pin suite stands
+  executed as standing business under
+  the same hold in the pinned
+  flighttape tree at commit
+  74a83298cfd97bd2518087452aab0abae160c9ee,
+  staged fresh through the API at this
+  round's own path and verified file
+  by file against the pin's manifest,
+  50 files of 50 with no extras: 241
+  tests passed with none failed,
+  summed at this round's hand from the
+  suite's own 19 result lines, 3, 0,
+  22, 19, 34, 5, 13, 8, 17, 12, 15,
+  22, 3, 5, 13, 24, 1, 25, and 0, the
+  pin tree's own library standing at 3
+  tests and the screen suite at 13.
+  The golden tape stands whole on its
+  first attempt under the same hold:
+  the pin tree's own converter, run
+  from its debug build in the pin
+  staging, converted the pin tree's
+  synthetic session fixture at exit 0
+  to a tape of 1,663 bytes whose
+  SHA-256 stands at
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the verify step exited 0, and the
+  converted tape stands byte-identical
+  to the oracle fixture tape.
+- ST-257. The realistic run stands at
+  160 steps with no problems on the
+  fresh build, driven over tape sets
+  drawn at the standing shapes: the
+  run ends in 60 keep, 34 revert, 32
+  abstain, and 22 tune proposals over
+  its 148 compare events, the
+  remaining 12 steps being refusal
+  steps, and its judgment outcomes
+  stand at 40 judged, 20 abstained,
+  and 88 not consulted, the
+  not-consulted count standing as 40
+  judged reruns, 24 abstentions past
+  the floor, 12 judge failures, and 12
+  missing scripts under the ST-183
+  accounting, the abstain proposals
+  standing as the 20 judged
+  abstentions and the 12 refusal steps
+  under the ST-144 accounting, the two
+  accounting identities closing as 60
+  + 88 + 12 = 160. The differential
+  harness stands at 33 cases with no
+  problems, the port held to the
+  oracle on the shipped fixtures and
+  the boundary cases. No family cell
+  reads or writes /dev/full: the three
+  harness sources were searched at
+  this round's hand and no cell names
+  the device, the device itself
+  standing verified as the genuine
+  full device, character device 1,7,
+  so the ST-206 and ST-217 repair
+  records stand undisturbed and no new
+  device fact stands in need of one.
+  The round total stands traced from
+  its parts: the battery's 34 cells
+  counted on each of the two builds,
+  the realistic run's 160 steps, and
+  the differential's 33 cases sum to
+  261, the same total the forty-third
+  round closed at, its composition
+  unchanged.
+- ST-258. The forty-fourth round
+  closes. With this record the
+  contract's Status range stands at
+  ST-1 to ST-258, with ST-110 outside
+  it as the eighteenth round's repair
+  record, ST-144 outside it as the
+  twenty-fourth round's, ST-150
+  outside it as the twenty-fifth
+  round's, ST-156 outside it as the
+  twenty-sixth round's, ST-183 outside
+  it as the thirty-first round's,
+  ST-189 outside it as the
+  thirty-second round's, ST-200
+  outside it as the thirty-fourth
+  round's, ST-206 outside it as the
+  thirty-fifth round's, ST-217 outside
+  it as the thirty-seventh round's,
+  ST-233 outside it as the fortieth
+  round's repair record appended after
+  its closure, ST-245 outside it as
+  the forty-second round's
+  post-closure record, ST-246 outside
+  it as the forty-second round's
+  repair record, ST-252 outside it as
+  the forty-third round's post-closure
+  record, and ST-253 outside it as the
+  forty-third round's repair record.
+  The round's five records stand at
+  ST-254 to ST-258: the forty-third
+  round's pull request read back whole
+  with its gate graded in the open and
+  its census settled whole, the base
+  gate whole, the resolver band with
+  the tape-format pin and the golden,
+  the realistic and the differential
+  with the round total, and this
+  closure. The closure gate stands
+  charged in its strongest form: the
+  whole gate executed on this closure
+  tree itself, the round's gate
+  staging at secondtake-r44-gate
+  verified file by file against this
+  closure tree's own manifest at 25 of
+  25 with no extras, named distinctly
+  from the authoring staging at
+  secondtake-r44-closure where this
+  record and the README's rounds line
+  were prepared, its figures standing
+  on the pull request's record, in the
+  shape the thirty-sixth round set and
+  the thirty-seventh, thirty-eighth,
+  thirty-ninth, fortieth, forty-first,
+  forty-second, and forty-third rounds
+  held. The README's rounds line moves
+  to 44 of 100 in this closure commit
+  alone. The contract stands at
+  639,660 bytes with this record
+  appended, the figure computed by the
+  placeholder method: this record was
+  composed with a placeholder of the
+  same digit count standing where the
+  figure now stands, the wrapped
+  record measured, the total computed
+  and substituted, and the wrap
+  verified unchanged before the
+  append. ST-55(a) stays open, carried
+  by name into the forty-fifth round.
+- ST-259. Post-closure record for the
+  forty-fourth round, appended after
+  the round's closure, standing
+  outside the Status range of ST-1 to
+  ST-258 that ST-258 states. ST-258
+  charged the closure gate in its
+  strongest form, the whole gate
+  executed on the closure tree itself
+  with its figures standing on the
+  pull request's record; this record
+  sets that execution down in the
+  contract itself, whole, in one
+  sitting. The gate's staging stood at
+  secondtake-r44-gate, verified file
+  by file against the closure tree's
+  own manifest at 25 of 25 with no
+  extras before the gate ran, the
+  closure tree standing at 1b86344f on
+  the closure commit d9dc08d5. The
+  gate ran under the line's build slot
+  in the bounded form: its first
+  launch, at 2026-11-27T06:14:34Z,
+  died queued in a daemon restart
+  before the slot and counts nowhere,
+  and the gate then ran on its second
+  launch, launched at
+  2026-11-27T07:04:13Z, the slot
+  acquired at 2026-11-27T07:21:26Z
+  after the queue and released at
+  07:36:10Z, every segment banking on
+  its first attempt: the codepoint
+  scan counted zero U+2014 and zero
+  U+2013 over the closure tree, its
+  planted control counting one and one
+  in the gate's own control segment;
+  the format check exited 0 with its
+  log empty; clippy exited 0 with no
+  warnings; the test suite exited 0
+  with 39 tests paired as the base
+  gate's stood, 0 library, 0 binary,
+  22 compare, 17 judge, 0 doc; the
+  release build exited 0, and the
+  closure binary's digest stands at
+  d71227c59a09908659318f4b8c3facd6,
+  taken by md5sum at
+  st44-scratch/target-closure/release/secondtake,
+  build-path scoped as ever. The
+  battery ran 34 cells against the
+  closure build and 34 against the
+  base build, every cell ok on both,
+  the floor exact at its probes and
+  the chain split standing at ST-65's
+  points with its digest at b90d227a03
+  under this round's oracle root on
+  both runs, S5's Python side again
+  carrying a fresh run-scoped digest
+  at each run, 29e9978a96 on the
+  closure build and 17b715a4af on the
+  base. The realistic run completed at
+  160 steps with no problems in
+  ST-183's decomposition, its
+  proposals and statuses standing as
+  ST-257 records them, and the
+  differential at 33 cases with no
+  problems, the round total standing
+  at 261 as ST-257 traced it. The pin
+  suite ran in its memory-fitting form
+  and banked 241 tests passed with
+  none failed, summed at this lane's
+  hand from its own 19 result lines in
+  the gate log, the screen suite among
+  them at 13. The golden tape
+  converted on its first attempt under
+  the same bound: 1,663 bytes whose
+  SHA-256 stands at
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the verify step exiting 0 and the
+  output standing byte-identical to
+  the oracle fixture tape. No segment
+  exhausted its bound. The contract
+  stands at 642,946 bytes with this
+  record appended, the figure computed
+  by the placeholder method: this
+  record was composed with a
+  placeholder of the same digit count
+  standing where the figure now
+  stands, the wrapped record measured,
+  the total computed and substituted,
+  and the wrap verified unchanged
+  before the append. ST-55(a) stays
+  open, carried by name into the
+  forty-fifth round.
+- ST-260. Repair record for ST-254,
+  ST-256, and ST-257, appended after
+  the round's closure on the
+  forty-fourth round's own gate, the
+  original items standing unrewritten.
+  The gate's three axes name three
+  defects between them, each in item
+  prose and none touching an executed
+  figure: the spec fidelity review's
+  Minors F-1 and F-2, the standards
+  review's Minor S-1, and the red team
+  re-audit's Minors L5-1 and L4-1, F-1
+  and L5-1 naming one defect between
+  them and S-1 and L4-1 naming one
+  defect between them. Each stands
+  corrected here from the record read
+  firsthand at this repair's hand.
+  First, ST-256's pin commit. ST-256
+  states the pin suite ran in the
+  pinned flighttape tree at commit
+  74a83298cfd97bd2518087452aab0abae160c9ee.
+  That value names no commit: the
+  flighttape clone's object store
+  answers "could not get object info"
+  for it, read at this repair's hand.
+  The fleet pin, named uniformly
+  through the contract, is
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  whose tree is
+  afd4d7d13520411e003762548fc79082a1b9cf6e,
+  and it stands printed correctly 27
+  times elsewhere in the contract, the
+  false form occurring exactly once.
+  The execution itself stood on the
+  true pin tree: the staging was
+  verified file by file against the
+  pin's manifest at 50 of 50 at the
+  build lane's hand and at the red
+  team's, the suite's own 19 result
+  lines sum to 241 as ST-256 prints
+  them, and the golden converted to
+  the pin's digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3.
+  Only the printed full SHA is false,
+  and no gate figure is affected.
+  Second, ST-254's report count.
+  ST-254 grades the forty-third
+  round's gate "from the seven reports
+  on disk". The reports home holds
+  exactly five report files, and
+  ST-254's own enumeration of them is
+  complete and exact, every figure in
+  it standing as the three axes
+  verified it: the spec report at
+  14,331 chars, PASS on Minor F-1; the
+  standards report at 10,058 chars,
+  APPROVE on Minors S-1 and S-2; the
+  red team report at 14,942 chars,
+  APPROVE on Minors L7-1 and L8-1; the
+  spec delta at 7,953 chars, PASS with
+  no findings; and the standards delta
+  at 4,961 chars, APPROVE with no
+  findings. Only the total is false:
+  the count stands at five, not seven.
+  Third, ST-257's two accounting
+  sentences. ST-257 states the abstain
+  proposals as "the 20 judged
+  abstentions and the 12 refusal steps
+  under the ST-144 accounting", and
+  decomposes the 88 not_consulted as
+  "40 judged reruns, 24 abstentions
+  past the floor, 12 judge failures,
+  and 12 missing scripts under the
+  ST-183 accounting". ST-183's
+  measured decomposition, which
+  governs, counts proposals and
+  judgment statuses over the 148
+  compare events only: the abstain 32
+  stands as the 20 band steps carrying
+  the abstained status and the 12
+  below-the-pair-floor steps, and the
+  12 refusal steps stand outside the
+  148 and produce no proposals, so
+  ST-257's clause sums to 32 only by
+  the coincidence of the two twelves.
+  The 88 not_consulted stands as
+  ST-183 names its cells: 40 agreement
+  steps, 24 two-regressions steps, 12
+  below-the-pair-floor steps, and 12
+  band steps with no judge configured,
+  those last being the twelve ST-144
+  names standing inside the 88; no
+  step kind in the harness answers to
+  a judge failure or a missing script,
+  and the band steps with no judge
+  configured propose tune, not
+  abstain. The closing equation, 60
+  plus 88 plus 12 equaling 160, holds
+  only with its final 12 read as the
+  refusal steps. The red team's
+  executed step-kind census of the
+  realistic run confirms the governing
+  decomposition mechanically:
+  agreement 40, band postures 60,
+  two-regressions 24, below-floor 12,
+  band-no-judge 12, and refusal 12,
+  summing to 160. The correct
+  restatement of the proposals stands
+  in the record at ST-250. The bot's
+  actionable comment 4716794289, under
+  its review 6084917439, read this
+  defect correctly before the gate
+  did; it stands as a true positive,
+  and this record answers it in
+  substance. ST-259's sentence
+  standing the closure gate's
+  proposals and statuses "as ST-257
+  records them" is covered by this
+  correction. Nothing else moves. The
+  Status range stands at ST-1 to
+  ST-258 as ST-258 states it, ST-259
+  stands as the post-closure record,
+  the README does not move, and every
+  gate figure and every other figure
+  in ST-254, ST-256, and ST-257 stands
+  as executed and as the reviews
+  verified it. This record stands
+  outside the Status range of ST-1 to
+  ST-258 that ST-258 states, as ST-259
+  does. ST-55(a) stays open, carried
+  by name into the forty-fifth round.
