@@ -19184,3 +19184,46 @@ ST-61. The CodeRabbit disposition
   closure. ST-55(a) stays open,
   carried by name into the
   forty-seventh round.
+- ST-268. The base gate ran whole on
+  the Round 45 final tree, main at
+  b7e6c3d93bbb6cdd843e9c34b2793e945c9acc98
+  with tree
+  92283240c1bea6c6f43ebb9c268c5deece3e179d,
+  in the Round 46 worktree staged
+  fresh for this round and verified
+  blob for blob against that tree's
+  manifest before the gate relied on
+  it, 25 of 25 with no extras. The
+  gate held the build slot for its
+  whole lifetime, from
+  2026-11-27T23:29:55Z to
+  2026-11-27T23:49:17Z, in one
+  sitting, and every segment stands at
+  exit 0 on its first attempt within
+  the launch. Its first launch, begun
+  2026-11-27T22:46:10Z, died queued on
+  the slot in the restart near
+  2026-11-27T23:27Z before acquiring
+  it, executed no segment, and counts
+  nowhere in what follows; the gate
+  stands on the second launch alone,
+  and the attempt stands disclosed
+  here whole. The worktree's own
+  codepoint scan reads U+2014 = 0 and
+  U+2013 = 0. cargo fmt stands clean
+  at exit 0 with an empty log. Clippy
+  stands clean at exit 0 with no
+  warnings under -D warnings. The
+  cargo suite stands paired at 39
+  tests, 0 library unit tests, 0
+  binary unit tests, 22 compare tests,
+  17 judge tests, and 0 doc tests,
+  every suite ok and none failed or
+  ignored. The release binary stands
+  at md5
+  d71227c59a09908659318f4b8c3facd6 at
+  this round's own target path and at
+  the banked Round 45 target path
+  alike, the figure build-path scoped,
+  standing as it has stood since Round
+  16.
