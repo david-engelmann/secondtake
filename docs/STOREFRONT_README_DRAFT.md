@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/media/lockup-dark.svg">
-    <img src="docs/media/lockup-light.svg" alt="secondtake" width="780">
+    <source media="(prefers-color-scheme: dark)" srcset="media/lockup-dark.svg">
+    <img src="media/lockup-light.svg" alt="secondtake" width="780">
   </picture>
 </p>
 
@@ -19,7 +19,7 @@ The regression watch for setup changes: traces from before and after any change,
 Secondtake compares two sets of flighttape tapes, the runs recorded before a setup change and the runs recorded after it. A change is registered by hand, with its date, before any measurement is claimed. The tool matches the tapes by task, compares each pair on cost, time, rework, and rescue rate, and prints one document carrying the pairs, the aggregates, and a single proposal. Where exactly one measure regresses, a decision model judges the comparison from a deterministic card, and its choice stands only at the confidence the document states.
 
 <p align="center">
-  <img src="docs/media/money-shot.gif" alt="secondtake matched-pair comparison CLI showcase" width="880">
+  <img src="media/money-shot.gif" alt="secondtake matched-pair comparison CLI showcase" width="880">
 </p>
 
 ## Install
@@ -41,9 +41,11 @@ cd secondtake
 cargo install --path . --locked
 ```
 
-Live one-regression judgment runs through an external connector named by `JEV_CALL` (see [`examples/jev_call_example.py`](examples/jev_call_example.py)).
+Live one-regression judgment runs through an external connector named by `JEV_CALL` (see [`examples/jev_call_example.py`](../examples/jev_call_example.py)).
 
 ## Quickstart
+
+From a local checkout of this repository:
 
 Run directly against the ready-to-score fixtures in `examples/`:
 
@@ -59,7 +61,7 @@ grep '"proposal"' comparison.json
 ## Architecture
 
 <p align="center">
-  <img src="docs/media/architecture.svg" alt="secondtake four-axis evaluation architecture" width="900">
+  <img src="media/architecture.svg" alt="secondtake four-axis evaluation architecture" width="900">
 </p>
 
 ## Usage
@@ -75,29 +77,33 @@ Below `min_pairs` the proposal is `abstain`. With zero regressions it is `keep`,
 
 ## Performance
 
-Measured on Apple M3 Max (`--release`, `891.4 KiB` binary; details in [docs/PERFORMANCE.md](docs/PERFORMANCE.md)):
+<p align="center">
+  <img src="media/benchmark-chart.svg" alt="benchmark profile" width="900">
+</p>
 
-| Matched Pairs | Tapes Scored | `compare` Latency | Throughput |
+Measured on Apple M3 Max (`--release`, `891.4 KiB` binary; details in [docs/PERFORMANCE.md](PERFORMANCE.md)):
+
+| Matched Pairs | Total Tapes Scored | `compare` Latency (`-o`) | Throughput |
 | ---: | ---: | ---: | ---: |
-| `10` | `20` | `18.73 ms` | `1,068 tapes/s` |
-| `50` | `100` | `25.67 ms` | `3,896 tapes/s` |
-| `250` | `500` | `87.32 ms` | `5,726 tapes/s` |
+| `10` | `20` | `22.7 ms` | `881 tapes/s` |
+| `50` | `100` | `54.39 ms` | `1,839 tapes/s` |
+| `250` | `500` | `314.04 ms` | `1,592 tapes/s` |
 
 ## Where `secondtake` Fits in the Retrospective Line
 
 <p align="center">
-  <img src="docs/media/retrospective-arc.svg" alt="Retrospective Line ten-repository architecture" width="900">
+  <img src="media/retrospective-arc.svg" alt="Retrospective Line ten-repository architecture" width="900">
 </p>
 
 ## Documentation
 
-- [Documentation Index](docs/README.md) & [Searchable Handbook](https://david-engelmann.github.io/secondtake/)
-- [Operator & Integrator Guide](docs/GUIDE.md)
-- [Technical Architecture](docs/ARCHITECTURE.md)
-- [Wire Formats & JSON Schemas](docs/FORMATS.md)
-- [Ecosystem Comparison](docs/COMPARISON.md)
-- [Performance Benchmarks](docs/PERFORMANCE.md)
-- [FAQ](docs/FAQ.md)
+- [Documentation Index](README.md) & [Searchable Handbook](https://david-engelmann.github.io/secondtake/)
+- [Operator & Integrator Guide](GUIDE.md)
+- [Technical Architecture](ARCHITECTURE.md)
+- [Wire Formats & JSON Schemas](FORMATS.md)
+- [Ecosystem Comparison](COMPARISON.md)
+- [Performance Benchmarks](PERFORMANCE.md)
+- [FAQ](FAQ.md)
 
 ## Status
 
@@ -105,4 +111,4 @@ The compare command is complete for its scope and is held to the Python it repla
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](../LICENSE).

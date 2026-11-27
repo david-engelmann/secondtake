@@ -9,7 +9,10 @@ _secondtake() {
         _describe -t commands 'secondtake subcommand' subcommands
         return
     fi
-    _arguments -s '--registration' '--judge' '-o' '--output' '-h' '--help' '*:file:_files'
+    case "${words[2]}" in
+        compare) _arguments -s '--registration=[file path]:file:_files' '--judge=[file path]:file:_files' '-o+[file path]:file:_files' '--output=[file path]:file:_files' '-h[show help]' '--help[show help]' '*:file:_files' ;;
+        *) _files ;;
+    esac
 }
 
 _secondtake "$@"

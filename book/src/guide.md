@@ -36,7 +36,7 @@ On Linux and macOS (`x86_64` and `aarch64`), `install.sh` downloads a release ar
 
 ### Building from Source (`cargo`)
 
-With Git and Rust `1.74+` installed:
+With Git and Rust `1.78+` installed:
 
 ```sh
 git clone https://github.com/david-engelmann/secondtake.git

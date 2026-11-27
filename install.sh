@@ -1,10 +1,22 @@
 #!/bin/sh
-# Install a prebuilt secondtake release binary with SHA-256 verification.
+# Install prebuilt secondtake binary from GitHub Releases with SHA-256 verification.
+#
+# Options:
+#   --version TAG   Release tag such as v0.1.0 (default: latest GitHub release)
+#   --bin-dir DIR   Target directory (default: $HOME/.local/bin)
+#   -h, --help      Show usage and exit
+#
+# Environment variables:
+#   SECONDTAKE_INSTALL_DIR  Target directory (default: $HOME/.local/bin)
+#   SECONDTAKE_VERSION      Release tag (default: latest)
+#   SECONDTAKE_REPO         GitHub owner/repo (default: david-engelmann/secondtake)
+#   SECONDTAKE_BASE_URL     Override release download base URL (for offline mirrors/CI)
+
 set -eu
 
-REPO="david-engelmann/secondtake"
-VERSION="${SECONDTAKE_VERSION:-}"
-BIN_DIR="${SECONDTAKE_INSTALL_DIR:-$HOME/.local/bin}"
+REPO="${SECONDTAKE_REPO:-david-engelmann/secondtake}"
+INSTALL_DIR="${SECONDTAKE_INSTALL_DIR:-$HOME/.local/bin}"
+VERSION="${SECONDTAKE_VERSION:-latest}"
 
 usage() {
     cat <<'EOF'
@@ -17,16 +29,21 @@ Options:
 EOF
 }
 
+err() {
+    printf 'secondtake-install: error: %s\n' "$1" >&2
+    exit 1
+}
+
 while [ "$#" -gt 0 ]; do
     case "$1" in
         --version)
-            [ "$#" -ge 2 ] || { echo "error: --version requires a value" >&2; exit 2; }
+            [ "$#" -ge 2 ] || err "--version requires a tag argument"
             VERSION="$2"
             shift 2
             ;;
         --bin-dir)
-            [ "$#" -ge 2 ] || { echo "error: --bin-dir requires a value" >&2; exit 2; }
-            BIN_DIR="$2"
+            [ "$#" -ge 2 ] || err "--bin-dir requires a directory argument"
+            INSTALL_DIR="$2"
             shift 2
             ;;
         -h|--help)
@@ -34,35 +51,49 @@ while [ "$#" -gt 0 ]; do
             exit 0
             ;;
         *)
-            echo "error: unknown argument: $1" >&2
-            usage >&2
-            exit 2
+            err "unknown argument: $1 (pass --help for usage)"
             ;;
     esac
 done
 
-OS="$(uname -s)"
-ARCH="$(uname -m)"
+need_cmd() {
+    command -v "$1" >/dev/null 2>&1 || err "required command not found: $1"
+}
 
-case "$ARCH" in
-    x86_64|amd64) ARCH_TRIPLE="x86_64" ;;
-    arm64|aarch64) ARCH_TRIPLE="aarch64" ;;
-    *)
-        echo "error: unsupported architecture: $ARCH" >&2
-        exit 1
-        ;;
-esac
+need_cmd uname
+need_cmd tar
+need_cmd awk
+need_cmd mktemp
 
-case "$OS" in
-    Linux) TARGET="${ARCH_TRIPLE}-unknown-linux-gnu" ;;
-    Darwin) TARGET="${ARCH_TRIPLE}-apple-darwin" ;;
-    *)
-        echo "error: unsupported operating system: $OS (use cargo install --git https://github.com/${REPO}.git on Windows)" >&2
-        exit 1
-        ;;
-esac
+detect_target() {
+    os_name="$(uname -s 2>/dev/null || echo unknown)"
+    arch_name="$(uname -m 2>/dev/null || echo unknown)"
 
-fetch() {
+    case "$os_name" in
+        Linux)
+            if (ldd --version 2>&1 || true) | grep -qi musl || ls /lib/ld-musl-* >/dev/null 2>&1; then
+                err "musl Linux detected; prebuilt Linux archives target glibc (gnu). Install from source with: cargo install --git https://github.com/${REPO}.git --locked"
+            fi
+            os_part="unknown-linux-gnu"
+            ;;
+        Darwin)
+            os_part="apple-darwin"
+            ;;
+        *)
+            err "unsupported operating system: $os_name (use prebuilt Windows .zip or cargo install)"
+            ;;
+    esac
+
+    case "$arch_name" in
+        x86_64|amd64) arch_part="x86_64" ;;
+        aarch64|arm64) arch_part="aarch64" ;;
+        *) err "unsupported CPU architecture: $arch_name" ;;
+    esac
+
+    printf '%s-%s' "$arch_part" "$os_part"
+}
+
+download_file() {
     url="$1"
     dest="$2"
     if command -v curl >/dev/null 2>&1; then
@@ -70,61 +101,100 @@ fetch() {
     elif command -v wget >/dev/null 2>&1; then
         wget -qO "$dest" "$url"
     else
-        echo "error: curl or wget is required" >&2
-        exit 1
+        err "either curl or wget is required to download release archives"
     fi
 }
 
-if [ -z "$VERSION" ]; then
-    TMP_META="$(mktemp)"
-    fetch "https://api.github.com/repos/${REPO}/releases/latest" "$TMP_META"
-    VERSION="$(sed -n 's/.*"tag_name":[[:space:]]*"\([^"]*\)".*/\1/p' "$TMP_META" | head -n 1)"
-    rm -f "$TMP_META"
-    if [ -z "$VERSION" ]; then
-        echo "error: could not determine latest release tag from GitHub" >&2
-        exit 1
+resolve_latest_tag() {
+    api_url="https://api.github.com/repos/${REPO}/releases/latest"
+    if command -v curl >/dev/null 2>&1; then
+        tag="$(curl -fsSL "$api_url" | awk -F'"' '/"tag_name"[[:space:]]*:/ { print $4; exit }')"
+    elif command -v wget >/dev/null 2>&1; then
+        tag="$(wget -qO- "$api_url" | awk -F'"' '/"tag_name"[[:space:]]*:/ { print $4; exit }')"
+    else
+        err "either curl or wget is required"
     fi
-fi
+    [ -n "$tag" ] || err "could not resolve latest release tag from $api_url"
+    printf '%s' "$tag"
+}
 
-STEM="secondtake-${VERSION}-${TARGET}"
-ARCHIVE="${STEM}.tar.gz"
-BASE_URL="https://github.com/${REPO}/releases/download/${VERSION}"
+compute_sha256() {
+    file="$1"
+    if command -v sha256sum >/dev/null 2>&1; then
+        sha256sum "$file" | awk '{print tolower($1)}'
+    elif command -v shasum >/dev/null 2>&1; then
+        shasum -a 256 "$file" | awk '{print tolower($1)}'
+    else
+        err "either sha256sum or shasum is required to verify SHA256SUMS"
+    fi
+}
 
-WORK_DIR="$(mktemp -d)"
-trap 'rm -rf "$WORK_DIR"' EXIT INT TERM
+TARGET="$(detect_target)"
+ARCHIVE="secondtake-${TARGET}.tar.gz"
 
-fetch "${BASE_URL}/${ARCHIVE}" "${WORK_DIR}/${ARCHIVE}"
-fetch "${BASE_URL}/SHA256SUMS" "${WORK_DIR}/SHA256SUMS"
-
-EXPECTED="$(awk -v file="$ARCHIVE" '$2 == file || $2 == "*" file { print $1; exit }' "${WORK_DIR}/SHA256SUMS")"
-if [ -z "$EXPECTED" ]; then
-    echo "error: ${ARCHIVE} not found in SHA256SUMS" >&2
-    exit 1
-fi
-
-if command -v sha256sum >/dev/null 2>&1; then
-    ACTUAL="$(sha256sum "${WORK_DIR}/${ARCHIVE}" | awk '{ print $1 }')"
-elif command -v shasum >/dev/null 2>&1; then
-    ACTUAL="$(shasum -a 256 "${WORK_DIR}/${ARCHIVE}" | awk '{ print $1 }')"
+if [ -n "${SECONDTAKE_BASE_URL:-}" ]; then
+    BASE_URL="${SECONDTAKE_BASE_URL%/}"
 else
-    echo "error: sha256sum or shasum is required to verify release checksums" >&2
-    exit 1
+    if [ "$VERSION" = "latest" ] || [ -z "$VERSION" ]; then
+        TAG="$(resolve_latest_tag)"
+    else
+        case "$VERSION" in
+            v*) TAG="$VERSION" ;;
+            *)  TAG="v$VERSION" ;;
+        esac
+    fi
+    BASE_URL="https://github.com/${REPO}/releases/download/${TAG}"
 fi
 
-if [ "$EXPECTED" != "$ACTUAL" ]; then
-    echo "error: SHA-256 mismatch for ${ARCHIVE}: expected ${EXPECTED}, got ${ACTUAL}" >&2
-    exit 1
+TMP_DIR="$(mktemp -d 2>/dev/null || mktemp -d -t secondtake-install)"
+STAGED_BIN=""
+cleanup() {
+    rm -rf "$TMP_DIR"
+    if [ -n "$STAGED_BIN" ] && [ -f "$STAGED_BIN" ]; then
+        rm -f "$STAGED_BIN"
+    fi
+}
+trap cleanup EXIT INT TERM
+
+printf 'Downloading %s/%s\n' "$BASE_URL" "$ARCHIVE"
+download_file "${BASE_URL}/${ARCHIVE}" "${TMP_DIR}/${ARCHIVE}"
+download_file "${BASE_URL}/SHA256SUMS" "${TMP_DIR}/SHA256SUMS"
+
+EXPECTED_SHA="$(awk -v name="$ARCHIVE" '
+    NF >= 2 {
+        file = $2
+        sub(/^\*/, "", file)
+        sub(/^\.\//, "", file)
+        if (file == name) {
+            print tolower($1)
+            exit
+        }
+    }
+' "${TMP_DIR}/SHA256SUMS")"
+
+[ -n "$EXPECTED_SHA" ] || err "archive ${ARCHIVE} not listed in SHA256SUMS"
+
+ACTUAL_SHA="$(compute_sha256 "${TMP_DIR}/${ARCHIVE}")"
+if [ "$ACTUAL_SHA" != "$EXPECTED_SHA" ]; then
+    err "SHA-256 mismatch for ${ARCHIVE}: expected ${EXPECTED_SHA}, got ${ACTUAL_SHA}"
 fi
 
-tar -xzf "${WORK_DIR}/${ARCHIVE}" -C "$WORK_DIR"
-mkdir -p "$BIN_DIR"
-cp "${WORK_DIR}/${STEM}/secondtake" "${BIN_DIR}/secondtake"
-chmod 0755 "${BIN_DIR}/secondtake"
+mkdir -p "${TMP_DIR}/unpack"
+tar -xzf "${TMP_DIR}/${ARCHIVE}" -C "${TMP_DIR}/unpack"
 
-echo "Installed secondtake (${VERSION}) to ${BIN_DIR}/secondtake"
-case ":${PATH}:" in
-    *":${BIN_DIR}:"*) ;;
-    *)
-        echo "Note: add ${BIN_DIR} to your PATH to invoke secondtake directly."
-        ;;
-esac
+if [ -f "${TMP_DIR}/unpack/secondtake" ]; then
+    BIN_SRC="${TMP_DIR}/unpack/secondtake"
+elif [ -f "${TMP_DIR}/unpack/secondtake-${TARGET}/secondtake" ]; then
+    BIN_SRC="${TMP_DIR}/unpack/secondtake-${TARGET}/secondtake"
+else
+    err "secondtake binary not found inside ${ARCHIVE}"
+fi
+
+mkdir -p "$INSTALL_DIR"
+STAGED_BIN="${INSTALL_DIR}/.secondtake.tmp.$$"
+cp "$BIN_SRC" "$STAGED_BIN"
+chmod 0755 "$STAGED_BIN"
+mv -f "$STAGED_BIN" "${INSTALL_DIR}/secondtake"
+STAGED_BIN=""
+
+printf 'Verified SHA-256 (%s) and installed secondtake to %s/secondtake\n' "$ACTUAL_SHA" "$INSTALL_DIR"

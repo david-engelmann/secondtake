@@ -60,7 +60,7 @@
       "type": "integer",
       "minimum": 1,
       "default": 1,
-      "description": "Minimum matched task pairs required before making a non-abstain proposal."
+      "description": "Minimum matched pairs required before issuing keep, tune, or revert (must be written in plain JSON integer syntax without decimal point or exponent)."
     }
   }
 }

@@ -6,8 +6,10 @@ multilingual = false
 src = "src"
 
 [output.html]
+site-url = "/secondtake/"
 default-theme = "navy"
 preferred-dark-theme = "navy"
+additional-css = ["theme/custom.css"]
 git-repository-url = "https://github.com/david-engelmann/secondtake"
 edit-url-template = "https://github.com/david-engelmann/secondtake/edit/main/book/{path}"
 

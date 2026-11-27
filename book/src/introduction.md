@@ -41,9 +41,11 @@ cd secondtake
 cargo install --path . --locked
 ```
 
-Live one-regression judgment runs through an external connector named by `JEV_CALL` (see [`examples/jev_call_example.py`](examples/jev_call_example.py)).
+Live one-regression judgment runs through an external connector named by `JEV_CALL` (see [`examples/jev_call_example.py`](https://github.com/david-engelmann/secondtake/tree/main/examples/jev_call_example.py)).
 
 ## Quickstart
+
+From a local checkout of this repository:
 
 Run directly against the ready-to-score fixtures in `examples/`:
 
@@ -75,13 +77,17 @@ Below `min_pairs` the proposal is `abstain`. With zero regressions it is `keep`,
 
 ## Performance
 
-Measured on Apple M3 Max (`--release`, `891.4 KiB` binary; details in [docs/PERFORMANCE.md](docs/PERFORMANCE.md)):
+<p align="center">
+  <img src="media/benchmark-chart.svg" alt="benchmark profile" width="900">
+</p>
 
-| Matched Pairs | Tapes Scored | `compare` Latency | Throughput |
+Measured on Apple M3 Max (`--release`, `891.4 KiB` binary; details in [docs/PERFORMANCE.md](performance.md)):
+
+| Matched Pairs | Total Tapes Scored | `compare` Latency (`-o`) | Throughput |
 | ---: | ---: | ---: | ---: |
-| `10` | `20` | `18.73 ms` | `1,068 tapes/s` |
-| `50` | `100` | `25.67 ms` | `3,896 tapes/s` |
-| `250` | `500` | `87.32 ms` | `5,726 tapes/s` |
+| `10` | `20` | `22.7 ms` | `881 tapes/s` |
+| `50` | `100` | `54.39 ms` | `1,839 tapes/s` |
+| `250` | `500` | `314.04 ms` | `1,592 tapes/s` |
 
 ## Where `secondtake` Fits in the Retrospective Line
 
@@ -91,13 +97,13 @@ Measured on Apple M3 Max (`--release`, `891.4 KiB` binary; details in [docs/PERF
 
 ## Documentation
 
-- [Documentation Index](docs/README.md) & [Searchable Handbook](https://david-engelmann.github.io/secondtake/)
-- [Operator & Integrator Guide](docs/GUIDE.md)
-- [Technical Architecture](docs/ARCHITECTURE.md)
-- [Wire Formats & JSON Schemas](docs/FORMATS.md)
-- [Ecosystem Comparison](docs/COMPARISON.md)
-- [Performance Benchmarks](docs/PERFORMANCE.md)
-- [FAQ](docs/FAQ.md)
+- [Documentation Index](introduction.md) & [Searchable Handbook](https://david-engelmann.github.io/secondtake/)
+- [Operator & Integrator Guide](guide.md)
+- [Technical Architecture](architecture.md)
+- [Wire Formats & JSON Schemas](formats.md)
+- [Ecosystem Comparison](comparison.md)
+- [Performance Benchmarks](performance.md)
+- [FAQ](faq.md)
 
 ## Status
 
@@ -105,4 +111,4 @@ The compare command is complete for its scope and is held to the Python it repla
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](https://github.com/david-engelmann/secondtake/blob/main/LICENSE).
