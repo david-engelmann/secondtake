@@ -18750,3 +18750,59 @@ ST-61. The CodeRabbit disposition
   the verify step exited 0, and the
   converted tape stands byte-identical
   to the oracle fixture tape.
+- ST-264. The realistic run stands at
+  160 steps with no problems on the
+  fresh build, driven over tape sets
+  drawn at the standing shapes: the
+  run ends in 60 keep, 34 revert, 32
+  abstain, and 22 tune proposals over
+  its 148 compare events, and its
+  judgment outcomes stand at 40
+  judged, 20 abstained, and 88 not
+  consulted, proposals and statuses
+  counting over the 148 compare events
+  only under the ST-183 accounting as
+  ST-260's correction states it: the
+  abstain proposals stand as the 20
+  band steps carrying the abstained
+  status and the 12
+  below-the-pair-floor steps, the 88
+  not consulted stand as 40 agreement
+  steps, 24 two-regressions steps, 12
+  below-the-pair-floor steps, and 12
+  band steps with no judge configured,
+  those last being the twelve ST-144
+  names standing inside the 88, and
+  the remaining 12 steps are refusal
+  steps standing outside the 148 and
+  producing no proposals, the
+  identities closing as 60 + 88 + 12 =
+  160. A step-kind census of the run's
+  own step lines, counted at this
+  round's hand, confirms the
+  decomposition mechanically:
+  agreement 40, band postures 60,
+  two-regressions 24, below-floor 12,
+  band-no-judge 12, and refusal 12,
+  summing to 160. The differential
+  harness stands at 33 cases with no
+  problems, the port held to the
+  oracle on the shipped fixtures and
+  the boundary cases. No family cell
+  reads or writes /dev/full: the three
+  harness sources were searched at
+  this round's hand and no cell names
+  the device, the device itself
+  standing verified as the genuine
+  full device, character device 1,7,
+  so the ST-206 and ST-217 repair
+  records stand undisturbed and no new
+  device fact stands in need of one.
+  The round total stands traced from
+  its parts: the battery's 34 cells
+  counted on each of the two builds,
+  the realistic run's 160 steps, and
+  the differential's 33 cases sum to
+  261, the same total the forty-fourth
+  round closed at, its composition
+  unchanged.
