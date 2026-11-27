@@ -455,19 +455,29 @@ impl Transport for LiveTransport {
             _ => "",
         };
         let state = format!("{card}{framing}");
-        let mut command = Command::new("python3");
-        command
-            .arg(&self.script)
-            .arg("--state")
-            .arg(&state)
-            .arg("--labels")
-            .arg(LABELS.join(","));
-        if kind != "choice" {
-            command.arg("--question-type").arg("score");
-        }
-        command.stdout(Stdio::piped()).stderr(Stdio::piped());
-        let mut child = match command.spawn() {
+        let make_command = |program: &str| {
+            let mut command = Command::new(program);
+            command
+                .arg(&self.script)
+                .arg("--state")
+                .arg(&state)
+                .arg("--labels")
+                .arg(LABELS.join(","));
+            if kind != "choice" {
+                command.arg("--question-type").arg("score");
+            }
+            command.stdout(Stdio::piped()).stderr(Stdio::piped());
+            command
+        };
+        let mut child = match make_command("python3").spawn() {
             Ok(child) => child,
+            #[cfg(windows)]
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+                match make_command("python").spawn() {
+                    Ok(child) => child,
+                    Err(_) => return Err(err("the judge call could not be made")),
+                }
+            }
             Err(_) => return Err(err("the judge call could not be made")),
         };
         // Both streams drain on their own threads from

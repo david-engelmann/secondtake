@@ -157,7 +157,6 @@ pub fn fsdecode_units(bytes: &[u8]) -> Vec<u16> {
 /// be encoded; it renders as its UTF-8 replacement,
 /// a case argument strings from the OS never reach
 /// (their surrogates come only from fsdecode).
-#[cfg(unix)]
 pub fn fsencode_bytes(units: &[u16]) -> Vec<u8> {
     let mut out = Vec::new();
     let mut index = 0;
