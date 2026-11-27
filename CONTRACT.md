@@ -18179,3 +18179,134 @@ ST-61. The CodeRabbit disposition
   before the append. ST-55(a) stays
   open, carried by name into the
   forty-fifth round.
+- ST-260. Repair record for ST-254,
+  ST-256, and ST-257, appended after
+  the round's closure on the
+  forty-fourth round's own gate, the
+  original items standing unrewritten.
+  The gate's three axes name three
+  defects between them, each in item
+  prose and none touching an executed
+  figure: the spec fidelity review's
+  Minors F-1 and F-2, the standards
+  review's Minor S-1, and the red team
+  re-audit's Minors L5-1 and L4-1, F-1
+  and L5-1 naming one defect between
+  them and S-1 and L4-1 naming one
+  defect between them. Each stands
+  corrected here from the record read
+  firsthand at this repair's hand.
+  First, ST-256's pin commit. ST-256
+  states the pin suite ran in the
+  pinned flighttape tree at commit
+  74a83298cfd97bd2518087452aab0abae160c9ee.
+  That value names no commit: the
+  flighttape clone's object store
+  answers "could not get object info"
+  for it, read at this repair's hand.
+  The fleet pin, named uniformly
+  through the contract, is
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  whose tree is
+  afd4d7d13520411e003762548fc79082a1b9cf6e,
+  and it stands printed correctly 27
+  times elsewhere in the contract, the
+  false form occurring exactly once.
+  The execution itself stood on the
+  true pin tree: the staging was
+  verified file by file against the
+  pin's manifest at 50 of 50 at the
+  build lane's hand and at the red
+  team's, the suite's own 19 result
+  lines sum to 241 as ST-256 prints
+  them, and the golden converted to
+  the pin's digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3.
+  Only the printed full SHA is false,
+  and no gate figure is affected.
+  Second, ST-254's report count.
+  ST-254 grades the forty-third
+  round's gate "from the seven reports
+  on disk". The reports home holds
+  exactly five report files, and
+  ST-254's own enumeration of them is
+  complete and exact, every figure in
+  it standing as the three axes
+  verified it: the spec report at
+  14,331 chars, PASS on Minor F-1; the
+  standards report at 10,058 chars,
+  APPROVE on Minors S-1 and S-2; the
+  red team report at 14,942 chars,
+  APPROVE on Minors L7-1 and L8-1; the
+  spec delta at 7,953 chars, PASS with
+  no findings; and the standards delta
+  at 4,961 chars, APPROVE with no
+  findings. Only the total is false:
+  the count stands at five, not seven.
+  Third, ST-257's two accounting
+  sentences. ST-257 states the abstain
+  proposals as "the 20 judged
+  abstentions and the 12 refusal steps
+  under the ST-144 accounting", and
+  decomposes the 88 not_consulted as
+  "40 judged reruns, 24 abstentions
+  past the floor, 12 judge failures,
+  and 12 missing scripts under the
+  ST-183 accounting". ST-183's
+  measured decomposition, which
+  governs, counts proposals and
+  judgment statuses over the 148
+  compare events only: the abstain 32
+  stands as the 20 band steps carrying
+  the abstained status and the 12
+  below-the-pair-floor steps, and the
+  12 refusal steps stand outside the
+  148 and produce no proposals, so
+  ST-257's clause sums to 32 only by
+  the coincidence of the two twelves.
+  The 88 not_consulted stands as
+  ST-183 names its cells: 40 agreement
+  steps, 24 two-regressions steps, 12
+  below-the-pair-floor steps, and 12
+  band steps with no judge configured,
+  those last being the twelve ST-144
+  names standing inside the 88; no
+  step kind in the harness answers to
+  a judge failure or a missing script,
+  and the band steps with no judge
+  configured propose tune, not
+  abstain. The closing equation, 60
+  plus 88 plus 12 equaling 160, holds
+  only with its final 12 read as the
+  refusal steps. The red team's
+  executed step-kind census of the
+  realistic run confirms the governing
+  decomposition mechanically:
+  agreement 40, band postures 60,
+  two-regressions 24, below-floor 12,
+  band-no-judge 12, and refusal 12,
+  summing to 160. The correct
+  restatement of the proposals stands
+  in the record at ST-250. The bot's
+  actionable comment 4716794289, under
+  its review 6084917439, read this
+  defect correctly before the gate
+  did; it stands as a true positive,
+  and this record answers it in
+  substance. ST-259's sentence
+  standing the closure gate's
+  proposals and statuses "as ST-257
+  records them" is covered by this
+  correction. Nothing else moves. The
+  Status range stands at ST-1 to
+  ST-258 as ST-258 states it, ST-259
+  stands as the post-closure record,
+  the README does not move, and every
+  gate figure and every other figure
+  in ST-254, ST-256, and ST-257 stands
+  as executed and as the reviews
+  verified it. This record stands
+  outside the Status range of ST-1 to
+  ST-258 that ST-258 states, as ST-259
+  does. ST-55(a) stays open, carried
+  by name into the forty-fifth round.
