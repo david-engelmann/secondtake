@@ -17496,3 +17496,36 @@ ST-61. The CodeRabbit disposition
   before the append. ST-55(a) stays
   open, carried by name into the
   forty-fourth round.
+- ST-253. Repair record for ST-247,
+  appended after the round's closure
+  on the red team re-audit's Minor at
+  its limb L7, the original item
+  standing unrewritten. ST-247 states
+  the single parent of pull request
+  64's merge commit
+  f8c711b86c85c7accec4fb8e14d8a23aaaee9daf,
+  the Round 41 head, as
+  a7a6f47601a25e49c73f98ced3aad8c30f56c2ae.
+  That value names no commit: the
+  API's commits lookup answers "No
+  commit found for SHA" for it, read
+  at this repair's hand. The merge
+  commit's own object, read firsthand
+  through the API at this repair's
+  hand, names its single parent as
+  a7a6f47601a291204baf45f5f6b86a5673b75b37,
+  whose tree
+  af174ae22e434a3f47bee73287f7612d56ae2c97
+  is pull request 62's recorded merge
+  tree. The parentage itself stands
+  exactly as ST-247 describes it, the
+  short prefix a7a6f476 is right, and
+  every other figure in ST-247 stands
+  as the reviews verified it; only
+  the printed full SHA is false, and
+  it stands corrected here. This
+  record stands outside the Status
+  range of ST-1 to ST-251 that
+  ST-251 states, as ST-252 does.
+  ST-55(a) stays open, carried by
+  name into the forty-fourth round.
