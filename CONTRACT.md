@@ -21131,3 +21131,104 @@ ST-61. The CodeRabbit disposition
   before the append. ST-55(a) stays
   open, carried by name into the
   fiftieth round.
+- ST-290. Post-closure record for the
+  forty-ninth round, appended after
+  the round's closure, standing
+  outside the Status range of ST-1 to
+  ST-289 that ST-289 states. ST-289
+  charged the closure gate in its
+  strongest form, the whole gate
+  executed on the closure tree itself
+  with its figures standing on the
+  pull request's record; this record
+  sets that execution down in the
+  contract itself, whole. The gate's
+  staging stood at
+  secondtake-r49-gate, verified file
+  by file against the closure tree's
+  own manifest at 25 of 25 with no
+  extras before the gate ran, the
+  closure tree standing at
+  7847457d47bbb42e457cc4996be4e48c21ca3121
+  on the closure commit
+  045b77e53bdc959568956445550c3674bd2b084c.
+  The gate's launch history stands
+  disclosed whole: its first launch,
+  begun at 2026-11-28T19:43:35Z,
+  queued behind verified-live
+  progressing holds and was killed
+  queued by a service restart before
+  it ever acquired the slot, verified
+  dead at this lane's hand with its
+  log holding only its start line and
+  no process standing, no segment
+  having run and no figure produced,
+  and it counts nowhere in what
+  follows; on its second launch, begun
+  at 2026-11-28T20:31:18Z, it acquired
+  the slot at once, the slot released
+  at 2026-11-28T20:44:54Z, every
+  segment banking on its first
+  attempt: the codepoint scan counted
+  zero U+2014 and zero U+2013 over the
+  closure tree, its planted control
+  counting one and one in the gate's
+  own control segment; the format
+  check exited 0 with its log empty;
+  clippy exited 0 with no warnings;
+  the test suite exited 0 with 39
+  tests paired as the base gate's
+  stood, 0 library, 0 binary, 22
+  compare, 17 judge, 0 doc; the
+  release build exited 0, and the
+  closure binary's digest stands at
+  d71227c59a09908659318f4b8c3facd6,
+  taken by md5sum at
+  st49-scratch/target-closure/release/secondtake,
+  build-path scoped as ever, standing
+  equal to the base gate's binary at
+  its own paths, the closing pair
+  equal. The battery ran 34 cells
+  against the closure build and 34
+  against the base build, every cell
+  ok on both, the floor exact at its
+  probes and the chain split standing
+  at ST-65's points with its digest at
+  cece571431 under this round's oracle
+  root on both runs, S5's Python side
+  again carrying a fresh run-scoped
+  digest at each run, 8c2c73ffb7 on
+  the closure build and d0aef7b825 on
+  the base. The realistic run
+  completed at 160 steps with no
+  problems in the ST-183 decomposition
+  ST-288 states, and the differential
+  at 33 cases with no problems, the
+  round total standing at 261 as
+  ST-288 traced it. The pin suite ran
+  in its memory-fitting form and
+  banked 241 tests passed with none
+  failed, summed at this lane's hand
+  from its own 19 result lines in the
+  gate log, the screen suite among
+  them at 13. The golden tape
+  converted on its first attempt under
+  the same bound: 1,663 bytes whose
+  SHA-256 stands at
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the verify step exiting 0 and the
+  output standing byte-identical to
+  the oracle fixture tape. No segment
+  exhausted its bound. The contract
+  stands at 751,028 bytes with this
+  record appended, the figure computed
+  by the placeholder method: this
+  record was composed with a
+  placeholder of the same digit count
+  standing where the figure now
+  stands, the wrapped record measured,
+  the total computed and substituted,
+  and the wrap verified unchanged
+  before the append. ST-55(a) stays
+  open, carried by name into the
+  fiftieth round.
