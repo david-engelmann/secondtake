@@ -20009,3 +20009,644 @@ ST-61. The CodeRabbit disposition
   before the append. ST-55(a) stays
   open, carried by name into the
   forty-eighth round.
+- ST-279. Round 48 opens with the
+  read-back of pull request 76, the
+  Round 47 pull request, read whole at
+  this round's hand through the API:
+  the pull request itself, its six
+  commits, its three issue comments,
+  its Actions runs on its head, its
+  queue pull requests, and main at the
+  merge. Pull request 76, titled
+  "refine: secondtake Round 47, ST-273
+  to ST-277" at 45 chars, stands
+  merged: the Trunk queue
+  squash-merged it at
+  2026-11-28T08:59:04Z as
+  48fd4b5d357b70076e8ba324d0c7ad6b7ef188c3,
+  whose tree
+  7972b9c1921cd0ff313f67dd22f988cd84508750
+  equals the reviewed tree byte for
+  byte, its single parent the Round 46
+  merge
+  8010af65a7345c1a9384b5965b1ab6b4b96045f9,
+  and main stands at that commit with
+  25 blobs, CONTRACT.md at 707,833
+  bytes at blob
+  5c7c4edd27b5532d37007dae4b1ab19c47ddadc0,
+  and the README at blob
+  859462afc70b00e021388c34efe315d3a31b94e0
+  with its rounds line at 47 of 100.
+  The chain stands as the gate read
+  it: ST-273 in
+  06ffe34786e3f5b3bcdce857c88c77e2a91aaa10
+  at contract 697,112 bytes on
+  CONTRACT.md alone, ST-274 in
+  a0937bb4824c84c685c6adf5ea3cdd17e461ce7b
+  at 698,552 on CONTRACT.md alone,
+  ST-275 in
+  58de56f3235eee1184dcd697338af6fd40473c30
+  at 700,700 on CONTRACT.md alone,
+  ST-276 in
+  b2d5d924537cace6ea1730ffcaa9ab946782f1c4
+  at 701,939 on CONTRACT.md alone, the
+  closure ST-277 in
+  70dff912c0f229cf248c5ad39622ffa82b88afbd
+  at 704,676 on CONTRACT.md and
+  README.md with closure tree
+  9206c357211d7b1daec75d95d242f7c725872d3d,
+  contract blob a7bd2987, and README
+  blob 859462af, and the post-closure
+  record ST-278 in
+  b8b45671f4f323abc03d985475ae84905046849f
+  at 707,833 on CONTRACT.md alone, the
+  Signed-off-by trailer standing on
+  all six. Hosted CI stands green on
+  the head: push run 46120007983,
+  dynamic run 46120028476, and
+  pull_request run 46120030125, each
+  completed success. The body stands
+  at 21,776 chars in its final form:
+  the authored body at 21,362 chars,
+  the build lane's patched body as the
+  owner's gate record extended it at
+  landing, and its bot appendix
+  standing at offset 21,364 spanning
+  412 with its end marker ending at
+  21,776, no record standing after it,
+  the appendix closing the body; the
+  gate record's own parenthetical
+  names the appendix at offset 21,353,
+  where the marker measures at 21,364
+  in the body as it stands, the pair
+  21,364 and 412 summing to the body's
+  whole length exactly. The census
+  stands settled whole at this read,
+  as the body's Step 0 record charged
+  this read-back expressly: three
+  issue comments, no reviews, and no
+  review comments. The Trunk note
+  7235772737, created
+  2026-11-28T07:11:17Z, stands in its
+  merged form at 113 chars, its last
+  edit the merge's own at
+  2026-11-28T08:59:07Z, recording the
+  successful merge with its queue
+  details link, at 403 chars in the
+  pre-merge form the gate read. The
+  owner's enqueue comment 7236856018,
+  the bare merge command at 12 chars,
+  created 2026-11-28T08:51:25Z and
+  never edited, stands last. The queue
+  pull request 77 stands closed
+  unmerged, created
+  2026-11-28T08:58:35Z and closed
+  2026-11-28T08:59:00Z on its queue
+  branch
+  trunk-merge/pr-76/7167bd4c-25a9-463f-a532-17de520b4aa6.
+  The queue pull request 75 stands
+  open still at this read, unmerged
+  and not closed, created
+  2026-11-28T05:24:44Z on its queue
+  branch
+  trunk-merge/pr-74/c5e1bc62-0d69-45e3-bd16-a6d5471034cf,
+  where it stood open at the
+  forty-seventh round's read-back and
+  at its owner's landing read: it is
+  Trunk's queue artifact for the
+  long-merged pull request 74, not
+  this line's to close, and its state
+  stands charged to the forty-ninth
+  round's read-back in the same
+  breath. The CodeRabbit shell
+  7235775357 stands settled at its
+  true final form of 12,758 chars at
+  this read under ST-278's charge,
+  created 2026-11-28T07:11:32Z and
+  last edited 2026-11-28T08:51:23Z,
+  not edited at or after the merge: it
+  stood at 12,730 chars at the build
+  lane's Step 0 read, last edited
+  2026-11-28T07:13:07Z in its
+  completed-review form, and the bot's
+  re-render carried it to 12,758 at
+  08:51:23Z, the figure the owner's
+  landing read took, where it stands
+  final. Its one review (Run ID
+  aa98fff1-b355-4972-bb32-ab85a810ab37,
+  the same run the build lane read,
+  the shell re-rendering without
+  re-running) reviewed the range
+  8010af65a7345c1a9384b5965b1ab6b4b96045f9
+  to
+  b8b45671f4f323abc03d985475ae84905046849f
+  with CONTRACT.md and README.md
+  selected for processing, its run
+  configuration standing at source
+  mode Auto, review profile CHILL, and
+  plan Advanced with the repository,
+  branch, file, and commit fields
+  unavailable, and it generated no
+  actionable comments, and no formal
+  review and no review comment stand
+  on the pull request. Its walkthrough
+  stands in three rows over
+  CONTRACT.md and README.md and is
+  accurate, the first row carrying the
+  pull request read-back and the base
+  gate, the second the battery and run
+  results, and the third the Round 47
+  closure and post-closure gate with
+  the README's move from 46 to 47 of
+  100, and its summary states plainly
+  that the contract records the Round
+  46 read-back and verification
+  results, closes Round 47, and
+  records post-closure gate results.
+  Its change assessment stands pinned
+  to
+  b8b45671f4f323abc03d985475ae84905046849f
+  as source and covered commit at kind
+  reviewed, effort 2 (Simple) at about
+  ten minutes, priority p3, Change
+  type Other. Its merge risk stands
+  Minimal up to b8b45, its prose
+  recording that the change updates
+  project documentation to record the
+  Round 47 closure, has no runtime
+  impact, and carries minimal merge
+  risk. Its pre-merge checks stand at
+  three passed and one inconclusive:
+  the Title check stands inconclusive,
+  and its proposed rewrite stands
+  declined on the pull request's body
+  with its reason, the title mirroring
+  pull request 74's live title in the
+  standing shape; the standards axis's
+  observation O-1 settles here, the
+  Title check's example standing in
+  the shell's final render as "docs:
+  record Round 47 results and close at
+  47 of 100", a third wording matching
+  neither the form the pull request's
+  body quoted at the build lane's
+  read, "Record Round 47 closure and
+  update README count to 47 of 100",
+  nor the form the standards axis
+  read, "docs: record Round 47 closure
+  and update README to 47 of 100", the
+  shell re-rendering its own example
+  at every read while the
+  disposition's substance stands
+  identical in each; the Description
+  check passed as skipped under the
+  enabled high-level summary, and the
+  Linked Issues and Out of Scope
+  Changes checks passed as skipped for
+  no linked issues. Its finishing
+  touches and its Autofix checkbox
+  stand unticked, its recent review
+  generated no actionable comments,
+  and its review stands on the
+  included allowance with none
+  remaining. No "Addressed in commit"
+  line stands anywhere on the pull
+  request, no actionable comment
+  having been generated for one to
+  answer. The Round 47 gate grades as
+  follows, from exactly the three
+  reports on disk read at this round's
+  hand, the reports home holding
+  exactly three files, counted at this
+  hand. The spec axis returned PASS at
+  12,177 bytes with no findings at any
+  grade. The standards axis returned
+  APPROVE at 11,186 bytes with no
+  findings at any grade and one
+  observation below severity, O-1,
+  settled above in this record. The
+  red team returned APPROVE at 14,771
+  bytes with every limb executed at
+  its own hand and none untested, and
+  one Minor, RT-1, body-only: the
+  body's Attempt history named the
+  destination of the staging slip's
+  twenty-five displaced files as the
+  forty-sixth round scratch's banked
+  gate-logs directory, and that
+  destination is discharged here as
+  far as it can be discharged,
+  searched once more at this round's
+  hand in the predecessor's worktrees
+  secondtake-r47, secondtake-r47-gate,
+  and secondtake-r47-closure, in
+  secondtake-r46-gate, in both rounds'
+  scratches, and at the workspace
+  level: no directory of that name,
+  and no banked or gate-logs variant
+  beyond the battery's own work
+  directories, stands in any of them,
+  the predecessor's worktrees holding
+  only the repository's own
+  directories, the forty-sixth round's
+  gate staging holding exactly the
+  twenty-five repository files, and
+  the forty-sixth round's own gate
+  logs standing intact in their
+  original places in its scratch,
+  thirteen files in each of its hold
+  and closure-hold log directories.
+  The displaced files' destination
+  does not stand under any name this
+  lane can find, and the owner's gate
+  record on pull request 76 stands as
+  RT-1's disposition, no figure, gate,
+  item, or record depending on those
+  copies. No other charge from that
+  gate stands open. The storefront's
+  item 3 stands PASSING outright at
+  this read: the repository
+  description, the README's lede, and
+  the Cargo.toml description stand
+  byte-identical, the shared
+  description ST-51 settled. The
+  tape-format pin stands verified at
+  this round's hand before any item
+  prints it, against its object in the
+  flighttape clone:
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e
+  is a commit there, its tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  holding exactly 50 blobs, and the
+  false form 74a83298cfd9 answers no
+  object in the same store. The device
+  file /dev/full stands probed in this
+  lane's own process tree: it stands
+  as a regular file, not the genuine
+  character device 1,7, its writes
+  succeeding, and no cell in this
+  round's harness, oracle, or port
+  sources references it, so no figure
+  this round is contracted from it.
+  Antigravity's pull request 73 stands
+  open at this read on its own branch
+  antigravity/cross-platform-ci at
+  4e259bb8ecbeb6d00cb07ec527c6934597bc27e6,
+  the other side's work, read only and
+  untouched by this line, its side
+  standing down on CONTRACT.md and
+  README.md in every notice naming
+  this repository, as this round's
+  coordination read verified whole
+  before building. The branch
+  refine/st-round48 stands created at
+  the base
+  48fd4b5d357b70076e8ba324d0c7ad6b7ef188c3
+  and read back at this hand. The
+  verification family follows on this
+  base: the base gate whole on
+  48fd4b5d357b70076e8ba324d0c7ad6b7ef188c3,
+  the resolver band with the pin suite
+  and the golden, the realistic run
+  and the differential, then the
+  closure. ST-55(a) stays open,
+  carried by name into the forty-ninth
+  round.
+- ST-280. The base gate ran whole on
+  the Round 47 final tree, main at
+  48fd4b5d357b70076e8ba324d0c7ad6b7ef188c3
+  with tree
+  7972b9c1921cd0ff313f67dd22f988cd84508750,
+  in the Round 48 worktree staged
+  fresh for this round and verified
+  blob for blob against that tree's
+  manifest before the gate relied on
+  it, 25 of 25 with no extras, its
+  files hardlinked from the
+  forty-seventh round's closure gate
+  staging with the contract itself
+  written verified from the clone's
+  object store, the two manifests
+  differing in CONTRACT.md alone. The
+  gate held the build slot for its
+  whole lifetime, from
+  2026-11-28T11:45:37Z to
+  2026-11-28T12:09:36Z, in one
+  sitting, and every segment stands at
+  exit 0 on its first attempt within
+  the launch. The launch history
+  stands disclosed here whole: the
+  gate's first launch, begun
+  2026-11-28T09:43:18Z, queued behind
+  verified-live progressing holds and
+  was killed, with every detached
+  process on the box, by a service
+  restart before it ever acquired the
+  slot, no segment having run and no
+  figure produced, and it counts
+  nowhere in what follows; its second
+  launch, begun 2026-11-28T11:26:37Z,
+  queued about nineteen minutes behind
+  verified-live progressing holds,
+  acquired the slot, executed every
+  segment, and counts once. The
+  worktree's own codepoint scan reads
+  U+2014 = 0 and U+2013 = 0. cargo fmt
+  stands clean at exit 0 with an empty
+  log. Clippy stands clean at exit 0
+  with no warnings under -D warnings.
+  The cargo suite stands paired at 39
+  tests, 0 library unit tests, 0
+  binary unit tests, 22 compare tests,
+  17 judge tests, and 0 doc tests,
+  every suite ok and none failed or
+  ignored. The release binary stands
+  at md5
+  d71227c59a09908659318f4b8c3facd6 at
+  this round's own target path and at
+  the banked Round 47 target path
+  alike, the figure build-path scoped,
+  standing as it has stood since Round
+  16.
+- ST-281. The resolver band, the pin
+  suite, and the golden stand whole at
+  the base gate. The battery stands at
+  34 cells with 0 problems on the
+  fresh build and on the banked build
+  alike. The confidence floor stands
+  probed exact on both builds: a
+  judged tune at 0.6 exactly, a judged
+  revert at 0.600001, and an abstain
+  at 0.599999 carrying the reason that
+  the judge's confidence 0.599999 is
+  below 0.6. The chain band stands as
+  contracted: named refusal
+  byte-identical on both sides at 989,
+  990, and 991 links, and the split
+  from 992 through 1100, the oracle in
+  its crash class with digest
+  fd15351685 and the port at its named
+  refusal, the digest root-scoped to
+  this round's own oracle root and
+  stated as this run's figure alone.
+  Re-meetings stand at named refusal
+  on both sides at 1001 and at 4096,
+  and split at 4097, the oracle at its
+  named refusal and the port in its
+  crash class. The S3
+  link-after-dead-component digest
+  stands at 3979892dd1 on both sides
+  on both builds, and the S5 loop
+  digest stands run-scoped on the
+  oracle side, 935d38aca1 on the fresh
+  build's run and 8a4afc0ca6 on the
+  banked build's run, the port in its
+  crash class on both. The pin suite
+  stands at 241 tests summed from its
+  own 19 result lines (3, 0, 22, 19,
+  34, 5, 13, 8, 17, 12, 15, 22, 3, 5,
+  13, 24, 1, 25, 0), the screen
+  standing at 13 among them, run in
+  its memory-fitting form at jobs 2
+  and test-threads 2 against the pin
+  tree staged fresh for this round and
+  verified blob for blob, 50 of 50
+  with no extras, at the pin
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  verified against its object in the
+  flighttape store at this round's
+  hand before any item printed it, its
+  tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e,
+  the false form from Round 44
+  answering no object in the same
+  store. The golden stands whole by
+  its digest alone: convert at exit 0
+  producing 1,663 bytes at digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  verify at exit 0, the produced tape
+  byte-identical to the oracle fixture
+  tape, on the golden's first attempt.
+- ST-282. The realistic run and the
+  differential stand whole at the base
+  gate, and the round total stands
+  counted. The realistic run stands at
+  160 steps with 0 problems. Its
+  proposals and statuses stand counted
+  over the 148 compare events only, in
+  ST-183's governing form as ST-260's
+  correction states it: proposals keep
+  60, revert 34, abstain 32, and tune
+  22, and statuses judged 40,
+  abstained 20, and not consulted 88.
+  The abstain 32 stands as the 20 band
+  steps whose status is abstained plus
+  the 12 below-the-pair-floor steps,
+  and the not consulted 88 stands as
+  the 40 agreement steps plus the 24
+  two-regressions steps plus the 12
+  below-floor steps plus the 12 band
+  steps with no judge configured, and
+  the 12 refusal steps stand outside
+  the 148 and produce no proposals.
+  The run's own step lines count by
+  kind as agreement 40, band postures
+  60, two-regressions 24, below-floor
+  12, band-no-judge 12, and refusal
+  12, summing to the 160 steps
+  themselves. The differential stands
+  at 33 cases with 0 problems. The
+  round total stands at 261, counted
+  as 34 battery cells on the fresh
+  build, 34 battery cells on the
+  banked build, 160 realistic steps,
+  and 33 differential cases.
+- ST-283. The forty-eighth round
+  closes. With this record the
+  contract's Status range stands at
+  ST-1 to ST-283, with ST-110 outside
+  it as the eighteenth round's repair
+  record, ST-144 outside it as the
+  twenty-fourth round's, ST-150
+  outside it as the twenty-fifth
+  round's, ST-156 outside it as the
+  twenty-sixth round's, ST-183 outside
+  it as the thirty-first round's,
+  ST-189 outside it as the
+  thirty-second round's, ST-200
+  outside it as the thirty-fourth
+  round's, ST-206 outside it as the
+  thirty-fifth round's, ST-217 outside
+  it as the thirty-seventh round's,
+  ST-233 outside it as the fortieth
+  round's repair record appended after
+  its closure, ST-245 outside it as
+  the forty-second round's
+  post-closure record, ST-246 outside
+  it as the forty-second round's
+  repair record, ST-252 outside it as
+  the forty-third round's post-closure
+  record, ST-253 outside it as the
+  forty-third round's repair record,
+  ST-259 outside it as the
+  forty-fourth round's post-closure
+  record, ST-260 outside it as the
+  forty-fourth round's repair record,
+  ST-266 outside it as the forty-fifth
+  round's post-closure record, ST-272
+  outside it as the forty-sixth
+  round's post-closure record, and
+  ST-278 outside it as the
+  forty-seventh round's post-closure
+  record. The round's five records
+  stand at ST-279 to ST-283: the
+  forty-seventh round's pull request
+  read back whole with its gate graded
+  in the open and its census settled
+  whole, the base gate whole, the
+  resolver band with the tape-format
+  pin and the golden, the realistic
+  and the differential with the round
+  total, and this closure. The closure
+  gate stands charged in its strongest
+  form: the whole gate executed on
+  this closure tree itself, the
+  round's gate staging at
+  secondtake-r48-gate verified file by
+  file against this closure tree's own
+  manifest at 25 of 25 with no extras,
+  named distinctly from the authoring
+  staging at secondtake-r48-closure
+  where this record and the README's
+  rounds line were prepared, its
+  figures standing on the pull
+  request's record, in the shape the
+  thirty-sixth round set and the
+  thirty-seventh, thirty-eighth,
+  thirty-ninth, fortieth, forty-first,
+  forty-second, forty-third,
+  forty-fourth, forty-fifth,
+  forty-sixth, and forty-seventh
+  rounds held. The README's rounds
+  line moves to 48 of 100 in this
+  closure commit alone. The contract
+  stands at 726,592 bytes with this
+  record appended, the figure computed
+  by the placeholder method: this
+  record was composed with a
+  placeholder of the same digit count
+  standing where the figure now
+  stands, the wrapped record measured,
+  the total computed and substituted,
+  and the wrap verified unchanged
+  before the append. ST-55(a) stays
+  open, carried by name into the
+  forty-ninth round.
+- ST-284. Post-closure record for the
+  forty-eighth round, appended after
+  the round's closure, standing
+  outside the Status range of ST-1 to
+  ST-283 that ST-283 states. ST-283
+  charged the closure gate in its
+  strongest form, the whole gate
+  executed on the closure tree itself
+  with its figures standing on the
+  pull request's record; this record
+  sets that execution down in the
+  contract itself, whole, in one
+  sitting. The gate's staging stood at
+  secondtake-r48-gate, verified file
+  by file against the closure tree's
+  own manifest at 25 of 25 with no
+  extras before the gate ran, the
+  closure tree standing at
+  00eac2f717d887be8974d54437b20dfa3a6ca32d
+  on the closure commit
+  e0b8ec5120d727968f61b27337cc05aa31b7f341.
+  The gate's launch history stands
+  disclosed whole: its first launch,
+  begun at 2026-11-28T12:25:25Z by the
+  round's build lane, queued behind
+  verified-live progressing holds and
+  was killed, with every detached
+  process on the box, by a runtime
+  restart at about 2026-11-28T14:11Z
+  before it ever acquired the slot, no
+  segment having run and no figure
+  produced, and it counts nowhere in
+  what follows; the completion lane
+  that had adopted it standing
+  verified the staging undisturbed at
+  25 of 25 against the closure tree's
+  own manifest after the restart and
+  relaunched the gate whole on that
+  same staging, and on its second
+  launch, begun at
+  2026-11-28T14:12:54Z, it queued
+  behind verified-live progressing
+  holds, the slot acquired at
+  2026-11-28T15:09:41Z and released at
+  2026-11-28T15:29:01Z, every segment
+  banking on its first attempt: the
+  codepoint scan counted zero U+2014
+  and zero U+2013 over the closure
+  tree, its planted control counting
+  one and one in the gate's own
+  control segment; the format check
+  exited 0 with its log empty; clippy
+  exited 0 with no warnings; the test
+  suite exited 0 with 39 tests paired
+  as the base gate's stood, 0 library,
+  0 binary, 22 compare, 17 judge, 0
+  doc; the release build exited 0, and
+  the closure binary's digest stands
+  at d71227c59a09908659318f4b8c3facd6,
+  taken by md5sum at
+  st48-scratch/target-closure/release/secondtake,
+  build-path scoped as ever, standing
+  equal to the base gate's binary at
+  its own paths, the closing pair
+  equal. The battery ran 34 cells
+  against the closure build and 34
+  against the base build, every cell
+  ok on both, the floor exact at its
+  probes and the chain split standing
+  at ST-65's points with its digest at
+  fd15351685 under this round's oracle
+  root on both runs, S5's Python side
+  again carrying a fresh run-scoped
+  digest at each run, 6a8d6f4928 on
+  the closure build and 6ef971e478 on
+  the base. The realistic run
+  completed at 160 steps with no
+  problems in the ST-183 decomposition
+  ST-282 states, and the differential
+  at 33 cases with no problems, the
+  round total standing at 261 as
+  ST-282 traced it. The pin suite ran
+  in its memory-fitting form and
+  banked 241 tests passed with none
+  failed, summed at this lane's hand
+  from its own 19 result lines in the
+  gate log, the screen suite among
+  them at 13. The golden tape
+  converted on its first attempt under
+  the same bound: 1,663 bytes whose
+  SHA-256 stands at
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  the verify step exiting 0 and the
+  output standing byte-identical to
+  the oracle fixture tape. No segment
+  exhausted its bound. The contract
+  stands at 730,462 bytes with this
+  record appended, the figure computed
+  by the placeholder method: this
+  record was composed with a
+  placeholder of the same digit count
+  standing where the figure now
+  stands, the wrapped record measured,
+  the total computed and substituted,
+  and the wrap verified unchanged
+  before the append. ST-55(a) stays
+  open, carried by name into the
+  forty-ninth round.
