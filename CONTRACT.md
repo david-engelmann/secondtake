@@ -20650,3 +20650,260 @@ ST-61. The CodeRabbit disposition
   before the append. ST-55(a) stays
   open, carried by name into the
   forty-ninth round.
+- ST-285. Round 49 opens with the
+  read-back of pull request 78, the
+  Round 48 pull request, read whole at
+  this round's hand through the API:
+  the pull request itself, its six
+  commits, its three issue comments,
+  its one review and its one review
+  comment, its Actions runs on its
+  head, its queue pull requests, and
+  main at the merge. Pull request 78,
+  titled "refine: secondtake Round 48,
+  ST-279 to ST-283" at 45 chars,
+  stands merged: the Trunk queue
+  squash-merged it at
+  2026-11-28T17:48:00Z as
+  940de0d5380eb4e68c142d179717214a0ab1ac80,
+  whose tree
+  33decac1cc11b818da9687745a8b99b13701e6e0
+  equals the reviewed tree byte for
+  byte, its single parent the Round 47
+  merge
+  48fd4b5d357b70076e8ba324d0c7ad6b7ef188c3,
+  and main stands at that commit with
+  25 blobs, CONTRACT.md at 730,462
+  bytes at blob
+  92b9e0e3147ed38c0b0d428b1ec82fafc3dd0683,
+  and the README at blob
+  72efd0cdb57a83274a2b9f366ba1d568ca699af9
+  with its rounds line at 48 of 100.
+  The chain stands as the gate read
+  it: ST-279 in
+  8b632f3222b86cd7e9ad3c60a71fbad303b53b86
+  at contract 718,449 bytes on
+  CONTRACT.md alone, ST-280 in
+  4719f5857e9a9d66cc65ec680687240b3573ebd2
+  at 720,377 on CONTRACT.md alone,
+  ST-281 in
+  078450609086e4116b4ac9e9bb7a09d4015bb538
+  at 722,525 on CONTRACT.md alone,
+  ST-282 in
+  83aa06ba3f97e9e585e1e3775cc6c97e7b641423
+  at 723,764 on CONTRACT.md alone, the
+  closure ST-283 in
+  e0b8ec5120d727968f61b27337cc05aa31b7f341
+  at 726,592 on CONTRACT.md and
+  README.md with closure tree
+  00eac2f717d887be8974d54437b20dfa3a6ca32d,
+  contract blob
+  55f34c5d44a0a0d30c68383b9416f266f8ef842b,
+  and README blob 72efd0cd, and the
+  post-closure record ST-284 in
+  01936397751368a86babbf35fcc962a0643b580d
+  at 730,462 on CONTRACT.md alone, the
+  Signed-off-by trailer standing on
+  all six. Hosted CI stands green on
+  the head: push run 46160451597,
+  dynamic run 46160531659, and
+  pull_request run 46160533695, each
+  completed success. The body stands
+  at 16,810 chars in its final form:
+  the lanes' authored body at 16,265
+  chars, extended by the owner's gate
+  record appended at landing to the
+  16,810 that stands. No bot
+  release-notes appendix stands on the
+  body at this read, and none stood at
+  any earlier read: not at the build
+  lane's reads before its patches, not
+  at the three review lanes' reads,
+  and not at the owner's landing read,
+  the body's own statement of the
+  absence standing as the graded
+  exception form, and this read-back
+  discharges the body's forward charge
+  on the point by recording that no
+  appendix stands on the body as it
+  stands merged, no appendix figure
+  claimed anywhere in it. The census
+  stands at this read at three issue
+  comments, one review, and one review
+  comment, each read to its end. The
+  Trunk note 7241564442, created
+  2026-11-28T15:33:59Z, stands in its
+  merged form at 113 chars, its last
+  edit the merge's own at
+  2026-11-28T17:48:03Z. The owner's
+  enqueue comment 7243203198, the bare
+  merge command at 12 chars, created
+  2026-11-28T17:40:52Z and never
+  edited, stands last. The queue pull
+  request 79 stands closed unmerged,
+  created 2026-11-28T17:47:30Z and
+  closed 2026-11-28T17:47:51Z on its
+  queue branch
+  trunk-merge/pr-78/796fa944-1aa5-4ca3-bcad-57eb06bf31fd.
+  The queue pull request 75 stands
+  open still at this read, unmerged
+  and not closed, created
+  2026-11-28T05:24:44Z on its queue
+  branch
+  trunk-merge/pr-74/c5e1bc62-0d69-45e3-bd16-a6d5471034cf
+  at head
+  61a2b7b81a519ff5c818e9c80cf373959e343e67,
+  its last update its creation
+  minute's own at
+  2026-11-28T05:24:51Z, unmoved
+  through the forty-seventh,
+  forty-eighth, and this round's
+  reads: it is Trunk's queue artifact
+  for the long-merged pull request 74,
+  not this line's to close, its state
+  recorded plainly here under the
+  standing charge from ST-279 and pull
+  request 78's body, and charged
+  onward to the fiftieth round's
+  read-back in the same breath, the
+  owner acting on this read. The
+  CodeRabbit shell 7241566954 stands
+  settled at its true final form of
+  8,573 chars at this read under
+  ST-284's charge, created
+  2026-11-28T15:34:09Z and last edited
+  2026-11-28T17:40:54Z, before the
+  merge and not edited at or after it:
+  it stood at 8,567 chars at the build
+  lane's read, last edited
+  2026-11-28T15:36:56Z, and at 8,571
+  at the review lanes' reads after its
+  re-render at 2026-11-28T15:56:27Z,
+  the figure the owner's landing read
+  took at 8,573 standing unchanged at
+  this read, where it stands final.
+  Its one review, 6098773522,
+  COMMENTED at 3,734 chars on the head
+  commit, carried the pull request's
+  one actionable comment, 4727697510
+  on README.md at 2,316 chars, a Minor
+  under Functional Correctness asking
+  that the Round 48 audit, review, red
+  team, and approval be recorded
+  before the count reads 48, or the
+  count held at 47 until they close,
+  disposed on the pull request's body
+  with its reason stated and no reply
+  posted, and no "Addressed in commit"
+  line stands anywhere on the pull
+  request. Its walkthrough stands in
+  three rows over CONTRACT.md and
+  README.md and is accurate, the first
+  row carrying the Round 47 read-back
+  and the base gate, the second the
+  batteries and run results, and the
+  third the Round 48 closure and
+  post-closure gate with the README's
+  move from 47 to 48 of 100. Its
+  change assessment stands pinned to
+  01936397751368a86babbf35fcc962a0643b580d
+  as source and covered commit at kind
+  reviewed, effort 1 (Trivial) at
+  about four minutes, priority p3,
+  Change type Other. Its merge risk
+  stands Low up to 01936, its prose
+  repeating the cadence ask the
+  actionable comment carries. Its
+  pre-merge checks stand at four
+  passed: the Title check passed with
+  no rewrite proposed, its explanation
+  calling the title partially related
+  and not vague, and the Description,
+  Linked Issues, and Out of Scope
+  Changes checks passed as skipped.
+  Its finishing touches stand
+  unticked. The Round 48 gate grades
+  as follows, from exactly the three
+  reports on disk read at this round's
+  hand, the reports home holding
+  exactly three files, counted at this
+  hand. The spec axis returned PASS at
+  23,388 bytes with no findings at any
+  grade and two observations below
+  severity: the first recording that
+  Antigravity's pull request 73 head
+  had advanced on its own side after
+  ST-279's bounded read, and the
+  second a scratch-hygiene note that
+  the round's draft file holds the
+  final body byte for byte. The
+  standards axis returned APPROVE at
+  8,743 bytes with no findings at any
+  grade and one observation below
+  severity, the shell's four-char
+  settling against the body's
+  moment-bounded figure, the motion
+  the moment-bound exists for. The red
+  team returned APPROVE at 11,594
+  bytes with every limb executed at
+  its own hand and none untested, and
+  no findings at any grade. The gate
+  stands FULLY CLEAN, and no charge
+  from that gate stands open. The
+  storefront's item 3 stands PASSING
+  outright at this read: the
+  repository description, the README's
+  lede, and the Cargo.toml description
+  stand byte-identical, the shared
+  description ST-51 settled, verified
+  at this round's hand. The
+  tape-format pin stands verified at
+  this round's hand before any item
+  prints it, against its object in the
+  flighttape clone:
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e
+  is a commit there, its tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e
+  holding exactly 50 blobs, and the
+  false form 74a83298cfd9 answers no
+  object in the same store. The device
+  file /dev/full stands probed in this
+  lane's own opening process tree: it
+  stands as the genuine character
+  device 1,7, its writes failing with
+  no space on the device, where the
+  forty-eighth round's build lane
+  probed a regular file in its own
+  tree and its red team probed both
+  postures across its boots, the
+  posture session-variable exactly as
+  the line's record describes; no cell
+  in this round's harness, oracle, or
+  port sources references it, so no
+  figure this round is contracted from
+  it. Antigravity's pull request 73
+  stands open at this read on its own
+  branch antigravity/cross-platform-ci
+  at fcede6ab0809, its head advanced
+  again from b7243644 by the other
+  side's own pushes since the review
+  lanes' reads, the other side's work,
+  read only and untouched by this
+  line, its side standing down on
+  CONTRACT.md and README.md in every
+  notice naming this repository, as
+  this round's coordination read
+  verified whole before building. The
+  branch refine/st-round49 stands
+  created at the base
+  940de0d5380eb4e68c142d179717214a0ab1ac80
+  and read back at this hand. The
+  verification family follows on this
+  base: the base gate whole on
+  940de0d5380eb4e68c142d179717214a0ab1ac80,
+  the resolver band with the pin suite
+  and the golden, the realistic run
+  and the differential, then the
+  closure. ST-55(a) stays open,
+  carried by name into the fiftieth
+  round.
