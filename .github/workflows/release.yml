@@ -68,7 +68,8 @@ jobs:
           chmod 0755 "$stage/secondtake"
           cp LICENSE README.md "$stage/"
           cp -r completions "$stage/completions"
-          tar -C "$stage" -czf "dist/${stage}.tar.gz" secondtake LICENSE README.md completions
+          cp -r man "$stage/man"
+          tar -C "$stage" -czf "dist/${stage}.tar.gz" secondtake LICENSE README.md completions man
       - name: Package Windows archive
         if: runner.os == 'Windows'
         shell: pwsh
@@ -81,6 +82,7 @@ jobs:
           Copy-Item "target/$env:TARGET/release/secondtake.exe" "$stage/secondtake.exe"
           Copy-Item "LICENSE", "README.md" -Destination $stage
           Copy-Item -Recurse "completions" "$stage/completions"
+          Copy-Item -Recurse "man" "$stage/man"
           Compress-Archive -Path "$stage/*" -DestinationPath "dist/$stage.zip" -Force
       - name: Upload archive artifact
         uses: actions/upload-artifact@v4

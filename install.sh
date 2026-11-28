@@ -1,13 +1,15 @@
 #!/bin/sh
-# Install prebuilt secondtake binary from GitHub Releases with SHA-256 verification.
+# Install prebuilt secondtake binary (and optional manpage) from GitHub Releases with SHA-256 verification.
 #
 # Options:
 #   --version TAG   Release tag such as v0.1.0 (default: latest GitHub release)
-#   --bin-dir DIR   Target directory (default: $HOME/.local/bin)
+#   --bin-dir DIR   Target directory for binary (default: $HOME/.local/bin)
+#   --man-dir DIR   Optional directory for secondtake.1 manpage (e.g. $HOME/.local/share/man/man1)
 #   -h, --help      Show usage and exit
 #
 # Environment variables:
-#   SECONDTAKE_INSTALL_DIR  Target directory (default: $HOME/.local/bin)
+#   SECONDTAKE_INSTALL_DIR  Target directory for binary (default: $HOME/.local/bin)
+#   SECONDTAKE_MAN_DIR      Optional target directory for secondtake.1 manual page
 #   SECONDTAKE_VERSION      Release tag (default: latest)
 #   SECONDTAKE_REPO         GitHub owner/repo (default: david-engelmann/secondtake)
 #   SECONDTAKE_BASE_URL     Override release download base URL (for offline mirrors/CI)
@@ -16,15 +18,17 @@ set -eu
 
 REPO="${SECONDTAKE_REPO:-david-engelmann/secondtake}"
 INSTALL_DIR="${SECONDTAKE_INSTALL_DIR:-$HOME/.local/bin}"
+MAN_DIR="${SECONDTAKE_MAN_DIR:-}"
 VERSION="${SECONDTAKE_VERSION:-latest}"
 
 usage() {
     cat <<'EOF'
-usage: install.sh [--version vX.Y.Z] [--bin-dir DIR]
+usage: install.sh [--version vX.Y.Z] [--bin-dir DIR] [--man-dir DIR]
 
 Options:
   --version TAG   Release tag to install (defaults to latest GitHub release)
   --bin-dir DIR   Destination directory for the binary (default: $HOME/.local/bin)
+  --man-dir DIR   Optional destination directory for the man(1) page
   -h, --help      Show this help message and exit
 EOF
 }
@@ -44,6 +48,11 @@ while [ "$#" -gt 0 ]; do
         --bin-dir)
             [ "$#" -ge 2 ] || err "--bin-dir requires a directory argument"
             INSTALL_DIR="$2"
+            shift 2
+            ;;
+        --man-dir)
+            [ "$#" -ge 2 ] || err "--man-dir requires a directory argument"
+            MAN_DIR="$2"
             shift 2
             ;;
         -h|--help)
@@ -80,7 +89,7 @@ detect_target() {
             os_part="apple-darwin"
             ;;
         *)
-            err "unsupported operating system: $os_name (use prebuilt Windows .zip or cargo install)"
+            err "unsupported operating system: $os_name (on Windows run install.ps1)"
             ;;
     esac
 
@@ -196,5 +205,20 @@ cp "$BIN_SRC" "$STAGED_BIN"
 chmod 0755 "$STAGED_BIN"
 mv -f "$STAGED_BIN" "${INSTALL_DIR}/secondtake"
 STAGED_BIN=""
+
+if [ -n "$MAN_DIR" ]; then
+    if [ -f "${TMP_DIR}/unpack/man/secondtake.1" ]; then
+        MAN_SRC="${TMP_DIR}/unpack/man/secondtake.1"
+    elif [ -f "${TMP_DIR}/unpack/secondtake-${TARGET}/man/secondtake.1" ]; then
+        MAN_SRC="${TMP_DIR}/unpack/secondtake-${TARGET}/man/secondtake.1"
+    else
+        MAN_SRC=""
+    fi
+    if [ -n "$MAN_SRC" ]; then
+        mkdir -p "$MAN_DIR"
+        cp "$MAN_SRC" "${MAN_DIR}/secondtake.1"
+        chmod 0644 "${MAN_DIR}/secondtake.1"
+    fi
+fi
 
 printf 'Verified SHA-256 (%s) and installed secondtake to %s/secondtake\n' "$ACTUAL_SHA" "$INSTALL_DIR"

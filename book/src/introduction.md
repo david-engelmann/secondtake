@@ -112,3 +112,7 @@ The compare command is complete for its scope and is held to the Python it repla
 ## License
 
 MIT. See [LICENSE](https://github.com/david-engelmann/secondtake/blob/main/LICENSE).
+
+## Rust Library API Reference
+
+Programmatic callers embedding `secondtake` as a Rust library crate can browse the hosted `rustdoc` reference at [`https://david-engelmann.github.io/secondtake/api/secondtake/index.html`](https://david-engelmann.github.io/secondtake/api/secondtake/index.html) (or run `cargo doc --no-deps --open` locally).

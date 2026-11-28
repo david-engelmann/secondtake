@@ -25,3 +25,11 @@ Welcome to the documentation suite for `secondtake`, the matched-pair regression
 
 - Schemas: [`../schema/registration.schema.json`](../schema/registration.schema.json), [`../schema/judgments.schema.json`](../schema/judgments.schema.json), [`../schema/comparison.schema.json`](../schema/comparison.schema.json)
 - Runnable Examples: [`../examples/before/`](../examples/before/), [`../examples/after/`](../examples/after/), [`../examples/registration.json`](../examples/registration.json), [`../examples/jev_call_example.py`](../examples/jev_call_example.py)
+
+## Distribution, Containers, Manual Page, and Reproducible Benchmarks
+
+- **Unix Installer**: [`../install.sh`](../install.sh) (`curl -fsSL https://raw.githubusercontent.com/david-engelmann/secondtake/main/install.sh | sh`)
+- **Windows PowerShell Installer**: [`../install.ps1`](../install.ps1) (`irm https://raw.githubusercontent.com/david-engelmann/secondtake/main/install.ps1 | iex`)
+- **Manual Page**: [`../man/secondtake.1`](../man/secondtake.1) (`man ./man/secondtake.1`)
+- **Container Image**: [`../Dockerfile`](../Dockerfile) (`docker build -t secondtake:local .`)
+- **Reproducible Scale Benchmark**: [`../scripts/bench.py`](../scripts/bench.py) (`python3 scripts/bench.py`)
