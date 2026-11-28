@@ -1,0 +1,62 @@
+.TH SECONDTAKE 1 "2026-11-27" "secondtake 0.1.0" "Retrospective Line"
+.SH NAME
+secondtake \- matched before-and-after evaluator for agent setup changes
+.SH SYNOPSIS
+.B secondtake compare
+.I before_dir after_dir
+.B \-\-registration
+.I registration.json
+.RI [ "\-\-judge " fixture.json|live ]
+.RI [ "\-o " comparison.json ]
+.SH DESCRIPTION
+.B secondtake
+pairs before-and-after directories of
+.B flighttape 1.0
+session tapes by Canonical Form 1 task key, scores each matched pair on
+four measures (token cost, wall duration, redo rework moments, and error
+rescue rate) against margins in
+.IR registration.json ,
+and emits a deterministic
+.BR keep ,
+.BR tune ,
+.BR revert ,
+or
+.B abstain
+proposal JSON document.
+.SH OPTIONS
+.TP
+.BI "\-\-registration " "FILE"
+Pre-registered change and margin declaration JSON file (required).
+.TP
+.BI "\-\-judge " "SOURCE"
+Replay judgments JSON file or literal
+.B live
+(invoking
+.B JEV_CALL
+in the 1-regression tradeoff band).
+.TP
+.BI "\-o, \-\-output " "FILE"
+Write the comparison JSON document atomically to FILE.
+.SH ENVIRONMENT
+.TP
+.B JEV_CALL
+Executable or Python connector consulted when
+.B \-\-judge live
+enters the 1-regression band.
+.SH EXIT STATUS
+.TP
+.B 0
+Comparison succeeded and JSON report was emitted.
+.TP
+.B 1
+Invalid registration, unreadable directory, judge error, or I/O refusal.
+.TP
+.B 2
+Command-line usage error.
+.SH EXAMPLES
+.nf
+secondtake compare examples/before examples/after \
+  --registration examples/registration.json
+.fi
+.SH SEE ALSO
+https://github.com/david-engelmann/secondtake

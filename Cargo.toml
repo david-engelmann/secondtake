@@ -2,8 +2,16 @@
 name = "secondtake"
 version = "0.1.0"
 edition = "2021"
+rust-version = "1.78"
 description = "The regression watch for setup changes: traces from before and after any change, matched by task class and compared on cost, time, rework, and rescue rate, ending in a keep, tune, or revert proposal with the numbers attached."
 license = "MIT"
+repository = "https://github.com/david-engelmann/secondtake"
+homepage = "https://github.com/david-engelmann/secondtake"
+documentation = "https://docs.rs/secondtake"
+readme = "README.md"
+keywords = ["agents", "evaluation", "regression", "benchmark", "cli"]
+categories = ["command-line-utilities", "development-tools"]
+exclude = ["CONTRACT.md", "scripts/**", ".github/**", "tests/**", "book/**", "docs/media/*.gif", "docs/media/*.png"]
 
 [lib]
 name = "secondtake"
@@ -15,3 +23,16 @@ path = "src/main.rs"
 
 [dependencies]
 flighttape = { git = "https://github.com/david-engelmann/flighttape", rev = "74a83298aeb31c82e62b9fb0c613f5bc8600799e" }
+
+[package.metadata.binstall]
+pkg-url = "{ repo }/releases/download/v{ version }/{ name }-{ target }.{ archive-format }"
+bin-dir = "{ bin }{ binary-ext }"
+pkg-fmt = "tgz"
+
+[package.metadata.binstall.overrides.x86_64-pc-windows-msvc]
+pkg-fmt = "zip"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"

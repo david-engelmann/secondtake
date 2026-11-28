@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/david-engelmann/secondtake/schema/judgments.schema.json",
+  "title": "Secondtake Recorded Judgments",
+  "description": "Replay fixture consumed by `secondtake compare --judge <path>`.",
+  "type": "object",
+  "required": [
+    "cards"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "model": {
+      "type": "string",
+      "const": "jev-1.13.0",
+      "description": "Optional top-level model annotation."
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cardEntry"
+      }
+    }
+  },
+  "$defs": {
+    "usage": {
+      "type": "object",
+      "properties": {
+        "input_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "output_tokens": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "choiceResponse": {
+      "type": "object",
+      "required": [
+        "model",
+        "answers"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "model": {
+          "type": "string",
+          "const": "jev-1.13.0"
+        },
+        "answers": {
+          "type": "object",
+          "required": [
+            "decision"
+          ],
+          "additionalProperties": true,
+          "properties": {
+            "decision": {
+              "type": "object",
+              "required": [
+                "type",
+                "choice",
+                "confidence",
+                "probabilities"
+              ],
+              "additionalProperties": true,
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "choice"
+                },
+                "choice": {
+                  "type": "string",
+                  "enum": [
+                    "keep",
+                    "tune",
+                    "revert",
+                    "abstain"
+                  ]
+                },
+                "confidence": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "maximum": 1.0
+                },
+                "probabilities": {
+                  "type": "object",
+                  "required": [
+                    "keep",
+                    "tune",
+                    "revert",
+                    "abstain"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "keep": {
+                      "type": "number",
+                      "minimum": 0.0,
+                      "maximum": 1.0
+                    },
+                    "tune": {
+                      "type": "number",
+                      "minimum": 0.0,
+                      "maximum": 1.0
+                    },
+                    "revert": {
+                      "type": "number",
+                      "minimum": 0.0,
+                      "maximum": 1.0
+                    },
+                    "abstain": {
+                      "type": "number",
+                      "minimum": 0.0,
+                      "maximum": 1.0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "usage": {
+          "$ref": "#/$defs/usage"
+        }
+      }
+    },
+    "scoreResponse": {
+      "type": "object",
+      "required": [
+        "model",
+        "answers"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "model": {
+          "type": "string",
+          "const": "jev-1.13.0"
+        },
+        "answers": {
+          "type": "object",
+          "required": [
+            "decision"
+          ],
+          "additionalProperties": true,
+          "properties": {
+            "decision": {
+              "type": "object",
+              "required": [
+                "type",
+                "score"
+              ],
+              "additionalProperties": true,
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "score"
+                },
+                "score": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "maximum": 10.0
+                },
+                "confidence": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "maximum": 1.0
+                },
+                "legend": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "probabilities": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0
+                  }
+                }
+              }
+            }
+          }
+        },
+        "usage": {
+          "$ref": "#/$defs/usage"
+        }
+      }
+    },
+    "cardEntry": {
+      "type": "object",
+      "required": [
+        "card_sha256",
+        "responses"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "card_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "description": "Flighttape Canonical Form 1 SHA-256 digest of the card JSON string."
+        },
+        "card": {
+          "type": "string",
+          "description": "Optional verbatim card text; when present, verified against card_sha256."
+        },
+        "responses": {
+          "type": "object",
+          "required": [
+            "choice",
+            "severity",
+            "match"
+          ],
+          "additionalProperties": true,
+          "properties": {
+            "choice": {
+              "$ref": "#/$defs/choiceResponse"
+            },
+            "severity": {
+              "$ref": "#/$defs/scoreResponse"
+            },
+            "match": {
+              "$ref": "#/$defs/scoreResponse"
+            }
+          }
+        }
+      }
+    }
+  }
+}
