@@ -47,9 +47,10 @@ pub fn redo_moments(tape: &Value) -> Vec<RedoMoment> {
     let events = tape
         .get("events")
         .and_then(Value::as_array)
-        .cloned()
-        .unwrap_or_default();
-    for event in &events {
+        .map(Vec::as_slice)
+        .unwrap_or(&[]);
+    let null_input = Value::Null;
+    for event in events {
         let kind = event
             .get("kind")
             .and_then(|v| match v {
@@ -73,8 +74,8 @@ pub fn redo_moments(tape: &Value) -> Vec<RedoMoment> {
         if kind != "tool_call" {
             continue;
         }
-        let input = event.get("input").cloned().unwrap_or(Value::Null);
-        let digest = match tape_digest(&input) {
+        let input = event.get("input").unwrap_or(&null_input);
+        let digest = match tape_digest(input) {
             Ok(digest) => digest,
             Err(_) => continue,
         };

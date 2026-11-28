@@ -517,10 +517,29 @@ fn resolve_path(path: &Path) -> Option<PathBuf> {
 /// own substitution is still in flight, or where
 /// a chain runs past the walk's defensive
 /// ceiling on total follows (ST-53).
+fn path_root(path: &Path) -> PathBuf {
+    let mut root = PathBuf::new();
+    for component in path.components() {
+        match component {
+            std::path::Component::Prefix(prefix) => root.push(prefix.as_os_str()),
+            std::path::Component::RootDir => {
+                root.push(component.as_os_str());
+                break;
+            }
+            _ => break,
+        }
+    }
+    if root.as_os_str().is_empty() {
+        PathBuf::from("/")
+    } else {
+        root
+    }
+}
+
 fn resolution_loops(absolute: &Path) -> bool {
     let mut stack: Vec<WalkStep> = Vec::new();
     push_walk_path(&mut stack, absolute);
-    walk_components(PathBuf::from("/"), stack).is_none()
+    walk_components(path_root(absolute), stack).is_none()
 }
 
 /// One step of the component walk: a name to
@@ -619,7 +638,7 @@ fn walk_components(start: PathBuf, mut stack: Vec<WalkStep>) -> Option<PathBuf> 
                 links.insert(candidate.clone(), true);
                 stack.push(WalkStep::Done(candidate));
                 if target.is_absolute() {
-                    resolved = PathBuf::from("/");
+                    resolved = path_root(&target);
                 }
                 push_walk_path(&mut stack, &target);
             }
@@ -636,9 +655,14 @@ fn os_path(text: &Text) -> PathBuf {
         use std::os::unix::ffi::OsStringExt;
         PathBuf::from(std::ffi::OsString::from_vec(fsencode_bytes(text.units())))
     }
-    #[cfg(not(unix))]
+    #[cfg(windows)]
     {
-        PathBuf::from(String::from_utf16_lossy(text.units()))
+        use std::os::windows::ffi::OsStringExt;
+        PathBuf::from(std::ffi::OsString::from_wide(text.units()))
+    }
+    #[cfg(all(not(unix), not(windows)))]
+    {
+        PathBuf::from(String::from_utf8_lossy(&fsencode_bytes(text.units())).into_owned())
     }
 }
 
@@ -654,6 +678,7 @@ fn display_path(text: &Text) -> String {
 /// without following any link, and the result is
 /// absolute. A leading pair of slashes is preserved
 /// when the input carries exactly two.
+#[cfg(not(windows))]
 fn normpath_bytes(bytes: &[u8]) -> Vec<u8> {
     let double = bytes.len() >= 2
         && bytes[0] == b'/'
@@ -689,6 +714,88 @@ fn normpath_bytes(bytes: &[u8]) -> Vec<u8> {
     out
 }
 
+#[cfg(any(windows, test))]
+fn normpath_windows_bytes(bytes: &[u8]) -> Vec<u8> {
+    let is_sep = |b: u8| b == b'/' || b == b'\\';
+    let (prefix, rest, rooted): (Vec<u8>, &[u8], bool) =
+        if bytes.len() >= 2 && bytes[0].is_ascii_alphabetic() && bytes[1] == b':' {
+            let after_drive = &bytes[2..];
+            if !after_drive.is_empty() && is_sep(after_drive[0]) {
+                (vec![bytes[0], b':', b'\\'], &after_drive[1..], true)
+            } else {
+                (vec![bytes[0], b':'], after_drive, false)
+            }
+        } else if bytes.len() >= 2 && is_sep(bytes[0]) && is_sep(bytes[1]) {
+            let mut idx = 2;
+            while idx < bytes.len() && is_sep(bytes[idx]) {
+                idx += 1;
+            }
+            let server_start = idx;
+            while idx < bytes.len() && !is_sep(bytes[idx]) {
+                idx += 1;
+            }
+            let server = &bytes[server_start..idx];
+            while idx < bytes.len() && is_sep(bytes[idx]) {
+                idx += 1;
+            }
+            let share_start = idx;
+            while idx < bytes.len() && !is_sep(bytes[idx]) {
+                idx += 1;
+            }
+            let share = &bytes[share_start..idx];
+            if !server.is_empty() && !share.is_empty() {
+                let mut unc = vec![b'\\', b'\\'];
+                unc.extend_from_slice(server);
+                unc.push(b'\\');
+                unc.extend_from_slice(share);
+                unc.push(b'\\');
+                (unc, &bytes[idx..], true)
+            } else {
+                (vec![b'\\', b'\\'], &bytes[2..], true)
+            }
+        } else if !bytes.is_empty() && is_sep(bytes[0]) {
+            (vec![b'\\'], &bytes[1..], true)
+        } else {
+            (Vec::new(), bytes, false)
+        };
+    let mut kept: Vec<&[u8]> = Vec::new();
+    for part in rest.split(|byte| is_sep(*byte)) {
+        if part.is_empty() || part == b"." {
+            continue;
+        }
+        if part == b".." {
+            match kept.last() {
+                Some(last) if *last != b".." => {
+                    kept.pop();
+                }
+                _ => {
+                    if !rooted {
+                        kept.push(part);
+                    }
+                }
+            }
+            continue;
+        }
+        kept.push(part);
+    }
+    let mut out = prefix;
+    for (index, part) in kept.iter().enumerate() {
+        if index > 0 {
+            out.push(b'\\');
+        }
+        out.extend_from_slice(part);
+    }
+    if out.len() > 3 && out.ends_with(b"\\") && !kept.is_empty() {
+        out.pop();
+    }
+    out
+}
+
+#[cfg(windows)]
+fn normpath_bytes(bytes: &[u8]) -> Vec<u8> {
+    normpath_windows_bytes(bytes)
+}
+
 /// The directory mkstemp computes from a parent
 /// spelling: os.path.abspath joins the working
 /// directory when the spelling is relative, then
@@ -696,21 +803,97 @@ fn normpath_bytes(bytes: &[u8]) -> Vec<u8> {
 /// read fails the write, as the interpreter's
 /// getcwd failure fails its mkstemp call.
 fn lexical_abspath(parent: &[u8]) -> std::io::Result<Vec<u8>> {
-    if parent.first() == Some(&b'/') {
-        return Ok(normpath_bytes(parent));
+    #[cfg(not(windows))]
+    {
+        if parent.first() == Some(&b'/') {
+            return Ok(normpath_bytes(parent));
+        }
+        let cwd = std::env::current_dir()?;
+        #[cfg(unix)]
+        let cwd_bytes = {
+            use std::os::unix::ffi::OsStrExt as _;
+            cwd.as_os_str().as_bytes().to_vec()
+        };
+        #[cfg(not(unix))]
+        let cwd_bytes = cwd.to_string_lossy().into_owned().into_bytes();
+        let mut joined = cwd_bytes;
+        joined.push(b'/');
+        joined.extend_from_slice(parent);
+        Ok(normpath_bytes(&joined))
     }
-    let cwd = std::env::current_dir()?;
-    #[cfg(unix)]
-    let cwd_bytes = {
-        use std::os::unix::ffi::OsStrExt as _;
-        cwd.as_os_str().as_bytes().to_vec()
-    };
-    #[cfg(not(unix))]
-    let cwd_bytes = cwd.to_string_lossy().into_owned().into_bytes();
-    let mut joined = cwd_bytes;
-    joined.push(b'/');
-    joined.extend_from_slice(parent);
-    Ok(normpath_bytes(&joined))
+    #[cfg(windows)]
+    {
+        #[link(name = "kernel32")]
+        extern "system" {
+            fn GetFullPathNameW(
+                lpFileName: *const u16,
+                nBufferLength: u32,
+                lpBuffer: *mut u16,
+                lpFilePart: *mut *mut u16,
+            ) -> u32;
+        }
+        let is_sep = |b: u8| b == b'/' || b == b'\\';
+        let drive_abs = parent.len() >= 3
+            && parent[0].is_ascii_alphabetic()
+            && parent[1] == b':'
+            && is_sep(parent[2]);
+        let unc_abs = parent.len() >= 2 && is_sep(parent[0]) && is_sep(parent[1]);
+        if drive_abs || unc_abs {
+            return Ok(normpath_bytes(parent));
+        }
+        let wide_in: Vec<u16> = String::from_utf8_lossy(parent)
+            .encode_utf16()
+            .chain(std::iter::once(0))
+            .collect();
+        let needed = unsafe {
+            GetFullPathNameW(
+                wide_in.as_ptr(),
+                0,
+                std::ptr::null_mut(),
+                std::ptr::null_mut(),
+            )
+        };
+        if needed > 0 {
+            let mut buf = vec![0u16; needed as usize];
+            let written = unsafe {
+                GetFullPathNameW(
+                    wide_in.as_ptr(),
+                    needed,
+                    buf.as_mut_ptr(),
+                    std::ptr::null_mut(),
+                )
+            };
+            if written > 0 && (written as usize) < buf.len() {
+                let resolved = String::from_utf16_lossy(&buf[..written as usize]);
+                return Ok(normpath_bytes(resolved.as_bytes()));
+            }
+        }
+        let cwd = std::env::current_dir()?;
+        let cwd_bytes = cwd.to_string_lossy().into_owned().into_bytes();
+        if !parent.is_empty() && is_sep(parent[0]) {
+            if cwd_bytes.len() >= 2 && cwd_bytes[0].is_ascii_alphabetic() && cwd_bytes[1] == b':' {
+                let mut joined = vec![cwd_bytes[0], b':'];
+                joined.extend_from_slice(parent);
+                return Ok(normpath_bytes(&joined));
+            }
+            return Ok(normpath_bytes(parent));
+        }
+        let mut joined = cwd_bytes;
+        joined.push(b'\\');
+        joined.extend_from_slice(parent);
+        Ok(normpath_bytes(&joined))
+    }
+}
+
+fn is_path_sep_unit(unit: u16) -> bool {
+    #[cfg(windows)]
+    {
+        unit == '/' as u16 || unit == '\\' as u16
+    }
+    #[cfg(not(windows))]
+    {
+        unit == '/' as u16
+    }
 }
 
 fn write_atomically(out: &Text, bytes: &[u8]) -> std::io::Result<()> {
@@ -723,9 +906,8 @@ fn write_atomically(out: &Text, bytes: &[u8]) -> std::io::Result<()> {
     // pathlib splits them: the name is the final
     // component, empty when that component is a dot
     // or dot-dot or the path is a root.
-    let slash = '/' as u16;
     let (parent_units, name_units): (&[u16], &[u16]) =
-        match constructed.iter().rposition(|unit| *unit == slash) {
+        match constructed.iter().rposition(|unit| is_path_sep_unit(*unit)) {
             Some(index) => {
                 let name = &constructed[index + 1..];
                 let name: &[u16] = if name == ['.' as u16] || name == ['.' as u16, '.' as u16] {
@@ -735,6 +917,13 @@ fn write_atomically(out: &Text, bytes: &[u8]) -> std::io::Result<()> {
                 };
                 let parent: &[u16] = if index == 0 {
                     &constructed[..1]
+                } else if cfg!(windows)
+                    && index == 2
+                    && constructed[0] < 128
+                    && (constructed[0] as u8).is_ascii_alphabetic()
+                    && constructed[1] == ':' as u16
+                {
+                    &constructed[..3]
                 } else {
                     &constructed[..index]
                 };
@@ -743,6 +932,13 @@ fn write_atomically(out: &Text, bytes: &[u8]) -> std::io::Result<()> {
             None => {
                 if constructed == ['.' as u16] || constructed == ['.' as u16, '.' as u16] {
                     (&['.' as u16], &[] as &[u16])
+                } else if cfg!(windows)
+                    && constructed.len() >= 2
+                    && constructed[0] < 128
+                    && (constructed[0] as u8).is_ascii_alphabetic()
+                    && constructed[1] == ':' as u16
+                {
+                    (&constructed[..2], &constructed[2..])
                 } else {
                     (&[] as &[u16], &constructed[..])
                 }
@@ -766,6 +962,9 @@ fn write_atomically(out: &Text, bytes: &[u8]) -> std::io::Result<()> {
     let temp = loop {
         let suffix = random_suffix(attempt);
         let mut candidate = temp_dir.clone();
+        #[cfg(windows)]
+        candidate.push(b'\\');
+        #[cfg(not(windows))]
         candidate.push(b'/');
         candidate.extend_from_slice(&name_bytes);
         candidate.push(b'.');
@@ -816,14 +1015,50 @@ fn os_path_bytes(bytes: Vec<u8>) -> PathBuf {
     }
 }
 
+#[cfg(unix)]
+fn os_entropy(bytes: &mut [u8]) -> bool {
+    std::fs::File::open("/dev/urandom")
+        .and_then(|mut file| std::io::Read::read_exact(&mut file, bytes))
+        .is_ok()
+}
+
+#[cfg(windows)]
+fn os_entropy(bytes: &mut [u8]) -> bool {
+    #[link(name = "bcrypt")]
+    extern "system" {
+        fn BCryptGenRandom(
+            h_algorithm: *mut std::ffi::c_void,
+            pb_buffer: *mut u8,
+            cb_buffer: u32,
+            dw_flags: u32,
+        ) -> i32;
+    }
+    const BCRYPT_USE_SYSTEM_PREFERRED_RNG: u32 = 0x0000_0002;
+    let Ok(len) = u32::try_from(bytes.len()) else {
+        return false;
+    };
+    let status = unsafe {
+        BCryptGenRandom(
+            std::ptr::null_mut(),
+            bytes.as_mut_ptr(),
+            len,
+            BCRYPT_USE_SYSTEM_PREFERRED_RNG,
+        )
+    };
+    status == 0
+}
+
+#[cfg(all(not(unix), not(windows)))]
+fn os_entropy(_bytes: &mut [u8]) -> bool {
+    false
+}
+
 fn random_suffix(attempt: u32) -> String {
     // ST-37: exactly eight characters, four bytes
     // hex encoded, mkstemp's own width, drawn from
     // the standing construction.
     let mut bytes = [0u8; 4];
-    let filled = std::fs::File::open("/dev/urandom")
-        .and_then(|mut file| std::io::Read::read_exact(&mut file, &mut bytes))
-        .is_ok();
+    let filled = os_entropy(&mut bytes);
     if !filled {
         let nanos = std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
@@ -993,4 +1228,41 @@ fn run_tokens(tokens: Vec<Token>) -> i32 {
         }
     };
     emit(&document, parsed.output.as_ref())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn windows_normpath_preserves_drive_and_unc_roots() {
+        assert_eq!(
+            normpath_windows_bytes(b"C:\\Users\\runner\\a\\..\\b\\.\\out"),
+            b"C:\\Users\\runner\\b\\out"
+        );
+        assert_eq!(
+            normpath_windows_bytes(b"C:/Users/runner/../out"),
+            b"C:\\Users\\out"
+        );
+        assert_eq!(normpath_windows_bytes(b"C:\\a\\.."), b"C:\\");
+        assert_eq!(
+            normpath_windows_bytes(b"\\\\server\\share\\dir\\..\\out"),
+            b"\\\\server\\share\\out"
+        );
+        assert_eq!(
+            normpath_windows_bytes(b"\\\\server\\share\\..\\..\\out"),
+            b"\\\\server\\share\\out"
+        );
+        assert_eq!(
+            normpath_windows_bytes(b"\\\\server\\share\\.."),
+            b"\\\\server\\share\\"
+        );
+    }
+
+    #[test]
+    fn fsdecode_and_fsencode_roundtrip_surrogateescape_and_utf8() {
+        let raw = b"session-\xff-\xc3\xa9-\xf0\x9f\x9a\x80.json";
+        let units = fsdecode_units(raw);
+        assert_eq!(fsencode_bytes(&units), raw);
+    }
 }

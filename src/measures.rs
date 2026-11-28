@@ -74,8 +74,8 @@ pub fn tape_measures(tape: &Value) -> Measures {
     let events = tape
         .get("events")
         .and_then(Value::as_array)
-        .cloned()
-        .unwrap_or_default();
+        .map(Vec::as_slice)
+        .unwrap_or(&[]);
     let has_error = events.iter().any(|event| {
         matches!(event.get("kind"), Some(Value::Str(k)) if k.as_str().as_deref() == Some("tool_result"))
             && matches!(event.get("is_error"), Some(Value::Bool(true)))

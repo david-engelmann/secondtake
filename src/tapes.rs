@@ -113,7 +113,8 @@ pub fn tape_defects(tape: &Value) -> Vec<String> {
             return defects;
         }
     };
-    let mut seen_calls: Vec<flighttape::value::Text> = Vec::new();
+    let mut seen_calls: std::collections::HashSet<&[u16]> =
+        std::collections::HashSet::with_capacity(events.len());
     for (index, event) in events.iter().enumerate() {
         let where_ = format!("events[{index}]");
         if event.as_object().is_none() {
@@ -143,13 +144,11 @@ pub fn tape_defects(tape: &Value) -> Vec<String> {
             }
             match call_id {
                 Some(Value::Str(text)) if !text.units().is_empty() => {
-                    if seen_calls.contains(text) {
+                    if !seen_calls.insert(text.units()) {
                         defects.push(format!(
                             "{where_}.call_id {} is used twice",
                             repr_text(text)
                         ));
-                    } else {
-                        seen_calls.push(text.clone());
                     }
                 }
                 _ => {
@@ -159,7 +158,7 @@ pub fn tape_defects(tape: &Value) -> Vec<String> {
         }
         if kind == "tool_result" {
             let answers = match call_id {
-                Some(Value::Str(text)) => seen_calls.contains(text),
+                Some(Value::Str(text)) => seen_calls.contains(text.units()),
                 _ => false,
             };
             if !answers {

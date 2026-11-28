@@ -619,6 +619,7 @@ fn the_write_guard_exits_1_and_leaves_the_loop_link_untouched() {
     assert!(!before_dir.join("out.json").exists());
 }
 
+#[cfg(unix)]
 #[test]
 fn a_completed_link_met_again_is_followed_again() {
     // ST-55. The interpreter reuses the resolution
