@@ -20427,3 +20427,37 @@ ST-61. The CodeRabbit disposition
   verify at exit 0, the produced tape
   byte-identical to the oracle fixture
   tape, on the golden's first attempt.
+- ST-282. The realistic run and the
+  differential stand whole at the base
+  gate, and the round total stands
+  counted. The realistic run stands at
+  160 steps with 0 problems. Its
+  proposals and statuses stand counted
+  over the 148 compare events only, in
+  ST-183's governing form as ST-260's
+  correction states it: proposals keep
+  60, revert 34, abstain 32, and tune
+  22, and statuses judged 40,
+  abstained 20, and not consulted 88.
+  The abstain 32 stands as the 20 band
+  steps whose status is abstained plus
+  the 12 below-the-pair-floor steps,
+  and the not consulted 88 stands as
+  the 40 agreement steps plus the 24
+  two-regressions steps plus the 12
+  below-floor steps plus the 12 band
+  steps with no judge configured, and
+  the 12 refusal steps stand outside
+  the 148 and produce no proposals.
+  The run's own step lines count by
+  kind as agreement 40, band postures
+  60, two-regressions 24, below-floor
+  12, band-no-judge 12, and refusal
+  12, summing to the 160 steps
+  themselves. The differential stands
+  at 33 cases with 0 problems. The
+  round total stands at 261, counted
+  as 34 battery cells on the fresh
+  build, 34 battery cells on the
+  banked build, 160 realistic steps,
+  and 33 differential cases.
