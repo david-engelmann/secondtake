@@ -20368,3 +20368,62 @@ ST-61. The CodeRabbit disposition
   alike, the figure build-path scoped,
   standing as it has stood since Round
   16.
+- ST-281. The resolver band, the pin
+  suite, and the golden stand whole at
+  the base gate. The battery stands at
+  34 cells with 0 problems on the
+  fresh build and on the banked build
+  alike. The confidence floor stands
+  probed exact on both builds: a
+  judged tune at 0.6 exactly, a judged
+  revert at 0.600001, and an abstain
+  at 0.599999 carrying the reason that
+  the judge's confidence 0.599999 is
+  below 0.6. The chain band stands as
+  contracted: named refusal
+  byte-identical on both sides at 989,
+  990, and 991 links, and the split
+  from 992 through 1100, the oracle in
+  its crash class with digest
+  fd15351685 and the port at its named
+  refusal, the digest root-scoped to
+  this round's own oracle root and
+  stated as this run's figure alone.
+  Re-meetings stand at named refusal
+  on both sides at 1001 and at 4096,
+  and split at 4097, the oracle at its
+  named refusal and the port in its
+  crash class. The S3
+  link-after-dead-component digest
+  stands at 3979892dd1 on both sides
+  on both builds, and the S5 loop
+  digest stands run-scoped on the
+  oracle side, 935d38aca1 on the fresh
+  build's run and 8a4afc0ca6 on the
+  banked build's run, the port in its
+  crash class on both. The pin suite
+  stands at 241 tests summed from its
+  own 19 result lines (3, 0, 22, 19,
+  34, 5, 13, 8, 17, 12, 15, 22, 3, 5,
+  13, 24, 1, 25, 0), the screen
+  standing at 13 among them, run in
+  its memory-fitting form at jobs 2
+  and test-threads 2 against the pin
+  tree staged fresh for this round and
+  verified blob for blob, 50 of 50
+  with no extras, at the pin
+  74a83298aeb31c82e62b9fb0c613f5bc8600799e,
+  verified against its object in the
+  flighttape store at this round's
+  hand before any item printed it, its
+  tree
+  afd4d7d13520411e003762548fc79082a1b9cf6e,
+  the false form from Round 44
+  answering no object in the same
+  store. The golden stands whole by
+  its digest alone: convert at exit 0
+  producing 1,663 bytes at digest
+  cc9c4e01fca418dcc33114caf75fae1f6bf0d401f297b5d61f6776903fa955a3,
+  verify at exit 0, the produced tape
+  byte-identical to the oracle fixture
+  tape, on the golden's first attempt.
