@@ -1,23 +1,30 @@
 #!/usr/bin/env python3
 """Reference JEV_CALL connector for `secondtake compare --judge live`.
 
-Reads a jev-1.13.0 JSON decision card from stdin and writes a single-line JSON
-judgment response to stdout.
+Matches `LiveTransport` in `src/judge.rs`:
+- Invoked three times per single-regression comparison (`choice`, `severity`, `match`).
+- Receives `--state <plain-text card>` and `--labels keep,tune,revert,abstain`,
+  plus `--question-type score` on the `severity` and `match` calls.
+- Writes a single JSON object to stdout carrying `"model": "jev-1.13.0"` and
+  `"answers": {"decision": ...}`.
 
 Modes:
 1. Offline deterministic heuristic (default when JEV_ENDPOINT is unset):
-   Evaluates the card locally so you can test `--judge live` offline.
+   Answers locally so `--judge live` can be verified without network access.
 2. Live HTTPS JSON endpoint (when JEV_ENDPOINT is set):
-   POSTs the card to an HTTPS endpoint with optional JEV_API_KEY bearer auth,
-   blocking plain-HTTP credential egress and cross-origin redirects.
+   POSTs `{state, labels, question_type}` over HTTPS with optional JEV_API_KEY
+   bearer auth, refusing plain-HTTP egress and cross-origin redirects.
 """
 
+import argparse
 import json
 import os
 import sys
 import urllib.error
 import urllib.parse
 import urllib.request
+
+MODEL = "jev-1.13.0"
 
 
 class _SameOriginHTTPSRedirectHandler(urllib.request.HTTPRedirectHandler):
@@ -34,32 +41,48 @@ class _SameOriginHTTPSRedirectHandler(urllib.request.HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
-def offline_heuristic(card: dict) -> dict:
-    regressions = card.get("regressions", [])
-    if len(regressions) == 0:
-        choice, conf = "keep", 0.90
-    elif len(regressions) == 1:
-        choice, conf = "tune", 0.72
+def offline_heuristic(state: str, labels: list[str], question_type: str) -> dict:
+    if question_type == "score":
+        score = 4.0 if "severe" in state.lower() else 7.5
+        return {
+            "model": MODEL,
+            "answers": {
+                "decision": {
+                    "type": "score",
+                    "score": score,
+                }
+            },
+        }
+    probs = {label: 0.0 for label in labels}
+    choice = "tune" if "tune" in probs else labels[0]
+    if set(labels) == {"keep", "tune", "revert", "abstain"}:
+        probs = {"keep": 0.15, "tune": 0.65, "revert": 0.15, "abstain": 0.05}
     else:
-        choice, conf = "revert", 0.90
+        share = round(1.0 / max(len(labels), 1), 4)
+        probs = {label: share for label in labels}
     return {
-        "schema_version": "jev-1.13.0",
-        "decision_type": "categorical",
-        "choice": choice,
-        "confidence": conf,
-        "probabilities": {
-            "keep": 0.15 if choice != "keep" else 0.75,
-            "tune": 0.72 if choice == "tune" else 0.15,
-            "revert": 0.13 if choice != "revert" else 0.75,
+        "model": MODEL,
+        "answers": {
+            "decision": {
+                "type": "choice",
+                "choice": choice,
+                "confidence": 0.72,
+                "probabilities": probs,
+            }
         },
     }
 
 
-def call_https_endpoint(endpoint: str, card: dict) -> dict:
+def call_https_endpoint(endpoint: str, state: str, labels: list[str], question_type: str) -> dict:
     parsed = urllib.parse.urlparse(endpoint)
     if parsed.scheme != "https" or not parsed.netloc:
         raise ValueError("JEV_ENDPOINT must be an explicit https:// URL")
-    payload = json.dumps(card).encode("utf-8")
+    payload = json.dumps({
+        "model": MODEL,
+        "state": state,
+        "labels": labels,
+        "question_type": question_type,
+    }).encode("utf-8")
     headers = {"Content-Type": "application/json", "Accept": "application/json"}
     api_key = os.environ.get("JEV_API_KEY", "").strip()
     if api_key:
@@ -71,9 +94,18 @@ def call_https_endpoint(endpoint: str, card: dict) -> dict:
 
 
 def main() -> int:
-    card = json.load(sys.stdin)
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--state", required=True)
+    ap.add_argument("--labels", default="keep,tune,revert,abstain")
+    ap.add_argument("--question-type", default="choice")
+    args = ap.parse_args()
+
+    labels = [item.strip() for item in args.labels.split(",") if item.strip()]
     endpoint = os.environ.get("JEV_ENDPOINT", "").strip()
-    result = call_https_endpoint(endpoint, card) if endpoint else offline_heuristic(card)
+    if endpoint:
+        result = call_https_endpoint(endpoint, args.state, labels, args.question_type)
+    else:
+        result = offline_heuristic(args.state, labels, args.question_type)
     sys.stdout.write(json.dumps(result, separators=(",", ":")) + "\n")
     return 0
 

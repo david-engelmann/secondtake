@@ -102,10 +102,12 @@ def main() -> None:
         }), encoding="utf-8")
         out = tdir / "cmp.json"
         ms = measure([str(bin_path), "compare", str(bdir), str(adir), "--registration", str(reg), "-o", str(out)])
+        denom_s = max(ms, 0.001) / 1000.0
         results = {
             "matched_pairs": args.pairs,
             "compare_ms": ms,
-            "pairs_per_sec": round(args.pairs / (ms / 1000.0)),
+            "pairs_per_sec": round(args.pairs / denom_s),
+            "tapes_per_sec": round((2 * args.pairs) / denom_s),
         }
 
     if args.json:

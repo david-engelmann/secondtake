@@ -28,9 +28,9 @@ Top-level members emitted by `secondtake compare`:
 - `unmatched`, `ambiguous`, `unmatchable`: Full disposition accounting for every non-paired tape.
 - `regressions[]`: Names of measures that crossed their registered margin.
 - `proposal`: `"keep" | "tune" | "revert" | "abstain"`.
-- `judgment`: `{ "status": "not_consulted" | "answered" | "abstained" | "unavailable", ... }`.
+- `judgment`: `{ "status": "not_consulted" | "judged" | "abstained" | "unavailable", ... }`.
 
 ## 3. Judgments Replay & Live Connector (`schema/judgments.schema.json`)
 
 - Replay file (`--judge judgments.json`): Records deterministic answers keyed by card digest for offline CI reproduction.
-- Live connector (`--judge live` with `JEV_CALL=/path/to/jev_call_example.py`): Exchanges a `jev-1.13.0` JSON card on stdin/stdout with zero SDK lock-in.
+- Live connector (`--judge live` with `JEV_CALL=/path/to/jev_call_example.py`): Passes the plain-text decision card via `--state` CLI arguments and reads `{"model": "jev-1.13.0", "answers": {"decision": ...}}` JSON from stdout.

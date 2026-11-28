@@ -9,7 +9,7 @@
   <a href="https://github.com/david-engelmann/secondtake/actions/workflows/ci.yml"><img src="https://github.com/david-engelmann/secondtake/actions/workflows/ci.yml/badge.svg" alt="ci"></a>
   <a href="https://github.com/david-engelmann/secondtake/actions/workflows/clean-install.yml"><img src="https://github.com/david-engelmann/secondtake/actions/workflows/clean-install.yml/badge.svg" alt="clean-install"></a>
   <a href="https://github.com/david-engelmann/secondtake/actions/workflows/docs.yml"><img src="https://github.com/david-engelmann/secondtake/actions/workflows/docs.yml/badge.svg" alt="docs"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-emerald.svg" alt="MIT License"></a>
+  <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-emerald.svg" alt="MIT License"></a>
 </p>
 
 # secondtake
@@ -107,7 +107,7 @@ Measured on Apple M3 Max (`--release`, `891.4 KiB` binary; details in [docs/PERF
 
 ## Status
 
-The compare command is complete for its scope and is held to the Python it replaced by a differential harness over synthetic tape sets. Closed perfection rounds, 45 of 100. A round counts only when a full cycle of work, audit, review, red team, and approval has closed.
+The compare command is complete for its scope and is held to the Python it replaced by a differential harness over synthetic tape sets. Closed perfection rounds, 48 of 100. A round counts only when a full cycle of work, audit, review, red team, and approval has closed.
 
 ## License
 

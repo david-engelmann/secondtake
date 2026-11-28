@@ -8,7 +8,7 @@ for p in sorted(root.rglob("*")):
     if not p.is_file():
         continue
     rel_parts = p.relative_to(root).parts
-    if ".git" in rel_parts or (rel_parts and rel_parts[0] in {"target", ".cargo-home", "book"}):
+    if ".git" in rel_parts or (rel_parts and rel_parts[0] in {"target", ".cargo-home"} or rel_parts[:2] == ("book", "book")):
         continue
     if p.suffix not in {".md", ".txt"}:
         continue
