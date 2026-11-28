@@ -20312,3 +20312,59 @@ ST-61. The CodeRabbit disposition
   closure. ST-55(a) stays open,
   carried by name into the forty-ninth
   round.
+- ST-280. The base gate ran whole on
+  the Round 47 final tree, main at
+  48fd4b5d357b70076e8ba324d0c7ad6b7ef188c3
+  with tree
+  7972b9c1921cd0ff313f67dd22f988cd84508750,
+  in the Round 48 worktree staged
+  fresh for this round and verified
+  blob for blob against that tree's
+  manifest before the gate relied on
+  it, 25 of 25 with no extras, its
+  files hardlinked from the
+  forty-seventh round's closure gate
+  staging with the contract itself
+  written verified from the clone's
+  object store, the two manifests
+  differing in CONTRACT.md alone. The
+  gate held the build slot for its
+  whole lifetime, from
+  2026-11-28T11:45:37Z to
+  2026-11-28T12:09:36Z, in one
+  sitting, and every segment stands at
+  exit 0 on its first attempt within
+  the launch. The launch history
+  stands disclosed here whole: the
+  gate's first launch, begun
+  2026-11-28T09:43:18Z, queued behind
+  verified-live progressing holds and
+  was killed, with every detached
+  process on the box, by a service
+  restart before it ever acquired the
+  slot, no segment having run and no
+  figure produced, and it counts
+  nowhere in what follows; its second
+  launch, begun 2026-11-28T11:26:37Z,
+  queued about nineteen minutes behind
+  verified-live progressing holds,
+  acquired the slot, executed every
+  segment, and counts once. The
+  worktree's own codepoint scan reads
+  U+2014 = 0 and U+2013 = 0. cargo fmt
+  stands clean at exit 0 with an empty
+  log. Clippy stands clean at exit 0
+  with no warnings under -D warnings.
+  The cargo suite stands paired at 39
+  tests, 0 library unit tests, 0
+  binary unit tests, 22 compare tests,
+  17 judge tests, and 0 doc tests,
+  every suite ok and none failed or
+  ignored. The release binary stands
+  at md5
+  d71227c59a09908659318f4b8c3facd6 at
+  this round's own target path and at
+  the banked Round 47 target path
+  alike, the figure build-path scoped,
+  standing as it has stood since Round
+  16.
